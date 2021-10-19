@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react'
+import { ThemeProvider } from 'styled-components'
+import GlobalStyles from './components/styled/GlobalStyles'
+import { lightTheme, darkTheme } from './components/styled/Theme'
 import axios from 'axios'
 import Header from './components/Header'
 import Main from './components/Main'
 
-export const Context = React.createContext(null)
+export const Context = React.createContext<null | {}[]>(null)
 
 const App: React.FC = () => {
-   const [countries, setCountries] = useState(null)
+   const [countries, setCountries] = useState<null | {}[]>(null)
 
    function fetchData(endpoint: string) {
       axios
@@ -26,10 +29,13 @@ const App: React.FC = () => {
    useEffect(() => fetchData('https://restcountries.com/v3.1/all'), [])
 
    return (
-      <Context.Provider value={countries && countries}>
-         <Header />
-         <Main />
-      </Context.Provider>
+      <ThemeProvider theme={lightTheme}>
+         <Context.Provider value={countries && countries}>
+            <GlobalStyles />
+            <Header />
+            <Main />
+         </Context.Provider>
+      </ThemeProvider>
    )
 }
 

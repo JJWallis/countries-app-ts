@@ -12,7 +12,7 @@ type Props = {
 export default styled.div<Props>`
    margin: 0 auto;
    width: 90%;
-   max-width: 1200px;
+   max-width: 1500px;
    padding-block: 1rem;
    ${(props) =>
       props.sb &&
@@ -24,6 +24,8 @@ export default styled.div<Props>`
    ${(props) =>
       props.sf &&
       css`
+         margin: 1rem 0;
+         width: 100%;
          @media (max-width: 700px) {
             flex-direction: column;
             justify-content: unset;
@@ -41,7 +43,8 @@ export default styled.div<Props>`
       props.grid &&
       css`
          display: grid;
-         grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+         width: 100%;
+         grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
          grid-template-rows: auto;
          grid-auto-rows: auto;
          grid-gap: 4rem;
@@ -51,6 +54,8 @@ export default styled.div<Props>`
       css`
          border-radius: 5px;
          box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+         padding: 0 0 1rem 0;
+         overflow: hidden;
       `}
       ${(props) =>
       props.countryData &&
