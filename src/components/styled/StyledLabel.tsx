@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 export const StyledLabel = styled.label`
+   // filter label - need?
    position: absolute;
    display: block;
    top: 50%;
@@ -8,8 +9,7 @@ export const StyledLabel = styled.label`
    transform: translateY(-50%);
 `
 
-// themetoggle
 export const StyledSwitcher = styled.label`
-   font: 2rem;
+   color: ${(props) => props.theme.color};
    /* padding */
 `

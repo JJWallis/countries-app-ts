@@ -29,7 +29,7 @@ const App: React.FC = () => {
    useEffect(() => fetchData('https://restcountries.com/v3.1/all'), [])
 
    return (
-      <ThemeProvider theme={lightTheme}>
+      <ThemeProvider theme={darkTheme}>
          <Context.Provider value={countries && countries}>
             <GlobalStyles />
             <Header />

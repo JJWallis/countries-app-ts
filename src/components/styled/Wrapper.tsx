@@ -53,9 +53,10 @@ export default styled.div<Props>`
       props.country &&
       css`
          border-radius: 5px;
-         box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+         box-shadow: ${(props) => props.theme.shadow};
          padding: 0 0 1rem 0;
          overflow: hidden;
+         background-color: ${(props) => props.theme.elements};
       `}
       ${(props) =>
       props.countryData &&
