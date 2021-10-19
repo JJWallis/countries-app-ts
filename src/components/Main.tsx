@@ -1,18 +1,17 @@
-import React, { ReactElement } from 'react'
-// import MainWrapper from './MainWrapper'
-// import SearchFilter from './SearchFilter'
-// import Countries from './Countries'
+import React from 'react'
+import StyledMain from './styled/StyledMain'
+import Wrapper from './styled/Wrapper'
+import SearchFilter from './SearchFilter'
+import Countries from './CountriesContainer'
 
-interface Props {}
-
-const Main: React.FC<Props> = () => {
+const Main: React.FC = () => {
    return (
-    //   <StyledMain>
-    //      <MainWrapper>
-    //         <SearchFilter />
-    //         <Countries />
-    //      </MainWrapper>
-    //   </StyledMain>
+      <StyledMain>
+         <Wrapper main>
+            <SearchFilter />
+            <Countries />
+         </Wrapper>
+      </StyledMain>
    )
 }
 

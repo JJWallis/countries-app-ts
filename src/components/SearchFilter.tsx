@@ -1,14 +1,15 @@
 import React from 'react'
-// import Search from './Search'
-// import Filter from './Filter'
+import Wrapper from './styled/Wrapper'
+import Search from './Search'
+import Filter from './Filter'
 
-interface Props {}
-
-export const SearchFilter: React.FC<Props> = () => {
+const SearchFilter: React.FC = () => {
    return (
-    //   <StyledSearchFilter>
-    //      <Search />
-    //      <Filter />
-    //   </StyledSearchFilter>
+      <Wrapper searchFilter>
+         <Search />
+         <Filter />
+      </Wrapper>
    )
 }
+
+export default SearchFilter

@@ -1,18 +1,17 @@
 import React from 'react'
-// import HeaderWrapper from './HeaderWrapper'
-// import Title from './Title'
-// import ThemeSwitcher from './ThemeSwitcher'
+import StyledHeader from './styled/StyledHeader'
+import Wrapper from './styled/Wrapper'
+import { MainTitle } from './styled/StyledTitle'
+import ThemeSwitcher from './ThemeSwitcher'
 
-interface Props {}
-
-const Header: React.FC<Props> = () => {
+const Header: React.FC = () => {
    return (
-    //   <StyledHeader>
-    //      <HeaderWrapper>
-    //         <Title>Where in the world?</Title>
-    //         <ThemeSwitcher />
-    //      </HeaderWrapper>
-    //   </StyledHeader>
+      <StyledHeader>
+         <Wrapper>
+            <MainTitle>Where in the world?</MainTitle>
+            <ThemeSwitcher />
+         </Wrapper>
+      </StyledHeader>
    )
 }
 

@@ -1,5 +1,7 @@
 import styled, { css } from 'styled-components'
 
+export default styled.div``
+
 // export default styled.div` main wrapper***
 //    margin: 0 auto;
 //    width: 90%;
@@ -18,7 +20,7 @@ import styled, { css } from 'styled-components'
 //    outline: 1px solid blue;
 // `
 
-// const StyledSearchFilter = styled.div`
+// const StyledSearchFilter = styled.div` searchFilter prop
 //    display: flex;
 //    justify-content: space-between;
 //    align-items: center;

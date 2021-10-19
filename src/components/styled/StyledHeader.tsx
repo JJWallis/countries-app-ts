@@ -1,8 +1,10 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
-type HeaderProps = {}
+type Props = {
+   theme?: {}
+}
 
-const Header = styled.header<HeaderProps>`
+const StyledHeader = styled.header<Props>`
    display: flex;
    flex-direction: column;
    justify-content: center;
@@ -11,4 +13,4 @@ const Header = styled.header<HeaderProps>`
    margin-bottom: 0.4rem;
 `
 
-export default Header
+export default StyledHeader

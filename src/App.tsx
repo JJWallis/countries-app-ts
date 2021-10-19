@@ -12,6 +12,7 @@ const App: React.FC = () => {
       axios
          .get(endpoint)
          .then((data: any) => {
+            // fix any
             const info = data.data
             if (info.length > 30) {
                setCountries(info.slice(0, 30))
