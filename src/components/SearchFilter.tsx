@@ -5,7 +5,7 @@ import Filter from './Filter'
 
 const SearchFilter: React.FC = () => {
    return (
-      <Wrapper searchFilter>
+      <Wrapper sb sf>
          <Search />
          <Filter />
       </Wrapper>

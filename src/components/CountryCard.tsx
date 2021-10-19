@@ -22,14 +22,14 @@ const CountryCard: React.FC<Props> = (props) => {
    // map() over that here to produce a StatTitle + StatData(CountryData) for each
 
    return (
-      <Wrapper role="gridcell">
+      <Wrapper country role="gridcell">
          <CountryImg src={flag} alt="Countries flag." />
          <CountryName>{name}</CountryName>
-         <Wrapper>
+         <Wrapper countryData>
             <CountrySubTitle>Population:</CountrySubTitle>
             <CountryData>{population}</CountryData>
          </Wrapper>
-         <Wrapper>
+         <Wrapper countryData>
             <CountrySubTitle>Region:</CountrySubTitle>
             <CountryData>{region}</CountryData>
          </Wrapper>

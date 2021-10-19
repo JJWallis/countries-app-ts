@@ -1,44 +1,62 @@
 import styled, { css } from 'styled-components'
 
-export default styled.div``
+type Props = {
+   sb?: boolean
+   sf?: boolean
+   hdr?: boolean
+   grid?: boolean
+   country?: boolean
+   countryData?: boolean
+}
 
-// export default styled.div` main wrapper***
-//    margin: 0 auto;
-//    width: 90%;
-//    max-width: 1200px;
-//    padding-block: 3rem;
-//    position: relative;
-// `
-
-// export default styled.div` main wrapper * 2?
-//    display: flex;
-//    justify-content: space-between;
-//    align-items: center;
-//    margin: 0 auto;
-//    width: 90%;
-//    max-width: 1200px;
-//    outline: 1px solid blue;
-// `
-
-// const StyledSearchFilter = styled.div` searchFilter prop
-//    display: flex;
-//    justify-content: space-between;
-//    align-items: center;
-// `
-
-//const StyledCountries = styled.div`
-// display: grid;
-// grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-// grid-template-rows: auto;
-// grid-auto-rows: auto;
-// grid-gap: 4rem;
-// padding-block: 3rem;
-// `
-
-// const StyledCountry = styled.div`
-/* outline: 2px solid black; */
-/* border-radius: 5px; */
-/* box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5); */
-// `
-
-// const CountryInfo = styled.div`` - empty box for diff lines
+export default styled.div<Props>`
+   margin: 0 auto;
+   width: 90%;
+   max-width: 1200px;
+   padding-block: 1rem;
+   ${(props) =>
+      props.sb &&
+      css`
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+      `}
+   ${(props) =>
+      props.sf &&
+      css`
+         @media (max-width: 700px) {
+            flex-direction: column;
+            justify-content: unset;
+            align-items: flex-start;
+         }
+      `}
+      ${(props) =>
+      props.hdr &&
+      css`
+         @media (max-width: 700px) {
+            width: 100%;
+         }
+      `}
+      ${(props) =>
+      props.grid &&
+      css`
+         display: grid;
+         grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+         grid-template-rows: auto;
+         grid-auto-rows: auto;
+         grid-gap: 4rem;
+      `}
+      ${(props) =>
+      props.country &&
+      css`
+         border-radius: 5px;
+         box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+      `}
+      ${(props) =>
+      props.countryData &&
+      css`
+         margin: 0;
+         width: 100%;
+         padding: 0;
+      `}
+`
