@@ -1,14 +1,14 @@
 import React from 'react'
-import { StyledFilter } from './styled/StyledFilter'
-// import { StyledLabel } from './styled/StyledLabel'
+import { StyledFilter, StyledOption } from './styled/StyledFilter'
 
 interface Props {}
 
 const Filter: React.FC<Props> = () => {
    return (
       <React.Fragment>
-         <StyledFilter></StyledFilter>
-         {/* <StyledLabel>Filter by Region</StyledLabel> */}
+         <StyledFilter>
+            <StyledOption>Filter by region</StyledOption>
+         </StyledFilter>
       </React.Fragment>
    )
 }
