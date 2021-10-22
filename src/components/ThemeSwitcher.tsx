@@ -1,9 +1,7 @@
 import React from 'react'
 import { StyledSwitcher } from './styled/StyledLabel'
 
-interface Props {}
-
-const ThemeSwitcher: React.FC<Props> = () => {
+const ThemeSwitcher: React.FC = () => {
    return <StyledSwitcher>Dark Mode</StyledSwitcher>
 }
 

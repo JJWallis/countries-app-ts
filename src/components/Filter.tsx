@@ -1,9 +1,7 @@
 import React from 'react'
 import { StyledFilter, StyledOption } from './styled/StyledFilter'
 
-interface Props {}
-
-const Filter: React.FC<Props> = () => {
+const Filter: React.FC = () => {
    return (
       <React.Fragment>
          <StyledFilter>

@@ -1,10 +1,6 @@
 import styled from 'styled-components'
 
-type Props = {
-   theme?: {}
-}
-
-const StyledHeader = styled.header<Props>`
+const StyledHeader = styled.header`
    display: flex;
    flex-direction: column;
    justify-content: center;

@@ -5,12 +5,10 @@ import Wrapper from './styled/Wrapper'
 import Country from './CountryCard'
 import { Loading } from './styled/StyledTitle'
 
-interface Props {}
-
-const CountriesContainer: React.FC<Props> = () => {
+const CountriesContainer: React.FC = () => {
    const context: any = useContext(Context)
    return (
-      //    obj spread operator vs below - build obj with info below + pass to here
+      // obj spread operator vs below - build obj with info below + pass to here
 
       <Wrapper grid role="grid">
          {context ? (

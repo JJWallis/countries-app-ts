@@ -1,9 +1,5 @@
 import styled from 'styled-components'
 
-type Props = {
-   theme?: {}
-}
-
-export default styled.main<Props>`
+export default styled.main`
    background-color: ${(props) => props.theme.mainBgColor};
 `
