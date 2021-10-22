@@ -1,10 +1,8 @@
 import React, { useState, useContext } from 'react'
 import { Context } from '../App'
 import StyledInput from './styled/StyledInput'
-
-interface Search {
-   handleSearch: React.ChangeEventHandler<HTMLInputElement>
-}
+import StyledImg from './styled/StyledImg'
+import SearchIcon from '../assets/search.svg'
 
 const Search: React.FC = () => {
    const [search, setSearch] = useState('')
@@ -18,17 +16,19 @@ const Search: React.FC = () => {
       console.log(desiredCountry)
    }
 
-   const handleSearch: Search['handleSearch'] = (e) => {
-      setSearch(e.target.value)
-      searchCountry(search)
-   }
-
    return (
-      <StyledInput
-         placeholder="Search for a country..."
-         value={search}
-         onChange={(e) => handleSearch(e)}
-      />
+      <React.Fragment>
+         <StyledInput
+            placeholder="Search for a country..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+         />
+         <StyledImg
+            search
+            src={SearchIcon}
+            onClick={() => search && searchCountry(search)}
+         />
+      </React.Fragment>
    )
 }
 

@@ -1,13 +1,15 @@
 import React from 'react'
 import { StyledFilter, StyledOption } from './styled/StyledFilter'
+import Wrapper from './styled/Wrapper'
 
 const Filter: React.FC = () => {
    return (
-      <React.Fragment>
+      <Wrapper reset>
          <StyledFilter>
             <StyledOption>Filter by region</StyledOption>
+            <StyledOption>Filter by region</StyledOption>
          </StyledFilter>
-      </React.Fragment>
+      </Wrapper>
    )
 }
 

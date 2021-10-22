@@ -7,6 +7,7 @@ type Props = {
    grid?: boolean
    country?: boolean
    countryData?: boolean
+   reset?: boolean
 }
 
 export default styled.div<Props>`
@@ -14,6 +15,43 @@ export default styled.div<Props>`
    width: 90%;
    max-width: 1500px;
    padding-block: 1rem;
+   ${(props) =>
+      props.reset &&
+      css`
+         margin: unset;
+         width: unset;
+         max-width: unset;
+         padding-block: unset;
+         display: flex;
+         justify-content: flex-end;
+         position: relative;
+         &::before {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            width: 40px;
+            height: 48px;
+            background-color: ${(props) => props.theme.elements};
+            pointer-events: none;
+            border-radius: 5px;
+         }
+         &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 15px;
+            width: 0;
+            height: 0;
+            border-left: 7px dashed transparent;
+            border-right: 7px dashed transparent;
+            border-top: 7px dashed white;
+            pointer-events: none;
+         }
+      `}
    ${(props) =>
       props.sb &&
       css`
