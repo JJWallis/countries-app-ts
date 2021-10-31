@@ -95,6 +95,11 @@ export default styled.div<Props>`
          padding: 0 0 1rem 0;
          overflow: hidden;
          background-color: ${(props) => props.theme.elements};
+         cursor: pointer;
+         transition: transform 200ms linear;
+         &:hover {
+            transform: scale(1.1);
+         }
       `}
       ${(props) =>
       props.countryData &&
