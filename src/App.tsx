@@ -6,12 +6,15 @@ import axios from 'axios'
 import Header from './components/Header'
 import Main from './components/Main'
 
-export const Context = React.createContext<{ countries: {}[] | null } | null>(
-   null
-)
+export const Context = React.createContext<{
+   countries: {}[] | null
+   homepage: boolean
+   setHomepage: React.Dispatch<React.SetStateAction<boolean>>
+} | null>(null)
 
 const App: React.FC = () => {
    const [countries, setCountries] = useState<{}[] | null>(null)
+   const [homepage, setHomepage] = useState(true)
 
    function fetchData(endpoint: string) {
       axios
@@ -31,7 +34,13 @@ const App: React.FC = () => {
 
    return (
       <ThemeProvider theme={darkTheme}>
-         <Context.Provider value={{ countries: countries }}>
+         <Context.Provider
+            value={{
+               countries: countries,
+               homepage: homepage,
+               setHomepage: setHomepage,
+            }}
+         >
             <GlobalStyles />
             <Header />
             <Main />
