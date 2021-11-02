@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { ThemeProvider } from 'styled-components'
 import GlobalStyles from './components/styled/GlobalStyles'
-import { lightTheme, darkTheme } from './components/styled/Theme'
+import { darkTheme } from './components/styled/Theme'
 import axios from 'axios'
 import Header from './components/Header'
 import Main from './components/Main'
