@@ -13,8 +13,8 @@ const CountriesContainer: React.FC = () => {
       // obj spread operator vs below - build obj with info below + pass to here
 
       <Wrapper grid role="grid">
-         {context ? (
-            context.map((country: any) => (
+         {context && context.countries ? (
+            context.countries.map((country: any) => (
                <Country
                   key={uuidv4()}
                   flag={country.flags.svg}
