@@ -10,6 +10,9 @@ const CountriesContainer: React.FC = () => {
 
    return (
       // info within data obj can be dynamic?
+      // useLayoutEffect() - synchornously change layout of App when App Homepage state changes
+      // useEffect() - runs asynchornously so changes occur after React renders to DOM
+      // could show wrong layout 1st + then correct (would be quick but still...)
 
       <Wrapper display={context?.homepage ? 'grid' : 'flexWrap'}>
          {context && context.countries ? (

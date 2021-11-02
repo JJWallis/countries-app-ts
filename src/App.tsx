@@ -36,9 +36,9 @@ const App: React.FC = () => {
       <ThemeProvider theme={darkTheme}>
          <Context.Provider
             value={{
-               countries: countries,
-               homepage: homepage,
-               setHomepage: setHomepage,
+               countries,
+               homepage,
+               setHomepage,
             }}
          >
             <GlobalStyles />
