@@ -17,7 +17,7 @@ interface Props {
 const CountryCard: React.FC<Props> = (props) => {
    const { flag, name, population, region, capital } = props
 
-   // build obj with all data below | flag + name as direct properties |
+   // flag + name as direct properties on data obj/prop
    // other data - put into an obj in parent arr (in key/val pair)
    // map() over that here to produce a StatTitle + StatData(CountryData) for each
 

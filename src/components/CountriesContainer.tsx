@@ -6,8 +6,10 @@ import Country from './CountryCard'
 import { Loading } from './styled/StyledTitle'
 
 const CountriesContainer: React.FC = () => {
-   const context: any = useContext(Context)
+   const context = useContext(Context)
    return (
+      // pass data to Country as obj of info vs lots of properties
+      // then info within obj can be dynamic
       // obj spread operator vs below - build obj with info below + pass to here
 
       <Wrapper grid role="grid">
