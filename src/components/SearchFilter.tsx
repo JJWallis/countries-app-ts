@@ -1,13 +1,10 @@
 import React from 'react'
 import Wrapper from './styled/Wrapper'
-import Search from './Search'
-import Filter from './Filter'
 
-const SearchFilter: React.FC = () => {
+const SearchFilter: React.FC = (props) => {
    return (
       <Wrapper sb sf>
-         <Search />
-         <Filter />
+         {props.children}
       </Wrapper>
    )
 }
