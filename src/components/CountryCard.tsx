@@ -7,24 +7,22 @@ import { CountryData } from './styled/CountryData'
 
 interface Props {
    key: string
-   flag?: string
-   name?: string
-   population?: string
-   region?: string
-   capital?: string
+   data: {
+      flags: { svg: string }
+      name: { common: string }
+      population?: string
+      region?: string
+      capital?: string
+   }
 }
 
-const CountryCard: React.FC<Props> = (props) => {
-   const { flag, name, population, region, capital } = props
-
-   // flag + name as direct properties on data obj/prop
-   // other data - put into an obj in parent arr (in key/val pair)
-   // map() over that here to produce a StatTitle + StatData(CountryData) for each
+const CountryCard: React.FC<Props> = ({ data }) => {
+   const { flags, name, population, region, capital } = data
 
    return (
-      <Wrapper country role="gridcell">
-         <CountryImg src={flag} alt="Countries flag." />
-         <CountryName>{name}</CountryName>
+      <Wrapper country>
+         <CountryImg src={flags.svg} alt="Countries flag." />
+         <CountryName>{name.common}</CountryName>
          <Wrapper countryData>
             <CountrySubTitle>Population:</CountrySubTitle>
             <CountryData>{population}</CountryData>

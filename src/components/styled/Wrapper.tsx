@@ -8,6 +8,9 @@ type Props = {
    country?: boolean
    countryData?: boolean
    reset?: boolean
+   flexWrap?: boolean
+   flexChild?: boolean
+   display?: 'grid' | 'flexWrap'
 }
 
 export default styled.div<Props>`
@@ -78,7 +81,7 @@ export default styled.div<Props>`
          }
       `}
       ${(props) =>
-      props.grid &&
+      props.display === 'grid' &&
       css`
          display: grid;
          width: 100%;
@@ -107,5 +110,17 @@ export default styled.div<Props>`
          margin: 0;
          width: 100%;
          padding: 0;
+      `}
+      ${(props) =>
+      props.display === 'flexWrap' &&
+      css`
+         display: flex;
+         flex-wrap: wrap;
+         gap: 3rem;
+      `}
+      ${(props) =>
+      props.flexChild &&
+      css`
+         flex: 1 300px;
       `}
 `

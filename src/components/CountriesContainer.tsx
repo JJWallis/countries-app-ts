@@ -2,27 +2,19 @@ import React, { useContext } from 'react'
 import { Context } from '../App'
 import { v4 as uuidv4 } from 'uuid'
 import Wrapper from './styled/Wrapper'
-import Country from './CountryCard'
+import CountryCard from './CountryCard'
 import { Loading } from './styled/StyledTitle'
 
 const CountriesContainer: React.FC = () => {
    const context = useContext(Context)
-   return (
-      // pass data to Country as obj of info vs lots of properties
-      // then info within obj can be dynamic
-      // obj spread operator vs below - build obj with info below + pass to here
 
-      <Wrapper grid role="grid">
+   return (
+      // info within data obj can be dynamic?
+
+      <Wrapper display={context?.homepage ? 'grid' : 'flexWrap'}>
          {context && context.countries ? (
             context.countries.map((country: any) => (
-               <Country
-                  key={uuidv4()}
-                  flag={country.flags.svg}
-                  name={country.name.common}
-                  population={country.population}
-                  region={country.region}
-                  capital={country.capital}
-               />
+               <CountryCard key={uuidv4()} data={country} />
             ))
          ) : (
             <Loading>Loading...</Loading>
