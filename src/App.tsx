@@ -6,11 +6,13 @@ import axios from 'axios'
 import Header from './components/Header'
 import Main from './components/Main'
 
-export const Context = React.createContext<{
+export type context = {
    countries: {}[] | null
    homepage: boolean
    setHomepage: React.Dispatch<React.SetStateAction<boolean>>
-} | null>(null)
+} | null
+
+export const Context = React.createContext<context>(null)
 
 const App: React.FC = () => {
    const [countries, setCountries] = useState<{}[] | null>(null)
