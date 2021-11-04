@@ -10,7 +10,7 @@ export type context = {
    countries: {}[] | null
    homepage: boolean
    setHomepage: React.Dispatch<React.SetStateAction<boolean>>
-   setTheme: React.Dispatch<React.SetStateAction<theme | null>>
+   handleThemeChange: (dark?: string | undefined) => void
 } | null
 
 export const Context = React.createContext<context>(null)
@@ -18,7 +18,7 @@ export const Context = React.createContext<context>(null)
 const App: React.FC = () => {
    const [countries, setCountries] = useState<{}[] | null>(null)
    const [homepage, setHomepage] = useState(true)
-   const [theme, setTheme] = useState<theme | null>(null)
+   const [theme, setTheme] = useState<theme>(lightTheme)
 
    function fetchData(endpoint: string) {
       axios
@@ -29,14 +29,17 @@ const App: React.FC = () => {
 
    useEffect(() => fetchData('https://restcountries.com/v3.1/all'), [])
 
+   const handleThemeChange = (dark?: string) =>
+      dark ? setTheme(darkTheme) : setTheme(lightTheme)
+
    return (
-      <ThemeProvider theme={darkTheme}>
+      <ThemeProvider theme={theme}>
          <Context.Provider
             value={{
                countries,
                homepage,
                setHomepage,
-               setTheme,
+               handleThemeChange,
             }}
          >
             <GlobalStyles />

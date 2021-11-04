@@ -9,6 +9,7 @@ const Search: React.FC = () => {
    return (
       <>
          <StyledInput
+            search
             placeholder="Search for a country..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
