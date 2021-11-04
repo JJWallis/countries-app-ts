@@ -19,8 +19,6 @@ interface Props {
 const CountryCard: React.FC<Props> = ({ data }) => {
    const { flags, name, population, region, capital } = data
 
-   // click event on card parent to see more detailed info
-
    return (
       <Wrapper country>
          <CountryImg src={flags.svg} alt="Countries flag." />

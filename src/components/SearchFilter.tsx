@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { Context } from '../App'
+import { v4 as uuid } from 'uuid'
 import Wrapper from './styled/Wrapper'
 import Search from './Search'
 import Filter from './Filter'
@@ -8,20 +9,20 @@ import Button from './styled/StyledButton'
 const SearchFilter: React.FC = () => {
    const context = useContext(Context)
 
-   // useLayoutEffect() - synchornously change layout of App when App Homepage state changes
+   const handleLayoutChange = () => {
+      let layout = context?.homepage ? (
+         [<Search key={uuid()} />, <Filter key={uuid()} />]
+      ) : (
+         <Button back onClick={() => context?.setHomepage(true)}>
+            Back
+         </Button>
+      )
+      return layout
+   }
 
    return (
       <Wrapper sb sf>
-         {context && context.homepage ? (
-            <>
-               <Search />
-               <Filter />
-            </>
-         ) : (
-            <Button back onClick={() => context?.setHomepage(true)}>
-               Back
-            </Button>
-         )}
+         {handleLayoutChange()}
       </Wrapper>
    )
 }
