@@ -1,3 +1,12 @@
+export type theme = {
+   color: string
+   mainBgColor: string
+   input: string
+   elements: string
+   shadow: string
+   headerShadow: string
+}
+
 export const lightTheme = {
    color: 'hsl(200, 15%, 8%)',
    mainBgColor: 'hsl(0, 0%, 98%)',
