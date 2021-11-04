@@ -1,6 +1,5 @@
 import React, { useContext } from 'react'
 import { Context } from '../App'
-import { v4 as uuid } from 'uuid'
 import Wrapper from './styled/Wrapper'
 import Search from './Search'
 import Filter from './Filter'
@@ -10,14 +9,16 @@ const SearchFilter: React.FC = () => {
    const context = useContext(Context)
 
    const handleLayoutChange = () => {
-      let layout = context?.homepage ? (
-         [<Search key={uuid()} />, <Filter key={uuid()} />]
+      return context?.homepage ? (
+         <>
+            <Search />
+            <Filter />
+         </>
       ) : (
          <Button back onClick={() => context?.setHomepage(true)}>
             Back
          </Button>
       )
-      return layout
    }
 
    return (

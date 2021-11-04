@@ -7,10 +7,9 @@ import { Loading } from './styled/StyledTitle'
 
 const CountriesContainer: React.FC = () => {
    const context = useContext(Context)
+   // useLayoutEffect() - synchornously change layout of App when App Homepage state changes
 
    return (
-      // useLayoutEffect() - synchornously change layout of App when App Homepage state changes
-
       <Wrapper display={context?.homepage ? 'grid' : 'flexWrap'}>
          {context && context.countries ? (
             context.countries.map((country: any) => (
@@ -19,9 +18,12 @@ const CountriesContainer: React.FC = () => {
          ) : (
             <Loading>Loading...</Loading>
          )}
-         {/* either display above if homepage state true
-         or 2 flex items using countryDetails state from app - check if that's truthy too
-         (1 with flag + other with data via prop passed as to it) */}
+         {/* 
+            either display above if homepage state true
+            or 2 flex items if false using countryDetails state from app - check if that's truthy too
+            (1 component housing wrapper with flag within + other with data via prop passed as to it -
+            new CountryDetailsCard component) 
+         */}
       </Wrapper>
    )
 }
