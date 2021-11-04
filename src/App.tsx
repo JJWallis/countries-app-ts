@@ -10,7 +10,7 @@ export type context = {
    countries: {}[] | null
    homepage: boolean
    setHomepage: React.Dispatch<React.SetStateAction<boolean>>
-   handleThemeChange: (dark?: string | undefined) => void
+   handleThemeChange: (dark: boolean) => void
 } | null
 
 export const Context = React.createContext<context>(null)
@@ -19,6 +19,8 @@ const App: React.FC = () => {
    const [countries, setCountries] = useState<{}[] | null>(null)
    const [homepage, setHomepage] = useState(true)
    const [theme, setTheme] = useState<theme>(lightTheme)
+
+   useEffect(() => console.log('Theme changed...'), [theme])
 
    function fetchData(endpoint: string) {
       axios
@@ -29,7 +31,7 @@ const App: React.FC = () => {
 
    useEffect(() => fetchData('https://restcountries.com/v3.1/all'), [])
 
-   const handleThemeChange = (dark?: string) =>
+   const handleThemeChange = (dark: boolean) =>
       dark ? setTheme(darkTheme) : setTheme(lightTheme)
 
    return (
