@@ -20,8 +20,6 @@ const App: React.FC = () => {
    const [homepage, setHomepage] = useState(true)
    const [theme, setTheme] = useState<theme>(lightTheme)
 
-   useEffect(() => console.log('Theme changed...'), [theme])
-
    function fetchData(endpoint: string) {
       axios
          .get(endpoint)
