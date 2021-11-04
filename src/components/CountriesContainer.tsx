@@ -9,10 +9,7 @@ const CountriesContainer: React.FC = () => {
    const context = useContext(Context)
 
    return (
-      // info within data obj can be dynamic?
       // useLayoutEffect() - synchornously change layout of App when App Homepage state changes
-      // useEffect() - runs asynchornously so changes occur after React renders to DOM
-      // could show wrong layout 1st + then correct (would be quick but still...)
 
       <Wrapper display={context?.homepage ? 'grid' : 'flexWrap'}>
          {context && context.countries ? (
@@ -22,6 +19,9 @@ const CountriesContainer: React.FC = () => {
          ) : (
             <Loading>Loading...</Loading>
          )}
+         {/* either display above if homepage state true
+         or 2 flex items using countryDetails state from app - check if that's truthy too
+         (1 with flag + other with data via prop passed as to it) */}
       </Wrapper>
    )
 }

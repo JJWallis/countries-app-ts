@@ -19,8 +19,7 @@ interface Props {
 const CountryCard: React.FC<Props> = ({ data }) => {
    const { flags, name, population, region, capital } = data
 
-   // click event on card parent to see more detailed info -
-   // remove listener on-unmount or conditional display: none;
+   // click event on card parent to see more detailed info
 
    return (
       <Wrapper country>

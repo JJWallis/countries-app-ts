@@ -8,6 +8,8 @@ import Button from './styled/StyledButton'
 const SearchFilter: React.FC = () => {
    const context = useContext(Context)
 
+   // useLayoutEffect() - synchornously change layout of App when App Homepage state changes
+
    return (
       <Wrapper sb sf>
          {context && context.homepage ? (

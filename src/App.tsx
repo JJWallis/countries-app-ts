@@ -20,6 +20,11 @@ const App: React.FC = () => {
    const [homepage, setHomepage] = useState(true)
    const [theme, setTheme] = useState<theme>(lightTheme)
 
+   // countryDetails state - null default value + { with all relevant data (take from CountryCard props) }
+   // handleCountryDetails func - take either user input (from Search) or name.common from CountryCard user clicks on
+   // find() obj in original countries data which matches country usr wants + update countryDetails state with it
+   // update homepage state to false at same time
+
    function fetchData(endpoint: string) {
       axios
          .get(endpoint)

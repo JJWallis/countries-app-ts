@@ -24,6 +24,6 @@ export default styled.input<Props>`
       css`
          position: absolute;
          right: 120px;
-         /* opacity: 0; */
+         opacity: 0;
       `}
 `
