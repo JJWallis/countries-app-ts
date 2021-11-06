@@ -8,6 +8,7 @@ import { Loading } from './styled/StyledTitle'
 const CountriesContainer: React.FC = () => {
    const context = useContext(Context)
    // useLayoutEffect() - synchornously change layout of App when App Homepage state changes
+   // extrapolate countryDetails state into another data obj - passed to CountryCardDetails component
 
    return (
       <Wrapper display={context?.homepage ? 'grid' : 'flexWrap'}>

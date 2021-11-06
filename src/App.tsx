@@ -15,21 +15,11 @@ export type context = {
 
 export const Context = React.createContext<context>(null)
 
-interface CountryDetails {
-   flags: { svg: string }
-   name: { common: string; nativeName: { fra: { commmon: string } } }
-   population: string
-   region: string
-   subregion: string
-   capital: string
-   tld: string[]
-}
+type data = {}[] | null
 
 const App: React.FC = () => {
-   const [countries, setCountries] = useState<{}[] | null>(null)
-   const [countryDetails, setCountryDetails] = useState<CountryDetails | null>(
-      null
-   )
+   const [countries, setCountries] = useState<data>(null)
+   const [countryDetails, setCountryDetails] = useState<data>(null)
    const [homepage, setHomepage] = useState(true)
    const [theme, setTheme] = useState<theme>(lightTheme)
 
@@ -41,10 +31,7 @@ const App: React.FC = () => {
    function fetchData(endpoint: string) {
       axios
          .get(endpoint)
-         .then((data: any) => {
-            setCountries(data.data)
-            console.log(data.data)
-         })
+         .then((data: any) => setCountries(data.data))
          .catch((err) => console.log(err.message))
    }
 

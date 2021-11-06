@@ -5,7 +5,7 @@ import { CountryName } from './styled/StyledTitle'
 import { CountrySubTitle } from './styled/CountryDataTitle'
 import { CountryData } from './styled/CountryData'
 
-export interface CardProps {
+export interface Props {
    key: string
    data: {
       flags: { svg: string }
@@ -16,7 +16,7 @@ export interface CardProps {
    }
 }
 
-const CountryCard: React.FC<CardProps> = ({ data }) => {
+const CountryCard: React.FC<Props> = ({ data }) => {
    const { flags, name, population, region, capital } = data
 
    //   onClick - run function when clicked with name.common as argument
