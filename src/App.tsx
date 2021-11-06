@@ -45,6 +45,7 @@ const App: React.FC = () => {
          setFurtherDetails(countryData)
          homepage && setHomepage(false)
       } else {
+         alert('Country not found')
          // validation
       }
    }

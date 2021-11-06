@@ -1,23 +1,19 @@
 import React, { useContext } from 'react'
 import { Context } from '../App'
+import Wrapper from './styled/Wrapper'
 
-interface Props {
-   key: string
-   data: {
-      flags: { svg: string }
-      name: { common: string; nativeName: { fra: { commmon: string } } }
-      population: string
-      region: string
-      subregion: string
-      capital: string
-      tld: string[]
-   }
-}
+const FurtherDetails: React.FC = () => {
+   const context = useContext(Context)
 
-const FurtherDetails: React.FC<Props> = ({ data }) => {
-   // const { flags, name, population, region, capital } = data
-   // const context = useContext(Context)
-   return <div></div>
+   // or 2 flex items (FurtherDetails) if false using countryDetails state from app - check if that's truthy here too?
+   // (1 fragment + wrapper with flag within + other wrapper with data)
+
+   return (
+      <>
+         <Wrapper flexChild></Wrapper>
+         <Wrapper flexChild></Wrapper>
+      </>
+   )
 }
 
 export default FurtherDetails
