@@ -9,9 +9,10 @@ import { CountryData } from './styled/CountryData'
 const FurtherDetails: React.FC = () => {
    const context = useContext(Context)
 
-   const handleDisplay = () => {
+   const handleContentVisible = () => {
       if (context?.furtherDetails) {
          const data: any = context.furtherDetails[0]
+         console.log(data)
          return (
             <>
                <Wrapper flexChild>
@@ -19,23 +20,37 @@ const FurtherDetails: React.FC = () => {
                </Wrapper>
                <Wrapper flexChild>
                   <CountryName>{data.name.common}</CountryName>
-                  <Wrapper countryData>
+                  <CountryData>
+                     <CountrySubTitle>Native Name:</CountrySubTitle>
+                     {data.name.nativeName.fra.common}
+                  </CountryData>
+                  <CountryData>
                      <CountrySubTitle>Population:</CountrySubTitle>
-                     <CountryData>{data.population}</CountryData>
-                  </Wrapper>
-                  <Wrapper countryData>
+                     {data.population}
+                  </CountryData>
+                  <CountryData>
                      <CountrySubTitle>Region:</CountrySubTitle>
-                     <CountryData>{data.region}</CountryData>
-                  </Wrapper>
-                  <CountrySubTitle>Capital:</CountrySubTitle>
-                  <CountryData>{data.capital}</CountryData>
+                     {data.region}
+                  </CountryData>
+                  <CountryData>
+                     <CountrySubTitle>Sub Region:</CountrySubTitle>
+                     {data.subregion}
+                  </CountryData>
+                  <CountryData>
+                     <CountrySubTitle>Capital:</CountrySubTitle>
+                     {data.capital}
+                  </CountryData>
+                  <CountryData>
+                     <CountrySubTitle>Top Level Domain:</CountrySubTitle>
+                     {data.tld[0]}
+                  </CountryData>
                </Wrapper>
             </>
          )
       }
    }
 
-   return <>{handleDisplay()}</>
+   return <>{handleContentVisible()}</>
 }
 
 export default FurtherDetails
