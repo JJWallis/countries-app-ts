@@ -43,7 +43,7 @@ const App: React.FC = () => {
    const handleFurtherDetails = (country: string) => {
       const countryData = countries?.filter(
          (item: any) =>
-            item.name.common === country ||
+            item.name.common.toLowerCase() === country.toLowerCase() ||
             item.cioc === country ||
             item.cca3 === country
       )

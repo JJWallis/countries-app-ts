@@ -1,12 +1,16 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import { Context } from '../App'
 import StyledInput from './styled/StyledInput'
 import StyledImg from './styled/StyledImg'
 import SearchIcon from '../assets/search.svg'
 
 const Search: React.FC = () => {
    const [search, setSearch] = useState('')
-   // show error msg if country isn't found or validation fails
-   // const [error, setError] = useState(false)
+   const context = useContext(Context)
+
+   const handleSearchCountry = () => {
+      if (search !== '') context?.handleFurtherDetails(search)
+   }
 
    return (
       <>
@@ -16,7 +20,7 @@ const Search: React.FC = () => {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
          />
-         <StyledImg search src={SearchIcon} />
+         <StyledImg search src={SearchIcon} onClick={handleSearchCountry} />
       </>
    )
 }
