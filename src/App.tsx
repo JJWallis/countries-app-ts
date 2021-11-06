@@ -52,7 +52,7 @@ const App: React.FC = () => {
          homepage && setHomepage(false)
       } else {
          alert('Country not found')
-         // validation
+         // validate
       }
    }
 

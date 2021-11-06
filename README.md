@@ -98,3 +98,9 @@ Border trick to create a triangle - point-events: none;
 Input search - issues with showing live results (input event while typing - not searching until typing 1 one more time post fully country name entered) | reverting to submit btn for validation + searching once input complete
 
 Controlling imgs in grid items - diff sizes
+
+Diff filtering logic (diff versions of state) - done stylistically with todo list
+
+Create page effect - state to conditionally render diff components (doing so in sep funcs)
+
+useMemo() + useLayoutEffect()
