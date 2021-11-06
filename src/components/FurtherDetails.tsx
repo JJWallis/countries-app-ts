@@ -8,15 +8,15 @@ import { CountryData } from './styled/CountryData'
 
 const FurtherDetails: React.FC = () => {
    const context = useContext(Context)
+   const data: any = context?.furtherDetails ? context.furtherDetails[0] : null
 
-   const handleContentVisible = () => {
-      if (context?.furtherDetails) {
-         const data: any = context.furtherDetails[0]
+   const gatherData = () => {
+      if (data) {
          const nativeName: any = Object.values(data.name.nativeName)[0]
          const currencies: any = Object.values(data.currencies)[0]
          const languages = `${[...Object.values(data.languages)]}`
 
-         const dataToMap = {
+         return {
             nativeName: nativeName.official,
             population: data.population,
             region: data.region,
@@ -26,7 +26,12 @@ const FurtherDetails: React.FC = () => {
             currencies: currencies.name,
             languages: languages,
          }
+      }
+   }
 
+   const handleContentVisible = () => {
+      if (data) {
+         const dataToMap = gatherData()
          return (
             <>
                <Wrapper flexChild>
@@ -34,18 +39,20 @@ const FurtherDetails: React.FC = () => {
                </Wrapper>
                <Wrapper flexChild>
                   <CountryName>{data.name.common}</CountryName>
-                  {Object.entries(dataToMap).map(([key, value]) => (
-                     <CountryData key={key}>
-                        <CountrySubTitle>{key}:</CountrySubTitle>
-                        {value}
-                     </CountryData>
-                  ))}
+                  {dataToMap &&
+                     Object.entries(dataToMap).map(([key, value]) => (
+                        <CountryData key={key}>
+                           <CountrySubTitle>{key}:</CountrySubTitle>
+                           {value}
+                        </CountryData>
+                     ))}
                   {/* border-countries component */}
                </Wrapper>
             </>
          )
       }
    }
+
    return <>{handleContentVisible()}</>
 }
 
