@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { Context } from '../App'
 import Wrapper from './styled/Wrapper'
 import CountryImg from './styled/StyledImg'
 import { CountryName } from './styled/StyledTitle'
@@ -18,11 +19,13 @@ export interface Props {
 
 const CountryCard: React.FC<Props> = ({ data }) => {
    const { flags, name, population, region, capital } = data
-
-   //   onClick - run function when clicked with name.common as argument
+   const context = useContext(Context)
 
    return (
-      <Wrapper country>
+      <Wrapper
+         country
+         onClick={() => context?.handleCountryDetails(name.common)}
+      >
          <CountryImg src={flags.svg} alt="Countries flag." />
          <CountryName>{name.common}</CountryName>
          <Wrapper countryData>

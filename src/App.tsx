@@ -7,7 +7,8 @@ import Header from './components/Header'
 import Main from './components/Main'
 
 export type context = {
-   countries: {}[] | null
+   countries: data
+   countryDetails: data
    homepage: boolean
    setHomepage: React.Dispatch<React.SetStateAction<boolean>>
    handleThemeChange: (dark: boolean) => void
@@ -38,9 +39,9 @@ const App: React.FC = () => {
 
    const handleCountryDetails = (country: string) => {
       const countryData = countries?.filter(
-         (item: any) => item.name === country
+         (item: any) => item.name.common === country
       )
-      if (countryData) {
+      if (countryData && countryData.length > 0) {
          setCountryDetails(countryData)
          homepage && setHomepage(false)
       } else {
@@ -56,6 +57,7 @@ const App: React.FC = () => {
                homepage,
                setHomepage,
                handleThemeChange,
+               countryDetails,
                handleCountryDetails,
             }}
          >
