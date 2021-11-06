@@ -9,7 +9,10 @@ const Search: React.FC = () => {
    const context = useContext(Context)
 
    const handleSearchCountry = () => {
-      if (search !== '') context?.handleFurtherDetails(search)
+      if (search !== '') {
+         context?.handleFurtherDetails(search)
+         setSearch('')
+      }
    }
 
    return (
