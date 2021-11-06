@@ -24,7 +24,7 @@ const CountryCard: React.FC<Props> = ({ data }) => {
    return (
       <Wrapper
          country
-         onClick={() => context?.handleCountryDetails(name.common)}
+         onClick={() => context?.handleFurtherDetails(name.common)}
       >
          <CountryImg src={flags.svg} alt="Countries flag." />
          <CountryName>{name.common}</CountryName>

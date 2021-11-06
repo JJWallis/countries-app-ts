@@ -8,11 +8,11 @@ import Main from './components/Main'
 
 export type context = {
    countries: data
-   countryDetails: data
+   furtherDetails: data
    homepage: boolean
    setHomepage: React.Dispatch<React.SetStateAction<boolean>>
    handleThemeChange: (dark: boolean) => void
-   handleCountryDetails: (country: string) => void
+   handleFurtherDetails: (country: string) => void
 } | null
 
 type data = {}[] | null
@@ -21,7 +21,7 @@ export const Context = React.createContext<context>(null)
 
 const App: React.FC = () => {
    const [countries, setCountries] = useState<data>(null)
-   const [countryDetails, setCountryDetails] = useState<data>(null)
+   const [furtherDetails, setFurtherDetails] = useState<data>(null)
    const [homepage, setHomepage] = useState(true)
    const [theme, setTheme] = useState<theme>(lightTheme)
 
@@ -37,12 +37,12 @@ const App: React.FC = () => {
    const handleThemeChange = (dark: boolean) =>
       dark ? setTheme(darkTheme) : setTheme(lightTheme)
 
-   const handleCountryDetails = (country: string) => {
+   const handleFurtherDetails = (country: string) => {
       const countryData = countries?.filter(
          (item: any) => item.name.common === country
       )
       if (countryData && countryData.length > 0) {
-         setCountryDetails(countryData)
+         setFurtherDetails(countryData)
          homepage && setHomepage(false)
       } else {
          // validation
@@ -57,8 +57,8 @@ const App: React.FC = () => {
                homepage,
                setHomepage,
                handleThemeChange,
-               countryDetails,
-               handleCountryDetails,
+               furtherDetails,
+               handleFurtherDetails,
             }}
          >
             <GlobalStyles />

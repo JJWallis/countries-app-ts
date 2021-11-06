@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { Context } from '../App'
 
 interface Props {
    key: string
@@ -13,7 +14,9 @@ interface Props {
    }
 }
 
-const FurtherDetails: React.FC<Props> = (props) => {
+const FurtherDetails: React.FC<Props> = ({ data }) => {
+   // const { flags, name, population, region, capital } = data
+   // const context = useContext(Context)
    return <div></div>
 }
 
