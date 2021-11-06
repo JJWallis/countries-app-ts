@@ -4,6 +4,7 @@ import Arrow from '../../assets/arrow-left.svg'
 type Props = {
    back?: boolean
    country?: boolean
+   error?: boolean
 }
 
 const Button = styled.button<Props>`
@@ -25,6 +26,12 @@ const Button = styled.button<Props>`
       props.country &&
       css`
          padding-inline: 2em;
+         margin-right: 1rem;
+      `}
+      ${(props) =>
+      props.error &&
+      css`
+         cursor: not-allowed;
       `}
 `
 

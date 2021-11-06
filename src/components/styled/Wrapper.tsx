@@ -11,6 +11,7 @@ type Props = {
    flexWrap?: boolean
    flexChild?: boolean
    display?: 'grid' | 'flexWrap'
+   border?: boolean
 }
 
 export default styled.div<Props>`
@@ -122,5 +123,10 @@ export default styled.div<Props>`
       props.flexChild &&
       css`
          flex: 1 300px;
+      `}
+      ${(props) =>
+      props.border &&
+      css`
+         margin: 0;
       `}
 `

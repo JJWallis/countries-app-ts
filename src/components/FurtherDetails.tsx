@@ -5,6 +5,7 @@ import CountryImg from './styled/StyledImg'
 import { CountryName } from './styled/StyledTitle'
 import { CountrySubTitle } from './styled/CountryDataTitle'
 import { CountryData } from './styled/CountryData'
+import BorderCountries from './BorderCountries'
 
 const FurtherDetails: React.FC = () => {
    const context = useContext(Context)
@@ -29,7 +30,7 @@ const FurtherDetails: React.FC = () => {
       }
    }
 
-   const handleContentVisible = () => {
+   const printData = () => {
       if (data) {
          const dataToMap = gatherData()
          return (
@@ -46,14 +47,14 @@ const FurtherDetails: React.FC = () => {
                            {value}
                         </CountryData>
                      ))}
-                  {/* border-countries component */}
+                  <BorderCountries />
                </Wrapper>
             </>
          )
       }
    }
 
-   return <>{handleContentVisible()}</>
+   return <>{printData()}</>
 }
 
 export default FurtherDetails

@@ -28,7 +28,10 @@ const App: React.FC = () => {
    function fetchData(endpoint: string) {
       axios
          .get(endpoint)
-         .then((data: any) => setCountries(data.data))
+         .then((data: any) => {
+            setCountries(data.data)
+            console.log(data.data)
+         })
          .catch((err) => console.log(err.message))
    }
 
@@ -39,7 +42,10 @@ const App: React.FC = () => {
 
    const handleFurtherDetails = (country: string) => {
       const countryData = countries?.filter(
-         (item: any) => item.name.common === country
+         (item: any) =>
+            item.name.common === country ||
+            item.cioc === country ||
+            item.cca3 === country
       )
       if (countryData && countryData.length > 0) {
          setFurtherDetails(countryData)
