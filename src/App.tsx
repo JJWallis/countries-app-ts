@@ -11,22 +11,18 @@ export type context = {
    homepage: boolean
    setHomepage: React.Dispatch<React.SetStateAction<boolean>>
    handleThemeChange: (dark: boolean) => void
+   handleCountryDetails: (country: string) => void
 } | null
 
-export const Context = React.createContext<context>(null)
-
 type data = {}[] | null
+
+export const Context = React.createContext<context>(null)
 
 const App: React.FC = () => {
    const [countries, setCountries] = useState<data>(null)
    const [countryDetails, setCountryDetails] = useState<data>(null)
    const [homepage, setHomepage] = useState(true)
    const [theme, setTheme] = useState<theme>(lightTheme)
-
-   // countryDetails state - null default value + { with all relevant data (take type from CountryCard props) }
-   // handleCountryDetails func - take either user input (from Search) or name.common from CountryCard user clicks on
-   // find() obj in original countries data which matches country usr wants + update countryDetails state with it
-   // update homepage state to false at same time (but check if not already falsy so doesn't unecessarily re-render?)
 
    function fetchData(endpoint: string) {
       axios
@@ -40,6 +36,18 @@ const App: React.FC = () => {
    const handleThemeChange = (dark: boolean) =>
       dark ? setTheme(darkTheme) : setTheme(lightTheme)
 
+   const handleCountryDetails = (country: string) => {
+      const countryData = countries?.filter(
+         (item: any) => item.name === country
+      )
+      if (countryData) {
+         setCountryDetails(countryData)
+         homepage && setHomepage(false)
+      } else {
+         // validation
+      }
+   }
+
    return (
       <ThemeProvider theme={theme}>
          <Context.Provider
@@ -48,6 +56,7 @@ const App: React.FC = () => {
                homepage,
                setHomepage,
                handleThemeChange,
+               handleCountryDetails,
             }}
          >
             <GlobalStyles />
