@@ -5,6 +5,8 @@ import SearchIcon from '../assets/search.svg'
 
 const Search: React.FC = () => {
    const [search, setSearch] = useState('')
+   // show error msg if country isn't found or validation fails
+   // const [error, setError] = useState(false)
 
    return (
       <>
