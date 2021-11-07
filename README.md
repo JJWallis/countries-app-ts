@@ -20,7 +20,7 @@ This is a solution to the [REST Countries API with color theme switcher challeng
 
 ### The challenge
 
-Users should be able to:
+Your users should be able to:
 
 -  See all countries from the API on the homepage
 -  Search for a country using an `input` field
@@ -35,7 +35,6 @@ Users should be able to:
 
 ### Links
 
--  Solution URL:
 -  Live Site URL:
 
 ## My process
@@ -86,6 +85,12 @@ Use this section to outline areas that you want to continue focusing on in futur
 This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
 
 ###### TODO
+
+HTML:
+
+CSS:
+
+JS:
 
 API fetching -
 
