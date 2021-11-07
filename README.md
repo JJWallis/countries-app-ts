@@ -104,3 +104,5 @@ Diff filtering logic (diff versions of state) - done stylistically with todo lis
 Create page effect - state to conditionally render diff components (doing so in sep funcs)
 
 useMemo() + useLayoutEffect()
+
+Typescript advanced-basics - exporting interfaces (+ storing elsewhere for DRY code) | type vs interface (destructuring context bug) | fixing any types for params in funcs (especially arr iteration methods) | typeof operator for type (dynamic) |
