@@ -41,7 +41,7 @@ Your users should be able to:
 
 ### Built with
 
--  React
+-  React - JS Library
 -  Typescript
 -  Styled Components
 -  Mobile-first workflow
