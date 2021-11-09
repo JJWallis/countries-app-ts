@@ -13,6 +13,7 @@ export type context = {
    setHomepage: React.Dispatch<React.SetStateAction<boolean>>
    handleThemeChange: (dark: boolean) => void
    handleFurtherDetails: (country: string) => void
+   handleFilterRegions: (region: string) => void
 } | null
 
 type data = {}[] | null
@@ -56,6 +57,10 @@ const App: React.FC = () => {
       }
    }
 
+   const handleFilterRegions = (region: string) => {
+      console.log(region)
+   }
+
    return (
       <ThemeProvider theme={theme}>
          <Context.Provider
@@ -66,6 +71,7 @@ const App: React.FC = () => {
                handleThemeChange,
                furtherDetails,
                handleFurtherDetails,
+               handleFilterRegions,
             }}
          >
             <GlobalStyles />
