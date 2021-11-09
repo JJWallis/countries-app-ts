@@ -5,11 +5,12 @@ import Wrapper from './styled/Wrapper'
 
 const Filter: React.FC = () => {
    const context = useContext(Context)
-   const [desiredRegion, setDesiredRegion] = useState<string | null>(null)
+   const [desiredRegion, setDesiredRegion] = useState<string>('')
 
-   useEffect(() => {
-      if (desiredRegion) context?.handleFilterRegions(desiredRegion)
-   }, [desiredRegion, context]) // context dependancy?
+   useEffect(
+      () => context?.handleFilterRegions(desiredRegion),
+      [desiredRegion, context]
+   )
 
    const handleRegions = () => {
       const regions = new Set(
@@ -24,17 +25,10 @@ const Filter: React.FC = () => {
          ))
    }
 
-   // create new state in App - filteredCountries (same 'data' type in App)
-   // conditional rendering of CountryCards based off that - if that state is truthy
-   // gets priority - but if no countries are filtered, display all countries
-   // turned back to 'null' if user clicks 1st option (if value !== '' - then filter)
-   // func in App (handleFilterRegions) - ran as callback from here with desiredRegion state value
-   // homepage state doesn't get updated - stays falsy
-
    return (
       <Wrapper reset>
          <StyledFilter>
-            <StyledOption value="" onClick={() => setDesiredRegion(null)}>
+            <StyledOption value="" onClick={() => setDesiredRegion('')}>
                Filter by region
             </StyledOption>
             {handleRegions()}

@@ -58,7 +58,15 @@ const App: React.FC = () => {
    }
 
    const handleFilterRegions = (region: string) => {
-      console.log(region)
+      if (region === '') {
+         // update filteredRegions state to null
+         // return
+      }
+      // update filteredRegions state to filtered array using region param
+      // create new state in App - filteredRegions (same 'data' type in App)
+      // conditional rendering of CountryCards based off that - if that state is truthy
+      // gets priority - but if no countries are filtered, display all countries
+      // homepage state doesn't get updated - stays falsy
    }
 
    return (
