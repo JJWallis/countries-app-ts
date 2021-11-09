@@ -10,6 +10,10 @@ const CountriesContainer: React.FC = () => {
    const context = useContext(Context)
 
    // homepage state doesn't get updated - stays falsy
+   // re-factor - func that returns grid of cards (data is passed in as param - checks if fitlered data is truthy)
+   // + prioritises it if so (else default countries)
+   // split up so not double short-circuiting (check if data is truthy before + arr of components which gets returned/rendered)
+   // if specifc region is already visible - don't re-render (useEffect)
 
    const handleContentVisible = () => {
       if (context?.homepage) {
