@@ -10,8 +10,8 @@ const Filter: React.FC = () => {
    useEffect(() => {
       context?.handleFilterRegions(desiredRegion)
       console.log('changing...')
-   }, [desiredRegion, context])
-   // context as dependancy - cause this to execute on general context change
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+   }, [desiredRegion])
 
    const handleRegions = () => {
       const regions = new Set(
