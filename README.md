@@ -62,9 +62,15 @@ Your users should be able to:
 ```
 
 ```js
-const proudOfThisFunc = () => {
-   console.log('🎉')
+const handleRegions = () => {
+   const regions = new Set(context?.countries?.map(({ region }: any) => region))
+   return Array.from(regions)
+      .sort()
+      .map((region: string) => (
+         <StyledOption key={region}>{region}</StyledOption>
+      ))
 }
+// filtering logic
 ```
 
 ### Continued development
