@@ -6,7 +6,7 @@ import axios from 'axios'
 import Header from './components/Header'
 import Main from './components/Main'
 
-export type context = {
+interface ContextInterface {
    countries: data
    furtherDetails: data
    homepage: boolean
@@ -15,11 +15,11 @@ export type context = {
    handleThemeChange: (dark: boolean) => void
    handleFurtherDetails: (country: string) => void
    handleFilterRegions: (region: string) => void
-} | null
+}
 
 type data = {}[] | null
 
-export const Context = React.createContext<context>(null)
+export const Context = React.createContext<ContextInterface | null>(null)
 
 const App: React.FC = () => {
    const [countries, setCountries] = useState<data>(null)
