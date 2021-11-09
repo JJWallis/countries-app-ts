@@ -9,19 +9,33 @@ import FurtherDetails from './FurtherDetails'
 const CountriesContainer: React.FC = () => {
    const context = useContext(Context)
 
+   // homepage state doesn't get updated - stays falsy
+
    const handleContentVisible = () => {
       if (context?.homepage) {
-         return (
-            <Wrapper display={'grid'}>
-               {context && context.countries ? (
-                  context.countries.map((country: any) => (
-                     <CountryCard key={uuidv4()} data={country} />
-                  ))
-               ) : (
-                  <Loading>Loading...</Loading>
-               )}
-            </Wrapper>
-         )
+         if (!context.filteredRegions) {
+            return (
+               <Wrapper display={'grid'}>
+                  {context && context.countries ? (
+                     context.countries.map((country: any) => (
+                        <CountryCard key={uuidv4()} data={country} />
+                     ))
+                  ) : (
+                     <Loading>Loading...</Loading>
+                  )}
+               </Wrapper>
+            )
+         } else {
+            return (
+               <Wrapper display={'grid'}>
+                  {context &&
+                     context.filteredRegions &&
+                     context.filteredRegions.map((country: any) => (
+                        <CountryCard key={uuidv4()} data={country} />
+                     ))}
+               </Wrapper>
+            )
+         }
       } else {
          return (
             <Wrapper display={'flexWrap'}>
