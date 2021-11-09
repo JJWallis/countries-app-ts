@@ -1,13 +1,20 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { Context } from '../App'
 import { StyledFilter, StyledOption } from './styled/StyledFilter'
 import Wrapper from './styled/Wrapper'
 
 const Filter: React.FC = () => {
+   const context = useContext(Context)
+
+   const handleRegions = () => {
+      const regions = context?.countries?.map(({ region }: any) => region)
+   }
+
    return (
       <Wrapper reset>
          <StyledFilter>
-            <StyledOption>Filter by region</StyledOption>
-            <StyledOption>Filter by region</StyledOption>
+            <StyledOption value="">Filter by region</StyledOption>
+            {handleRegions()}
          </StyledFilter>
       </Wrapper>
    )
