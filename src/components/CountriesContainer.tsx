@@ -9,8 +9,6 @@ import FurtherDetails from './FurtherDetails'
 const CountriesContainer: React.FC = () => {
    const context = useContext(Context)
 
-   // if specifc region is already visible - don't re-render (useEffect)
-
    const determineData = () =>
       !context?.filteredRegions ? context?.countries : context?.filteredRegions
 

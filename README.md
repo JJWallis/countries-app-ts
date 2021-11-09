@@ -31,7 +31,7 @@ Your users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![](./Screenshot.png)
 
 ### Links
 
@@ -50,10 +50,6 @@ Your users should be able to:
 -  Semantic HTML5 markup
 
 ### What I learned
-
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
 
 ```css
 .proud-of-this-css {
@@ -75,11 +71,13 @@ const handleRegions = () => {
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
+useEffect() - missing dependencies suggestions (caused to do with vars used within - ex: context) | // eslint-disable-next-line react-hooks/exhaustive-deps - saviour atm!
 
 ### Useful resources
 
 -  [Kevin Powell - Custom Select Menu](https://www.youtube.com/watch?v=bB14uo0Tu5A&t=183s&ab_channel=KevinPowell) - This helped me style the dropdown menu to allow users to filter the countries displayed, since I had never styled a select menu before this project. It was a great resource to learn how to hide the default arrow which is pinned to the edge of the menu, and how to create a more appealing one with pseudo elements using a border trick to create a triangle.
+
+-  [React Testing Library Crash Course](https://www.youtube.com/watch?v=GLSSRtnNY0g&ab_channel=LaithHarb) - A great crash course on the libraries' basic feature, my first introduction to testing.
 
 ## Author
 
@@ -94,26 +92,32 @@ This is where you can give a hat tip to anyone who helped you out on this projec
 
 HTML:
 
+Min-height on main | hide scrollbars on further details page
+
 CSS:
-
-JS:
-
-API fetching -
-
-Props.children - multiple pages
-
-Border trick to create a triangle - point-events: none;
-
-`Styles:`
 
 Input search - issues with showing live results (input event while typing - not searching until typing 1 one more time post fully country name entered) | reverting to submit btn for validation + searching once input complete
 
 Controlling imgs in grid items - diff sizes
 
-Diff filtering logic (diff versions of state) - done stylistically with todo list
+JS:
+
+API fetching - traversing data (as shown above) | great data-structure practice
+
+Props.children - multiple pages
+
+Border trick to create a triangle - point-events: none;
+
+Diff filtering logic (diff versions of state) - done stylistically with todo list | here - diff version of state (filteredRegions) | all data passed via context to dynamic container (determineData func + map over returned result to keep dynamic render func)
 
 Create page effect - state to conditionally render diff components (doing so in sep funcs)
 
 useMemo() + useLayoutEffect()
 
 Typescript advanced-basics - exporting interfaces (+ storing elsewhere for DRY code) | type vs interface (destructuring context bug) | fixing any types for params in funcs (especially arr iteration methods) | typeof operator for type (dynamic) |
+
+useEffect - get out of async nature of state change | `useEffect(() => {}, [desiredRegion])` |
+
+TS - any type error for params in funcs (Antartica - lacked properties attempting to convert to obj - undefined) | see value in TS
+
+Testing - React Testing Library + Jest | 1st project - catching logical errors (adding new features to app - hard to catch cross-component - bloated very quickly) | next project - adopt test-driven development approach
