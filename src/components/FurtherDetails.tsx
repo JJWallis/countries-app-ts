@@ -8,8 +8,8 @@ import { CountryData } from './styled/CountryData'
 import BorderCountries from './BorderCountries'
 
 const FurtherDetails: React.FC = () => {
-   const context = useContext(Context)
-   const data: any = context?.furtherDetails ? context.furtherDetails[0] : null
+   const { furtherDetails } = { ...useContext(Context) }
+   const data: any = furtherDetails ? furtherDetails[0] : null
 
    const gatherData = () => {
       if (data) {

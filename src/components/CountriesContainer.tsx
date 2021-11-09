@@ -7,17 +7,16 @@ import { Loading } from './styled/StyledTitle'
 import FurtherDetails from './FurtherDetails'
 
 const CountriesContainer: React.FC = () => {
-   const context = useContext(Context)
+   const { filteredRegions, countries, homepage } = { ...useContext(Context) }
 
-   const determineData = () =>
-      !context?.filteredRegions ? context?.countries : context?.filteredRegions
+   const determineData = () => (!filteredRegions ? countries : filteredRegions)
 
    const handleContentVisible = () => {
-      if (context?.homepage) {
+      if (homepage) {
          const data = determineData()
          return (
             <Wrapper display={'grid'}>
-               {context && data ? (
+               {data ? (
                   data.map((country: any) => (
                      <CountryCard key={uuidv4()} data={country} />
                   ))
@@ -26,13 +25,12 @@ const CountriesContainer: React.FC = () => {
                )}
             </Wrapper>
          )
-      } else {
-         return (
-            <Wrapper display={'flexWrap'}>
-               <FurtherDetails />
-            </Wrapper>
-         )
       }
+      return (
+         <Wrapper display={'flexWrap'}>
+            <FurtherDetails />
+         </Wrapper>
+      )
    }
 
    return <>{handleContentVisible()}</>
