@@ -10,6 +10,7 @@ export type context = {
    countries: data
    furtherDetails: data
    homepage: boolean
+   filteredRegions: data
    setHomepage: React.Dispatch<React.SetStateAction<boolean>>
    handleThemeChange: (dark: boolean) => void
    handleFurtherDetails: (country: string) => void
@@ -23,6 +24,7 @@ export const Context = React.createContext<context>(null)
 const App: React.FC = () => {
    const [countries, setCountries] = useState<data>(null)
    const [furtherDetails, setFurtherDetails] = useState<data>(null)
+   const [filteredRegions, setFilteredRegions] = useState<data>(null)
    const [homepage, setHomepage] = useState(true)
    const [theme, setTheme] = useState<theme>(lightTheme)
 
@@ -59,14 +61,14 @@ const App: React.FC = () => {
 
    const handleFilterRegions = (region: string) => {
       if (region === '') {
-         // update filteredRegions state to null
-         // return
+         setFilteredRegions(null)
+      } else {
+         const filteredData = countries?.filter(
+            (country: any) =>
+               country.region.toLowerCase() === region.toLowerCase()
+         )
+         filteredData && setFilteredRegions(filteredData)
       }
-      // update filteredRegions state to filtered array using region param
-      // create new state in App - filteredRegions (same 'data' type in App)
-      // conditional rendering of CountryCards based off that - if that state is truthy
-      // gets priority - but if no countries are filtered, display all countries
-      // homepage state doesn't get updated - stays falsy
    }
 
    return (
@@ -79,6 +81,7 @@ const App: React.FC = () => {
                handleThemeChange,
                furtherDetails,
                handleFurtherDetails,
+               filteredRegions,
                handleFilterRegions,
             }}
          >

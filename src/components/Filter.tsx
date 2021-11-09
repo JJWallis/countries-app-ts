@@ -7,10 +7,11 @@ const Filter: React.FC = () => {
    const context = useContext(Context)
    const [desiredRegion, setDesiredRegion] = useState<string>('')
 
-   useEffect(
-      () => context?.handleFilterRegions(desiredRegion),
-      [desiredRegion, context]
-   )
+   useEffect(() => {
+      context?.handleFilterRegions(desiredRegion)
+      console.log('changing...')
+   }, [desiredRegion, context])
+   // context as dependancy - cause this to execute on general context change
 
    const handleRegions = () => {
       const regions = new Set(
