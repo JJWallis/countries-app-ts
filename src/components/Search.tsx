@@ -6,11 +6,11 @@ import SearchIcon from '../assets/search.svg'
 
 const Search: React.FC = () => {
    const [search, setSearch] = useState('')
-   const context = useContext(Context)
+   const { handleFurtherDetails: hfr } = { ...useContext(Context) }
 
    const handleSearchCountry = () => {
       if (search !== '') {
-         context?.handleFurtherDetails(search)
+         hfr && hfr(search)
          setSearch('')
       }
    }

@@ -4,19 +4,16 @@ import { StyledFilter, StyledOption } from './styled/StyledFilter'
 import Wrapper from './styled/Wrapper'
 
 const Filter: React.FC = () => {
-   const context = useContext(Context)
+   const { handleFilterRegions: hfr, countries } = { ...useContext(Context) }
    const [desiredRegion, setDesiredRegion] = useState<string>('')
 
    useEffect(() => {
-      context?.handleFilterRegions(desiredRegion)
-      console.log('changing...')
+      hfr && hfr(desiredRegion)
       // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [desiredRegion])
 
    const handleRegions = () => {
-      const regions = new Set(
-         context?.countries?.map(({ region }: any) => region)
-      )
+      const regions = new Set(countries?.map(({ region }: any) => region))
       return Array.from(regions)
          .sort()
          .map((region: string) => (

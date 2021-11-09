@@ -6,16 +6,16 @@ import Filter from './Filter'
 import Button from './styled/StyledButton'
 
 const SearchFilter: React.FC = () => {
-   const context = useContext(Context)
+   const { homepage, setHomepage: sh } = { ...useContext(Context) }
 
    const handleLayoutChange = () => {
-      return context?.homepage ? (
+      return homepage ? (
          <>
             <Search />
             <Filter />
          </>
       ) : (
-         <Button back onClick={() => context?.setHomepage(true)}>
+         <Button back onClick={() => sh && sh(true)}>
             Back
          </Button>
       )

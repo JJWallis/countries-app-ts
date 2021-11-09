@@ -7,9 +7,13 @@ import { Loading } from './styled/StyledTitle'
 import FurtherDetails from './FurtherDetails'
 
 const CountriesContainer: React.FC = () => {
-   const { filteredRegions, countries, homepage } = { ...useContext(Context) }
+   const {
+      filteredRegions: fr,
+      countries,
+      homepage,
+   } = { ...useContext(Context) }
 
-   const determineData = () => (!filteredRegions ? countries : filteredRegions)
+   const determineData = () => (!fr ? countries : fr)
 
    const handleContentVisible = () => {
       if (homepage) {

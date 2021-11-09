@@ -6,21 +6,20 @@ import { CountrySubTitle } from './styled/CountryDataTitle'
 import { Context } from '../App'
 
 const BorderCountries: React.FC = () => {
-   const { furtherDetails, handleFurtherDetails } = { ...useContext(Context) }
+   const { furtherDetails: fd, handleFurtherDetails: hfr } = {
+      ...useContext(Context),
+   }
 
    const produceButtons = () => {
-      if (furtherDetails) {
-         const data: any = furtherDetails[0]
+      if (fd) {
+         const data: any = fd[0]
          if (data.borders && data.borders.length > 0) {
             return data.borders.map((border: string) => {
                return (
                   <Button
                      key={uuid()}
                      country
-                     onClick={() =>
-                        handleFurtherDetails &&
-                        handleFurtherDetails(border.toUpperCase())
-                     }
+                     onClick={() => hfr && hfr(border.toUpperCase())}
                   >
                      {border}
                   </Button>

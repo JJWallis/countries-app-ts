@@ -19,15 +19,10 @@ export interface Props {
 
 const CountryCard: React.FC<Props> = ({ data }) => {
    const { flags, name, population, region, capital } = data
-   const context = useContext(Context)
+   const { handleFurtherDetails: hfr } = { ...useContext(Context) }
 
    return (
-      <Wrapper
-         country
-         onClick={() =>
-            context?.handleFurtherDetails(name.common.toLowerCase())
-         }
-      >
+      <Wrapper country onClick={() => hfr && hfr(name.common.toLowerCase())}>
          <CountryImg src={flags.svg} alt="Countries flag." />
          <CountryName>{name.common}</CountryName>
          <Wrapper countryData>
