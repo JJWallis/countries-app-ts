@@ -5,12 +5,12 @@ import { StyledLabel } from './styled/StyledLabel'
 
 const ThemeSwitcher: React.FC = () => {
    const [dark, setDark] = useState(false)
-   const context = useContext(Context)
+   const { handleThemeChange: themeChange } = { ...useContext(Context) }
 
    useEffect(() => {
-      context?.handleThemeChange(dark)
+      themeChange && themeChange(dark)
       // add to local-storage
-   }, [dark, context])
+   }, [dark, themeChange])
 
    // take local-storage checkbox state
 
