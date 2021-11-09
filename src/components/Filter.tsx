@@ -7,7 +7,14 @@ const Filter: React.FC = () => {
    const context = useContext(Context)
 
    const handleRegions = () => {
-      const regions = context?.countries?.map(({ region }: any) => region)
+      const regions = new Set(
+         context?.countries?.map(({ region }: any) => region)
+      )
+      return Array.from(regions)
+         .sort()
+         .map((region: string) => (
+            <StyledOption key={region}>{region}</StyledOption>
+         ))
    }
 
    return (
