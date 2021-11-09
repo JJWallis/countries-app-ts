@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Context } from '../App'
 import { StyledFilter, StyledOption } from './styled/StyledFilter'
 import Wrapper from './styled/Wrapper'
@@ -7,6 +7,10 @@ const Filter: React.FC = () => {
    const context = useContext(Context)
    const [desiredRegion, setDesiredRegion] = useState<string | null>(null)
 
+   useEffect(() => {
+      if (desiredRegion) context?.handleFilterRegions(desiredRegion)
+   }, [desiredRegion, context]) // context dependancy?
+
    const handleRegions = () => {
       const regions = new Set(
          context?.countries?.map(({ region }: any) => region)
@@ -14,13 +18,7 @@ const Filter: React.FC = () => {
       return Array.from(regions)
          .sort()
          .map((region: string) => (
-            <StyledOption
-               key={region}
-               onClick={() => {
-                  setDesiredRegion(region)
-                  desiredRegion && context?.handleFilterRegions(desiredRegion)
-               }}
-            >
+            <StyledOption key={region} onClick={() => setDesiredRegion(region)}>
                {region}
             </StyledOption>
          ))
