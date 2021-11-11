@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components'
 interface Props {
    search?: boolean
    checkbox?: boolean
+   error?: boolean
 }
 
 export default styled.input<Props>`
@@ -25,5 +26,14 @@ export default styled.input<Props>`
          position: absolute;
          right: 120px;
          opacity: 0;
+      `}
+      ${(props) =>
+      props.error &&
+      css`
+         &::placeholder {
+            color: red;
+            font-weight: bold;
+            letter-spacing: 0.1ch;
+         }
       `}
 `

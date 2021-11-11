@@ -11,6 +11,7 @@ interface ContextInterface {
    furtherDetails: data
    homepage: boolean
    filteredRegions: data
+   error: boolean
    setHomepage: React.Dispatch<React.SetStateAction<boolean>>
    handleThemeChange: (dark: boolean) => void
    handleFurtherDetails: (country: string) => void
@@ -44,6 +45,7 @@ const App: React.FC = () => {
    const [filteredRegions, setFilteredRegions] = useState<data>(null)
    const [homepage, setHomepage] = useState(true)
    const [theme, setTheme] = useState<theme>(lightTheme)
+   const [error, setError] = useState(false)
 
    function fetchData(endpoint: string) {
       axios
@@ -68,10 +70,11 @@ const App: React.FC = () => {
             cca3 === country
       )
       if (countryData && countryData.length > 0) {
+         error && setError(false)
          setFurtherDetails(countryData)
          homepage && setHomepage(false)
       } else {
-         alert('Country not found')
+         setError(true)
       }
    }
 
@@ -98,6 +101,7 @@ const App: React.FC = () => {
                handleFurtherDetails,
                filteredRegions,
                handleFilterRegions,
+               error,
             }}
          >
             <GlobalStyles />

@@ -6,7 +6,7 @@ import SearchIcon from '../assets/search.svg'
 
 const Search: React.FC = () => {
    const [search, setSearch] = useState('')
-   const { handleFurtherDetails: hfr } = { ...useContext(Context) }
+   const { handleFurtherDetails: hfr, error } = { ...useContext(Context) }
 
    const handleSearchCountry = () => {
       if (search !== '') {
@@ -19,7 +19,10 @@ const Search: React.FC = () => {
       <>
          <StyledInput
             search
-            placeholder="Search for a country..."
+            error={error}
+            placeholder={
+               error ? 'Please enter a valid country' : 'Search for a country'
+            }
             value={search}
             onChange={(e) => setSearch(e.target.value)}
          />
