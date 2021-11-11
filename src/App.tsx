@@ -17,7 +17,7 @@ interface ContextInterface {
    handleFilterRegions: (region: string) => void
 }
 
-type data = {}[] | null
+type data = { name: { common: string }; cioc: string; cca3: string }[] | null
 
 export const Context = React.createContext<ContextInterface | null>(null)
 
@@ -43,15 +43,9 @@ const App: React.FC = () => {
    const handleThemeChange = (dark: boolean) =>
       dark ? setTheme(darkTheme) : setTheme(lightTheme)
 
-   type Test = {
-      name?: { common: string }
-      cioc?: string
-      cca3?: string
-   }
-
    const handleFurtherDetails = (country: string) => {
       const countryData = countries?.filter(
-         ({ name, cioc, cca3 }: Test) =>
+         ({ name, cioc, cca3 }) =>
             name?.common.toLowerCase() === country.toLowerCase() ||
             cioc === country ||
             cca3 === country
@@ -61,7 +55,6 @@ const App: React.FC = () => {
          homepage && setHomepage(false)
       } else {
          alert('Country not found')
-         // validate
       }
    }
 
