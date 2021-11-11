@@ -18,7 +18,13 @@ interface ContextInterface {
 }
 
 type data =
-   | { name: { common: string }; cioc: string; cca3: string; region: string }[]
+   | {
+        name: { common: string }
+        cioc: string
+        cca3: string
+        region: string
+        borders: string[]
+     }[]
    | null
 
 export const Context = React.createContext<ContextInterface | null>(null)

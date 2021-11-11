@@ -12,7 +12,7 @@ const BorderCountries: React.FC = () => {
 
    const produceButtons = () => {
       if (fd) {
-         const data: any = fd[0]
+         const data = fd[0]
          if (data.borders && data.borders.length > 0) {
             return data.borders.map((border: string) => {
                return (
