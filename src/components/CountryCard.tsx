@@ -11,7 +11,7 @@ export interface Props {
    data: {
       flags: { svg: string }
       name: { common: string }
-      population?: string
+      population?: number
       region?: string
       capital?: string
    }

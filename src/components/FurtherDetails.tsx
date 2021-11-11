@@ -13,19 +13,20 @@ const FurtherDetails: React.FC = () => {
 
    const gatherData = () => {
       if (data) {
-         const nativeName = Object.values(data.name.nativeName)[0]
-         const currencies = Object.values(data.currencies)[0]
+         const nativeName = Object.values(data.name.nativeName)[0].official
+         const currencies = Object.values(data.currencies)[0].name
          const languages = `${[...Object.values(data.languages)]}`
+         const { population, region, subregion, capital } = data
 
          return {
-            nativeName: nativeName.official,
-            // population: data.population,
-            region: data.region,
-            subregion: data.subregion,
-            capital: data.capital,
+            nativeName,
+            population,
+            region,
+            subregion,
+            capital,
             topLevelDomain: data.tld[0],
-            currencies: currencies.name,
-            languages: languages,
+            currencies,
+            languages,
          }
       }
    }

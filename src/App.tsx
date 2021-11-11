@@ -29,7 +29,7 @@ type data =
         }
         currencies: { name: string }[]
         languages: string[]
-        //   population: number
+        population: number
         subregion: string
         capital: string
         tld: string[]
