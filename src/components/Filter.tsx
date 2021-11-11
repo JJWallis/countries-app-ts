@@ -6,12 +6,12 @@ import Wrapper from './styled/Wrapper'
 const Filter: React.FC = () => {
    const { handleFilterRegions: hfr, countries } = { ...useContext(Context) }
    const [desiredRegion, setDesiredRegion] = useState<string>('')
-   const hasFilteredDataChanged = useRef(desiredRegion)
+   const hasDataChanged = useRef(desiredRegion)
 
    useEffect(() => {
-      if (hasFilteredDataChanged.current !== desiredRegion) {
+      if (hasDataChanged.current !== desiredRegion) {
          hfr && hfr(desiredRegion)
-         hasFilteredDataChanged.current = desiredRegion
+         hasDataChanged.current = desiredRegion
       }
    }, [desiredRegion, hfr])
 
@@ -29,7 +29,7 @@ const Filter: React.FC = () => {
    return (
       <Wrapper reset>
          <StyledFilter>
-            <StyledOption value="" onClick={() => setDesiredRegion('')}>
+            <StyledOption onClick={() => setDesiredRegion('')}>
                Filter by region
             </StyledOption>
             {handleRegions()}
