@@ -43,12 +43,18 @@ const App: React.FC = () => {
    const handleThemeChange = (dark: boolean) =>
       dark ? setTheme(darkTheme) : setTheme(lightTheme)
 
+   type Test = {
+      name?: { common: string }
+      cioc?: string
+      cca3?: string
+   }
+
    const handleFurtherDetails = (country: string) => {
       const countryData = countries?.filter(
-         (item: any) =>
-            item.name.common.toLowerCase() === country.toLowerCase() ||
-            item.cioc === country ||
-            item.cca3 === country
+         ({ name, cioc, cca3 }: Test) =>
+            name?.common.toLowerCase() === country.toLowerCase() ||
+            cioc === country ||
+            cca3 === country
       )
       if (countryData && countryData.length > 0) {
          setFurtherDetails(countryData)
