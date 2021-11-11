@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState, useRef } from 'react'
 import { Context } from '../App'
 import { StyledFilter, StyledOption } from './styled/StyledFilter'
 import Wrapper from './styled/Wrapper'
@@ -6,11 +6,14 @@ import Wrapper from './styled/Wrapper'
 const Filter: React.FC = () => {
    const { handleFilterRegions: hfr, countries } = { ...useContext(Context) }
    const [desiredRegion, setDesiredRegion] = useState<string>('')
+   const hasFilteredDataChanged = useRef(desiredRegion)
 
    useEffect(() => {
-      hfr && hfr(desiredRegion)
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-   }, [desiredRegion])
+      if (hasFilteredDataChanged.current !== desiredRegion) {
+         hfr && hfr(desiredRegion)
+         hasFilteredDataChanged.current = desiredRegion
+      }
+   }, [desiredRegion, hfr])
 
    const handleRegions = () => {
       const regions = new Set(countries?.map(({ region }: any) => region))
