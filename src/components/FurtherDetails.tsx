@@ -9,17 +9,17 @@ import BorderCountries from './BorderCountries'
 
 const FurtherDetails: React.FC = () => {
    const { furtherDetails } = { ...useContext(Context) }
-   const data: any = furtherDetails ? furtherDetails[0] : null
+   const data = furtherDetails ? furtherDetails[0] : null
 
    const gatherData = () => {
       if (data) {
-         const nativeName: any = Object.values(data.name.nativeName)[0]
-         const currencies: any = Object.values(data.currencies)[0]
+         const nativeName = Object.values(data.name.nativeName)[0]
+         const currencies = Object.values(data.currencies)[0]
          const languages = `${[...Object.values(data.languages)]}`
 
          return {
             nativeName: nativeName.official,
-            population: data.population,
+            // population: data.population,
             region: data.region,
             subregion: data.subregion,
             capital: data.capital,

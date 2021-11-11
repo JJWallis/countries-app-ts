@@ -19,7 +19,7 @@ interface ContextInterface {
 
 type data =
    | {
-        name: { common: string }
+        name: { common: string; nativeName: { official: string }[] }
         cioc: string
         cca3: string
         region: string
@@ -27,6 +27,12 @@ type data =
         flags: {
            svg: string
         }
+        currencies: { name: string }[]
+        languages: string[]
+        //   population: number
+        subregion: string
+        capital: string
+        tld: string[]
      }[]
    | null
 
