@@ -16,7 +16,7 @@ const Filter: React.FC = () => {
    }, [desiredRegion, hfr])
 
    const handleRegions = () => {
-      const regions = new Set(countries?.map(({ region }: any) => region))
+      const regions = new Set(countries?.map(({ region }) => region))
       return Array.from(regions)
          .sort()
          .map((region: string) => (
