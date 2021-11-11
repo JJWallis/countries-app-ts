@@ -21,7 +21,7 @@ const CountriesContainer: React.FC = () => {
          return (
             <Wrapper display={'grid'}>
                {data ? (
-                  data.map((country: any) => (
+                  data.map((country) => (
                      <CountryCard key={uuidv4()} data={country} />
                   ))
                ) : (

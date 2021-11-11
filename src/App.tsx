@@ -24,6 +24,9 @@ type data =
         cca3: string
         region: string
         borders: string[]
+        flags: {
+           svg: string
+        }
      }[]
    | null
 
