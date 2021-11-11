@@ -17,7 +17,9 @@ interface ContextInterface {
    handleFilterRegions: (region: string) => void
 }
 
-type data = { name: { common: string }; cioc: string; cca3: string }[] | null
+type data =
+   | { name: { common: string }; cioc: string; cca3: string; region: string }[]
+   | null
 
 export const Context = React.createContext<ContextInterface | null>(null)
 
@@ -63,8 +65,7 @@ const App: React.FC = () => {
          setFilteredRegions(null)
       } else {
          const filteredData = countries?.filter(
-            (country: any) =>
-               country.region.toLowerCase() === region.toLowerCase()
+            (country) => country.region.toLowerCase() === region.toLowerCase()
          )
          filteredData && setFilteredRegions(filteredData)
       }
