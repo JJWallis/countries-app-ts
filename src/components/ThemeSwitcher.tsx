@@ -9,10 +9,13 @@ const ThemeSwitcher: React.FC = () => {
 
    useEffect(() => {
       themeChange && themeChange(dark)
-      // add to local-storage
+      localStorage.setItem('dark', JSON.stringify(dark))
    }, [dark, themeChange])
 
-   // take local-storage checkbox state
+   useEffect(() => {
+      const theme = localStorage.getItem('dark')
+      theme && setDark(JSON.parse(theme))
+   }, [])
 
    return (
       <>
