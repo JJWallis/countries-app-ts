@@ -13,20 +13,27 @@ const FurtherDetails: React.FC = () => {
 
    const gatherData = () => {
       if (data) {
-         // func that does this - verifyDataPresent/valdateData
-         const nativeName = data.name.nativeName
-            ? Object.values(data.name.nativeName)[0].official
+         const {
+            population,
+            region,
+            subregion,
+            capital,
+            name: { nativeName: native },
+            currencies: currency,
+            languages: language,
+         } = data
+
+         const nativeName = native
+            ? Object.values(native)[0].official
             : 'No data provided'
 
-         const currencies = data.currencies
-            ? Object.values(data.currencies)[0].name
-            : 'No data provided :('
+         const currencies = currency
+            ? Object.values(currency)[0].name
+            : 'No data provided'
 
-         const languages = data.languages
-            ? `${[...Object.values(data.languages)]}`
-            : 'No data provided :('
-
-         const { population, region, subregion, capital } = data
+         const languages = language
+            ? `${[...Object.values(language)]}`
+            : 'No data provided'
 
          return {
             nativeName,
