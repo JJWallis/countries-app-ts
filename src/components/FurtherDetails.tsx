@@ -23,7 +23,11 @@ const FurtherDetails: React.FC = () => {
             languages: language,
          } = data
 
-         // func to repeat actions below - 'any' type for params
+         // 1. create array from data in obj above - loop over + return new
+         // array (within return statement check whether data is truthy)
+         // if so - add data to returned array - if not add 'No data provided'
+         // str in place of data
+         // 2.  func to repeat actions below - 'any' type for params
          // as don't care about data being passed in
 
          const nativeName = native
@@ -53,14 +57,18 @@ const FurtherDetails: React.FC = () => {
 
    const printData = () => {
       if (data) {
+         const {
+            flags: { svg: flag },
+            name: { common: name },
+         } = data
          const dataToMap = gatherData()
          return (
             <>
                <Wrapper flexChild>
-                  <CountryImg src={data.flags.svg} alt="Countries flag." />
+                  <CountryImg src={flag} alt="Countries flag." />
                </Wrapper>
                <Wrapper flexChild>
-                  <CountryName>{data.name.common}</CountryName>
+                  <CountryName>{name}</CountryName>
                   {dataToMap &&
                      Object.entries(dataToMap).map(([key, value]) => (
                         <CountryData key={key}>
