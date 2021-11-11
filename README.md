@@ -67,6 +67,12 @@ const handleRegions = () => {
       ))
 }
 // filtering logic
+
+function fetchData(endpoint: string) {
+   axios
+      .get<data>(endpoint)
+      ...
+      }
 ```
 
 ### Continued development
@@ -78,6 +84,8 @@ useEffect() - missing dependencies suggestions (caused to do with vars used with
 -  [Kevin Powell - Custom Select Menu](https://www.youtube.com/watch?v=bB14uo0Tu5A&t=183s&ab_channel=KevinPowell) - This helped me style the dropdown menu to allow users to filter the countries displayed, since I had never styled a select menu before this project. It was a great resource to learn how to hide the default arrow which is pinned to the edge of the menu, and how to create a more appealing one with pseudo elements using a border trick to create a triangle.
 
 -  [React Testing Library Crash Course](https://www.youtube.com/watch?v=GLSSRtnNY0g&ab_channel=LaithHarb) - A great crash course on the libraries' basic feature, my first introduction to testing.
+
+-  [React Testing Library Crash Course](https://www.youtube.com/watch?v=GLSSRtnNY0g&ab_channel=LaithHarb)https://betterprogramming.pub/stop-lying-to-react-about-missing-dependencies-10612e9aeeda - useRef() - get around ESLint warnings
 
 ## Author
 
@@ -116,7 +124,7 @@ useMemo() + useLayoutEffect()
 
 Typescript advanced-basics - exporting interfaces (+ storing elsewhere for DRY code) | type vs interface (destructuring context bug) | fixing any types for params in funcs (especially arr iteration methods) | typeof operator for type (dynamic) |
 
-useEffect - get out of async nature of state change | `useEffect(() => {}, [desiredRegion])` |
+useEffect - get out of async nature of state change | `useEffect(() => {}, [desiredRegion])`
 
 TS - any type error for params in funcs (Antartica - lacked properties attempting to convert to obj - undefined) | see value in TS
 

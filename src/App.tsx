@@ -30,10 +30,10 @@ const App: React.FC = () => {
 
    function fetchData(endpoint: string) {
       axios
-         .get(endpoint)
-         .then((data: any) => {
-            setCountries(data.data)
-            console.log(data.data)
+         .get<data>(endpoint)
+         .then((value) => {
+            setCountries(value.data)
+            console.log(value.data)
          })
          .catch((err) => console.log(err.message))
    }
