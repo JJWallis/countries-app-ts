@@ -6,8 +6,7 @@ import { CountryName } from './styled/StyledTitle'
 import { CountrySubTitle } from './styled/CountryDataTitle'
 import { CountryData } from './styled/CountryData'
 
-export interface Props {
-   key: string
+interface Props {
    data: {
       flags: { svg: string }
       name: { common: string }
@@ -18,13 +17,19 @@ export interface Props {
 }
 
 const CountryCard: React.FC<Props> = ({ data }) => {
-   const { flags, name, population, region, capital } = data
    const { handleFurtherDetails: hfr } = { ...useContext(Context) }
+   const {
+      flags: { svg: flag },
+      name: { common: name },
+      population,
+      region,
+      capital,
+   } = data
 
    return (
-      <Wrapper country onClick={() => hfr && hfr(name.common.toLowerCase())}>
-         <CountryImg src={flags.svg} alt="Countries flag." />
-         <CountryName>{name.common}</CountryName>
+      <Wrapper country onClick={() => hfr && hfr(name.toLowerCase())}>
+         <CountryImg src={flag} alt="Countries flag." />
+         <CountryName>{name}</CountryName>
          <Wrapper countryData>
             <CountrySubTitle>Population:</CountrySubTitle>
             <CountryData>{population}</CountryData>
