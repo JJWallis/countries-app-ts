@@ -8,14 +8,14 @@ const ThemeSwitcher: React.FC = () => {
    const { handleThemeChange: themeChange } = { ...useContext(Context) }
 
    useEffect(() => {
-      themeChange && themeChange(dark)
-      localStorage.setItem('dark', JSON.stringify(dark))
-   }, [dark, themeChange])
-
-   useEffect(() => {
       const theme = localStorage.getItem('dark')
       theme && setDark(JSON.parse(theme))
    }, [])
+
+   useEffect(() => {
+      themeChange && themeChange(dark)
+      localStorage.setItem('dark', JSON.stringify(dark))
+   }, [dark, themeChange])
 
    return (
       <>
