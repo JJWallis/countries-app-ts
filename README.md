@@ -73,6 +73,10 @@ function fetchData(endpoint: string) {
       .get<data>(endpoint)
       ...
       }
+
+return <Button error>No bordering countries</Button>
+
+// good error handling - displaying alternative to user
 ```
 
 ### Continued development

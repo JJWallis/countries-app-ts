@@ -23,6 +23,9 @@ const FurtherDetails: React.FC = () => {
             languages: language,
          } = data
 
+         // func to repeat actions below - 'any' type for params
+         // as don't care about data being passed in
+
          const nativeName = native
             ? Object.values(native)[0].official
             : 'No data provided'
