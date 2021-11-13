@@ -4,7 +4,7 @@ import { StyledFilter, StyledOption } from './styled/StyledFilter'
 import Wrapper from './styled/Wrapper'
 
 interface Props {
-   prevFilter: React.MutableRefObject<string>
+   prevFilter: string
    updatePrevFilter: (filter: string) => string
 }
 
@@ -17,8 +17,9 @@ const Filter: React.FC<Props> = ({ prevFilter, updatePrevFilter }) => {
       if (hasDataChanged.current !== desiredRegion) {
          hfr && hfr(desiredRegion)
          hasDataChanged.current = desiredRegion
+         updatePrevFilter(desiredRegion)
       }
-   }, [desiredRegion, hfr])
+   }, [desiredRegion, hfr, updatePrevFilter])
 
    const handleRegions = () => {
       const regions = new Set(countries?.map(({ region }) => region))
@@ -28,7 +29,7 @@ const Filter: React.FC<Props> = ({ prevFilter, updatePrevFilter }) => {
             <StyledOption
                key={region}
                onClick={() => setDesiredRegion(region)}
-               selected={desiredRegion === region}
+               selected={prevFilter === region}
             >
                {region}
             </StyledOption>

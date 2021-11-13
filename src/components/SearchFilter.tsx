@@ -16,7 +16,7 @@ const SearchFilter: React.FC = () => {
          <>
             <Search />
             <Filter
-               prevFilter={prevFilter}
+               prevFilter={prevFilter.current}
                updatePrevFilter={updatePrevFilter}
             />
          </>
