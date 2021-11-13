@@ -3,10 +3,15 @@ import { Context } from '../App'
 import { StyledFilter, StyledOption } from './styled/StyledFilter'
 import Wrapper from './styled/Wrapper'
 
-const Filter: React.FC = () => {
+interface Props {
+   prevFilter: React.MutableRefObject<string>
+   updatePrevFilter: (filter: string) => string
+}
+
+const Filter: React.FC<Props> = ({ prevFilter, updatePrevFilter }) => {
    const { handleFilterRegions: hfr, countries } = { ...useContext(Context) }
-   const [desiredRegion, setDesiredRegion] = useState<string>('')
-   const hasDataChanged = useRef(desiredRegion)
+   const [desiredRegion, setDesiredRegion] = useState('')
+   const hasDataChanged = useRef('')
 
    useEffect(() => {
       if (hasDataChanged.current !== desiredRegion) {
@@ -23,7 +28,7 @@ const Filter: React.FC = () => {
             <StyledOption
                key={region}
                onClick={() => setDesiredRegion(region)}
-               // selected={hasDataChanged.current === region}
+               selected={desiredRegion === region}
             >
                {region}
             </StyledOption>
@@ -33,10 +38,7 @@ const Filter: React.FC = () => {
    return (
       <Wrapper reset>
          <StyledFilter>
-            <StyledOption
-               selected={desiredRegion === ''}
-               onClick={() => setDesiredRegion('')}
-            >
+            <StyledOption onClick={() => setDesiredRegion('')}>
                Filter by region
             </StyledOption>
             {handleRegions()}

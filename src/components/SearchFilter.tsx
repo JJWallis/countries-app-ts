@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useRef } from 'react'
 import { Context } from '../App'
 import Wrapper from './styled/Wrapper'
 import Search from './Search'
@@ -7,12 +7,18 @@ import Button from './styled/StyledButton'
 
 const SearchFilter: React.FC = () => {
    const { homepage, setHomepage: sh } = { ...useContext(Context) }
+   const prevFilter = useRef<string>('')
+
+   const updatePrevFilter = (filter: string) => (prevFilter.current = filter)
 
    const handleLayoutChange = () => {
       return homepage ? (
          <>
             <Search />
-            <Filter />
+            <Filter
+               prevFilter={prevFilter}
+               updatePrevFilter={updatePrevFilter}
+            />
          </>
       ) : (
          <Button back onClick={() => sh && sh(true)}>
