@@ -7,7 +7,7 @@ import Button from './styled/StyledButton'
 
 const SearchFilter: React.FC = () => {
    const { homepage, setHomepage: sh } = { ...useContext(Context) }
-   const prevFilter = useRef<string>('')
+   const prevFilter = useRef('')
 
    const updatePrevFilter = (filter: string) => (prevFilter.current = filter)
 
