@@ -20,7 +20,11 @@ const Filter: React.FC = () => {
       return Array.from(regions)
          .sort()
          .map((region: string) => (
-            <StyledOption key={region} onClick={() => setDesiredRegion(region)}>
+            <StyledOption
+               key={region}
+               onClick={() => setDesiredRegion(region)}
+               // selected={hasDataChanged.current === region}
+            >
                {region}
             </StyledOption>
          ))
@@ -29,7 +33,10 @@ const Filter: React.FC = () => {
    return (
       <Wrapper reset>
          <StyledFilter>
-            <StyledOption onClick={() => setDesiredRegion('')}>
+            <StyledOption
+               selected={desiredRegion === ''}
+               onClick={() => setDesiredRegion('')}
+            >
                Filter by region
             </StyledOption>
             {handleRegions()}
