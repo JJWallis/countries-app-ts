@@ -19,6 +19,7 @@ interface ContextInterface {
 }
 
 type data =
+   // convert to interface for each country - type data = Country[] | null - Ben notes
    | {
         name: { common: string; nativeName: { official: string }[] }
         cioc: string
@@ -76,6 +77,7 @@ const App: React.FC = () => {
             cioc === country ||
             cca3 === country
       )
+      // chain another map() to get specific desired props for FurtherDetails
       if (countryData && countryData.length > 0) {
          error && setError(false)
          setFurtherDetails(countryData)
