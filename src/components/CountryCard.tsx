@@ -41,10 +41,10 @@ const CountryCard: React.FC<Props> = ({ data }) => {
          </Wrapper>
          <Wrapper countryData>
             <CountrySubTitle>Region:</CountrySubTitle>
-            <CountryData>{region ? region : 'No name provided'}</CountryData>
+            <CountryData>{region ? region : 'No data provided'}</CountryData>
          </Wrapper>
          <CountrySubTitle>Capital:</CountrySubTitle>
-         <CountryData>{capital ? capital : 'No name provided'}</CountryData>
+         <CountryData>{capital ? capital : 'No data provided'}</CountryData>
       </Wrapper>
    )
 }
