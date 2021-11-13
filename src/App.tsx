@@ -54,7 +54,7 @@ const App: React.FC = () => {
             setCountries(value.data)
             console.log(value.data)
          })
-         .catch((err) => console.log(err.message))
+         .catch((err) => console.error(err.message))
    }
 
    useEffect(() => fetchData('https://restcountries.com/v3.1/all'), [])

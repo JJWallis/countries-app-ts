@@ -26,11 +26,7 @@ const Filter: React.FC<Props> = ({ prevFilter, updatePrevFilter }) => {
       return Array.from(regions)
          .sort()
          .map((region: string) => (
-            <StyledOption
-               key={region}
-               onClick={() => setDesiredRegion(region)}
-               selected={prevFilter === region}
-            >
+            <StyledOption key={region} onClick={() => setDesiredRegion(region)}>
                {region}
             </StyledOption>
          ))
@@ -38,7 +34,7 @@ const Filter: React.FC<Props> = ({ prevFilter, updatePrevFilter }) => {
 
    return (
       <Wrapper reset>
-         <StyledFilter>
+         <StyledFilter defaultValue={prevFilter}>
             <StyledOption onClick={() => setDesiredRegion('')}>
                Filter by region
             </StyledOption>
