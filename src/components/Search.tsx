@@ -8,6 +8,10 @@ const Search: React.FC = () => {
    const [search, setSearch] = useState('')
    const { handleFurtherDetails: hfr, error } = { ...useContext(Context) }
 
+   const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+      if (e.key === 'Enter') handleSearchCountry()
+   }
+
    const handleSearchCountry = () => {
       if (search !== '') {
          hfr && hfr(search)
@@ -25,6 +29,7 @@ const Search: React.FC = () => {
             }
             value={search}
             onChange={(e) => setSearch(e.target.value)}
+            onKeyDown={handleKeyPress}
          />
          <StyledImg search src={SearchIcon} onClick={handleSearchCountry} />
       </>

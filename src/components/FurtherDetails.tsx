@@ -23,27 +23,20 @@ const FurtherDetails: React.FC = () => {
             languages: language,
          } = data
 
-         // 1. create array from data in obj above - loop over + return new
-         // array (within return statement check whether data is truthy)
-         // if so - add data to returned array - if not add 'No data provided'
-         // str in place of data
-         // 2.  func to repeat actions below - 'any' type for params
-         // as don't care about data being passed in
-
          const nativeName = native
             ? Object.values(native)[0].official
-            : 'No data provided'
+            : undefined
 
          const currencies = currency
             ? Object.values(currency)[0].name
-            : 'No data provided'
+            : undefined
 
          const languages = language
             ? `${[...Object.values(language)]}`
-            : 'No data provided'
+            : undefined
 
          return {
-            nativeName,
+            nativeName: nativeName,
             population,
             region,
             subregion,
@@ -65,7 +58,7 @@ const FurtherDetails: React.FC = () => {
          return (
             <>
                <Wrapper flexChild>
-                  <CountryImg src={flag} alt="Countries flag." />
+                  <CountryImg src={flag} alt="The visible country's flag." />
                </Wrapper>
                <Wrapper flexChild>
                   <CountryName>{name}</CountryName>
@@ -73,7 +66,7 @@ const FurtherDetails: React.FC = () => {
                      Object.entries(dataToMap).map(([key, value]) => (
                         <CountryData key={key}>
                            <CountrySubTitle>{key}:</CountrySubTitle>
-                           {value}
+                           {value ? value : 'No data provided'}
                         </CountryData>
                      ))}
                   <BorderCountries />
