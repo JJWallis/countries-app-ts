@@ -1,33 +1,23 @@
-import React, { useContext, useEffect, useRef, useState } from 'react'
+import React, { useContext, useEffect, useRef } from 'react'
+import { Context } from '../App'
 import StyledMain from './styled/StyledMain'
 import Wrapper from './styled/Wrapper'
 import SearchFilter from './SearchFilter'
 import Countries from './CountriesContainer'
-import { Context } from '../App'
 
 const Main: React.FC = () => {
    const { homepage } = { ...useContext(Context) }
-   const main = useRef<HTMLElement | null>(null)
+   const scrollRef = useRef<number | null>(null)
 
    useEffect(() => {
-      if (main.current) {
-         if (!homepage) {
-            localStorage.setItem(
-               'scroll-offset',
-               JSON.stringify(main.current.scrollTop)
-            )
-         } else {
-            // const offset = localStorage.getItem('scroll-offset')
-            // if (offset) {
-            //    setScrollOffset(JSON.parse(offset))
-            //    main.current.scrollTop = scrollOffset
-            // }
-         }
+      if (!homepage) {
+         scrollRef.current = window.scrollY
+      } else {
       }
    }, [homepage])
 
    return (
-      <StyledMain ref={main}>
+      <StyledMain>
          <Wrapper>
             <SearchFilter />
             <Countries />
