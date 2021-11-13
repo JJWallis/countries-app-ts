@@ -89,7 +89,9 @@ useEffect() - missing dependencies suggestions (caused to do with vars used with
 
 -  [React Testing Library Crash Course](https://www.youtube.com/watch?v=GLSSRtnNY0g&ab_channel=LaithHarb) - A great crash course on the libraries' basic feature, my first introduction to testing.
 
--  [React Testing Library Crash Course](https://www.youtube.com/watch?v=GLSSRtnNY0g&ab_channel=LaithHarb)https://betterprogramming.pub/stop-lying-to-react-about-missing-dependencies-10612e9aeeda - useRef() - get around ESLint warnings
+-  [React Testing Library Crash Course](https://www.youtube.com/watch?v=GLSSRtnNY0g&ab_channel=LaithHarb)https://betterprogramming.pub/stop-lying-to-react-about-missing-dependencies-10612e9aeeda - useRef() - get around ESLint warnings (saving app state + filtered options - being reset as re-mounted to DOM - lifted ref up to parent)
+
+-  [Axios Crash Course](https://www.youtube.com/watch?v=6LyagkoRWYA&t=79s&ab_channel=TraversyMedia) -
 
 ## Author
 
