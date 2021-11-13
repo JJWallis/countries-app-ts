@@ -10,9 +10,9 @@ interface Props {
    data: {
       flags: { svg: string }
       name: { common: string }
-      population?: number
-      region?: string
-      capital?: string
+      population: number
+      region: string
+      capital: string
    }
 }
 
@@ -28,18 +28,23 @@ const CountryCard: React.FC<Props> = ({ data }) => {
 
    return (
       <Wrapper country onClick={() => hfr && hfr(name.toLowerCase())}>
-         <CountryImg src={flag} alt="Countries flag." />
-         <CountryName>{name}</CountryName>
+         <CountryImg
+            src={flag ? flag : 'No data provided'}
+            alt="Country flag."
+         />
+         <CountryName>{name ? name : 'No data provided'}</CountryName>
          <Wrapper countryData>
             <CountrySubTitle>Population:</CountrySubTitle>
-            <CountryData>{population}</CountryData>
+            <CountryData>
+               {population ? population : 'No data provided'}
+            </CountryData>
          </Wrapper>
          <Wrapper countryData>
             <CountrySubTitle>Region:</CountrySubTitle>
-            <CountryData>{region}</CountryData>
+            <CountryData>{region ? region : 'No name provided'}</CountryData>
          </Wrapper>
          <CountrySubTitle>Capital:</CountrySubTitle>
-         <CountryData>{capital}</CountryData>
+         <CountryData>{capital ? capital : 'No name provided'}</CountryData>
       </Wrapper>
    )
 }
