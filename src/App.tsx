@@ -50,11 +50,18 @@ const App: React.FC = () => {
    function fetchData(endpoint: string) {
       axios
          .get<data>(endpoint)
-         .then((value) => {
-            setCountries(value.data)
-            console.log(value.data)
+         .then((value) => setCountries(value.data))
+         .catch((err) => {
+            console.error(err.message)
+            if (err.response.status === 404) {
+               // setError(true) + print error message
+            } else if (err.request) {
+               // request made but no response
+               // console.error(err.request)
+            } else {
+               console.error(err.message)
+            }
          })
-         .catch((err) => console.error(err.message))
    }
 
    useEffect(() => fetchData('https://restcountries.com/v3.1/all'), [])

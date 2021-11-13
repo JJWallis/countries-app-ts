@@ -8,6 +8,9 @@ const Search: React.FC = () => {
    const [search, setSearch] = useState('')
    const { handleFurtherDetails: hfr, error } = { ...useContext(Context) }
 
+   // const searchRef = React.useRef<HTMLInputElement>(null)
+   // local useRef - check when error true if anything is in search
+
    const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
       if (e.key === 'Enter') handleSearchCountry()
    }
