@@ -136,4 +136,4 @@ TS - any type error for params in funcs (Antartica - lacked properties attemptin
 
 Testing - React Testing Library + Jest | 1st project - catching logical errors (adding new features to app - hard to catch cross-component - bloated very quickly) | next project - adopt test-driven development approach
 
-Testing
+Testing, testing, testing
