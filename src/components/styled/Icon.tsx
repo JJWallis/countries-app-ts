@@ -3,9 +3,11 @@ import styled, { css } from 'styled-components'
 type IconProps = {
    moon?: boolean
    search?: boolean
+   darkTheme: boolean
 }
 
 export default styled.svg<IconProps>`
+   cursor: pointer;
    ${({ moon }) =>
       moon &&
       css`
