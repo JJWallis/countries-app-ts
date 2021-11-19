@@ -55,13 +55,13 @@ const App: React.FC = () => {
          .get<data>(endpoint)
          .then((value) => setCountries(value.data))
          .catch((err) => {
+            fetchError.current = true
             setError(true)
-            // pass down to Filter to render disabled
             console.error(err.message)
          })
    }
 
-   useEffect(() => fetchData('https://restcountries.com/v3.1/all'), [])
+   useEffect(() => fetchData('https://restcountries.com/v3.1/al'), [])
 
    const handleThemeChange = (dark: boolean) =>
       dark ? setTheme(darkTheme) : setTheme(lightTheme)

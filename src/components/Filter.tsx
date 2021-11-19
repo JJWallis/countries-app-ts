@@ -9,7 +9,11 @@ interface Props {
 }
 
 const Filter: React.FC<Props> = ({ prevFilter, updatePrevFilter }) => {
-   const { handleFilterRegions: hfr, countries } = { ...useContext(Context) }
+   const {
+      handleFilterRegions: hfr,
+      countries,
+      fetchError,
+   } = { ...useContext(Context) }
    const [desiredRegion, setDesiredRegion] = useState('')
    const hasDataChanged = useRef('')
 
@@ -34,7 +38,7 @@ const Filter: React.FC<Props> = ({ prevFilter, updatePrevFilter }) => {
 
    return (
       <Wrapper reset>
-         <StyledFilter defaultValue={prevFilter}>
+         <StyledFilter defaultValue={prevFilter} disabled={fetchError?.current}>
             <StyledOption onClick={() => setDesiredRegion('')}>
                Filter by region
             </StyledOption>

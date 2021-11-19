@@ -42,7 +42,8 @@ const Search: React.FC = () => {
       <>
          <StyledInput
             search
-            disabled={fetchError && error}
+            disabled={fetchError?.current}
+            // just use ref?
             error={hasErrorOccured()}
             placeholder={
                hasErrorOccured()
