@@ -19,7 +19,9 @@ const ThemeSwitcher: React.FC = () => {
 
    return (
       <>
-         <StyledLabel htmlFor="theme">Dark Mode</StyledLabel>
+         <StyledLabel htmlFor="theme" aria-label="Theme toggle switch.">
+            Dark Mode
+         </StyledLabel>
          <StyledInput
             checkbox
             type="checkbox"

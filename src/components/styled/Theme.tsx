@@ -29,4 +29,4 @@ export const darkTheme = {
 }
 
 // error msg red shade colour
-// transition for theme change
+// transition timing func + duration/delay for theme change
