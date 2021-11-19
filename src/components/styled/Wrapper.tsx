@@ -12,7 +12,6 @@ type Props = {
    flexWrap?: boolean
    flexChild?: boolean
    display?: 'grid' | 'flexWrap'
-   border?: boolean
 }
 
 export default styled.div<Props>`
@@ -74,6 +73,7 @@ export default styled.div<Props>`
          display: flex;
          justify-content: space-between;
          align-items: center;
+         position: relative;
       `}
 
    ${({ sf }) =>
@@ -87,9 +87,7 @@ export default styled.div<Props>`
             align-items: flex-start;
          }
       `}
-
-     
-      
+ 
       ${({ display }) =>
       display === 'grid' &&
       css`
@@ -136,11 +134,5 @@ export default styled.div<Props>`
       flexChild &&
       css`
          flex: 1 300px;
-      `}
-
-      ${({ border }) =>
-      border &&
-      css`
-         margin: 0;
       `}
 `

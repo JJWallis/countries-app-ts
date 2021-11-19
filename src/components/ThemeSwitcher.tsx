@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { Context } from '../App'
 import StyledInput from './styled/StyledInput'
 import { StyledLabel } from './styled/StyledLabel'
+import Icon from './styled/Icon'
 
 const ThemeSwitcher: React.FC = () => {
    const [dark, setDark] = useState(false)
@@ -22,6 +23,7 @@ const ThemeSwitcher: React.FC = () => {
          <StyledLabel htmlFor="theme" aria-label="Theme toggle switch.">
             Dark Mode
          </StyledLabel>
+         <Icon moon />
          <StyledInput
             checkbox
             type="checkbox"
