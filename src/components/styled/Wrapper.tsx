@@ -81,11 +81,11 @@ export default styled.div<Props>`
       css`
          outline: 1px solid limegreen;
          margin: 1.5rem 0 5rem;
-         @media (max-width: 700px) {
+         @media (max-width: ${({ theme }) => theme.breakpoint}) {
             flex-direction: column;
             justify-content: unset;
             align-items: flex-start;
-            gap: 3rem;
+            gap: 3.5rem;
          }
       `}
  

@@ -1,8 +1,6 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
 import { Context } from '../App'
 import StyledInput from './styled/StyledInput'
-import StyledImg from './styled/StyledImg'
-import SearchIcon from '../assets/search.svg'
 
 //  if not - sep local searchError state toggled from error state in App
 //  toggles to true based on hasErrorOccured logic
