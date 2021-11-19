@@ -26,6 +26,15 @@ const CountryCard: React.FC<Props> = ({ data }) => {
       capital,
    } = data
 
+   const printData = (subtitle: string, data: string | number) => {
+      return (
+         <Wrapper countryData>
+            <CountrySubTitle>{subtitle}</CountrySubTitle>
+            <CountryData>{data ? data : 'No data provided'}</CountryData>
+         </Wrapper>
+      )
+   }
+
    return (
       <Wrapper country onClick={() => hfr && hfr(name.toLowerCase())}>
          <CountryImg
@@ -33,18 +42,9 @@ const CountryCard: React.FC<Props> = ({ data }) => {
             alt="Country flag."
          />
          <CountryName>{name ? name : 'No data provided'}</CountryName>
-         <Wrapper countryData>
-            <CountrySubTitle>Population:</CountrySubTitle>
-            <CountryData>
-               {population ? population : 'No data provided'}
-            </CountryData>
-         </Wrapper>
-         <Wrapper countryData>
-            <CountrySubTitle>Region:</CountrySubTitle>
-            <CountryData>{region ? region : 'No data provided'}</CountryData>
-         </Wrapper>
-         <CountrySubTitle>Capital:</CountrySubTitle>
-         <CountryData>{capital ? capital : 'No data provided'}</CountryData>
+         {printData('Population:', population)}
+         {printData('Region:', region)}
+         {printData('Capital:', capital)}
       </Wrapper>
    )
 }
