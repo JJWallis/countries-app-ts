@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import { Context } from '../App'
 import StyledInput from './styled/StyledInput'
 import StyledImg from './styled/StyledImg'
@@ -7,9 +7,17 @@ import SearchIcon from '../assets/search.svg'
 const Search: React.FC = () => {
    const [search, setSearch] = useState('')
    const { handleFurtherDetails: hfr, error } = { ...useContext(Context) }
+   const hasInputChanged = useRef(false)
 
-   // const searchRef = React.useRef<HTMLInputElement>(null)
-   // local useRef - check when error true if anything is in search
+   // func to check ref status each time error state changes - if true then return true (else false)
+
+   useEffect(() => {
+      if (search) {
+         hasInputChanged.current = true
+      } else if (search === '' && hasInputChanged.current) {
+         hasInputChanged.current = false
+      }
+   }, [search])
 
    const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
       if (e.key === 'Enter') handleSearchCountry()
