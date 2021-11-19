@@ -4,6 +4,9 @@ import StyledInput from './styled/StyledInput'
 import StyledImg from './styled/StyledImg'
 import SearchIcon from '../assets/search.svg'
 
+//  if not - sep local searchError state toggled from error state in App
+//  toggles to true based on hasErrorOccured logic
+
 const Search: React.FC = () => {
    const [search, setSearch] = useState('')
    const {
@@ -20,9 +23,6 @@ const Search: React.FC = () => {
          hasInputChanged.current = false
       }
    }, [search])
-
-   //  if not - sep local searchError state toggled from error state in App
-   //  toggles to true based on hasErrorOccured logic
 
    const hasErrorOccured = () =>
       hasInputChanged.current && error ? true : false
