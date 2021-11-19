@@ -36,10 +36,10 @@ const FurtherDetails: React.FC = () => {
             : undefined
 
          return {
-            nativeName: nativeName,
+            nativeName,
             population,
             region,
-            subregion,
+            subRegion: subregion,
             capital,
             topLevelDomain: data.tld[0],
             currencies,
@@ -65,8 +65,14 @@ const FurtherDetails: React.FC = () => {
                   {dataToMap &&
                      Object.entries(dataToMap).map(([key, value]) => (
                         <CountryData key={key}>
-                           <CountrySubTitle>{key}:</CountrySubTitle>
-                           {value ? value : 'No data provided'}
+                           <CountrySubTitle>
+                              {key[0].toUpperCase() +
+                                 key.slice(1, key.length).split(' ')}
+                              :
+                           </CountrySubTitle>
+                           {value
+                              ? value.toString().split(',').join(', ')
+                              : 'No data provided'}
                         </CountryData>
                      ))}
                   <BorderCountries />

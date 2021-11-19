@@ -20,7 +20,6 @@ interface ContextInterface {
 }
 
 type data =
-   // convert to interface for each country - type data = Country[] | null - Ben notes
    | {
         name: { common: string; nativeName: { official: string }[] }
         cioc: string
