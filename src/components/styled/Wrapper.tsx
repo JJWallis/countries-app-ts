@@ -5,7 +5,6 @@ type Props = {
    spacing?: boolean
    sb?: boolean
    sf?: boolean
-   hdr?: boolean
    grid?: boolean
    country?: boolean
    countryData?: boolean
@@ -17,9 +16,14 @@ type Props = {
 }
 
 export default styled.div<Props>`
-   margin: 0 auto;
-   width: 90%;
-   max-width: 1500px;
+   ${({ align }) =>
+      align &&
+      css`
+         margin: 0 auto;
+         width: 90%;
+         max-width: 1500px;
+      `}
+
    ${({ spacing }) =>
       spacing &&
       css`
@@ -84,13 +88,7 @@ export default styled.div<Props>`
          }
       `}
 
-      ${({ hdr }) =>
-      hdr &&
-      css`
-         @media (max-width: 700px) {
-            width: 100%;
-         }
-      `}
+     
       
       ${({ display }) =>
       display === 'grid' &&

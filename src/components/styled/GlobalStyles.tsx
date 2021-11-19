@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyles = createGlobalStyle`
 body {
-  font: 1rem Nunito, sans-serif;
+  font: 0.8rem Nunito, sans-serif;
 }
 
 *,

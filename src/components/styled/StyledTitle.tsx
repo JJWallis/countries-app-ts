@@ -5,7 +5,7 @@ interface LoadingProps {
 }
 
 export const MainTitle = styled.h1`
-   font-size: 2rem;
+   font-size: 1.5rem;
    letter-spacing: 0.05ch;
    color: ${({ theme: { color } }) => color};
 `

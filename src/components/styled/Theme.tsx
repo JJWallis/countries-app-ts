@@ -5,6 +5,7 @@ export type theme = {
    elements: string
    shadow: string
    headerShadow: string
+   breakpoint: string
 }
 
 export const lightTheme = {
@@ -14,6 +15,7 @@ export const lightTheme = {
    elements: 'hsl(0, 0%, 100%)',
    shadow: '0 0 20px 0 rgba(0,0,0,0.1)',
    headerShadow: '0 0px 30px 0 rgba(0, 0, 0, 0.2)',
+   breakpoint: '700px',
 }
 
 export const darkTheme = {
@@ -23,9 +25,8 @@ export const darkTheme = {
    elements: 'hsl(209, 23%, 22%)',
    shadow: '0 0 20px 0 rgba(0,0,0,0.1)',
    headerShadow: '0 0px 30px 0 rgba(0, 0, 0, 0.2)',
+   breakpoint: '700px',
 }
 
 // error msg red shade colour
 // transition for theme change
-// max-width: 700px breakpoint
-// Fonts - Homepage 14px + Detail Page: 16px
