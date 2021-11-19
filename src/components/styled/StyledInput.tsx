@@ -22,6 +22,7 @@ export default styled.input<Props>`
          max-width: 550px;
          @media (min-width: ${({ theme }) => theme.breakpoint}) {
             font-size: 1.1rem;
+            width: 55%;
          }
       `}
    ${({ checkbox }) =>
