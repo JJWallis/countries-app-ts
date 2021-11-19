@@ -12,6 +12,7 @@ type Props = {
    flexWrap?: boolean
    flexChild?: boolean
    display?: 'grid' | 'flexWrap'
+   main?: boolean
 }
 
 export default styled.div<Props>`
@@ -29,10 +30,18 @@ export default styled.div<Props>`
          padding-block: 1rem;
       `}
 
+      ${({ main }) =>
+      main &&
+      css`
+         padding-top: 1rem;
+         @media (min-width: ${({ theme }) => theme.breakpoint}) {
+            padding-top: 2.3rem;
+         }
+      `} 
+
    ${({ filter }) =>
       filter &&
       css`
-         /* outline: 1px solid lime; */
          display: flex;
          justify-content: flex-start;
          width: 240px;
@@ -54,13 +63,13 @@ export default styled.div<Props>`
    ${({ sf }) =>
       sf &&
       css`
-         /* outline: 1px solid limegreen; */
-         margin: 1.5rem 0 5rem;
+         margin: 1.5rem 0 4rem;
          @media (max-width: ${({ theme }) => theme.breakpoint}) {
             flex-direction: column;
             justify-content: unset;
             align-items: flex-start;
             gap: 3.5rem;
+            margin-bottom: 3.5rem;
          }
       `}
  
