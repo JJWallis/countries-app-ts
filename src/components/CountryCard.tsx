@@ -26,13 +26,19 @@ const CountryCard: React.FC<Props> = ({ data }) => {
       capital,
    } = data
 
-   const printData = (subtitle: string, data: string | number) => {
-      return (
+   const printData = (data: {
+      population: string | Props['data']['population']
+      region: Props['data']['region']
+      capital: Props['data']['capital']
+   }) => {
+      return Object.entries(data).map(([key, value]) => (
          <Wrapper countryData>
-            <CountrySubTitle>{subtitle}</CountrySubTitle>
-            <CountryData>{data ? data : 'No data provided'}</CountryData>
+            <CountrySubTitle>
+               {key[0].toUpperCase() + key.slice(1, key.length)}
+            </CountrySubTitle>
+            <CountryData>{value ? value : 'No data provided'}</CountryData>
          </Wrapper>
-      )
+      ))
    }
 
    return (
@@ -42,9 +48,7 @@ const CountryCard: React.FC<Props> = ({ data }) => {
             alt="Country flag."
          />
          <CountryName>{name ? name : 'No data provided'}</CountryName>
-         {printData('Population:', population)}
-         {printData('Region:', region)}
-         {printData('Capital:', capital)}
+         {printData({ population, region, capital })}
       </Wrapper>
    )
 }
