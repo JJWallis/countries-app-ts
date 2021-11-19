@@ -17,8 +17,8 @@ const Search: React.FC = () => {
       }
    }, [search])
 
-   //    if not - sep local searchError state toggled from error state in App
-   //     toggles to true based on hasErrorOccured logic
+   //  if not - sep local searchError state toggled from error state in App
+   //  toggles to true based on hasErrorOccured logic
 
    const hasErrorOccured = () =>
       hasInputChanged.current && error ? true : false
