@@ -5,9 +5,9 @@ export const StyledFilter = styled.select`
    border: none;
    width: 80%;
    padding: 1rem 6rem 1rem 1rem;
-   background-color: ${(props) => props.theme.elements};
-   box-shadow: ${(props) => props.theme.shadow};
-   color: ${(props) => props.theme.color};
+   background-color: ${({ theme: { elements } }) => elements};
+   box-shadow: ${({ theme: { shadow } }) => shadow};
+   color: ${({ theme: { color } }) => color};
 `
 
 export const StyledOption = styled.option``

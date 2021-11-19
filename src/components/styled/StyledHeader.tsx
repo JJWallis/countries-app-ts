@@ -4,9 +4,9 @@ const StyledHeader = styled.header`
    display: flex;
    flex-direction: column;
    justify-content: center;
-   box-shadow: ${(props) => props.theme.headerShadow};
+   box-shadow: ${({ theme: { headerShadow } }) => headerShadow};
    padding-block: 1rem;
-   background-color: ${(props) => props.theme.elements};
+   background-color: ${({ theme: { elements } }) => elements};
 `
 
 export default StyledHeader

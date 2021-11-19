@@ -7,8 +7,8 @@ interface Props {
 export default styled.img<Props>`
    display: block;
    max-width: 100%;
-   ${(props) =>
-      props.search &&
+   ${({ search }) =>
+      search &&
       css`
          width: 40px;
          max-width: unset;

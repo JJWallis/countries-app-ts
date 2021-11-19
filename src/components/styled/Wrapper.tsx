@@ -19,8 +19,9 @@ export default styled.div<Props>`
    width: 90%;
    max-width: 1500px;
    padding-block: 1rem;
-   ${(props) =>
-      props.reset &&
+
+   ${({ reset }) =>
+      reset &&
       css`
          margin: unset;
          width: unset;
@@ -56,15 +57,17 @@ export default styled.div<Props>`
             pointer-events: none;
          }
       `}
-   ${(props) =>
-      props.sb &&
+
+   ${({ sb }) =>
+      sb &&
       css`
          display: flex;
          justify-content: space-between;
          align-items: center;
       `}
-   ${(props) =>
-      props.sf &&
+
+   ${({ sf }) =>
+      sf &&
       css`
          margin: 1rem 0;
          width: 100%;
@@ -74,15 +77,17 @@ export default styled.div<Props>`
             align-items: flex-start;
          }
       `}
-      ${(props) =>
-      props.hdr &&
+
+      ${({ hdr }) =>
+      hdr &&
       css`
          @media (max-width: 700px) {
             width: 100%;
          }
       `}
-      ${(props) =>
-      props.display === 'grid' &&
+      
+      ${({ display }) =>
+      display === 'grid' &&
       css`
          display: grid;
          width: 100%;
@@ -91,8 +96,17 @@ export default styled.div<Props>`
          grid-auto-rows: auto;
          grid-gap: 4rem;
       `}
-      ${(props) =>
-      props.country &&
+
+      ${({ display }) =>
+      display === 'flexWrap' &&
+      css`
+         display: flex;
+         flex-wrap: wrap;
+         gap: 3rem;
+      `}
+
+      ${({ country }) =>
+      country &&
       css`
          border-radius: 5px;
          box-shadow: ${(props) => props.theme.shadow};
@@ -105,27 +119,23 @@ export default styled.div<Props>`
             transform: scale(1.1);
          }
       `}
-      ${(props) =>
-      props.countryData &&
+
+      ${({ countryData }) =>
+      countryData &&
       css`
          margin: 0;
          width: 100%;
          padding: 0;
       `}
-      ${(props) =>
-      props.display === 'flexWrap' &&
-      css`
-         display: flex;
-         flex-wrap: wrap;
-         gap: 3rem;
-      `}
-      ${(props) =>
-      props.flexChild &&
+
+      ${({ flexChild }) =>
+      flexChild &&
       css`
          flex: 1 300px;
       `}
-      ${(props) =>
-      props.border &&
+
+      ${({ border }) =>
+      border &&
       css`
          margin: 0;
       `}

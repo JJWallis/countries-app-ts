@@ -12,15 +12,15 @@ const Button = styled.button<Props>`
    border: none;
    border-radius: 5px;
    padding: 0.8em 3em;
-   box-shadow: ${(props) => props.theme.shadow};
-   background-color: ${(props) => props.theme.elements};
-   color: ${(props) => props.theme.color};
+   box-shadow: ${({ theme: { shadow } }) => shadow};
+   background-color: ${({ theme: { elements } }) => elements};
+   color: ${({ theme: { color } }) => color};
    cursor: pointer;
    ${(props) =>
       props.back &&
       css`
-         background: ${(props) => props.theme.elements} url(${Arrow}) no-repeat
-            10% center / 20%;
+         background: ${({ theme: { elements } }) => elements} url(${Arrow})
+            no-repeat 10% center / 20%;
       `}
    ${(props) =>
       props.country &&

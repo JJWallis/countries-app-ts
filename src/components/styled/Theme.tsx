@@ -24,3 +24,6 @@ export const darkTheme = {
    shadow: '0 0 20px 0 rgba(0,0,0,0.1)',
    headerShadow: '0 0px 30px 0 rgba(0, 0, 0, 0.2)',
 }
+
+// error msg red shade colour
+// transition for theme change

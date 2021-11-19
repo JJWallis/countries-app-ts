@@ -7,28 +7,28 @@ interface Props {
 }
 
 export default styled.input<Props>`
-   ${(props) =>
-      props.search &&
+   ${({ search }) =>
+      search &&
       css`
          outline: none;
          border: none;
          border-radius: 5px;
-         box-shadow: ${(props) => props.theme.shadow};
-         background-color: ${(props) => props.theme.elements};
-         color: ${(props) => props.theme.input};
+         box-shadow: ${({ theme: { shadow } }) => shadow};
+         background-color: ${({ theme: { elements } }) => elements};
+         color: ${({ theme: { input } }) => input};
          padding: 1.2rem 0 1.2rem 4.5rem;
          width: 37%;
          position: relative;
       `}
-   ${(props) =>
-      props.checkbox &&
+   ${({ checkbox }) =>
+      checkbox &&
       css`
          position: absolute;
          right: 120px;
          opacity: 0;
       `}
-      ${(props) =>
-      props.error &&
+      ${({ error }) =>
+      error &&
       css`
          &::placeholder {
             color: red;
