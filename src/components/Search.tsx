@@ -17,15 +17,11 @@ const Search: React.FC = () => {
       }
    }, [search])
 
-   useEffect(() => {
-      // check if error is true then run func below?
-      // what happens when error turns back to false from true?
-      // if not - sep local searchError state toggled from error state in App
-      // toggles to true based on hasErrorOccured logic
-      hasErrorOccured()
-   }, [error])
+   //    if not - sep local searchError state toggled from error state in App
+   //     toggles to true based on hasErrorOccured logic
 
-   const hasErrorOccured = () => (hasInputChanged.current ? true : false)
+   const hasErrorOccured = () =>
+      hasInputChanged.current && error ? true : false
 
    const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
       if (e.key === 'Enter') handleSearchCountry()
