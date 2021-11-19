@@ -22,7 +22,7 @@ const Button = styled.button<Props>`
          position: relative;
          font-size: 1rem;
          font-weight: 300;
-         padding: 0.6em 2.5em 0.6em 3.5em;
+         padding: 0.6em 2.5em 0.6em 3.8em;
       `}
    ${({ country }) =>
       country &&

@@ -10,21 +10,27 @@ export default styled.svg<IconProps>`
    display: block;
    position: absolute;
    cursor: pointer;
+   height: 27px;
+   top: 50%;
+   transform: translateY(-50%);
+   fill: ${({ theme: { color } }) => color};
    ${({ moon }) =>
       moon &&
       css`
          right: 100px;
-         top: 50%;
-         transform: translateY(-50%);
          height: 20px;
-         fill: ${({ theme: { color } }) => color};
       `}
    ${({ search }) =>
       search &&
       css`
-         height: 27px;
          top: 20px;
          left: 30px;
          fill: ${({ theme: { input } }) => input};
+         transform: unset;
+      `}
+      ${({ arrow }) =>
+      arrow &&
+      css`
+         left: 28px;
       `}
 `
