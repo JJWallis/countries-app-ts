@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components'
 type IconProps = {
    moon?: boolean
    search?: boolean
+   arrow?: boolean
 }
 
 export default styled.svg<IconProps>`

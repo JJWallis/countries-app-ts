@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components'
-import Arrow from '../../assets/arrow-left.svg'
 
 type Props = {
    back?: boolean
@@ -16,20 +15,23 @@ const Button = styled.button<Props>`
    background-color: ${({ theme: { elements } }) => elements};
    color: ${({ theme: { color } }) => color};
    cursor: pointer;
-   ${(props) =>
-      props.back &&
+
+   ${({ back }) =>
+      back &&
       css`
-         background: ${({ theme: { elements } }) => elements} url(${Arrow})
-            no-repeat 10% center / 20%;
+         position: relative;
+         font-size: 1rem;
+         font-weight: 300;
+         padding: 0.6em 2.5em 0.6em 3.5em;
       `}
-   ${(props) =>
-      props.country &&
+   ${({ country }) =>
+      country &&
       css`
          padding-inline: 2em;
          margin-right: 1rem;
       `}
-      ${(props) =>
-      props.error &&
+      ${({ error }) =>
+      error &&
       css`
          cursor: not-allowed;
       `}

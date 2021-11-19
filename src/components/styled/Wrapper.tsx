@@ -32,7 +32,7 @@ export default styled.div<Props>`
    ${({ filter }) =>
       filter &&
       css`
-         outline: 1px solid lime;
+         /* outline: 1px solid lime; */
          display: flex;
          justify-content: flex-start;
          width: 240px;
@@ -54,7 +54,7 @@ export default styled.div<Props>`
    ${({ sf }) =>
       sf &&
       css`
-         outline: 1px solid limegreen;
+         /* outline: 1px solid limegreen; */
          margin: 1.5rem 0 5rem;
          @media (max-width: ${({ theme }) => theme.breakpoint}) {
             flex-direction: column;
