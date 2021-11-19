@@ -5,10 +5,10 @@ type Props = {
    spacing?: boolean
    sb?: boolean
    sf?: boolean
+   filter?: boolean
    grid?: boolean
    country?: boolean
    countryData?: boolean
-   reset?: boolean
    flexWrap?: boolean
    flexChild?: boolean
    display?: 'grid' | 'flexWrap'
@@ -29,41 +29,14 @@ export default styled.div<Props>`
          padding-block: 1rem;
       `}
 
-   ${({ reset }) =>
-      reset &&
+   ${({ filter }) =>
+      filter &&
       css`
-         margin: unset;
-         width: unset;
-         max-width: unset;
-         padding-block: unset;
+         /* outline: 1px solid lime; */
          display: flex;
-         justify-content: flex-end;
-         position: relative;
-         &::before {
-            content: '';
-            display: block;
-            position: absolute;
-            top: 0px;
-            right: 0px;
-            width: 40px;
-            height: 48px;
-            background-color: ${(props) => props.theme.elements};
-            pointer-events: none;
-            border-radius: 5px;
-         }
-         &::after {
-            content: '';
-            display: block;
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            right: 15px;
-            width: 0;
-            height: 0;
-            border-left: 7px dashed transparent;
-            border-right: 7px dashed transparent;
-            border-top: 7px dashed white;
-            pointer-events: none;
+         justify-content: flex-start;
+         @media (min-width: ${({ theme }) => theme.breakpoint}) {
+            justify-content: flex-end;
          }
       `}
 
