@@ -67,7 +67,10 @@ const FurtherDetails: React.FC = () => {
                         <CountryData key={key}>
                            <CountrySubTitle>
                               {key[0].toUpperCase() +
-                                 key.slice(1, key.length).split(' ')}
+                                 key
+                                    .slice(1, key.length)
+                                    .split(/(?=[A-Z])/)
+                                    .join(' ')}
                               :
                            </CountrySubTitle>
                            {value
