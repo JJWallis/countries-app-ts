@@ -32,7 +32,7 @@ const Search: React.FC = () => {
    }
 
    const handleSearchCountry = () => {
-      if (search !== '') {
+      if (search !== '' && !fetchError?.current) {
          hfr && hfr(search)
          setSearch('')
       }

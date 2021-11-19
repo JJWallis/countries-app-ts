@@ -89,7 +89,7 @@ useEffect() - missing dependencies suggestions (caused to do with vars used with
 
 -  [React Testing Library Crash Course](https://www.youtube.com/watch?v=GLSSRtnNY0g&ab_channel=LaithHarb) - A great crash course on the libraries' basic feature, my first introduction to testing.
 
--  [React Testing Library Crash Course](https://www.youtube.com/watch?v=GLSSRtnNY0g&ab_channel=LaithHarb)https://betterprogramming.pub/stop-lying-to-react-about-missing-dependencies-10612e9aeeda - useRef() - get around ESLint warnings (saving app state + filtered options - being reset as re-mounted to DOM - lifted ref up to parent)
+-  [React Testing Library Crash Course](https://www.youtube.com/watch?v=GLSSRtnNY0g&ab_channel=LaithHarb)https://betterprogramming.pub/stop-lying-to-react-about-missing-dependencies-10612e9aeeda - useRef() - get around ESLint warnings (saving app state + filtered options - being reset as re-mounted to DOM - lifted ref up to parent) | code order - updating ref 1st + then error state after (causing inputs to be disabled on data fetching error)
 
 -  [Axios Crash Course](https://www.youtube.com/watch?v=6LyagkoRWYA&t=79s&ab_channel=TraversyMedia) - request made but no response | err.response.status === 404 | console.error(err.request ? err.request : err.message)
 
@@ -135,9 +135,3 @@ useEffect - get out of async nature of state change | `useEffect(() => {}, [desi
 TS - any type error for params in funcs (Antartica - lacked properties attempting to convert to obj - undefined) | see value in TS
 
 Testing - React Testing Library + Jest | 1st project - catching logical errors (adding new features to app - hard to catch cross-component - bloated very quickly) | next project - adopt test-driven development approach
-
-Testing, testing, testing
-
-Testing, testing, testing
-
-Testing, testing, testing
