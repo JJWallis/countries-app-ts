@@ -32,11 +32,13 @@ export default styled.div<Props>`
    ${({ filter }) =>
       filter &&
       css`
-         /* outline: 1px solid lime; */
+         outline: 1px solid lime;
          display: flex;
          justify-content: flex-start;
+         width: 240px;
          @media (min-width: ${({ theme }) => theme.breakpoint}) {
             justify-content: flex-end;
+            width: 220px;
          }
       `}
 
