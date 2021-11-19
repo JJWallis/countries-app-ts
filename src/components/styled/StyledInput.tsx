@@ -12,15 +12,17 @@ export default styled.input<Props>`
       css`
          outline: none;
          border: none;
-         position: relative;
          border-radius: 5px;
          box-shadow: ${({ theme: { shadow } }) => shadow};
          background-color: ${({ theme: { elements } }) => elements};
          color: ${({ theme: { input } }) => input};
          font-size: 1.2rem;
-         padding: 1.2rem 0 1.2rem 4.5rem;
+         padding: 1.2rem 0 1.2rem 5.5rem;
          width: 100%;
          max-width: 550px;
+         @media (min-width: ${({ theme }) => theme.breakpoint}) {
+            font-size: 1.1rem;
+         }
       `}
    ${({ checkbox }) =>
       checkbox &&

@@ -25,7 +25,6 @@ const ThemeSwitcher: React.FC = () => {
          </StyledLabel>
          <Icon
             moon
-            darkTheme={dark}
             aria-hidden="true"
             focusable="false"
             role="img"
