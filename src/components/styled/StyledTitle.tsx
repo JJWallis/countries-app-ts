@@ -1,4 +1,8 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+
+interface LoadingProps {
+   error?: boolean
+}
 
 export const MainTitle = styled.h1`
    font-size: 2rem;
@@ -6,10 +10,11 @@ export const MainTitle = styled.h1`
    color: ${(props) => props.theme.color};
 `
 
-export const Loading = styled.h2`
+export const Loading = styled.h2<LoadingProps>`
    color: ${(props) => props.theme.color};
    text-align: center;
    font-size: 10rem;
+   ${({ error }) => error && css``};
 `
 
 export const CountryName = styled.h2`

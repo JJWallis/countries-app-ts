@@ -55,12 +55,11 @@ const App: React.FC = () => {
          .catch((err) => {
             console.error(err.message)
             if (err.response.status === 404) {
-               // setError(true) + print error message
-            } else if (err.request) {
-               // request made but no response
-               // console.error(err.request)
+               // setError(true) + print error message (where loading is)
             } else {
-               console.error(err.message)
+               // do above for this block too?
+               // request made but no response
+               console.error(err.request ? err.request : err.message)
             }
          })
    }

@@ -7,7 +7,9 @@ import { Loading } from './styled/StyledTitle'
 import FurtherDetails from './FurtherDetails'
 
 const CountriesContainer: React.FC = () => {
-   const { filteredRegions, countries, homepage } = { ...useContext(Context) }
+   const { filteredRegions, countries, homepage, error } = {
+      ...useContext(Context),
+   }
 
    const determineData = () => (!filteredRegions ? countries : filteredRegions)
 
@@ -21,7 +23,7 @@ const CountriesContainer: React.FC = () => {
                      <CountryCard key={uuidv4()} data={country} />
                   ))
                ) : (
-                  <Loading>Loading...</Loading>
+                  <Loading>{error ? 'Data invalid' : 'Loading...'}</Loading>
                )}
             </Wrapper>
          )
