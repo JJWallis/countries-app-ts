@@ -79,12 +79,13 @@ export default styled.div<Props>`
    ${({ sf }) =>
       sf &&
       css`
-         margin: 1rem 0;
-         width: 100%;
+         outline: 1px solid limegreen;
+         margin: 1.5rem 0 5rem;
          @media (max-width: 700px) {
             flex-direction: column;
             justify-content: unset;
             align-items: flex-start;
+            gap: 3rem;
          }
       `}
  

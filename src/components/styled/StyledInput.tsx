@@ -17,8 +17,11 @@ export default styled.input<Props>`
          background-color: ${({ theme: { elements } }) => elements};
          color: ${({ theme: { input } }) => input};
          padding: 1.2rem 0 1.2rem 4.5rem;
-         width: 37%;
-         position: relative;
+         width: 100%;
+         max-width: 500px;
+         @media (max-width: ${({ theme }) => theme.breakpoint}) {
+            margin: 0 auto;
+         }
       `}
    ${({ checkbox }) =>
       checkbox &&

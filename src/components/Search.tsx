@@ -43,7 +43,6 @@ const Search: React.FC = () => {
          <StyledInput
             search
             disabled={fetchError?.current}
-            // just use ref?
             error={hasErrorOccured()}
             placeholder={
                hasErrorOccured()
@@ -54,7 +53,7 @@ const Search: React.FC = () => {
             onChange={(e) => setSearch(e.target.value)}
             onKeyDown={handleKeyPress}
          />
-         <StyledImg search src={SearchIcon} onClick={handleSearchCountry} />
+         {/* <StyledImg search src={SearchIcon} onClick={handleSearchCountry} /> */}
       </>
    )
 }
