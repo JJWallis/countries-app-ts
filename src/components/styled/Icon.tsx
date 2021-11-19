@@ -19,4 +19,9 @@ export default styled.svg<IconProps>`
          height: 20px;
       `}
    ${({ search }) => search && css``}
+   ${({ darkTheme }) =>
+      darkTheme &&
+      css`
+         fill: white;
+      `}
 `
