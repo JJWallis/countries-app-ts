@@ -23,7 +23,11 @@ const CountriesContainer: React.FC = () => {
                      <CountryCard key={uuidv4()} data={country} />
                   ))
                ) : (
-                  <Loading>{error ? 'Data invalid' : 'Loading...'}</Loading>
+                  <Loading>
+                     {error
+                        ? 'Data invalid, please reload & try again'
+                        : 'Loading...'}
+                  </Loading>
                )}
             </Wrapper>
          )

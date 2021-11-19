@@ -53,14 +53,8 @@ const App: React.FC = () => {
          .get<data>(endpoint)
          .then((value) => setCountries(value.data))
          .catch((err) => {
+            setError(true)
             console.error(err.message)
-            if (err.response.status === 404) {
-               // setError(true) + print error message (where loading is)
-            } else {
-               // do above for this block too?
-               // request made but no response
-               console.error(err.request ? err.request : err.message)
-            }
          })
    }
 
