@@ -118,6 +118,6 @@ export default styled.div<Props>`
       ${({ flexChild }) =>
       flexChild &&
       css`
-         flex: 1 300px;
+         flex: 1 400px;
       `}
 `
