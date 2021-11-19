@@ -54,6 +54,8 @@ const App: React.FC = () => {
          .then((value) => setCountries(value.data))
          .catch((err) => {
             setError(true)
+            // dataFetching error ref housed above - pass down to Search/Filter to render disabled
+            // refs not causing re-render - issue if not using error state in that comp
             console.error(err.message)
          })
    }
