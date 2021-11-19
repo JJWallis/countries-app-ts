@@ -9,8 +9,6 @@ const Search: React.FC = () => {
    const { handleFurtherDetails: hfr, error } = { ...useContext(Context) }
    const hasInputChanged = useRef(false)
 
-   // func to check ref status each time error state changes - if true then return true (else false)
-
    useEffect(() => {
       if (search) {
          hasInputChanged.current = true
@@ -18,6 +16,16 @@ const Search: React.FC = () => {
          hasInputChanged.current = false
       }
    }, [search])
+
+   useEffect(() => {
+      // check if error is true then run func below?
+      // what happens when error turns back to false from true?
+      // if not - sep local searchError state toggled from error state in App
+      // toggles to true based on hasErrorOccured logic
+      hasErrorOccured()
+   }, [error])
+
+   const hasErrorOccured = () => (hasInputChanged.current ? true : false)
 
    const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
       if (e.key === 'Enter') handleSearchCountry()
@@ -34,9 +42,11 @@ const Search: React.FC = () => {
       <>
          <StyledInput
             search
-            error={error}
+            error={hasErrorOccured()}
             placeholder={
-               error ? 'Please enter a valid country' : 'Search for a country'
+               hasErrorOccured()
+                  ? 'Please enter a valid country'
+                  : 'Search for a country'
             }
             value={search}
             onChange={(e) => setSearch(e.target.value)}
