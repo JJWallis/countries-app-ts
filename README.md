@@ -66,7 +66,21 @@ const handleRegions = () => {
          <StyledOption key={region}>{region}</StyledOption>
       ))
 }
+
 // filtering logic
+
+{key[0].toUpperCase() +
+key
+   .slice(1, key.length)
+   .split(/(?=[A-Z])/)
+   .join(' ')}
+:
+</CountrySubTitle>
+{value
+? value.toString().split(',').join(', ')
+: 'No data provided'}
+
+// FurtherDetails/CountryCard formatting str data
 
 function fetchData(endpoint: string) {
    axios
