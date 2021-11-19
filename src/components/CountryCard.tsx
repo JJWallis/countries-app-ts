@@ -32,7 +32,7 @@ const CountryCard: React.FC<Props> = ({ data }) => {
       capital: Props['data']['capital']
    }) => {
       return Object.entries(data).map(([key, value]) => (
-         <Wrapper countryData>
+         <Wrapper countryData key={key}>
             <CountrySubTitle>
                {key[0].toUpperCase() + key.slice(1, key.length)}
             </CountrySubTitle>

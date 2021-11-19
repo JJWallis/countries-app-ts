@@ -1,6 +1,8 @@
 import styled, { css } from 'styled-components'
 
 type Props = {
+   align?: boolean
+   spacing?: boolean
    sb?: boolean
    sf?: boolean
    hdr?: boolean
@@ -18,7 +20,11 @@ export default styled.div<Props>`
    margin: 0 auto;
    width: 90%;
    max-width: 1500px;
-   padding-block: 1rem;
+   ${({ spacing }) =>
+      spacing &&
+      css`
+         padding-block: 1rem;
+      `}
 
    ${({ reset }) =>
       reset &&

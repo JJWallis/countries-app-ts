@@ -1,11 +1,8 @@
 import styled from 'styled-components'
 
 const StyledHeader = styled.header`
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
    box-shadow: ${({ theme: { headerShadow } }) => headerShadow};
-   padding-block: 1rem;
+   padding-block: 1.7rem;
    background-color: ${({ theme: { elements } }) => elements};
 `
 
