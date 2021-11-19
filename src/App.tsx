@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { ThemeProvider } from 'styled-components'
 import GlobalStyles from './components/styled/GlobalStyles'
 import { darkTheme, lightTheme, theme } from './components/styled/Theme'
@@ -16,6 +16,7 @@ interface ContextInterface {
    handleThemeChange: (dark: boolean) => void
    handleFurtherDetails: (country: string) => void
    handleFilterRegions: (region: string) => void
+   fetchError: React.MutableRefObject<boolean>
 }
 
 type data =
@@ -47,6 +48,7 @@ const App: React.FC = () => {
    const [homepage, setHomepage] = useState(true)
    const [theme, setTheme] = useState<theme>(lightTheme)
    const [error, setError] = useState(false)
+   const fetchError = useRef(false)
 
    function fetchData(endpoint: string) {
       axios
@@ -54,8 +56,7 @@ const App: React.FC = () => {
          .then((value) => setCountries(value.data))
          .catch((err) => {
             setError(true)
-            // dataFetching error ref housed above - pass down to Search/Filter to render disabled
-            // refs not causing re-render - issue if not using error state in that comp
+            // pass down to Filter to render disabled
             console.error(err.message)
          })
    }
@@ -106,6 +107,7 @@ const App: React.FC = () => {
                filteredRegions,
                handleFilterRegions,
                error,
+               fetchError,
             }}
          >
             <GlobalStyles />

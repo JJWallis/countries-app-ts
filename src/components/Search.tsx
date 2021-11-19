@@ -6,7 +6,11 @@ import SearchIcon from '../assets/search.svg'
 
 const Search: React.FC = () => {
    const [search, setSearch] = useState('')
-   const { handleFurtherDetails: hfr, error } = { ...useContext(Context) }
+   const {
+      handleFurtherDetails: hfr,
+      error,
+      fetchError,
+   } = { ...useContext(Context) }
    const hasInputChanged = useRef(false)
 
    useEffect(() => {
@@ -38,6 +42,7 @@ const Search: React.FC = () => {
       <>
          <StyledInput
             search
+            disabled={fetchError && error}
             error={hasErrorOccured()}
             placeholder={
                hasErrorOccured()
