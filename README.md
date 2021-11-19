@@ -107,6 +107,8 @@ useEffect() - missing dependencies suggestions (caused to do with vars used with
 
 -  [Axios Crash Course](https://www.youtube.com/watch?v=6LyagkoRWYA&t=79s&ab_channel=TraversyMedia) - request made but no response | err.response.status === 404 | console.error(err.request ? err.request : err.message)
 
+-  [FurtherDetails/CountryCard formatting str data](https://stackoverflow.com/questions/7888238/javascript-split-string-on-uppercase-characters) -
+
 ## Author
 
 -  Website - [Joshua Jameson-Wallis](https://joshuajamesonwallis.com)
