@@ -27,3 +27,5 @@ export const darkTheme = {
 
 // error msg red shade colour
 // transition for theme change
+// max-width: 700px breakpoint
+// Fonts - Homepage 14px + Detail Page: 16px
