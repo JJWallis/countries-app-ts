@@ -20,6 +20,7 @@ export const lightTheme = {
    countryCardShadow: '0 0 20px 0 rgba(0,0,0,0.1)',
    furtherImgShadowMb: '0 0 5px rgba(0, 0, 0, 0.05)',
    furtherImgShadowWd: '0 0 3px rgba(0, 0, 0, 0.05)',
+   borderBtnShadow: '0 0 4px 2px rgba(0,0,0,0.05)',
    breakpoint: '899.999999px',
    furtherBreakpoint: '1100px',
 }
@@ -34,6 +35,7 @@ export const darkTheme = {
    countryCardShadow: '0 0 3px 8px rgba(0, 0, 0, 0.05)',
    furtherImgShadowMb: '0 0 3px 8px rgba(0, 0, 0, 0.05)',
    furtherImgShadowWd: '0 0 3px 20px rgba(0, 0, 0, 0.05)',
+   borderBtnShadow: '0 0 5px 5px rgba(0,0,0,0.1)',
    breakpoint: '899.999999px',
    furtherBreakpoint: '1100px',
 }

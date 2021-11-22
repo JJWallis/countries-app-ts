@@ -11,7 +11,6 @@ const Button = styled.button<Props>`
    border: none;
    border-radius: 5px;
    padding: 0.8em 3em;
-   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
    background-color: ${({ theme: { elements } }) => elements};
    color: ${({ theme: { color } }) => color};
    cursor: pointer;
@@ -19,6 +18,7 @@ const Button = styled.button<Props>`
    ${({ back }) =>
       back &&
       css`
+         box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
          position: relative;
          font-size: 1.1rem;
          font-weight: 300;
@@ -34,8 +34,8 @@ const Button = styled.button<Props>`
    ${({ country }) =>
       country &&
       css`
-         padding-inline: 1.7em;
-         /* margin-right: 1rem; */
+         padding: 0.5em 2em;
+         box-shadow: ${({ theme }) => theme.borderBtnShadow};
       `}
       
       ${({ error }) =>
