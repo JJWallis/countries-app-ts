@@ -1,7 +1,6 @@
 import React, { useContext } from 'react'
 import { Context } from '../App'
 import Wrapper from './styled/Wrapper'
-import CountryImg from './styled/StyledImg'
 import { CountryName } from './styled/StyledTitle'
 import { CountrySubTitle } from './styled/CountryDataTitle'
 import { CountryData } from './styled/CountryData'
@@ -34,7 +33,7 @@ const CountryCard: React.FC<Props> = ({ data }) => {
       return Object.entries(data).map(([key, value]) => (
          <Wrapper countryData key={key}>
             <CountrySubTitle>
-               {key[0].toUpperCase() + key.slice(1, key.length)}
+               {key[0].toUpperCase() + key.slice(1, key.length) + ':'}
             </CountrySubTitle>
             <CountryData>{value ? value : 'No data provided'}</CountryData>
          </Wrapper>

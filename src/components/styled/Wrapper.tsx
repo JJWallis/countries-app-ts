@@ -108,7 +108,7 @@ export default styled.div<Props>`
          cursor: pointer;
          transition: transform 200ms linear;
          &:hover {
-            transform: scale(1.1);
+            transform: scale(1.05);
          }
       `}
       
@@ -125,15 +125,13 @@ export default styled.div<Props>`
       ${({ countryDataParent }) =>
       countryDataParent &&
       css`
-         padding: 1.7rem 1.7rem 2rem;
+         padding: 1.5rem 1.7rem 2rem;
       `}
 
       ${({ countryData }) =>
       countryData &&
       css`
-         margin: 0;
-         width: 100%;
-         padding: 0;
+         margin-bottom: 0.2rem;
       `}
 
       ${({ flexChild }) =>

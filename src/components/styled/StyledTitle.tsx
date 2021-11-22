@@ -20,7 +20,8 @@ export const Loading = styled.h2<LoadingProps>`
 `
 
 export const CountryName = styled.h2`
-   font-size: 1.5rem;
+   margin-bottom: 0.8rem;
+   font-size: 1.4rem;
    color: ${({ theme: { color } }) => color};
 `
 
