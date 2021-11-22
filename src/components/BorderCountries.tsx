@@ -6,7 +6,11 @@ import { CountrySubTitle } from './styled/CountryDataTitle'
 import { Context } from '../App'
 
 const BorderCountries: React.FC = () => {
-   const { furtherDetails, handleFurtherDetails: hfr } = {
+   const {
+      furtherDetails,
+      countries,
+      handleFurtherDetails: hfr,
+   } = {
       ...useContext(Context),
    }
 
@@ -22,7 +26,13 @@ const BorderCountries: React.FC = () => {
                         key={uuid()}
                         onClick={() => hfr && hfr(border.toUpperCase())}
                      >
-                        {border}
+                        {
+                           countries?.find(
+                              (country: any) =>
+                                 country.cioc === border ||
+                                 country.cca3 === border
+                           )?.name.common
+                        }
                      </Button>
                   ))}
                </Wrapper>

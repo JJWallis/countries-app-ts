@@ -52,7 +52,10 @@ const App: React.FC = () => {
    function fetchData(endpoint: string) {
       axios
          .get<data>(endpoint)
-         .then((value) => setCountries(value.data))
+         .then((value) => {
+            console.log(value.data)
+            setCountries(value.data)
+         })
          .catch((err) => {
             fetchError.current = true
             setError(true)
