@@ -58,7 +58,11 @@ const FurtherDetails: React.FC = () => {
          return (
             <>
                <Wrapper flexChild>
-                  <CountryImg src={flag} alt="The visible country's flag." />
+                  <CountryImg
+                     flag
+                     src={flag}
+                     alt="The visible country's flag."
+                  />
                </Wrapper>
                <Wrapper flexChild>
                   <CountryName>{name}</CountryName>
@@ -80,7 +84,6 @@ const FurtherDetails: React.FC = () => {
                      ))}
                   <BorderCountries />
                </Wrapper>
-               {/* // Detail Page: 16px font size */}
             </>
          )
       }

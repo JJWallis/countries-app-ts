@@ -100,6 +100,13 @@ export default styled.div<Props>`
          gap: 3rem;
       `}
 
+      ${({ flexChild }) =>
+      flexChild &&
+      css`
+         outline: 4px solid red;
+         flex: 1 400px;
+      `}
+
       ${({ country }) =>
       country &&
       css`
@@ -136,11 +143,5 @@ export default styled.div<Props>`
       countryData &&
       css`
          margin-bottom: 0.2rem;
-      `}
-
-      ${({ flexChild }) =>
-      flexChild &&
-      css`
-         flex: 1 400px;
       `}
 `
