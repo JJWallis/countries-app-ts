@@ -44,8 +44,10 @@ const CountryCard: React.FC<Props> = ({ data }) => {
    return (
       <Wrapper country onClick={() => hfr && hfr(name.toLowerCase())}>
          <Wrapper countryImgFlag={flag} />
-         <CountryName>{name ? name : 'No data provided'}</CountryName>
-         {printData({ population, region, capital })}
+         <Wrapper countryDataParent>
+            <CountryName>{name ? name : 'No data provided'}</CountryName>
+            {printData({ population, region, capital })}
+         </Wrapper>
       </Wrapper>
    )
 }

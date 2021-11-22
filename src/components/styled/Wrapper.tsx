@@ -8,8 +8,8 @@ type Props = {
    filter?: boolean
    grid?: boolean
    country?: boolean
-
    countryImgFlag?: string
+   countryDataParent?: boolean
    countryData?: boolean
    flexWrap?: boolean
    flexChild?: boolean
@@ -112,8 +112,6 @@ export default styled.div<Props>`
          }
       `}
       
-
-     
       ${({ countryImgFlag }) =>
       countryImgFlag &&
       css`
@@ -122,6 +120,12 @@ export default styled.div<Props>`
          background-position: center;
          background-repeat: no-repeat;
          min-height: 12rem;
+      `}
+
+      ${({ countryDataParent }) =>
+      countryDataParent &&
+      css`
+         padding: 1.7rem 1.7rem 2rem;
       `}
 
       ${({ countryData }) =>
