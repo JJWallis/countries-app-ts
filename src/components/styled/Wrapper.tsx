@@ -82,10 +82,14 @@ export default styled.div<Props>`
          display: flex;
          flex-wrap: wrap;
          justify-content: center;
-         gap: 3rem;
+         gap: 3.5rem 5rem;
+
          @media (min-width: ${({ theme }) => theme.breakpoint}) {
+            gap: 6rem 6rem;
+         }
+
+         @media (min-width: 1500px) {
             justify-content: unset;
-            gap: 3rem;
          }
       `}
 
@@ -100,7 +104,7 @@ export default styled.div<Props>`
       ${({ country }) =>
       country &&
       css`
-         flex-basis: 360px;
+         flex-basis: 340px;
          border-radius: 5px;
          box-shadow: ${({ theme }) => theme.countryCardShadow};
          padding: 0 0 1rem 0;
