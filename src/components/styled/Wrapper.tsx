@@ -98,7 +98,7 @@ export default styled.div<Props>`
       ${({ display }) =>
       display === 'flexWrap' &&
       css`
-         /* outline: 3px solid purple; */
+         outline: 3px solid purple;
          display: flex;
          flex-direction: column;
          gap: 3.5rem;
@@ -184,15 +184,18 @@ export default styled.div<Props>`
          flex-wrap: wrap;
          align-items: baseline;
          gap: 3.5rem;
+         @media (min-width: ${({ theme }) => theme.breakpoint}) {
+            gap: 6rem;
+         }
       `}
 
       ${({ furtherColumnsChild }) =>
       furtherColumnsChild &&
       css`
+         outline: 1px solid;
          flex: 1 300px;
          @media (min-width: ${({ theme }) => theme.breakpoint}) {
-            flex-basis: 100%;
-            gap: 2rem;
+            flex-basis: 50px;
          }
       `}
 `

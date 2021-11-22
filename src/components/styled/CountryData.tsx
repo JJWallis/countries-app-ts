@@ -14,5 +14,6 @@ export const CountryData = styled.p<Props>`
       css`
          display: block;
          font-size: 1.1rem;
+         margin-bottom: 1rem;
       `}
 `
