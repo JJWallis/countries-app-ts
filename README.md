@@ -128,7 +128,7 @@ CSS:
 
 Input search - issues with showing live results (input event while typing - not searching until typing 1 one more time post fully country name entered) | reverting to submit btn for validation + searching once input complete
 
-Controlling imgs in grid items - diff sizes
+Controlling imgs in grid items - all the same size (bg img vs img tag)
 
 JS:
 

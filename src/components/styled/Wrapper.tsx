@@ -8,7 +8,7 @@ type Props = {
    filter?: boolean
    grid?: boolean
    country?: boolean
-   countryImg?: boolean
+
    countryImgFlag?: string
    countryData?: boolean
    flexWrap?: boolean
@@ -113,12 +113,7 @@ export default styled.div<Props>`
       `}
       
 
-      ${({ countryImg }) =>
-      countryImg &&
-      css`
-         outline: 2px solid red;
-      `}
-
+     
       ${({ countryImgFlag }) =>
       countryImgFlag &&
       css`
@@ -126,6 +121,7 @@ export default styled.div<Props>`
          background-size: cover;
          background-position: center;
          background-repeat: no-repeat;
+         min-height: 12rem;
       `}
 
       ${({ countryData }) =>
