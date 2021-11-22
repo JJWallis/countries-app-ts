@@ -16,6 +16,7 @@ type Props = {
    display?: 'grid' | 'flexWrap'
    main?: boolean
    bordersParent?: boolean
+   borders?: boolean
 }
 
 export default styled.div<Props>`
@@ -152,14 +153,24 @@ export default styled.div<Props>`
       ${({ bordersParent }) =>
       bordersParent &&
       css`
-         outline: 1px solid red;
+         /* outline: 1px solid red; */
          display: flex;
          flex-wrap: wrap;
-         align-items: flex-start;
+         align-items: center;
          gap: 1rem;
          @media (max-width: ${({ theme }) => theme.breakpoint}) {
             flex-direction: column;
-            gap: 2rem;
+            align-items: flex-start;
+            gap: 1.3rem;
          }
+      `}
+
+      ${({ borders }) =>
+      borders &&
+      css`
+         display: flex;
+         flex-wrap: wrap;
+         align-items: center;
+         gap: 0.7rem;
       `}
 `
