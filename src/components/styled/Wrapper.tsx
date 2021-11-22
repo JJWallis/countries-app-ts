@@ -77,11 +77,14 @@ export default styled.div<Props>`
       display === 'grid' &&
       css`
          display: grid;
-         width: 100%;
          grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
          grid-template-rows: auto;
          grid-auto-rows: auto;
          grid-gap: 4rem;
+         @media (max-width: ${({ theme }) => theme.breakpoint}) {
+            width: 90%;
+            margin: 0 auto;
+         }
       `}
 
       ${({ display }) =>
