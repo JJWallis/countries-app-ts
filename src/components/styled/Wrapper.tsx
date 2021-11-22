@@ -94,10 +94,10 @@ export default styled.div<Props>`
       ${({ display }) =>
       display === 'flexWrap' &&
       css`
-         outline: 3px solid purple;
+         /* outline: 3px solid purple; */
          display: flex;
          flex-direction: column;
-         gap: 3rem;
+         gap: 3.5rem;
          @media (min-width: ${({ theme }) => theme.breakpoint}) {
             flex-direction: row;
          }
@@ -106,7 +106,7 @@ export default styled.div<Props>`
       ${({ flexChild }) =>
       flexChild &&
       css`
-         outline: 4px solid red;
+         /* outline: 4px solid red; */
          flex: 1 100%;
       `}
 
