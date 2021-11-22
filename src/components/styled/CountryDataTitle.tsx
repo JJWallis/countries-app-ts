@@ -21,8 +21,8 @@ export const CountrySubTitle = styled.strong<Props>`
    ${({ borderTitle }) =>
       borderTitle &&
       css`
-         font-size: 1.3rem;
-         @media (min-width: ${({ theme }) => theme.breakpoint}) {
+         font-size: 1.5rem;
+         @media (min-width: ${({ theme }) => theme.furtherBreakpoint}) {
             font-size: 1.1rem;
          }
       `}

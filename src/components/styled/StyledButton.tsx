@@ -34,7 +34,7 @@ const Button = styled.button<Props>`
    ${({ country }) =>
       country &&
       css`
-         padding: 0.5em 2em;
+         padding: 0.6em 2.5em;
          box-shadow: ${({ theme }) => theme.borderBtnShadow};
       `}
       

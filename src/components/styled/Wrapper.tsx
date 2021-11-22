@@ -163,7 +163,7 @@ export default styled.div<Props>`
          flex-wrap: wrap;
          align-items: center;
          gap: 1rem;
-         margin-top: 3.5rem;
+         margin-top: 2.8rem;
          @media (max-width: ${({ theme }) => theme.breakpoint}) {
             flex-direction: column;
             align-items: flex-start;
@@ -186,8 +186,8 @@ export default styled.div<Props>`
          display: flex;
          flex-wrap: wrap;
          align-items: baseline;
-         gap: 3.5rem;
-         @media (min-width: ${({ theme }) => theme.breakpoint}) {
+         gap: 3.1rem;
+         @media (min-width: ${({ theme }) => theme.furtherBreakpoint}) {
             gap: 6rem;
          }
       `}
@@ -196,11 +196,10 @@ export default styled.div<Props>`
       furtherColumnsChild &&
       css`
          /* outline: 1px solid black; */
-         flex: 1 300px;
+         flex: 1 220px;
          max-width: 300px;
          @media (min-width: ${({ theme }) => theme.breakpoint}) {
             flex-basis: 100px;
-            /* max-width: unset; */
          }
       `}
 `

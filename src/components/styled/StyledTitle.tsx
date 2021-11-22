@@ -33,7 +33,7 @@ export const CountryName = styled.h2<CountryNameProps>`
    ${({ further }) =>
       further &&
       css`
-         font-size: 1.8rem;
+         font-size: 2rem;
          margin-bottom: 1.4rem;
       `}
 `
