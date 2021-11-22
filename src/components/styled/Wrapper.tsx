@@ -88,10 +88,11 @@ export default styled.div<Props>`
          justify-content: center;
          gap: 3.5rem 5rem;
          @media (min-width: 1250px) {
-            gap: 6rem 6rem;
-         }
-         @media (min-width: 1700px) {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-auto-rows: auto;
             justify-content: unset;
+            gap: 6rem 6rem;
          }
       `}
 
