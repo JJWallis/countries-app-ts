@@ -98,7 +98,7 @@ export default styled.div<Props>`
       ${({ display }) =>
       display === 'flexWrap' &&
       css`
-         outline: 3px solid purple;
+         /* outline: 3px solid purple; */
          display: flex;
          flex-direction: column;
          gap: 3.5rem;
@@ -112,6 +112,9 @@ export default styled.div<Props>`
       css`
          /* outline: 4px solid red; */
          flex: 1 100%;
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
       `}
 
       ${({ country }) =>
@@ -195,7 +198,7 @@ export default styled.div<Props>`
          outline: 1px solid;
          flex: 1 300px;
          @media (min-width: ${({ theme }) => theme.breakpoint}) {
-            flex-basis: 50px;
+            flex-basis: 100px;
          }
       `}
 `
