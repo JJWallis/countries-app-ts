@@ -11,6 +11,60 @@ const FurtherDetails: React.FC = () => {
    const { furtherDetails } = { ...useContext(Context) }
    const data = furtherDetails ? furtherDetails[0] : null
 
+   const printFlag = () => {
+      if (data) {
+         const {
+            flags: { svg: flag },
+         } = data
+
+         return (
+            <Wrapper flexChild>
+               <CountryImg flag src={flag} alt="Country flag." />
+            </Wrapper>
+         )
+      }
+   }
+
+   const gatherDataOne = () => {
+      if (data) {
+         const {
+            name: { nativeName: native },
+            population,
+            region,
+            subregion,
+            capital,
+         } = data
+
+         const nativeName = native
+            ? Object.values(native)[0].official
+            : undefined
+
+         return {
+            nativeName,
+            population,
+            region,
+            subRegion: subregion,
+            capital,
+         }
+      }
+   }
+
+   const gatherDataTwo = () => {
+      if (data) {
+         const { currencies: currency, languages: language } = data
+
+         const currencies = currency
+            ? Object.values(currency)[0].name
+            : undefined
+
+         const languages = language
+            ? `${[...Object.values(language)]}`
+            : undefined
+
+         return { topLevelDomain: data.tld[0], currencies, languages }
+      }
+   }
+
    const gatherData = () => {
       if (data) {
          const {
