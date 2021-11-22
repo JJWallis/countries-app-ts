@@ -34,14 +34,15 @@ const Button = styled.button<Props>`
    ${({ country }) =>
       country &&
       css`
-         padding-inline: 2em;
-         margin-right: 1rem;
+         padding-inline: 1.7em;
+         /* margin-right: 1rem; */
       `}
       
       ${({ error }) =>
       error &&
       css`
          cursor: not-allowed;
+         padding-inline: 1.7em;
       `}
 `
 

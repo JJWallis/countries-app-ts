@@ -18,8 +18,8 @@ const BorderCountries: React.FC = () => {
                <Wrapper>
                   {borders.map((border: string) => (
                      <Button
-                        key={uuid()}
                         country
+                        key={uuid()}
                         onClick={() => hfr && hfr(border.toUpperCase())}
                      >
                         {border}
@@ -34,7 +34,7 @@ const BorderCountries: React.FC = () => {
 
    return (
       <Wrapper bordersParent>
-         <CountrySubTitle>Border Countries:</CountrySubTitle>
+         <CountrySubTitle borderTitle>Border Countries:</CountrySubTitle>
          {produceButtons()}
       </Wrapper>
    )
