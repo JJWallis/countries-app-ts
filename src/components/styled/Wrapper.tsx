@@ -8,6 +8,8 @@ type Props = {
    filter?: boolean
    grid?: boolean
    country?: boolean
+   countryImg?: boolean
+   countryImgFlag?: string
    countryData?: boolean
    flexWrap?: boolean
    flexChild?: boolean
@@ -99,15 +101,31 @@ export default styled.div<Props>`
       country &&
       css`
          border-radius: 5px;
-         box-shadow: ${(props) => props.theme.shadow};
+         box-shadow: ${({ theme }) => theme.countryCardShadow};
          padding: 0 0 1rem 0;
          overflow: hidden;
-         background-color: ${(props) => props.theme.elements};
+         background-color: ${({ theme }) => theme.elements};
          cursor: pointer;
          transition: transform 200ms linear;
          &:hover {
             transform: scale(1.1);
          }
+      `}
+      
+
+      ${({ countryImg }) =>
+      countryImg &&
+      css`
+         outline: 2px solid red;
+      `}
+
+      ${({ countryImgFlag }) =>
+      countryImgFlag &&
+      css`
+         background-image: url(${countryImgFlag});
+         background-size: cover;
+         background-position: center;
+         background-repeat: no-repeat;
       `}
 
       ${({ countryData }) =>
