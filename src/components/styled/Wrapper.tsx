@@ -158,6 +158,7 @@ export default styled.div<Props>`
          flex-wrap: wrap;
          align-items: center;
          gap: 1rem;
+         margin-top: 3.5rem;
          @media (max-width: ${({ theme }) => theme.breakpoint}) {
             flex-direction: column;
             align-items: flex-start;
