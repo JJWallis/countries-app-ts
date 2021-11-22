@@ -7,6 +7,7 @@ export type theme = {
    headerShadow: string
    countryCardShadow: string
    breakpoint: string
+   furtherBreakpoint: string
 }
 
 export const lightTheme = {
@@ -17,7 +18,10 @@ export const lightTheme = {
    shadow: '0 0 20px 0 rgba(0,0,0,0.1)',
    headerShadow: '0 0px 30px 0 rgba(0, 0, 0, 0.2)',
    countryCardShadow: '0 0 20px 0 rgba(0,0,0,0.1)',
-   breakpoint: '900px',
+   furtherImgShadowMb: '0 0 5px rgba(0, 0, 0, 0.05)',
+   furtherImgShadowWd: '0 0 3px rgba(0, 0, 0, 0.05)',
+   breakpoint: '899.999999px',
+   furtherBreakpoint: '1100px',
 }
 
 export const darkTheme = {
@@ -28,7 +32,10 @@ export const darkTheme = {
    shadow: '0 0 20px 0 rgba(0,0,0,0.1)',
    headerShadow: '0 0px 30px 0 rgba(0, 0, 0, 0.2)',
    countryCardShadow: '0 0 3px 8px rgba(0, 0, 0, 0.05)',
-   breakpoint: '900px',
+   furtherImgShadowMb: '0 0 3px 8px rgba(0, 0, 0, 0.05)',
+   furtherImgShadowWd: '0 0 3px 20px rgba(0, 0, 0, 0.05)',
+   breakpoint: '899.999999px',
+   furtherBreakpoint: '1100px',
 }
 
 // error msg red shade colour

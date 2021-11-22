@@ -87,7 +87,7 @@ export default styled.div<Props>`
          flex-wrap: wrap;
          justify-content: center;
          gap: 3.5rem 5rem;
-         @media (min-width: ${({ theme }) => theme.breakpoint}) {
+         @media (min-width: 1250px) {
             gap: 6rem 6rem;
          }
          @media (min-width: 1700px) {
@@ -102,7 +102,7 @@ export default styled.div<Props>`
          display: flex;
          flex-direction: column;
          gap: 3.5rem;
-         @media (min-width: ${({ theme }) => theme.breakpoint}) {
+         @media (min-width: ${({ theme }) => theme.furtherBreakpoint}) {
             flex-direction: row;
          }
       `}
@@ -195,7 +195,7 @@ export default styled.div<Props>`
       ${({ furtherColumnsChild }) =>
       furtherColumnsChild &&
       css`
-         outline: 1px solid;
+         /* outline: 1px solid; */
          flex: 1 300px;
          @media (min-width: ${({ theme }) => theme.breakpoint}) {
             flex-basis: 100px;

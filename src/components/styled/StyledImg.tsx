@@ -9,10 +9,10 @@ export default styled.img<Props>`
       flag &&
       css`
          margin: 0 auto;
-         box-shadow: 0 0 3px 8px rgba(0, 0, 0, 0.05);
-         @media (min-width: ${({ theme }) => theme.breakpoint}) {
+         box-shadow: ${({ theme }) => theme.furtherImgShadowMb};
+         @media (min-width: ${({ theme }) => theme.furtherBreakpoint}) {
             margin: unset;
-            box-shadow: 0 0 3px 16px rgba(0, 0, 0, 0.05);
+            box-shadow: ${({ theme }) => theme.furtherImgShadowWd};
          }
       `}
 `
