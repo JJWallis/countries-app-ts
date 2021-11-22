@@ -7,8 +7,6 @@ import { CountrySubTitle } from './styled/CountryDataTitle'
 import { CountryData } from './styled/CountryData'
 import BorderCountries from './BorderCountries'
 
-// Detail Page: 16px font size
-
 const FurtherDetails: React.FC = () => {
    const { furtherDetails } = { ...useContext(Context) }
    const data = furtherDetails ? furtherDetails[0] : null
@@ -82,6 +80,7 @@ const FurtherDetails: React.FC = () => {
                      ))}
                   <BorderCountries />
                </Wrapper>
+               {/* // Detail Page: 16px font size */}
             </>
          )
       }

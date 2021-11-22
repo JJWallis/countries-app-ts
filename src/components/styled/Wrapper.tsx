@@ -23,7 +23,7 @@ export default styled.div<Props>`
       css`
          margin: 0 auto;
          width: 90%;
-         max-width: 1500px;
+         max-width: 1530px;
       `}
 
    ${({ spacing }) =>
@@ -86,7 +86,7 @@ export default styled.div<Props>`
          @media (min-width: ${({ theme }) => theme.breakpoint}) {
             gap: 6rem 6rem;
          }
-         @media (min-width: 1500px) {
+         @media (min-width: 1700px) {
             justify-content: unset;
          }
       `}
@@ -94,6 +94,7 @@ export default styled.div<Props>`
       ${({ display }) =>
       display === 'flexWrap' &&
       css`
+         outline: 3px solid purple;
          display: flex;
          flex-wrap: wrap;
          gap: 3rem;
