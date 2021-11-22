@@ -83,11 +83,9 @@ export default styled.div<Props>`
          flex-wrap: wrap;
          justify-content: center;
          gap: 3.5rem 5rem;
-
          @media (min-width: ${({ theme }) => theme.breakpoint}) {
             gap: 6rem 6rem;
          }
-
          @media (min-width: 1500px) {
             justify-content: unset;
          }
