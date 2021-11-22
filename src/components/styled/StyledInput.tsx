@@ -36,7 +36,7 @@ export default styled.input<Props>`
       error &&
       css`
          &::placeholder {
-            color: red;
+            color: #ff3848;
             font-weight: bold;
             letter-spacing: 0.1ch;
          }
