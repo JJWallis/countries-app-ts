@@ -102,7 +102,7 @@ export default styled.div<Props>`
       ${({ country }) =>
       country &&
       css`
-         flex-basis: 340px;
+         flex-basis: 310px;
          border-radius: 5px;
          box-shadow: ${({ theme }) => theme.countryCardShadow};
          padding: 0 0 1rem 0;
