@@ -14,8 +14,14 @@ export const MainTitle = styled.h1`
 
 export const Loading = styled.h2<LoadingProps>`
    color: ${({ theme: { color } }) => color};
+   font-size: 5rem;
    text-align: center;
-   font-size: 10rem;
+   line-height: 1.1;
+   margin-bottom: 1rem;
+   @media (min-width: ${({ theme: { breakpoint } }) => breakpoint}) {
+      font-size: 4rem;
+   }
+
    ${({ error }) => error && css``};
 `
 

@@ -25,7 +25,7 @@ const CountriesContainer: React.FC = () => {
                ) : (
                   <Loading>
                      {error
-                        ? 'Data invalid, please reload & try again'
+                        ? 'Country data could not be retrieved. Please reload & try again.'
                         : 'Loading...'}
                   </Loading>
                )}
