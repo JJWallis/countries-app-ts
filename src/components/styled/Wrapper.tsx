@@ -78,7 +78,7 @@ export default styled.div<Props>`
       ${({ display }) =>
       display === 'grid' &&
       css`
-         outline: 2px solid white;
+         /* outline: 2px solid white; */
          display: flex;
          flex-wrap: wrap;
          justify-content: center;
@@ -96,15 +96,18 @@ export default styled.div<Props>`
       css`
          outline: 3px solid purple;
          display: flex;
-         flex-wrap: wrap;
+         flex-direction: column;
          gap: 3rem;
+         @media (min-width: ${({ theme }) => theme.breakpoint}) {
+            flex-direction: row;
+         }
       `}
 
       ${({ flexChild }) =>
       flexChild &&
       css`
          outline: 4px solid red;
-         flex: 1 400px;
+         flex: 1 100%;
       `}
 
       ${({ country }) =>
