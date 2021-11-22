@@ -16,22 +16,21 @@ const CountriesContainer: React.FC = () => {
    const handleContentVisible = () => {
       if (homepage) {
          const data = determineData()
-         return (
+         return data ? (
             <Wrapper display={'grid'}>
-               {data ? (
-                  data.map((country) => (
-                     <CountryCard key={uuidv4()} data={country} />
-                  ))
-               ) : (
-                  <Loading>
-                     {error
-                        ? 'Country data could not be retrieved. Please reload & try again.'
-                        : 'Loading...'}
-                  </Loading>
-               )}
+               {data.map((country) => (
+                  <CountryCard key={uuidv4()} data={country} />
+               ))}
             </Wrapper>
+         ) : (
+            <Loading>
+               {error
+                  ? 'Country data could not be retrieved. Please reload & try again.'
+                  : 'Loading...'}
+            </Loading>
          )
       }
+
       return (
          <Wrapper display={'flexWrap'}>
             <FurtherDetails />

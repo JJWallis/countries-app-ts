@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
 interface LoadingProps {
    error?: boolean
@@ -14,15 +14,11 @@ export const MainTitle = styled.h1`
 
 export const Loading = styled.h2<LoadingProps>`
    color: ${({ theme: { color } }) => color};
-   font-size: 5rem;
+   font-size: 4rem;
    text-align: center;
    line-height: 1.1;
-   margin-bottom: 1rem;
-   @media (min-width: ${({ theme: { breakpoint } }) => breakpoint}) {
-      font-size: 4rem;
-   }
-
-   ${({ error }) => error && css``};
+   max-width: 700px;
+   margin: 0 auto;
 `
 
 export const CountryName = styled.h2`
