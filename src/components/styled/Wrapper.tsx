@@ -195,10 +195,12 @@ export default styled.div<Props>`
       ${({ furtherColumnsChild }) =>
       furtherColumnsChild &&
       css`
-         /* outline: 1px solid; */
+         /* outline: 1px solid black; */
          flex: 1 300px;
+         max-width: 300px;
          @media (min-width: ${({ theme }) => theme.breakpoint}) {
             flex-basis: 100px;
+            /* max-width: unset; */
          }
       `}
 `
