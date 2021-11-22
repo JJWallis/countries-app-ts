@@ -112,94 +112,19 @@ const FurtherDetails: React.FC = () => {
       }
    }
 
-   const gatherData = () => {
-      if (data) {
-         const {
-            population,
-            region,
-            subregion,
-            capital,
-            name: { nativeName: native },
-            currencies: currency,
-            languages: language,
-         } = data
-
-         const nativeName = native
-            ? Object.values(native)[0].official
-            : undefined
-
-         const currencies = currency
-            ? Object.values(currency)[0].name
-            : undefined
-
-         const languages = language
-            ? `${[...Object.values(language)]}`
-            : undefined
-
-         return {
-            nativeName,
-            population,
-            region,
-            subRegion: subregion,
-            capital,
-            topLevelDomain: data.tld[0],
-            currencies,
-            languages,
-         }
-      }
-   }
-
-   const printData = () => {
-      if (data) {
-         const {
-            flags: { svg: flag },
-            name: { common: name },
-         } = data
-         const dataToMap = gatherData()
-         return (
-            <>
-               <Wrapper flexChild>
-                  <CountryImg
-                     flag
-                     src={flag}
-                     alt="The visible country's flag."
-                  />
-               </Wrapper>
-               <Wrapper flexChild>
-                  <CountryName further>{name}</CountryName>
-                  {dataToMap &&
-                     Object.entries(dataToMap).map(([key, value]) => (
-                        <CountryData further key={key}>
-                           <CountrySubTitle further>
-                              {key[0].toUpperCase() +
-                                 key
-                                    .slice(1, key.length)
-                                    .split(/(?=[A-Z])/)
-                                    .join(' ')}
-                              :
-                           </CountrySubTitle>
-                           {value
-                              ? value.toString().split(',').join(', ')
-                              : 'No data provided'}
-                        </CountryData>
-                     ))}
-                  <BorderCountries />
-               </Wrapper>
-            </>
-         )
-      }
-   }
-
-   return <>{printData()}</>
-   // {printFlag()}
-   // <Wrapper flexChild>
-
-   //    <Wrapper flexParent>
-   //        {gatherDataOne()}
-   //        {gatherDataTwo()}
-   //    </Wrapper>
-   //    <BorderCountries />
-   // </Wrapper>
+   return (
+      <>
+         {printFlag()}
+         <Wrapper flexChild>
+            <CountryName further>{name}</CountryName>
+            <Wrapper>
+               {gatherDataOne()}
+               {gatherDataTwo()}
+            </Wrapper>
+            <BorderCountries />
+         </Wrapper>
+      </>
+   )
 }
 
 export default FurtherDetails
