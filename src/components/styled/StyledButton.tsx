@@ -48,6 +48,9 @@ const Button = styled.button<Props>`
       css`
          cursor: not-allowed;
          padding-inline: 1.7em;
+         box-shadow: ${({ theme }) => theme.borderBtnShadow};
+         transition: box-shadow
+            ${({ theme: { themeTransition } }) => themeTransition};
       `}
 `
 
