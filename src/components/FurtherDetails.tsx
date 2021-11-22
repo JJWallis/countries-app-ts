@@ -10,6 +10,7 @@ import BorderCountries from './BorderCountries'
 const FurtherDetails: React.FC = () => {
    const { furtherDetails } = { ...useContext(Context) }
    const data = furtherDetails ? furtherDetails[0] : null
+   const name = data ? data.name.common : 'No name'
 
    const printFlag = () => {
       if (data) {
@@ -39,13 +40,34 @@ const FurtherDetails: React.FC = () => {
             ? Object.values(native)[0].official
             : undefined
 
-         return {
+         const dataToMap = {
             nativeName,
             population,
             region,
             subRegion: subregion,
             capital,
          }
+
+         return (
+            <Wrapper>
+               {dataToMap &&
+                  Object.entries(dataToMap).map(([key, value]) => (
+                     <CountryData further key={key}>
+                        <CountrySubTitle further>
+                           {key[0].toUpperCase() +
+                              key
+                                 .slice(1, key.length)
+                                 .split(/(?=[A-Z])/)
+                                 .join(' ')}
+                           :
+                        </CountrySubTitle>
+                        {value
+                           ? value.toString().split(',').join(', ')
+                           : 'No data provided'}
+                     </CountryData>
+                  ))}
+            </Wrapper>
+         )
       }
    }
 
@@ -61,7 +83,32 @@ const FurtherDetails: React.FC = () => {
             ? `${[...Object.values(language)]}`
             : undefined
 
-         return { topLevelDomain: data.tld[0], currencies, languages }
+         const dataToMap = {
+            topLevelDomain: data.tld[0],
+            currencies,
+            languages,
+         }
+
+         return (
+            <Wrapper>
+               {dataToMap &&
+                  Object.entries(dataToMap).map(([key, value]) => (
+                     <CountryData further key={key}>
+                        <CountrySubTitle further>
+                           {key[0].toUpperCase() +
+                              key
+                                 .slice(1, key.length)
+                                 .split(/(?=[A-Z])/)
+                                 .join(' ')}
+                           :
+                        </CountrySubTitle>
+                        {value
+                           ? value.toString().split(',').join(', ')
+                           : 'No data provided'}
+                     </CountryData>
+                  ))}
+            </Wrapper>
+         )
       }
    }
 
@@ -144,6 +191,15 @@ const FurtherDetails: React.FC = () => {
    }
 
    return <>{printData()}</>
+   // {printFlag()}
+   // <Wrapper flexChild>
+
+   //    <Wrapper flexParent>
+   //        {gatherDataOne()}
+   //        {gatherDataTwo()}
+   //    </Wrapper>
+   //    <BorderCountries />
+   // </Wrapper>
 }
 
 export default FurtherDetails
