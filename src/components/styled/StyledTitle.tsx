@@ -1,7 +1,15 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 interface LoadingProps {
    error?: boolean
+}
+
+interface CountryNameProps {
+   further?: boolean
+}
+
+interface CountrySubTitleProps {
+   further?: boolean
 }
 
 export const MainTitle = styled.h1`
@@ -21,14 +29,25 @@ export const Loading = styled.h2<LoadingProps>`
    margin: 0 auto;
 `
 
-export const CountryName = styled.h2`
+export const CountryName = styled.h2<CountryNameProps>`
    margin-bottom: 0.8rem;
    font-size: 1.4rem;
    color: ${({ theme: { color } }) => color};
+
+   ${({ further }) =>
+      further &&
+      css`
+         font-size: 1.8rem;
+      `}
 `
 
-export const CountrySubTitle = styled.h4`
+export const CountrySubTitle = styled.h4<CountrySubTitleProps>`
    display: inline-block;
    font-size: 1.2rem;
    color: ${({ theme: { color } }) => color};
+   ${({ further }) =>
+      further &&
+      css`
+         font-size: 1.4rem;
+      `}
 `

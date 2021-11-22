@@ -65,10 +65,10 @@ const FurtherDetails: React.FC = () => {
                   />
                </Wrapper>
                <Wrapper flexChild>
-                  <CountryName>{name}</CountryName>
+                  <CountryName further>{name}</CountryName>
                   {dataToMap &&
                      Object.entries(dataToMap).map(([key, value]) => (
-                        <CountryData key={key}>
+                        <CountryData further key={key}>
                            <CountrySubTitle>
                               {key[0].toUpperCase() +
                                  key
