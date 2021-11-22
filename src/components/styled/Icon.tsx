@@ -14,12 +14,14 @@ export default styled.svg<IconProps>`
    top: 50%;
    transform: translateY(-50%);
    fill: ${({ theme: { color } }) => color};
+
    ${({ moon }) =>
       moon &&
       css`
          right: 100px;
          height: 20px;
       `}
+
    ${({ search }) =>
       search &&
       css`
@@ -28,9 +30,13 @@ export default styled.svg<IconProps>`
          fill: ${({ theme: { input } }) => input};
          transform: unset;
       `}
+
       ${({ arrow }) =>
       arrow &&
       css`
          left: 28px;
+         @media (max-width: ${({ theme }) => theme.breakpoint}) {
+            top: 42%;
+         }
       `}
 `
