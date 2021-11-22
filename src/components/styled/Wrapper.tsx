@@ -78,14 +78,14 @@ export default styled.div<Props>`
       ${({ display }) =>
       display === 'grid' &&
       css`
-         display: grid;
-         grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-         grid-template-rows: auto;
-         grid-auto-rows: auto;
-         grid-gap: 4rem;
-         @media (max-width: ${({ theme }) => theme.breakpoint}) {
-            width: 90%;
-            margin: 0 auto;
+         outline: 2px solid white;
+         display: flex;
+         flex-wrap: wrap;
+         justify-content: center;
+         gap: 3rem;
+         @media (min-width: ${({ theme }) => theme.breakpoint}) {
+            justify-content: unset;
+            gap: 3rem;
          }
       `}
 
@@ -100,6 +100,7 @@ export default styled.div<Props>`
       ${({ country }) =>
       country &&
       css`
+         flex-basis: 360px;
          border-radius: 5px;
          box-shadow: ${({ theme }) => theme.countryCardShadow};
          padding: 0 0 1rem 0;
