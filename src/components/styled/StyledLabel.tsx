@@ -5,4 +5,5 @@ export const StyledLabel = styled.label`
    font-size: 1.15rem;
    color: ${({ theme: { color } }) => color};
    cursor: pointer;
+   transition: color ${({ theme: { themeTransition } }) => themeTransition};
 `

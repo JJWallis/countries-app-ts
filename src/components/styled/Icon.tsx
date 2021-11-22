@@ -14,6 +14,7 @@ export default styled.svg<IconProps>`
    top: 50%;
    transform: translateY(-50%);
    fill: ${({ theme: { color } }) => color};
+   transition: fill ${({ theme: { themeTransition } }) => themeTransition};
 
    ${({ moon }) =>
       moon &&

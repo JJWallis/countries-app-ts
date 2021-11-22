@@ -11,9 +11,12 @@ const Button = styled.button<Props>`
    border: none;
    border-radius: 5px;
    padding: 0.8em 3em;
+   cursor: pointer;
    background-color: ${({ theme: { elements } }) => elements};
    color: ${({ theme: { color } }) => color};
-   cursor: pointer;
+   transition: background-color
+         ${({ theme: { themeTransition } }) => themeTransition},
+      color ${({ theme: { themeTransition } }) => themeTransition};
 
    ${({ back }) =>
       back &&
@@ -36,6 +39,8 @@ const Button = styled.button<Props>`
       css`
          padding: 0.6em 2.5em;
          box-shadow: ${({ theme }) => theme.borderBtnShadow};
+         transition: box-shadow
+            ${({ theme: { themeTransition } }) => themeTransition};
       `}
       
       ${({ error }) =>

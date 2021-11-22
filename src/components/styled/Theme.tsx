@@ -23,6 +23,7 @@ export const lightTheme = {
    borderBtnShadow: '0 0 4px 2px rgba(0,0,0,0.05)',
    breakpoint: '899.999999px',
    furtherBreakpoint: '1100px',
+   themeTransition: '0.3s ease-in-out',
 }
 
 export const darkTheme = {
@@ -38,7 +39,5 @@ export const darkTheme = {
    borderBtnShadow: '0 0 5px 5px rgba(0,0,0,0.1)',
    breakpoint: '899.999999px',
    furtherBreakpoint: '1100px',
+   themeTransition: '0.3s ease-in-out',
 }
-
-// error msg red shade colour
-// transition timing func + duration/delay for theme change

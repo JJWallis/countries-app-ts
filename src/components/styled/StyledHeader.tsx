@@ -7,6 +7,8 @@ const StyledHeader = styled.header`
    box-shadow: ${({ theme: { headerShadow } }) => headerShadow};
    padding-block: 1.7rem;
    background-color: ${({ theme: { elements } }) => elements};
+   transition: background-color
+      ${({ theme: { themeTransition } }) => themeTransition};
    @media (min-width: ${({ theme }) => theme.breakpoint}) {
       padding-block: 0;
    }

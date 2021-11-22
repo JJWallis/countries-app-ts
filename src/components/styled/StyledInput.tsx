@@ -20,6 +20,9 @@ export default styled.input<Props>`
          padding: 1.2rem 0 1.2rem 5.5rem;
          width: 100%;
          max-width: 550px;
+         transition: background-color
+               ${({ theme: { themeTransition } }) => themeTransition},
+            color ${({ theme: { themeTransition } }) => themeTransition};
          @media (min-width: ${({ theme }) => theme.breakpoint}) {
             font-size: 1.1rem;
             width: 55%;

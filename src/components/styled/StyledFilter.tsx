@@ -9,6 +9,9 @@ export const StyledFilter = styled.select`
    color: ${({ theme: { color } }) => color};
    font-size: 1.1rem;
    width: 100%;
+   transition: background-color
+         ${({ theme: { themeTransition } }) => themeTransition},
+      color ${({ theme: { themeTransition } }) => themeTransition}; ;
 `
 
 export const StyledOption = styled.option``
