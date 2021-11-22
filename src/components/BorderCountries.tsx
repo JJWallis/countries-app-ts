@@ -14,15 +14,19 @@ const BorderCountries: React.FC = () => {
       if (furtherDetails) {
          const { borders } = furtherDetails[0]
          if (borders && borders.length > 0) {
-            return borders.map((border: string) => (
-               <Button
-                  key={uuid()}
-                  country
-                  onClick={() => hfr && hfr(border.toUpperCase())}
-               >
-                  {border}
-               </Button>
-            ))
+            return (
+               <Wrapper>
+                  {borders.map((border: string) => (
+                     <Button
+                        key={uuid()}
+                        country
+                        onClick={() => hfr && hfr(border.toUpperCase())}
+                     >
+                        {border}
+                     </Button>
+                  ))}
+               </Wrapper>
+            )
          }
          return <Button error>No bordering countries</Button>
       }
