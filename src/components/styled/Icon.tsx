@@ -34,6 +34,7 @@ export default styled.svg<IconProps>`
       ${({ arrow }) =>
       arrow &&
       css`
+         top: 45px;
          left: 28px;
          @media (max-width: ${({ theme }) => theme.breakpoint}) {
             top: 42%;

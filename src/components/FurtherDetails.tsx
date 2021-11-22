@@ -49,7 +49,7 @@ const FurtherDetails: React.FC = () => {
          }
 
          return (
-            <Wrapper>
+            <Wrapper furtherColumnsChild>
                {dataToMap &&
                   Object.entries(dataToMap).map(([key, value]) => (
                      <CountryData further key={key}>
@@ -90,7 +90,7 @@ const FurtherDetails: React.FC = () => {
          }
 
          return (
-            <Wrapper>
+            <Wrapper furtherColumnsChild>
                {dataToMap &&
                   Object.entries(dataToMap).map(([key, value]) => (
                      <CountryData further key={key}>
@@ -117,7 +117,7 @@ const FurtherDetails: React.FC = () => {
          {printFlag()}
          <Wrapper flexChild>
             <CountryName further>{name}</CountryName>
-            <Wrapper>
+            <Wrapper furtherColumns>
                {gatherDataOne()}
                {gatherDataTwo()}
             </Wrapper>

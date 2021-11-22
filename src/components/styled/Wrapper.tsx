@@ -17,6 +17,8 @@ type Props = {
    main?: boolean
    bordersParent?: boolean
    borders?: boolean
+   furtherColumns?: boolean
+   furtherColumnsChild?: boolean
 }
 
 export default styled.div<Props>`
@@ -173,5 +175,24 @@ export default styled.div<Props>`
          flex-wrap: wrap;
          align-items: center;
          gap: 0.7rem;
+      `}
+
+      ${({ furtherColumns }) =>
+      furtherColumns &&
+      css`
+         display: flex;
+         flex-wrap: wrap;
+         align-items: baseline;
+         gap: 3.5rem;
+      `}
+
+      ${({ furtherColumnsChild }) =>
+      furtherColumnsChild &&
+      css`
+         flex: 1 300px;
+         @media (min-width: ${({ theme }) => theme.breakpoint}) {
+            flex-basis: 100%;
+            gap: 2rem;
+         }
       `}
 `
