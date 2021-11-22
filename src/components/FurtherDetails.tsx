@@ -69,7 +69,7 @@ const FurtherDetails: React.FC = () => {
                   {dataToMap &&
                      Object.entries(dataToMap).map(([key, value]) => (
                         <CountryData further key={key}>
-                           <CountrySubTitle>
+                           <CountrySubTitle further>
                               {key[0].toUpperCase() +
                                  key
                                     .slice(1, key.length)

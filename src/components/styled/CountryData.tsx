@@ -12,6 +12,7 @@ export const CountryData = styled.p<Props>`
    ${({ further }) =>
       further &&
       css`
-         font-size: 1.2rem;
+         display: block;
+         font-size: 1.1rem;
       `}
 `

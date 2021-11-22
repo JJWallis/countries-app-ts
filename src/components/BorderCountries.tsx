@@ -29,7 +29,7 @@ const BorderCountries: React.FC = () => {
    }
 
    return (
-      <Wrapper>
+      <Wrapper bordersParent>
          <CountrySubTitle>Border Countries:</CountrySubTitle>
          {produceButtons()}
       </Wrapper>

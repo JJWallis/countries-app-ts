@@ -8,10 +8,6 @@ interface CountryNameProps {
    further?: boolean
 }
 
-interface CountrySubTitleProps {
-   further?: boolean
-}
-
 export const MainTitle = styled.h1`
    font-size: 1.5rem;
    color: ${({ theme: { color } }) => color};
@@ -38,16 +34,12 @@ export const CountryName = styled.h2<CountryNameProps>`
       further &&
       css`
          font-size: 1.8rem;
+         margin-bottom: 1.4rem;
       `}
 `
 
-export const CountrySubTitle = styled.h4<CountrySubTitleProps>`
+export const CountrySubTitle = styled.h4`
    display: inline-block;
    font-size: 1.2rem;
    color: ${({ theme: { color } }) => color};
-   ${({ further }) =>
-      further &&
-      css`
-         font-size: 1.4rem;
-      `}
 `
