@@ -19,6 +19,9 @@ type Props = {
    borders?: boolean
    furtherColumns?: boolean
    furtherColumnsChild?: boolean
+   // DYNAMIC
+   margin?: string
+   padding?: string
 }
 
 /*
@@ -49,12 +52,7 @@ flex | undefined:
 //    margin: margin || '2em',
 // }))``
 
-type DynamicProps = {
-   margin?: string
-   padding?: string
-}
-
-export default styled.div.attrs<DynamicProps>(({ margin, padding }) => ({
+export default styled.div.attrs<Props>(({ margin, padding }) => ({
    margin: margin || undefined,
    padding: padding || undefined,
 }))<Props>`
@@ -62,6 +60,9 @@ export default styled.div.attrs<DynamicProps>(({ margin, padding }) => ({
       background-color ${({ theme: { themeTransition } }) => themeTransition},
       box-shadow ${({ theme: { themeTransition } }) => themeTransition},
       color ${({ theme: { themeTransition } }) => themeTransition};
+
+   /* DYNAMIC */
+   padding: ${({ padding }) => padding};
 
    ${({ align }) =>
       align &&

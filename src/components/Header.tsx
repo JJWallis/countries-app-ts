@@ -7,7 +7,7 @@ import ThemeSwitcher from './ThemeSwitcher'
 const Header: React.FC = () => {
    return (
       <StyledHeader>
-         <Wrapper align spacing="true" sb>
+         <Wrapper align sb padding="1rem 0">
             <MainTitle>Where in the world?</MainTitle>
             <ThemeSwitcher />
          </Wrapper>
