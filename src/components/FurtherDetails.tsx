@@ -26,6 +26,29 @@ const FurtherDetails: React.FC = () => {
       }
    }
 
+   // const printData = (data) => {
+   //    return (
+   //       <Wrapper furtherColumnsChild>
+   //          {data &&
+   //             Object.entries(data).map(([key, value]) => (
+   //                <CountryData further key={key}>
+   //                   <CountrySubTitle further>
+   //                      {key[0].toUpperCase() +
+   //                         key
+   //                            .slice(1, key.length)
+   //                            .split(/(?=[A-Z])/)
+   //                            .join(' ')}
+   //                      :
+   //                   </CountrySubTitle>
+   //                   {value
+   //                      ? value.toString().split(',').join(', ')
+   //                      : 'No data provided'}
+   //                </CountryData>
+   //             ))}
+   //       </Wrapper>
+   //    )
+   // }
+
    const gatherDataOne = () => {
       if (data) {
          const {

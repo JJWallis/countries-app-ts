@@ -19,24 +19,24 @@ interface ContextInterface {
    fetchError: React.MutableRefObject<boolean>
 }
 
-type data =
-   | {
-        name: { common: string; nativeName: { official: string }[] }
-        cioc: string
-        cca3: string
-        region: string
-        borders: string[]
-        flags: {
-           svg: string
-        }
-        currencies: { name: string }[]
-        languages: string[]
-        population: number
-        subregion: string
-        capital: string
-        tld: string[]
-     }[]
-   | null
+interface Country {
+   name: { common: string; nativeName: { official: string }[] }
+   cioc: string
+   cca3: string
+   region: string
+   borders: string[]
+   flags: {
+      svg: string
+   }
+   currencies: { name: string }[]
+   languages: string[]
+   population: number
+   subregion: string
+   capital: string
+   tld: string[]
+}
+
+type data = Country[] | null
 
 export const Context = React.createContext<ContextInterface | null>(null)
 

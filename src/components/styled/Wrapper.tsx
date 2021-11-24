@@ -131,8 +131,8 @@ export default styled.div<Props>`
          box-shadow: ${({ theme }) => theme.countryCardShadow};
          padding: 0 0 1rem 0;
          overflow: hidden;
-         background-color: ${({ theme }) => theme.elements};
          cursor: pointer;
+         /* background-color: ${({ theme }) => theme.elements}; */
          &:hover {
             transform: scale(1.05);
          }
