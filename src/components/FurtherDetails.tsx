@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Context } from '../App'
+import { Context, Country } from '../App'
 import Wrapper from './styled/Wrapper'
 import CountryImg from './styled/StyledImg'
 import { CountryName } from './styled/StyledTitle'
@@ -11,6 +11,43 @@ const FurtherDetails: React.FC = () => {
    const { furtherDetails } = { ...useContext(Context) }
    const data = furtherDetails ? furtherDetails[0] : null
    const name = data ? data.name.common : 'No name'
+
+   type DataToMap =
+      | {
+           nativeName: string | undefined
+           population: Country['population']
+           region: Country['region']
+           subRegion: Country['subregion']
+           capital: Country['capital']
+        }
+      | {
+           topLevelDomain: Country['tld'][0]
+           currencies: string | undefined
+           languages: string | undefined
+        }
+
+   const printData = (data: DataToMap) => {
+      return (
+         <Wrapper furtherColumnsChild>
+            {data &&
+               Object.entries(data).map(([key, value]) => (
+                  <CountryData further key={key}>
+                     <CountrySubTitle further>
+                        {key[0].toUpperCase() +
+                           key
+                              .slice(1, key.length)
+                              .split(/(?=[A-Z])/)
+                              .join(' ')}
+                        :
+                     </CountrySubTitle>
+                     {value
+                        ? value.toString().split(',').join(', ')
+                        : 'No data provided'}
+                  </CountryData>
+               ))}
+         </Wrapper>
+      )
+   }
 
    const printFlag = () => {
       if (data) {
@@ -25,29 +62,6 @@ const FurtherDetails: React.FC = () => {
          )
       }
    }
-
-   // const printData = (data) => {
-   //    return (
-   //       <Wrapper furtherColumnsChild>
-   //          {data &&
-   //             Object.entries(data).map(([key, value]) => (
-   //                <CountryData further key={key}>
-   //                   <CountrySubTitle further>
-   //                      {key[0].toUpperCase() +
-   //                         key
-   //                            .slice(1, key.length)
-   //                            .split(/(?=[A-Z])/)
-   //                            .join(' ')}
-   //                      :
-   //                   </CountrySubTitle>
-   //                   {value
-   //                      ? value.toString().split(',').join(', ')
-   //                      : 'No data provided'}
-   //                </CountryData>
-   //             ))}
-   //       </Wrapper>
-   //    )
-   // }
 
    const gatherDataOne = () => {
       if (data) {
@@ -71,26 +85,7 @@ const FurtherDetails: React.FC = () => {
             capital,
          }
 
-         return (
-            <Wrapper furtherColumnsChild>
-               {dataToMap &&
-                  Object.entries(dataToMap).map(([key, value]) => (
-                     <CountryData further key={key}>
-                        <CountrySubTitle further>
-                           {key[0].toUpperCase() +
-                              key
-                                 .slice(1, key.length)
-                                 .split(/(?=[A-Z])/)
-                                 .join(' ')}
-                           :
-                        </CountrySubTitle>
-                        {value
-                           ? value.toString().split(',').join(', ')
-                           : 'No data provided'}
-                     </CountryData>
-                  ))}
-            </Wrapper>
-         )
+         return printData(dataToMap)
       }
    }
 
@@ -112,26 +107,7 @@ const FurtherDetails: React.FC = () => {
             languages,
          }
 
-         return (
-            <Wrapper furtherColumnsChild>
-               {dataToMap &&
-                  Object.entries(dataToMap).map(([key, value]) => (
-                     <CountryData further key={key}>
-                        <CountrySubTitle further>
-                           {key[0].toUpperCase() +
-                              key
-                                 .slice(1, key.length)
-                                 .split(/(?=[A-Z])/)
-                                 .join(' ')}
-                           :
-                        </CountrySubTitle>
-                        {value
-                           ? value.toString().split(',').join(', ')
-                           : 'No data provided'}
-                     </CountryData>
-                  ))}
-            </Wrapper>
-         )
+         return printData(dataToMap)
       }
    }
 

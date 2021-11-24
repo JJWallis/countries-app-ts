@@ -19,7 +19,7 @@ interface ContextInterface {
    fetchError: React.MutableRefObject<boolean>
 }
 
-interface Country {
+export interface Country {
    name: { common: string; nativeName: { official: string }[] }
    cioc: string
    cca3: string
