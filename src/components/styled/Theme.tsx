@@ -6,8 +6,12 @@ export type theme = {
    shadow: string
    headerShadow: string
    countryCardShadow: string
+   furtherImgShadowMb: string
+   furtherImgShadowWd: string
+   borderBtnShadow: string
    breakpoint: string
    furtherBreakpoint: string
+   themeTransition: string
 }
 
 export const lightTheme = {

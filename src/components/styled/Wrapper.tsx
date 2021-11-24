@@ -2,10 +2,10 @@ import styled, { css } from 'styled-components'
 
 type Props = {
    align?: boolean
-   spacing?: boolean
+   spacing?: string
    sb?: boolean
    sf?: boolean
-   filter?: boolean
+   filter?: string
    grid?: boolean
    country?: boolean
    countryImgFlag?: string
@@ -21,7 +21,43 @@ type Props = {
    furtherColumnsChild?: boolean
 }
 
-export default styled.div<Props>`
+/*
+
+margin:
+
+'main' = padding-top: 1rem (media min-width breakpoint = 2.3rem)
+
+
+padding:
+
+'spacing' = padding-block: 1rem
+'main' = padding-top: 1rem (media min-width tablet = 2.3rem)
+
+
+
+flex | undefined:
+
+'filter' = display flex | justify-content: flex-start | 
+'main' = padding-top: 1rem (media min-width tablet = 2.3rem)
+*/
+
+// type TestProps = {
+//    margin?: string
+// }
+
+// const test = styled.div.attrs<TestProps>(({margin}) => ({
+//    margin: margin || '2em',
+// }))``
+
+type DynamicProps = {
+   margin?: string
+   padding?: string
+}
+
+export default styled.div.attrs<DynamicProps>(({ margin, padding }) => ({
+   margin: margin || undefined,
+   padding: padding || undefined,
+}))<Props>`
    transition: transform 200ms linear,
       background-color ${({ theme: { themeTransition } }) => themeTransition},
       box-shadow ${({ theme: { themeTransition } }) => themeTransition},

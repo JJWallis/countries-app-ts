@@ -3,9 +3,6 @@ import { Context } from '../App'
 import StyledInput from './styled/StyledInput'
 import Icon from './styled/Icon'
 
-//  if not - sep local searchError state toggled from error state in App
-//  toggles to true based on hasErrorOccured logic
-
 const Search: React.FC = () => {
    const [search, setSearch] = useState('')
    const {

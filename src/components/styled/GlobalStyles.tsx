@@ -3,6 +3,7 @@ import { createGlobalStyle } from 'styled-components'
 const GlobalStyles = createGlobalStyle`
 body {
   font: 0.9rem Nunito, sans-serif;
+  overflow-x: hidden;
 }
 
 *,
