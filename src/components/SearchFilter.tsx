@@ -41,7 +41,7 @@ const SearchFilter: React.FC = () => {
    }
 
    return (
-      <Wrapper sb sf>
+      <Wrapper sb sf margin="1.5rem 0 4rem">
          {handleLayoutChange()}
       </Wrapper>
    )

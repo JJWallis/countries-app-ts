@@ -2,18 +2,14 @@ import styled, { css } from 'styled-components'
 
 type Props = {
    align?: boolean
-   spacing?: string
    sb?: boolean
    sf?: boolean
    filter?: string
    grid?: boolean
    country?: boolean
    countryImgFlag?: string
-   countryDataParent?: boolean
-   countryData?: boolean
-   flexWrap?: boolean
    flexChild?: boolean
-   display?: 'grid' | 'flexWrap'
+   display?: 'grid' | 'flexWrap' | string
    main?: boolean
    bordersParent?: boolean
    borders?: boolean
@@ -22,47 +18,27 @@ type Props = {
    // DYNAMIC
    margin?: string
    padding?: string
+   flexWrap?: string
 }
 
-/*
-
-margin:
-
-'main' = padding-top: 1rem (media min-width breakpoint = 2.3rem)
-
-
-padding:
-
-'spacing' = padding-block: 1rem
-'main' = padding-top: 1rem (media min-width tablet = 2.3rem)
-
-
-
-flex | undefined:
-
-'filter' = display flex | justify-content: flex-start | 
-'main' = padding-top: 1rem (media min-width tablet = 2.3rem)
-*/
-
-// type TestProps = {
-//    margin?: string
-// }
-
-// const test = styled.div.attrs<TestProps>(({margin}) => ({
-//    margin: margin || '2em',
-// }))``
-
-export default styled.div.attrs<Props>(({ margin, padding }) => ({
-   margin: margin || undefined,
-   padding: padding || undefined,
-}))<Props>`
+export default styled.div.attrs<Props>(
+   ({ margin, padding, display, flexWrap }) => ({
+      display: display,
+      margin: margin,
+      padding: padding,
+      flexWrap: flexWrap,
+   })
+)<Props>`
    transition: transform 200ms linear,
       background-color ${({ theme: { themeTransition } }) => themeTransition},
       box-shadow ${({ theme: { themeTransition } }) => themeTransition},
       color ${({ theme: { themeTransition } }) => themeTransition};
 
    /* DYNAMIC */
+   display: ${({ display }) => display};
    padding: ${({ padding }) => padding};
+   margin: ${({ margin }) => margin};
+   flex-wrap: ${({ flexWrap }) => flexWrap};
 
    ${({ align }) =>
       align &&
@@ -72,16 +48,9 @@ export default styled.div.attrs<Props>(({ margin, padding }) => ({
          max-width: 1530px;
       `}
 
-   ${({ spacing }) =>
-      spacing &&
-      css`
-         padding-block: 1rem;
-      `}
-
-      ${({ main }) =>
+   ${({ main }) =>
       main &&
       css`
-         padding-top: 1rem;
          @media (min-width: ${({ theme }) => theme.breakpoint}) {
             padding-top: 2.3rem;
          }
@@ -111,7 +80,6 @@ export default styled.div.attrs<Props>(({ margin, padding }) => ({
    ${({ sf }) =>
       sf &&
       css`
-         margin: 1.5rem 0 4rem;
          @media (max-width: ${({ theme }) => theme.breakpoint}) {
             flex-direction: column;
             justify-content: unset;
@@ -153,7 +121,6 @@ export default styled.div.attrs<Props>(({ margin, padding }) => ({
       ${({ flexChild }) =>
       flexChild &&
       css`
-         /* outline: 4px solid red; */
          flex: 1 100%;
          display: flex;
          flex-direction: column;
@@ -166,7 +133,6 @@ export default styled.div.attrs<Props>(({ margin, padding }) => ({
          flex-basis: 310px;
          border-radius: 5px;
          box-shadow: ${({ theme }) => theme.countryCardShadow};
-         padding: 0 0 1rem 0;
          overflow: hidden;
          cursor: pointer;
          /* background-color: ${({ theme }) => theme.elements}; */
@@ -183,18 +149,6 @@ export default styled.div.attrs<Props>(({ margin, padding }) => ({
          background-position: center;
          background-repeat: no-repeat;
          min-height: 12rem;
-      `}
-
-      ${({ countryDataParent }) =>
-      countryDataParent &&
-      css`
-         padding: 1.5rem 1.7rem 2rem;
-      `}
-
-      ${({ countryData }) =>
-      countryData &&
-      css`
-         margin-bottom: 0.2rem;
       `}
 
       ${({ bordersParent }) =>

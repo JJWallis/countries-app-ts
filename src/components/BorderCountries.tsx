@@ -19,7 +19,7 @@ const BorderCountries: React.FC = () => {
          const { borders } = furtherDetails[0]
          if (borders && borders.length > 0) {
             return (
-               <Wrapper borders>
+               <Wrapper borders display="flex">
                   {borders.map((border: string) => (
                      <Button
                         country

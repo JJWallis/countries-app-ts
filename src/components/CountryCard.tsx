@@ -31,7 +31,7 @@ const CountryCard: React.FC<Props> = ({ data }) => {
       capital: Props['data']['capital']
    }) => {
       return Object.entries(data).map(([key, value]) => (
-         <Wrapper countryData key={key}>
+         <Wrapper margin="0 0 0.2rem" key={key}>
             <CountrySubTitle>
                {key[0].toUpperCase() + key.slice(1, key.length) + ':'}
             </CountrySubTitle>
@@ -41,9 +41,13 @@ const CountryCard: React.FC<Props> = ({ data }) => {
    }
 
    return (
-      <Wrapper country onClick={() => hfr && hfr(name.toLowerCase())}>
+      <Wrapper
+         country
+         padding="0 0 1rem"
+         onClick={() => hfr && hfr(name.toLowerCase())}
+      >
          <Wrapper countryImgFlag={flag} />
-         <Wrapper countryDataParent>
+         <Wrapper padding="1.5rem 1.7rem 2rem">
             <CountryName>{name ? name : 'No data provided'}</CountryName>
             {printData({ population, region, capital })}
          </Wrapper>

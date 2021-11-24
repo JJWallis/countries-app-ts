@@ -7,7 +7,7 @@ import Countries from './CountriesContainer'
 const Main: React.FC = () => {
    return (
       <StyledMain>
-         <Wrapper main align>
+         <Wrapper main align padding="1rem 0 0">
             <SearchFilter />
             <Countries />
          </Wrapper>
