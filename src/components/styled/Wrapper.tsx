@@ -1,7 +1,6 @@
 import styled, { css } from 'styled-components'
 
 /*
-
 FlexContainer {
    display: flex;
 
@@ -32,8 +31,6 @@ FlexContainer {
    flex-wrap: wrap;
    align-items: baseline;
 
-
-   
 */
 
 type Props = {
@@ -47,9 +44,6 @@ type Props = {
    bordersParent?: boolean
    furtherColumns?: boolean
    furtherColumnsChild?: boolean
-
-   // DYNAMIC
-
    display?: 'grid' | 'flexWrap' | string
    margin?: string
    padding?: string
@@ -148,7 +142,6 @@ export default styled.div.attrs<Props>(
       ${({ display }) =>
       display === 'flexWrap' &&
       css`
-         /* outline: 3px solid purple; */
          display: flex;
          flex-direction: column;
          gap: 3.5rem;
@@ -198,7 +191,6 @@ export default styled.div.attrs<Props>(
       ${({ bordersParent }) =>
       bordersParent &&
       css`
-         /* outline: 1px solid red; */
          display: flex;
          flex-wrap: wrap;
          align-items: center;
@@ -226,7 +218,6 @@ export default styled.div.attrs<Props>(
       ${({ furtherColumnsChild }) =>
       furtherColumnsChild &&
       css`
-         /* outline: 1px solid black; */
          flex: 1 220px;
          max-width: 300px;
          @media (min-width: ${({ theme }) => theme.breakpoint}) {

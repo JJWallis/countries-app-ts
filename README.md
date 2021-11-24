@@ -151,3 +151,5 @@ useEffect - get out of async nature of state change | `useEffect(() => {}, [desi
 TS - any type error for params in funcs (Antartica - lacked properties attempting to convert to obj - undefined) | see value in TS
 
 Testing - React Testing Library + Jest | 1st project - catching logical errors (adding new features to app - hard to catch cross-component - bloated very quickly) | next project - adopt test-driven development approach
+
+Styled components - 200 classes error | attrs func | as keyword | inheriting styles (styled(button) vs styled.button)
