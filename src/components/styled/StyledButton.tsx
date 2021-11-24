@@ -40,6 +40,10 @@ const Button = styled.button<Props>`
       css`
          padding: 0.6em 2.5em;
          box-shadow: ${({ theme }) => theme.borderBtnShadow};
+         &:hover {
+            color: ${({ theme: { elements } }) => elements};
+            background-color: ${({ theme: { color } }) => color};
+         }
       `}
       
       ${({ error }) =>
