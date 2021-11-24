@@ -1,5 +1,41 @@
 import styled, { css } from 'styled-components'
 
+/*
+
+FlexContainer {
+   display: flex;
+
+      Filter: 
+   flex-direction: column;
+   justify-content: unset;
+   align-items: flex-start;
+
+      Grid:
+   flex-wrap: wrap;
+   justify-content: center;
+}
+      Flex-wrap:
+   flex-direction: column; - row (media)
+
+      Flex-child: 
+   flex-direction: column;
+   justify-content: center;
+
+      Borders:
+   flex-wrap: wrap;
+   align-items: center;
+   (media:)
+   flex-direction: column;
+   align-items: flex-start;
+
+      Borders-parent:
+   flex-wrap: wrap;
+   align-items: baseline;
+
+
+   
+*/
+
 type Props = {
    align?: boolean
    sf?: boolean
