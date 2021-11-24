@@ -4,7 +4,6 @@ type Props = {
    align?: boolean
    sf?: boolean
    filter?: string
-   grid?: boolean
    country?: boolean
    countryImgFlag?: string
    flexChild?: boolean
@@ -46,12 +45,6 @@ export default styled.div.attrs<Props>(
       position: position,
    })
 )<Props>`
-   transition: transform 200ms linear,
-      background-color ${({ theme: { themeTransition } }) => themeTransition},
-      box-shadow ${({ theme: { themeTransition } }) => themeTransition},
-      color ${({ theme: { themeTransition } }) => themeTransition};
-
-   /* DYNAMIC */
    display: ${({ display }) => display};
    padding: ${({ padding }) => padding};
    margin: ${({ margin }) => margin};
@@ -146,6 +139,11 @@ export default styled.div.attrs<Props>(
          overflow: hidden;
          cursor: pointer;
          /* background-color: ${({ theme }) => theme.elements}; */
+         transition: transform 200ms linear,
+            background-color
+               ${({ theme: { themeTransition } }) => themeTransition},
+            box-shadow ${({ theme: { themeTransition } }) => themeTransition},
+            color ${({ theme: { themeTransition } }) => themeTransition};
          &:hover {
             transform: scale(1.05);
          }
