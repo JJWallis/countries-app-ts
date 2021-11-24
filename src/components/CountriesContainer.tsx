@@ -17,7 +17,7 @@ const CountriesContainer: React.FC = () => {
       if (homepage) {
          const data = determineData()
          return data ? (
-            <Wrapper display={'grid'}>
+            <Wrapper as="article" display={'grid'} role="grid">
                {data.map((country) => (
                   <CountryCard key={uuidv4()} data={country} />
                ))}

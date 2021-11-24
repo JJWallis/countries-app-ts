@@ -42,6 +42,8 @@ const CountryCard: React.FC<Props> = ({ data }) => {
 
    return (
       <Wrapper
+         as="section"
+         role="grid-cell"
          country
          padding="0 0 1rem"
          onClick={() => hfr && hfr(name.toLowerCase())}

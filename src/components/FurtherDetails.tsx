@@ -28,7 +28,7 @@ const FurtherDetails: React.FC = () => {
 
    const printData = (data: DataToMap) => {
       return (
-         <Wrapper furtherColumnsChild>
+         <Wrapper as="article" furtherColumnsChild>
             {data &&
                Object.entries(data).map(([key, value]) => (
                   <CountryData further key={key}>
@@ -56,7 +56,7 @@ const FurtherDetails: React.FC = () => {
          } = data
 
          return (
-            <Wrapper flexChild>
+            <Wrapper as="article" flexChild>
                <CountryImg flag src={flag} alt="Country flag." />
             </Wrapper>
          )
@@ -114,7 +114,7 @@ const FurtherDetails: React.FC = () => {
    return (
       <>
          {printFlag()}
-         <Wrapper flexChild>
+         <Wrapper as="article" flexChild>
             <CountryName further>{name}</CountryName>
             <Wrapper furtherColumns>
                {gatherDataOne()}
