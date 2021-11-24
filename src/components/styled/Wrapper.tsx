@@ -22,6 +22,11 @@ type Props = {
 }
 
 export default styled.div<Props>`
+   transition: transform 200ms linear,
+      background-color ${({ theme: { themeTransition } }) => themeTransition},
+      box-shadow ${({ theme: { themeTransition } }) => themeTransition},
+      color ${({ theme: { themeTransition } }) => themeTransition};
+
    ${({ align }) =>
       align &&
       css`
@@ -128,10 +133,6 @@ export default styled.div<Props>`
          overflow: hidden;
          background-color: ${({ theme }) => theme.elements};
          cursor: pointer;
-         transition: transform 200ms linear,
-            background-color
-               ${({ theme: { themeTransition } }) => themeTransition},
-            box-shadow ${({ theme: { themeTransition } }) => themeTransition};
          &:hover {
             transform: scale(1.05);
          }
