@@ -16,7 +16,8 @@ const Button = styled.button<Props>`
    color: ${({ theme: { color } }) => color};
    transition: background-color
          ${({ theme: { themeTransition } }) => themeTransition},
-      color ${({ theme: { themeTransition } }) => themeTransition};
+      color ${({ theme: { themeTransition } }) => themeTransition},
+      box-shadow ${({ theme: { themeTransition } }) => themeTransition};
 
    ${({ back }) =>
       back &&
@@ -39,8 +40,6 @@ const Button = styled.button<Props>`
       css`
          padding: 0.6em 2.5em;
          box-shadow: ${({ theme }) => theme.borderBtnShadow};
-         transition: box-shadow
-            ${({ theme: { themeTransition } }) => themeTransition};
       `}
       
       ${({ error }) =>
@@ -49,8 +48,6 @@ const Button = styled.button<Props>`
          cursor: not-allowed;
          padding-inline: 1.7em;
          box-shadow: ${({ theme }) => theme.borderBtnShadow};
-         transition: box-shadow
-            ${({ theme: { themeTransition } }) => themeTransition};
       `}
 `
 

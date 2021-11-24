@@ -72,7 +72,6 @@ const App: React.FC = () => {
             cioc === country ||
             cca3 === country
       )
-      // chain another map() to get specific desired props for FurtherDetails
       if (countryData && countryData.length > 0) {
          error && setError(false)
          setFurtherDetails(countryData)
