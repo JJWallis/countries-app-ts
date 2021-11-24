@@ -41,7 +41,14 @@ const SearchFilter: React.FC = () => {
    }
 
    return (
-      <Wrapper sb sf margin="1.5rem 0 4rem">
+      <Wrapper
+         display="flex"
+         justifyContent="space-between"
+         alignItems="center"
+         position="relative"
+         sf
+         margin="1.5rem 0 4rem"
+      >
          {handleLayoutChange()}
       </Wrapper>
    )

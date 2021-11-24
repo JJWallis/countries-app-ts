@@ -2,31 +2,48 @@ import styled, { css } from 'styled-components'
 
 type Props = {
    align?: boolean
-   sb?: boolean
    sf?: boolean
    filter?: string
    grid?: boolean
    country?: boolean
    countryImgFlag?: string
    flexChild?: boolean
-   display?: 'grid' | 'flexWrap' | string
    main?: boolean
    bordersParent?: boolean
-   borders?: boolean
    furtherColumns?: boolean
    furtherColumnsChild?: boolean
+
    // DYNAMIC
+
+   display?: 'grid' | 'flexWrap' | string
    margin?: string
    padding?: string
-   flexWrap?: string
+   flexWrap?: 'wrap' | 'no-wrap'
+   justifyContent?: string
+   alignItems?: string
+   gap?: string
+   position?: string
 }
 
 export default styled.div.attrs<Props>(
-   ({ margin, padding, display, flexWrap }) => ({
+   ({
+      margin,
+      padding,
+      display,
+      flexWrap,
+      alignItems,
+      gap,
+      justifyContent,
+      position,
+   }) => ({
       display: display,
       margin: margin,
       padding: padding,
       flexWrap: flexWrap,
+      alignItems: alignItems,
+      justifyContent: justifyContent,
+      gap: gap,
+      position: position,
    })
 )<Props>`
    transition: transform 200ms linear,
@@ -39,6 +56,10 @@ export default styled.div.attrs<Props>(
    padding: ${({ padding }) => padding};
    margin: ${({ margin }) => margin};
    flex-wrap: ${({ flexWrap }) => flexWrap};
+   align-items: ${({ alignItems }) => alignItems};
+   gap: ${({ gap }) => gap};
+   justify-content: ${({ justifyContent }) => justifyContent};
+   position: ${({ position }) => position};
 
    ${({ align }) =>
       align &&
@@ -59,22 +80,11 @@ export default styled.div.attrs<Props>(
    ${({ filter }) =>
       filter &&
       css`
-         display: flex;
-         justify-content: flex-start;
          width: 240px;
          @media (min-width: ${({ theme }) => theme.breakpoint}) {
             justify-content: flex-end;
             width: 220px;
          }
-      `}
-
-   ${({ sb }) =>
-      sb &&
-      css`
-         display: flex;
-         justify-content: space-between;
-         align-items: center;
-         position: relative;
       `}
 
    ${({ sf }) =>
@@ -165,15 +175,6 @@ export default styled.div.attrs<Props>(
             align-items: flex-start;
             gap: 1.3rem;
          }
-      `}
-
-      ${({ borders }) =>
-      borders &&
-      css`
-         display: flex;
-         flex-wrap: wrap;
-         align-items: center;
-         gap: 0.7rem;
       `}
 
       ${({ furtherColumns }) =>

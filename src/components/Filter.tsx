@@ -37,7 +37,7 @@ const Filter: React.FC<Props> = ({ prevFilter, updatePrevFilter }) => {
    }
 
    return (
-      <Wrapper filter="true">
+      <Wrapper filter="true" display="flex" justify-content="flex-start">
          <StyledFilter defaultValue={prevFilter} disabled={fetchError?.current}>
             <StyledOption onClick={() => setDesiredRegion('')}>
                Filter by region
