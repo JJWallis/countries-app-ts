@@ -198,6 +198,24 @@ export default styled.div.attrs<Props>(
          box-shadow: ${({ theme }) => theme.shadow};
          background-color: ${({ theme: { elements } }) => elements};
          cursor: pointer;
+         &::after {
+            content: '';
+            display: block;
+            width: 5px;
+            height: 5px;
+            border-right: 5px solid red;
+            border-left: 5px solid red;
+            border-top: 0 solid transparent;
+            position: absolute;
+            top: 153px;
+            left: 200px;
+            @media (min-width: ${({ theme }) => theme.breakpoint}) {
+               left: unset;
+               right: 25px;
+               top: 50%;
+               transform: translateY(-50%);
+            }
+         }
          transition: background-color
                ${({ theme: { themeTransition } }) => themeTransition},
             box-shadow ${({ theme: { themeTransition } }) => themeTransition};
