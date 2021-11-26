@@ -46,7 +46,7 @@ const Filter: React.FC<Props> = ({ prevFilter, updatePrevFilter }) => {
             disabled={fetchError?.current}
             onClick={handleDropDown}
          >
-            <StyledOption onClick={() => setDesiredRegion('')}>
+            <StyledOption title="true" onClick={() => setDesiredRegion('')}>
                Filter by region
             </StyledOption>
          </StyledFilter>

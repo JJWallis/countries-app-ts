@@ -1,6 +1,7 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const StyledFilter = styled.select`
+   cursor: pointer;
    border-radius: 5px;
    border: none;
    padding: 1.2rem 0rem 1.2rem 1rem;
@@ -14,10 +15,20 @@ export const StyledFilter = styled.select`
       color ${({ theme: { themeTransition } }) => themeTransition}; ;
 `
 
-export const StyledOption = styled.option`
+interface OptionProps {
+   title?: 'true' | 'false'
+}
+
+export const StyledOption = styled.option<OptionProps>`
    cursor: pointer;
    transition: transform ${({ theme: { themeTransition } }) => themeTransition};
    &:hover {
       transform: scale(1.01);
    }
+
+   ${({ title }) =>
+      title &&
+      css`
+         color: red;
+      `}
 `

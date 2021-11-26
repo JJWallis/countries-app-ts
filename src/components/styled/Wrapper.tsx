@@ -34,6 +34,7 @@ export default styled.div.attrs<Props>(
       gap,
       justifyContent,
       position,
+      opacity,
    }) => ({
       display: display,
       margin: margin,
@@ -43,6 +44,7 @@ export default styled.div.attrs<Props>(
       justifyContent: justifyContent,
       gap: gap,
       position: position,
+      opacity: opacity,
    })
 )<Props>`
    display: ${({ display }) => display};
@@ -206,7 +208,7 @@ export default styled.div.attrs<Props>(
          color: ${({ theme: { color } }) => color};
          font-size: 1.1rem;
          width: 240px;
-         opacity: 0;
+         opacity: ${({ opacity }) => opacity};
          transition: background-color
                ${({ theme: { themeTransition } }) => themeTransition},
             color ${({ theme: { themeTransition } }) => themeTransition},
