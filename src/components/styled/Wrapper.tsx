@@ -201,14 +201,16 @@ export default styled.div.attrs<Props>(
          &::after {
             content: '';
             display: block;
-            width: 5px;
-            height: 5px;
-            border-right: 5px solid red;
-            border-left: 5px solid red;
-            border-top: 0 solid transparent;
+            width: 0;
+            height: 0;
+            border-right: 5px solid transparent;
+            border-left: 5px solid transparent;
+            border-top: 5px solid ${({ theme: { color } }) => color};
             position: absolute;
             top: 153px;
             left: 200px;
+            transition: border-top
+               ${({ theme: { themeTransition } }) => themeTransition};
             @media (min-width: ${({ theme }) => theme.breakpoint}) {
                left: unset;
                right: 25px;
