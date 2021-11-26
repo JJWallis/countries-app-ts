@@ -193,7 +193,7 @@ export default styled.div.attrs<Props>(
          flex-direction: column;
          align-items: flex-start;
          width: 240px;
-         padding: 1.2rem 1rem;
+         padding: 1.2rem 1.7rem;
          border-radius: 5px;
          box-shadow: ${({ theme }) => theme.shadow};
          background-color: ${({ theme: { elements } }) => elements};
@@ -211,7 +211,8 @@ export default styled.div.attrs<Props>(
       dropDown &&
       css`
          position: absolute;
-         top: 190px;
+         top: 193px;
+         left: 0;
          z-index: 300;
          border-radius: 5px;
          padding: 1.2rem 0rem 1.2rem 1rem;
@@ -226,6 +227,8 @@ export default styled.div.attrs<Props>(
             opacity ${({ theme: { themeTransition } }) => themeTransition};
          @media (min-width: ${({ theme }) => theme.breakpoint}) {
             top: 68px;
+            left: unset;
+            right: 0;
             width: 220px;
          }
       `}
