@@ -240,11 +240,14 @@ export default styled.div.attrs<Props>(
          color: ${({ theme: { color } }) => color};
          font-size: 1.1rem;
          width: 240px;
+         transform: ${({ opacity }) =>
+            opacity === 0 ? 'translateY(-15%)' : 'translateY(0%)'};
          opacity: ${({ opacity }) => opacity};
          transition: background-color
                ${({ theme: { themeTransition } }) => themeTransition},
             color ${({ theme: { themeTransition } }) => themeTransition},
-            opacity ${({ theme: { themeTransition } }) => themeTransition};
+            opacity ${({ theme: { themeTransition } }) => themeTransition},
+            transform ${({ theme: { themeTransition } }) => themeTransition};
          @media (min-width: ${({ theme }) => theme.breakpoint}) {
             top: 68px;
             left: unset;
