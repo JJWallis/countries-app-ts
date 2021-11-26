@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState, useRef } from 'react'
 import { Context } from '../App'
+import Button from './styled/StyledButton'
 import { StyledFilter, StyledOption } from './styled/StyledFilter'
 import Wrapper from './styled/Wrapper'
 
@@ -40,20 +41,21 @@ const Filter: React.FC<Props> = ({ prevFilter, updatePrevFilter }) => {
    const handleDropDown = () => setToggleDropDown(toggleDropDown ? 0 : 1)
 
    return (
-      <Wrapper filter="true" display="flex" justify-content="flex-start">
-         <StyledFilter
-            defaultValue={prevFilter}
+      <Wrapper
+         filter="true"
+         display="flex"
+         justify-content="flex-start"
+         onClick={handleDropDown}
+      >
+         <Button
             disabled={fetchError?.current}
-            onClick={handleDropDown}
+            onClick={() => setDesiredRegion('')}
          >
-            <StyledOption onClick={() => setDesiredRegion('')}>
-               Filter by region
-            </StyledOption>
-
-            {/* <Wrapper dropDown opacity={toggleDropDown}> */}
+            Filter by region
+         </Button>
+         <Wrapper dropDown opacity={toggleDropDown}>
             {handleRegions()}
-            {/* </Wrapper> */}
-         </StyledFilter>
+         </Wrapper>
       </Wrapper>
    )
 }
