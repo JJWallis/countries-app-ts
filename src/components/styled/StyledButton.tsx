@@ -51,11 +51,9 @@ const Button = styled.button<Props>`
       ${({ dropDown }) =>
       dropDown &&
       css`
-         padding: 1.2rem 0rem 1.2rem 1rem;
-         box-shadow: ${({ theme }) => theme.shadow};
+         padding: 0;
          font-size: 1.1rem;
-         width: 100%;
-         /* outline: 1px solid white; */
+         background: none;
       `}
       
       ${({ error }) =>

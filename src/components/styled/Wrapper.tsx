@@ -189,8 +189,18 @@ export default styled.div.attrs<Props>(
       ${({ filter }) =>
       filter &&
       css`
-         outline: 2px solid red;
+         display: flex;
+         flex-direction: column;
+         align-items: flex-start;
          width: 240px;
+         padding: 1.2rem 1rem;
+         border-radius: 5px;
+         box-shadow: ${({ theme }) => theme.shadow};
+         background-color: ${({ theme: { elements } }) => elements};
+         cursor: pointer;
+         transition: background-color
+               ${({ theme: { themeTransition } }) => themeTransition},
+            box-shadow ${({ theme: { themeTransition } }) => themeTransition};
          @media (min-width: ${({ theme }) => theme.breakpoint}) {
             justify-content: flex-end;
             width: 220px;
