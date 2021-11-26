@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
 export const StyledFilter = styled.select`
    cursor: pointer;
@@ -15,20 +15,10 @@ export const StyledFilter = styled.select`
       color ${({ theme: { themeTransition } }) => themeTransition}; ;
 `
 
-interface OptionProps {
-   title?: 'true' | 'false'
-}
-
-export const StyledOption = styled.option<OptionProps>`
+export const StyledOption = styled.option`
    cursor: pointer;
    transition: transform ${({ theme: { themeTransition } }) => themeTransition};
    &:hover {
       transform: scale(1.01);
    }
-
-   ${({ title }) =>
-      title &&
-      css`
-         color: red;
-      `}
 `

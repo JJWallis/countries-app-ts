@@ -201,7 +201,7 @@ export default styled.div.attrs<Props>(
       css`
          position: absolute;
          top: 190px;
-         z-index: 200;
+         z-index: 300;
          border-radius: 5px;
          padding: 1.2rem 0rem 1.2rem 1rem;
          background-color: ${({ theme: { elements } }) => elements};

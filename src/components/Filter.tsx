@@ -46,15 +46,34 @@ const Filter: React.FC<Props> = ({ prevFilter, updatePrevFilter }) => {
             disabled={fetchError?.current}
             onClick={handleDropDown}
          >
-            <StyledOption title="true" onClick={() => setDesiredRegion('')}>
+            <StyledOption onClick={() => setDesiredRegion('')}>
                Filter by region
             </StyledOption>
-         </StyledFilter>
-         <Wrapper dropDown opacity={toggleDropDown}>
+
+            {/* <Wrapper dropDown opacity={toggleDropDown}> */}
             {handleRegions()}
-         </Wrapper>
+            {/* </Wrapper> */}
+         </StyledFilter>
       </Wrapper>
    )
 }
 
 export default Filter
+
+// return (
+//    <Wrapper filter="true" display="flex" justify-content="flex-start">
+//       <StyledFilter
+//          defaultValue={prevFilter}
+//          disabled={fetchError?.current}
+//          onClick={handleDropDown}
+//       >
+//          <StyledOption onClick={() => setDesiredRegion('')}>
+//             Filter by region
+//          </StyledOption>
+
+//          {/* <Wrapper dropDown opacity={toggleDropDown}> */}
+//          {handleRegions()}
+//          {/* </Wrapper> */}
+//       </StyledFilter>
+//    </Wrapper>
+// )
