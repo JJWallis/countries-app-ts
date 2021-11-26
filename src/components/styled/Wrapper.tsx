@@ -72,16 +72,6 @@ export default styled.div.attrs<Props>(
          }
       `} 
 
-   ${({ filter }) =>
-      filter &&
-      css`
-         width: 240px;
-         @media (min-width: ${({ theme }) => theme.breakpoint}) {
-            justify-content: flex-end;
-            width: 220px;
-         }
-      `}
-
    ${({ sf }) =>
       sf &&
       css`
@@ -193,6 +183,17 @@ export default styled.div.attrs<Props>(
          max-width: 300px;
          @media (min-width: ${({ theme }) => theme.breakpoint}) {
             flex-basis: 100px;
+         }
+      `}
+
+      ${({ filter }) =>
+      filter &&
+      css`
+         outline: 2px solid red;
+         width: 240px;
+         @media (min-width: ${({ theme }) => theme.breakpoint}) {
+            justify-content: flex-end;
+            width: 220px;
          }
       `}
 

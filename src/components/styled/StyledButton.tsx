@@ -55,7 +55,7 @@ const Button = styled.button<Props>`
          box-shadow: ${({ theme }) => theme.shadow};
          font-size: 1.1rem;
          width: 100%;
-         outline: 1px solid white;
+         /* outline: 1px solid white; */
       `}
       
       ${({ error }) =>
