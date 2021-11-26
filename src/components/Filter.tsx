@@ -42,8 +42,8 @@ const Filter: React.FC<Props> = ({ prevFilter, updatePrevFilter }) => {
             <StyledOption onClick={() => setDesiredRegion('')}>
                Filter by region
             </StyledOption>
-            {handleRegions()}
          </StyledFilter>
+         <Wrapper dropDown>{handleRegions()}</Wrapper>
       </Wrapper>
    )
 }

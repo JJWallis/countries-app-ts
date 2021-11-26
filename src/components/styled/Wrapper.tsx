@@ -1,38 +1,5 @@
 import styled, { css } from 'styled-components'
 
-/*
-FlexContainer {
-   display: flex;
-
-      Filter: 
-   flex-direction: column;
-   justify-content: unset;
-   align-items: flex-start;
-
-      Grid:
-   flex-wrap: wrap;
-   justify-content: center;
-}
-      Flex-wrap:
-   flex-direction: column; - row (media)
-
-      Flex-child: 
-   flex-direction: column;
-   justify-content: center;
-
-      Borders:
-   flex-wrap: wrap;
-   align-items: center;
-   (media:)
-   flex-direction: column;
-   align-items: flex-start;
-
-      Borders-parent:
-   flex-wrap: wrap;
-   align-items: baseline;
-
-*/
-
 type Props = {
    align?: boolean
    sf?: boolean
@@ -45,6 +12,8 @@ type Props = {
    furtherColumns?: boolean
    furtherColumnsChild?: boolean
    display?: 'grid' | 'flexWrap' | string
+   dropDown?: boolean
+   // dynamic
    margin?: string
    padding?: string
    flexWrap?: 'wrap' | 'no-wrap'
@@ -221,6 +190,27 @@ export default styled.div.attrs<Props>(
          max-width: 300px;
          @media (min-width: ${({ theme }) => theme.breakpoint}) {
             flex-basis: 100px;
+         }
+      `}
+
+      ${({ dropDown }) =>
+      dropDown &&
+      css`
+         position: absolute;
+         top: 190px;
+         z-index: 200;
+         border-radius: 5px;
+         padding: 1.2rem 0rem 1.2rem 1rem;
+         background-color: ${({ theme: { elements } }) => elements};
+         color: ${({ theme: { color } }) => color};
+         font-size: 1.1rem;
+         width: 240px;
+         transition: background-color
+               ${({ theme: { themeTransition } }) => themeTransition},
+            color ${({ theme: { themeTransition } }) => themeTransition};
+         @media (min-width: ${({ theme }) => theme.breakpoint}) {
+            top: 70px;
+            width: 220px;
          }
       `}
 `

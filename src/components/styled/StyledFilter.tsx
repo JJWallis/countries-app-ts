@@ -14,4 +14,10 @@ export const StyledFilter = styled.select`
       color ${({ theme: { themeTransition } }) => themeTransition}; ;
 `
 
-export const StyledOption = styled.option``
+export const StyledOption = styled.option`
+   cursor: pointer;
+   transition: transform ${({ theme: { themeTransition } }) => themeTransition};
+   &:hover {
+      transform: scale(1.01);
+   }
+`
