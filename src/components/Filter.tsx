@@ -61,6 +61,8 @@ const Filter: React.FC<Props> = ({ prevFilter, updatePrevFilter }) => {
    )
 }
 
+export default Filter
+
 // logic below + prevent drop down from firing on click if btn clicked
 
 // func to determine dynamic txt content of btn - use setted up ref in parent
@@ -68,10 +70,6 @@ const Filter: React.FC<Props> = ({ prevFilter, updatePrevFilter }) => {
 // + updates that parent ref (use already written func from parent)
 // when component re-mounted - checks whether parent ref === '' (falsy)
 // if so - uses default str 'Filter by region' or whatever is in ref
-
-// try CountryCard as sep styled Section
-
-export default Filter
 
 // return (
 //    <Wrapper filter="true" display="flex" justify-content="flex-start">
