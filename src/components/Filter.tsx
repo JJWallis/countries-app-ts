@@ -15,6 +15,7 @@ const Filter: React.FC<Props> = ({ prevFilter, updatePrevFilter }) => {
       fetchError,
    } = { ...useContext(Context) }
    const [desiredRegion, setDesiredRegion] = useState('')
+   const [toggleDropDown, setToggleDropDown] = useState(0)
    const hasDataChanged = useRef('')
 
    useEffect(() => {
@@ -36,14 +37,22 @@ const Filter: React.FC<Props> = ({ prevFilter, updatePrevFilter }) => {
          ))
    }
 
+   const handleDropDown = () => setToggleDropDown(toggleDropDown ? 0 : 1)
+
    return (
       <Wrapper filter="true" display="flex" justify-content="flex-start">
-         <StyledFilter defaultValue={prevFilter} disabled={fetchError?.current}>
+         <StyledFilter
+            defaultValue={prevFilter}
+            disabled={fetchError?.current}
+            onClick={handleDropDown}
+         >
             <StyledOption onClick={() => setDesiredRegion('')}>
                Filter by region
             </StyledOption>
          </StyledFilter>
-         <Wrapper dropDown>{handleRegions()}</Wrapper>
+         <Wrapper dropDown opacity={toggleDropDown}>
+            {handleRegions()}
+         </Wrapper>
       </Wrapper>
    )
 }

@@ -21,6 +21,7 @@ type Props = {
    alignItems?: string
    gap?: string
    position?: string
+   opacity?: number
 }
 
 export default styled.div.attrs<Props>(
@@ -205,11 +206,13 @@ export default styled.div.attrs<Props>(
          color: ${({ theme: { color } }) => color};
          font-size: 1.1rem;
          width: 240px;
+         opacity: 0;
          transition: background-color
                ${({ theme: { themeTransition } }) => themeTransition},
-            color ${({ theme: { themeTransition } }) => themeTransition};
+            color ${({ theme: { themeTransition } }) => themeTransition},
+            opacity ${({ theme: { themeTransition } }) => themeTransition};
          @media (min-width: ${({ theme }) => theme.breakpoint}) {
-            top: 70px;
+            top: 68px;
             width: 220px;
          }
       `}
