@@ -13,6 +13,7 @@ type Props = {
    furtherColumnsChild?: boolean
    display?: 'grid' | 'flexWrap' | string
    dropDown?: boolean
+   fetchError?: boolean
    // dynamic
    margin?: string
    padding?: string
@@ -198,6 +199,7 @@ export default styled.div.attrs<Props>(
          box-shadow: ${({ theme }) => theme.shadow};
          background-color: ${({ theme: { elements } }) => elements};
          cursor: pointer;
+         pointer-events: ${({ fetchError }) => (fetchError ? 'none' : 'all')};
          &::after {
             content: '';
             display: block;

@@ -55,6 +55,7 @@ const Filter: React.FC<Props> = ({ prevFilter, updatePrevFilter }) => {
          display="flex"
          justify-content="flex-start"
          onClick={handleDropDown}
+         fetchError={fetchError?.current}
       >
          <Button
             dropDown
