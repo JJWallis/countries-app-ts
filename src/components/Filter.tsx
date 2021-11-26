@@ -39,6 +39,7 @@ const Filter: React.FC<Props> = ({ prevFilter, updatePrevFilter }) => {
    }
 
    const handleDropDown = () => setToggleDropDown(toggleDropDown ? 0 : 1)
+   const handleDropDownReset = () => !prevFilter && setDesiredRegion('')
 
    return (
       <Wrapper
@@ -50,11 +51,16 @@ const Filter: React.FC<Props> = ({ prevFilter, updatePrevFilter }) => {
          <Button
             dropDown
             disabled={fetchError?.current}
-            onClick={() => setDesiredRegion('')}
+            onClick={handleDropDownReset}
          >
-            Filter by region
+            {!prevFilter ? 'Filter by region' : prevFilter}
          </Button>
          <Wrapper dropDown opacity={toggleDropDown}>
+            {prevFilter && (
+               <Button dropDown onClick={() => setDesiredRegion('')}>
+                  Back to Home
+               </Button>
+            )}
             {handleRegions()}
          </Wrapper>
       </Wrapper>
@@ -62,29 +68,3 @@ const Filter: React.FC<Props> = ({ prevFilter, updatePrevFilter }) => {
 }
 
 export default Filter
-
-// logic below + prevent drop down from firing on click if btn clicked
-
-// func to determine dynamic txt content of btn - use setted up ref in parent
-// local state that changes to str of recently clicked btn
-// + updates that parent ref (use already written func from parent)
-// when component re-mounted - checks whether parent ref === '' (falsy)
-// if so - uses default str 'Filter by region' or whatever is in ref
-
-// return (
-//    <Wrapper filter="true" display="flex" justify-content="flex-start">
-//       <StyledFilter
-//          defaultValue={prevFilter}
-//          disabled={fetchError?.current}
-//          onClick={handleDropDown}
-//       >
-//          <StyledOption onClick={() => setDesiredRegion('')}>
-//             Filter by region
-//          </StyledOption>
-
-//          {/* <Wrapper dropDown opacity={toggleDropDown}> */}
-//          {handleRegions()}
-//          {/* </Wrapper> */}
-//       </StyledFilter>
-//    </Wrapper>
-// )
