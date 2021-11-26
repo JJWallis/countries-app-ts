@@ -62,11 +62,14 @@ const Filter: React.FC<Props> = ({ prevFilter, updatePrevFilter }) => {
 }
 
 // logic below + prevent drop down from firing on click if btn clicked
+
 // func to determine dynamic txt content of btn - use setted up ref in parent
 // local state that changes to str of recently clicked btn
 // + updates that parent ref (use already written func from parent)
 // when component re-mounted - checks whether parent ref === '' (falsy)
 // if so - uses default str 'Filter by region' or whatever is in ref
+
+// try CountryCard as sep styled Section
 
 export default Filter
 
