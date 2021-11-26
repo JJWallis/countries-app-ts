@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState, useRef } from 'react'
 import { Context } from '../App'
 import Button from './styled/StyledButton'
-import { StyledFilter, StyledOption } from './styled/StyledFilter'
+import { StyledOption } from './styled/StyledFilter'
 import Wrapper from './styled/Wrapper'
 
 interface Props {
@@ -48,6 +48,7 @@ const Filter: React.FC<Props> = ({ prevFilter, updatePrevFilter }) => {
          onClick={handleDropDown}
       >
          <Button
+            dropDown
             disabled={fetchError?.current}
             onClick={() => setDesiredRegion('')}
          >

@@ -4,6 +4,7 @@ type Props = {
    back?: boolean
    country?: boolean
    error?: boolean
+   dropDown?: boolean
 }
 
 const Button = styled.button<Props>`
@@ -44,6 +45,17 @@ const Button = styled.button<Props>`
             color: ${({ theme: { elements } }) => elements};
             background-color: ${({ theme: { color } }) => color};
          }
+      `}
+
+
+      ${({ dropDown }) =>
+      dropDown &&
+      css`
+         padding: 1.2rem 0rem 1.2rem 1rem;
+         box-shadow: ${({ theme }) => theme.shadow};
+         font-size: 1.1rem;
+         width: 100%;
+         outline: 1px solid white;
       `}
       
       ${({ error }) =>
