@@ -5,6 +5,7 @@ type Props = {
    country?: boolean
    error?: boolean
    dropDown?: boolean
+   dropDownItem?: boolean
 }
 
 const Button = styled.button<Props>`
@@ -51,9 +52,19 @@ const Button = styled.button<Props>`
       ${({ dropDown }) =>
       dropDown &&
       css`
+         display: block;
          padding: 0;
          font-size: 1.1rem;
          background: none;
+      `}
+
+      ${({ dropDownItem }) =>
+      dropDownItem &&
+      css`
+         padding-block: 0.2rem;
+         &:hover {
+            text-decoration: underline;
+         }
       `}
       
       ${({ error }) =>

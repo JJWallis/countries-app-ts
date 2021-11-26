@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState, useRef } from 'react'
 import { Context } from '../App'
 import Button from './styled/StyledButton'
-import { StyledOption } from './styled/StyledFilter'
 import Wrapper from './styled/Wrapper'
 
 interface Props {
@@ -32,9 +31,14 @@ const Filter: React.FC<Props> = ({ prevFilter, updatePrevFilter }) => {
       return Array.from(regions)
          .sort()
          .map((region: string) => (
-            <StyledOption key={region} onClick={() => setDesiredRegion(region)}>
+            <Button
+               dropDown
+               dropDownItem
+               key={region}
+               onClick={() => setDesiredRegion(region)}
+            >
                {region}
-            </StyledOption>
+            </Button>
          ))
    }
 
@@ -57,7 +61,11 @@ const Filter: React.FC<Props> = ({ prevFilter, updatePrevFilter }) => {
          </Button>
          <Wrapper dropDown opacity={toggleDropDown}>
             {prevFilter && (
-               <Button dropDown onClick={() => setDesiredRegion('')}>
+               <Button
+                  dropDown
+                  dropDownItem
+                  onClick={() => setDesiredRegion('')}
+               >
                   Back to Home
                </Button>
             )}
