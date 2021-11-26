@@ -26,6 +26,10 @@ const Filter: React.FC<Props> = ({ prevFilter, updatePrevFilter }) => {
       }
    }, [desiredRegion, hfr, updatePrevFilter])
 
+   useEffect(() => {
+      prevFilter && setDesiredRegion(prevFilter)
+   }, [])
+
    const handleRegions = () => {
       const regions = new Set(countries?.map(({ region }) => region))
       return Array.from(regions)

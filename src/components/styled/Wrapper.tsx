@@ -243,6 +243,7 @@ export default styled.div.attrs<Props>(
          transform: ${({ opacity }) =>
             opacity === 0 ? 'translateY(-15%)' : 'translateY(0%)'};
          opacity: ${({ opacity }) => opacity};
+         pointer-events: ${({ opacity }) => (opacity === 0 ? 'none' : 'all')};
          transition: background-color
                ${({ theme: { themeTransition } }) => themeTransition},
             color ${({ theme: { themeTransition } }) => themeTransition},
