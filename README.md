@@ -77,7 +77,7 @@ const [filteredRegions, setFilteredRegions] = useState < data > null
 const [homepage, setHomepage] = useState(true)
 ```
 
-Diff states to control so much of the app from one value | Diff filtering logic (diff versions of state) - done stylistically with todo list | here - diff version of state (filteredRegions) | all data passed via context to dynamic container (determineData func + map over returned result to keep dynamic render func) | homepage state - render diff layout in app...
+I was further really proud of my ability to use multiple different states, housed in the App component, to control multiple features of the application dynamically together. This was a nice progression from my previous React project, since I was able to build different versions of state (rather than achieving the same effect stylistically) which would control the layout and data displayed by the app. In order to create the 'multi-page' feature, I would conditionally render multiple 'groups' of components based on which state held a truthy value.
 
 ```jsx
 const handleContentVisible = () => {
