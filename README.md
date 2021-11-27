@@ -124,7 +124,7 @@ filtering logic for drop down options | set() data structure + alphabetical orde
 
 ### Continued development
 
-Typescript advanced-basics - destructuring context bug | fixing any types for params in funcs (especially arr iteration methods - pass types around more dynamically due to dynamic helper functions cause much more bloated code)
+Although learning the basics of Typescript has proved to be incredibly value so far, I still face many problems with refactoring my type declarations and using the 'any' type to temporarily fix any bugs which occur during development. I would therefore like to learn more about how to solve these kind of issues, and destructuring dynamic data which could potentially return falsy (data from the Context API).
 
 As I continued to build out each feature, I found my App component was quickly becoming bloated with important fundamental logic which I wasn't able to house anywhere else. I therefore look forward to learning about more advanced React concepts such as custom hooks, which I believe will come into play here so I can extract this logic into its own re-usable component (thus refactoring my parent App).
 
