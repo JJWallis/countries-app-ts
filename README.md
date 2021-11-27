@@ -58,17 +58,54 @@ Your users should be able to:
 ```
 
 ```jsx
+const [countries, setCountries] = useState < data > null
+const [furtherDetails, setFurtherDetails] = useState < data > null
+const [filteredRegions, setFilteredRegions] = useState < data > null
+const [homepage, setHomepage] = useState(true)
+```
+
+Diff states to control so much of the app from one value | Diff filtering logic (diff versions of state) - done stylistically with todo list | here - diff version of state (filteredRegions) | all data passed via context to dynamic container (determineData func + map over returned result to keep dynamic render func) | homepage state - render diff layout in app...
+
+```jsx
+const handleContentVisible = () => {
+   if (homepage) {
+      const data = determineData()
+      return data ? (
+         <Wrapper as="article" display={'grid'} role="grid">
+            {data.map((country) => (
+               <CountryCard key={uuidv4()} data={country} />
+            ))}
+         </Wrapper>
+      ) : (
+         <Loading>
+            {error
+               ? 'Country data could not be retrieved. Please reload & try again.'
+               : 'Loading...'}
+         </Loading>
+      )
+   }
+}
+```
+
+```jsx
 const handleRegions = () => {
-   const regions = new Set(context?.countries?.map(({ region }) => region))
+   const regions = new Set(countries?.map(({ region }) => region))
    return Array.from(regions)
       .sort()
       .map((region: string) => (
-         <StyledOption key={region}>{region}</StyledOption>
+         <Button
+            dropDown
+            dropDownItem
+            key={region}
+            onClick={() => setDesiredRegion(region)}
+         >
+            {region}
+         </Button>
       ))
 }
 ```
 
-filtering logic
+filtering logic for drop down options | set() data structure + alphabetical order |
 
 ```jsx
 {key[0].toUpperCase() +
@@ -81,9 +118,11 @@ key
 {value
 ? value.toString().split(',').join(', ')
 : 'No data provided'}
+```
 
 // FurtherDetails/CountryCard formatting str data
 
+```jsx
 function fetchData(endpoint: string) {
    axios
       .get<data>(endpoint)
@@ -121,10 +160,6 @@ Styled components - attrs func | as keyword | organised structure - sub-folders 
 Drop down - buttons in a div (originaly in select menu - difficult to override default styles + even occuring when no options present within)
 
 JS:
-
-Input - reverting to submit btn + enter key press for validation + searching once input complete | future - issues with showing live results (input event while typing - not searching until typing 1 one more time post fully country name entered - useEffect() to run after state updated each time to show live results)
-
-Diff filtering logic (diff versions of state) - done stylistically with todo list | here - diff version of state (filteredRegions) | all data passed via context to dynamic container (determineData func + map over returned result to keep dynamic render func) | homepage state - render diff layout in app
 
 Create page effect - state to conditionally render diff components (doing so in sep funcs) | useEffect - get out of async nature of state change | `useEffect(() => {}, [desiredRegion])` | useRef() - get around ESLint warnings (saving app state + filtered options - being reset as re-mounted to DOM - lifted ref up to parent) | code order - updating ref 1st + then error state after (causing inputs to be disabled on data fetching error)
 
