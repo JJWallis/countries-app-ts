@@ -75,11 +75,7 @@ const [countries, setCountries] = useState < data > null
 const [furtherDetails, setFurtherDetails] = useState < data > null
 const [filteredRegions, setFilteredRegions] = useState < data > null
 const [homepage, setHomepage] = useState(true)
-```
 
-I was further really proud of my ability to use multiple different states, housed in the App component, to control multiple features of the application dynamically together. This was a nice progression from my previous React project, since I was able to build different versions of state (rather than achieving the same effect stylistically) which would control the layout and data displayed by the app. In order to create the 'multi-page' feature, I would conditionally render multiple 'groups' of components based on which state held a truthy value.
-
-```jsx
 const handleContentVisible = () => {
    if (homepage) {
       const data = determineData()
@@ -100,7 +96,7 @@ const handleContentVisible = () => {
 }
 ```
 
-Create page effect - state to conditionally render diff components (doing so in sep funcs) | useEffect - get out of async nature of state change | `useEffect(() => {}, [desiredRegion])` | useRef() - get around ESLint warnings (saving app state + filtered options - being reset as re-mounted to DOM - lifted ref up to parent) | code order - updating ref 1st + then error state after (causing inputs to be disabled on data fetching error)
+I was further really proud of my ability to use multiple different states, housed in the App component, to control multiple features of the application dynamically together. This was a nice progression from my previous React project, since I was able to build different versions of state (rather than achieving the same effect stylistically) which would control the layout and data displayed by the app. In order to create the 'multi-page' feature, I would conditionally render multiple 'groups' of components based on which state held a truthy value.
 
 ```jsx
 const handleRegions = () => {
@@ -120,7 +116,7 @@ const handleRegions = () => {
 }
 ```
 
-filtering logic for drop down options | set() data structure + alphabetical order | Drop down - buttons in a div (originaly in select menu - difficult to override default styles + even occuring when no options present within)
+I was really proud of the efficiency that the function above displays, which was used to generate the country regions to be displayed as separate buttons within the dropdown menu. I was able to use a combination of chaining methods and the `Set()` data structure to remove all duplicates from the returned Array, containing all the different regions for each country object in the original pulled data.
 
 ### Continued development
 
