@@ -97,8 +97,6 @@ return <Button error>No bordering countries</Button>
 
 ### Continued development
 
-useEffect() - missing dependencies suggestions (caused to do with vars used within - ex: context) | // eslint-disable-next-line react-hooks/exhaustive-deps - saviour atm!
-
 ### Useful resources
 
 -  [Kevin Powell - Custom Select Menu](https://www.youtube.com/watch?v=bB14uo0Tu5A&t=183s&ab_channel=KevinPowell) - This resource helped me style the dropdown menu to allow users to filter the countries displayed, since I had never styled a select menu before this project. It was a great resource to learn how to hide the default arrow which is pinned to the edge of the select menu, and how to create a more custom design using pseudo elements to create the background and triangle shape using a border trick. I lastly learnt about an incredibly useful property named `pointer-events`, which we can use to control the targetability of events when positioning content in front of others.
