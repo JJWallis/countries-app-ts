@@ -59,7 +59,7 @@ export default styled.div.attrs<Props>(
 `
 ```
 
-I was able to further develop my knowledge of Styled Components in this project, expanding into using the `attrs()` function and special `as` property to render certain components as different HTML elements (for example divs as sections). I further organised myself much better in regards to a separate folder structure for all my styled components, and utilised the 'Styled' naming convention to quickly search for the desired file.
+I was able to further develop my knowledge of Styled Components in this project, expanding into using the `attrs()` function and special `as` property to render certain components as different HTML elements (divs as sections for example). I further organised myself much better in regards to having a separate folder for all my styled components, and utilised the 'Styled' naming convention to quickly search for the desired file.
 
 ```jsx
 useLayoutEffect(() => {
