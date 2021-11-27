@@ -68,7 +68,7 @@ useLayoutEffect(() => {
 }, [])
 ```
 
-One problem I ran accross with my previous React TodoList application, was that synchronously placing my lightTheme object into the theme state would initially render that colour scheme to then quickly change to dark-mode if the user had previously used it. This was of course happening because of the asynchronous nature of useEffect(), which I was using to set the theme based on the toggle checkbox's saved state. In order to fix this bug, I decided to switch to using the `useLayoutEffect()` hook instead, which would synchronously (before React would render any of the local components JSX to the DOM) set the checkbox state as the app first loads.
+One problem I ran accross with my previous React TodoList application was that synchronously placing my lightTheme object into the theme state would initially render that colour scheme, only to then quickly change to dark-mode if the user had previously selected it. This was of course happening because of the asynchronous nature of `useEffect()`, which I was using to set the theme based on the toggle checkbox's saved state. In order to fix this bug, I decided to switch to using the `useLayoutEffect()` hook instead, which would synchronously set the checkbox state as the app first loads, before React would render any of the local components JSX to the DOM.
 
 ```jsx
 const [countries, setCountries] = useState < data > null
