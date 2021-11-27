@@ -122,9 +122,7 @@ I was really proud of the efficiency that the function above displays, which was
 
 Although learning the basics of Typescript has proved to be incredibly valuable so far, I still face many problems with refactoring my type declarations and using the 'any' type to temporarily fix any bugs which may occur during development. I would therefore like to learn more about how to solve these kind of issues, whilst also focusing on how to destructure dynamic data which could potentially return falsy (such as data returned from the Context API).
 
-As I continued to build out each feature, I found my App component was quickly becoming bloated with important fundamental logic which I wasn't able to house anywhere else. I therefore look forward to learning about more advanced React concepts such as custom hooks, which I believe will come into play here so I can extract this logic into its own re-usable component (thus refactoring my parent App).
-
-Custom Hooks + useReducer() -
+As I continued to build out each feature, I found my App component was quickly becoming bloated with important fundamental logic which, at the current time, I wasn't able to house anywhere else. I therefore look forward to learning more about advanced React concepts such as custom hooks, which I believe will come in handy in extracting this logic into its own re-usable component.
 
 ### Useful resources
 
