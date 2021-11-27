@@ -57,18 +57,20 @@ Your users should be able to:
 }
 ```
 
-```js
+```jsx
 const handleRegions = () => {
-   const regions = new Set(context?.countries?.map(({ region }: any) => region))
+   const regions = new Set(context?.countries?.map(({ region }) => region))
    return Array.from(regions)
       .sort()
       .map((region: string) => (
          <StyledOption key={region}>{region}</StyledOption>
       ))
 }
+```
 
 // filtering logic
 
+```jsx
 {key[0].toUpperCase() +
 key
    .slice(1, key.length)
@@ -99,15 +101,11 @@ useEffect() - missing dependencies suggestions (caused to do with vars used with
 
 ### Useful resources
 
--  [Kevin Powell - Custom Select Menu](https://www.youtube.com/watch?v=bB14uo0Tu5A&t=183s&ab_channel=KevinPowell) - This helped me style the dropdown menu to allow users to filter the countries displayed, since I had never styled a select menu before this project. It was a great resource to learn how to hide the default arrow which is pinned to the edge of the menu, and how to create a more appealing one with pseudo elements using a border trick to create a triangle.
+-  [Kevin Powell - Custom Select Menu](https://www.youtube.com/watch?v=bB14uo0Tu5A&t=183s&ab_channel=KevinPowell) - This resource helped me style the dropdown menu to allow users to filter the countries displayed, since I had never styled a select menu before this project. It was a great resource to learn how to hide the default arrow which is pinned to the edge of the select menu, and how to create a more custom design using pseudo elements to create the background and triangle shape using a border trick.
 
--  [React Testing Library Crash Course](https://www.youtube.com/watch?v=GLSSRtnNY0g&ab_channel=LaithHarb) - A great crash course on the libraries' basic feature, my first introduction to testing.
-
--  [React Testing Library Crash Course](https://www.youtube.com/watch?v=GLSSRtnNY0g&ab_channel=LaithHarb)https://betterprogramming.pub/stop-lying-to-react-about-missing-dependencies-10612e9aeeda - useRef() - get around ESLint warnings (saving app state + filtered options - being reset as re-mounted to DOM - lifted ref up to parent) | code order - updating ref 1st + then error state after (causing inputs to be disabled on data fetching error)
+-  [Stop Lying to React About Missing Dependencies](https://betterprogramming.pub/stop-lying-to-react-about-missing-dependencies-10612e9aeeda) - This article helped me combat a number of `useEffect()` warnings about missing depedencies, which I had first purposely not included to prevent infinite loops from occuring. The author showed me how to use refs to prevent the useEffect callback from running if no local data had changed from its last execution, which further allowed me to save the state of the application when the user would return from visitng another 'page'.
 
 -  [Axios Crash Course](https://www.youtube.com/watch?v=6LyagkoRWYA&t=79s&ab_channel=TraversyMedia) - request made but no response | err.response.status === 404 | console.error(err.request ? err.request : err.message)
-
--  [FurtherDetails/CountryCard formatting str data](https://stackoverflow.com/questions/7888238/javascript-split-string-on-uppercase-characters) -
 
 ## Author
 
@@ -116,13 +114,7 @@ useEffect() - missing dependencies suggestions (caused to do with vars used with
 
 ## Acknowledgments
 
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
 ###### TODO
-
-HTML:
-
-Min-height on main | hide scrollbars on further details page
 
 CSS:
 
@@ -146,10 +138,8 @@ useMemo() + useLayoutEffect()
 
 Typescript advanced-basics - exporting interfaces (+ storing elsewhere for DRY code) | type vs interface (destructuring context bug) | fixing any types for params in funcs (especially arr iteration methods) | typeof operator for type (dynamic) |
 
-useEffect - get out of async nature of state change | `useEffect(() => {}, [desiredRegion])`
+useEffect - get out of async nature of state change | `useEffect(() => {}, [desiredRegion])` | useRef() - get around ESLint warnings (saving app state + filtered options - being reset as re-mounted to DOM - lifted ref up to parent) | code order - updating ref 1st + then error state after (causing inputs to be disabled on data fetching error)
 
 TS - any type error for params in funcs (Antartica - lacked properties attempting to convert to obj - undefined) | see value in TS
 
-Testing - React Testing Library + Jest | 1st project - catching logical errors (adding new features to app - hard to catch cross-component - bloated very quickly) | next project - adopt test-driven development approach
-
-Styled components - 200 classes error | attrs func | as keyword | inheriting styles (styled(button) vs styled.button)
+Styled components - attrs func | as keyword
