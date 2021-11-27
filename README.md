@@ -126,15 +126,13 @@ As I continued to build out each feature, I found my App component was quickly b
 
 ### Useful resources
 
--  [Kevin Powell - Custom Select Menu](https://www.youtube.com/watch?v=bB14uo0Tu5A&t=183s&ab_channel=KevinPowell) - This resource helped me style the dropdown menu to allow users to filter the countries displayed, since I had never styled a select menu before this project. It was a great resource to learn how to hide the default arrow which is pinned to the edge of the select menu, and how to create a more custom design using pseudo elements to create the background and triangle shape using a border trick. I lastly learnt about an incredibly useful property named `pointer-events`, which we can use to control the targetability of events when positioning content in front of others.
+-  [Kevin Powell - Custom Select Menu](https://www.youtube.com/watch?v=bB14uo0Tu5A&t=183s&ab_channel=KevinPowell) - This resource helped me style the dropdown menu to allow users to filter the countries displayed, since I had never styled a select menu before this project. It was a great resource to learn how to hide the default arrow which was pinned to the edge of the select menu, and how to create a more custom design using pseudo elements to create the background and triangle shape (using a border trick). Lastly I learnt about an incredibly useful property named `pointer-events`, which we can use to toggle the targetability of events when positioning content in front of others.
 
--  [Stop Lying to React About Missing Dependencies](https://betterprogramming.pub/stop-lying-to-react-about-missing-dependencies-10612e9aeeda) - This article helped me combat a number of `useEffect()` warnings about missing depedencies, which I had first purposely not included to prevent infinite loops from occuring. The author showed me how to use refs to prevent the useEffect callback from running if no local data had changed from its last execution, which further allowed me to save the state of the application when the user would return from visitng another 'page'.
+-  [Stop Lying to React About Missing Dependencies](https://betterprogramming.pub/stop-lying-to-react-about-missing-dependencies-10612e9aeeda) - This article helped me combat a number of `useEffect()` warnings about missing depedencies, which at first I had purposely not included to prevent infinite loops from occuring. The author showed me how to use refs to prevent the useEffect callback from running if no local data had changed from its last execution, which further allowed me to save the state of the application when the user would return from visitng another 'page'.
 
--  [Axios Crash Course](https://www.youtube.com/watch?v=6LyagkoRWYA&t=79s&ab_channel=TraversyMedia) - This crash course helped introduce me to more of the features which Axios provides us with, especially with regards to handling errors/rejected Promises and what we can display to the user whilst logging other important information for debugging purposes.
+-  [Axios Crash Course](https://www.youtube.com/watch?v=6LyagkoRWYA&t=79s&ab_channel=TraversyMedia) - This crash course helped introduce me to more of the features which the library Axios provides us with, especially with regards to handling errors and rejected Promises, as well as what we can display to the user whilst logging other important information for debugging purposes.
 
 ## Author
 
 -  Website - [Joshua Jameson-Wallis](https://joshuajamesonwallis.com)
 -  Linkedin - [Joshua Jameson-Wallis]()
-
-## Acknowledgments
