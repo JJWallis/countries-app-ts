@@ -96,7 +96,7 @@ const handleContentVisible = () => {
 }
 ```
 
-I was further really proud of my ability to use multiple different states, housed in the App component, to control multiple features of the application dynamically together. This was a nice progression from my previous React project, since I was able to build different versions of state (rather than achieving the same effect stylistically) which would control the layout and data displayed by the app. In order to create the 'multi-page' feature, I would conditionally render multiple 'groups' of components based on which state held a truthy value.
+I was further really proud of my ability to use multiple different states housed in the App component, to control multiple features of the application together dynamically. This was a nice progression from my previous React project, since I was able to build different versions of state (rather than achieving the same effect stylistically), which would control the layout and data displayed by the app. In order to create the 'multi-page' feature, I conditionally rendered multiple 'groups' of components based on which state held a truthy value.
 
 ```jsx
 const handleRegions = () => {
@@ -116,7 +116,7 @@ const handleRegions = () => {
 }
 ```
 
-I was really proud of the efficiency that the function above displays, which was used to generate the country regions to be displayed as separate buttons within the dropdown menu. I was able to use a combination of chaining methods and the `Set()` data structure to remove all duplicates from the returned Array, containing all the different regions for each country object in the original pulled data.
+I was really proud of the efficiency that the function above displays, which was used to generate the country regions to be displayed as separate buttons within the dropdown menu. I was able to use a combination of chaining methods and the `Set()` data structure to remove all duplicates from the returned Array, containing all the different regions for each country object in the original pulled data. I then sorted them in alphabetical order, and produced a <Button> for each one containing the required logic.
 
 ### Continued development
 
