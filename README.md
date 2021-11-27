@@ -114,26 +114,22 @@ useEffect() - missing dependencies suggestions (caused to do with vars used with
 
 ## Acknowledgments
 
-###### TODO
-
 CSS:
 
-Input search - issues with showing live results (input event while typing - not searching until typing 1 one more time post fully country name entered) | reverting to submit btn for validation + searching once input complete
+Controlling imgs in grid items - all the same size (bg img vs img tag) | flex-wrap to fluid grid later (cover bg size bad at certain grid item widths + keep original design card width)
 
-Controlling imgs in grid items - all the same size (bg img vs img tag)
+Styled components - attrs func | as keyword | organised structure - sub-folders + naming convention
+
+Drop down - buttons in a div (originaly in select menu - difficult to override default styles + even occuring when no options present within)
 
 JS:
 
-Diff filtering logic (diff versions of state) - done stylistically with todo list | here - diff version of state (filteredRegions) | all data passed via context to dynamic container (determineData func + map over returned result to keep dynamic render func)
+Input - reverting to submit btn + enter key press for validation + searching once input complete | future - issues with showing live results (input event while typing - not searching until typing 1 one more time post fully country name entered - useEffect() to run after state updated each time to show live results)
 
-Create page effect - state to conditionally render diff components (doing so in sep funcs)
+Diff filtering logic (diff versions of state) - done stylistically with todo list | here - diff version of state (filteredRegions) | all data passed via context to dynamic container (determineData func + map over returned result to keep dynamic render func) | homepage state - render diff layout in app
 
-useMemo() + useLayoutEffect(
+Create page effect - state to conditionally render diff components (doing so in sep funcs) | useEffect - get out of async nature of state change | `useEffect(() => {}, [desiredRegion])` | useRef() - get around ESLint warnings (saving app state + filtered options - being reset as re-mounted to DOM - lifted ref up to parent) | code order - updating ref 1st + then error state after (causing inputs to be disabled on data fetching error)
 
-Typescript advanced-basics - exporting interfaces (+ storing elsewhere for DRY code) | type vs interface (destructuring context bug) | fixing any types for params in funcs (especially arr iteration methods) | typeof operator for type (dynamic) |
+useLayoutEffect() - theme change synchronously on load (vs async)
 
-useEffect - get out of async nature of state change | `useEffect(() => {}, [desiredRegion])` | useRef() - get around ESLint warnings (saving app state + filtered options - being reset as re-mounted to DOM - lifted ref up to parent) | code order - updating ref 1st + then error state after (causing inputs to be disabled on data fetching error)
-
-TS - any type error for params in funcs (Antartica - lacked properties attempting to convert to obj - undefined) | see value in TS
-
-Styled components - attrs func | as keyword
+Typescript advanced-basics - destructuring context bug | fixing any types for params in funcs (especially arr iteration methods) | ex: Antartica - lacked properties attempting to convert to obj - undefined
