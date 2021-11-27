@@ -51,11 +51,24 @@ Your users should be able to:
 
 ### What I learned
 
-```css
-.proud-of-this-css {
-   color: papayawhip;
-}
+```jsx
+export default styled.div.attrs<Props>(
+   ({margin, ...}) => ({ margin: margin,}))<Props>`
+   margin: ${({ margin }) => margin}
+   ...
+`
 ```
+
+Styled components - attrs func | as keyword | organised structure - sub-folders + naming convention
+
+```jsx
+useLayoutEffect(() => {
+   const theme = localStorage.getItem('dark')
+   theme && setDark(JSON.parse(theme))
+}, [])
+```
+
+theme change synchronously on load (vs async)
 
 ```jsx
 const [countries, setCountries] = useState < data > null
@@ -87,6 +100,8 @@ const handleContentVisible = () => {
 }
 ```
 
+Create page effect - state to conditionally render diff components (doing so in sep funcs) | useEffect - get out of async nature of state change | `useEffect(() => {}, [desiredRegion])` | useRef() - get around ESLint warnings (saving app state + filtered options - being reset as re-mounted to DOM - lifted ref up to parent) | code order - updating ref 1st + then error state after (causing inputs to be disabled on data fetching error)
+
 ```jsx
 const handleRegions = () => {
    const regions = new Set(countries?.map(({ region }) => region))
@@ -105,22 +120,7 @@ const handleRegions = () => {
 }
 ```
 
-filtering logic for drop down options | set() data structure + alphabetical order |
-
-```jsx
-{key[0].toUpperCase() +
-key
-   .slice(1, key.length)
-   .split(/(?=[A-Z])/)
-   .join(' ')}
-:
-</CountrySubTitle>
-{value
-? value.toString().split(',').join(', ')
-: 'No data provided'}
-```
-
-// FurtherDetails/CountryCard formatting str data
+filtering logic for drop down options | set() data structure + alphabetical order | Drop down - buttons in a div (originaly in select menu - difficult to override default styles + even occuring when no options present within)
 
 ```jsx
 function fetchData(endpoint: string) {
@@ -155,14 +155,6 @@ CSS:
 
 Controlling imgs in grid items - all the same size (bg img vs img tag) | flex-wrap to fluid grid later (cover bg size bad at certain grid item widths + keep original design card width)
 
-Styled components - attrs func | as keyword | organised structure - sub-folders + naming convention
-
-Drop down - buttons in a div (originaly in select menu - difficult to override default styles + even occuring when no options present within)
-
 JS:
-
-Create page effect - state to conditionally render diff components (doing so in sep funcs) | useEffect - get out of async nature of state change | `useEffect(() => {}, [desiredRegion])` | useRef() - get around ESLint warnings (saving app state + filtered options - being reset as re-mounted to DOM - lifted ref up to parent) | code order - updating ref 1st + then error state after (causing inputs to be disabled on data fetching error)
-
-useLayoutEffect() - theme change synchronously on load (vs async)
 
 Typescript advanced-basics - destructuring context bug | fixing any types for params in funcs (especially arr iteration methods) | ex: Antartica - lacked properties attempting to convert to obj - undefined
