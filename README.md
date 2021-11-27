@@ -126,6 +126,10 @@ filtering logic for drop down options | set() data structure + alphabetical orde
 
 Typescript advanced-basics - destructuring context bug | fixing any types for params in funcs (especially arr iteration methods - pass types around more dynamically due to dynamic helper functions cause much more bloated code)
 
+As I continued to build out each feature, I found my App component was quickly becoming bloated with important fundamental logic which I wasn't able to house anywhere else. I therefore look forward to learning about more advanced React concepts such as custom hooks, which I believe will come into play here so I can extract this logic into its own re-usable component (thus refactoring my parent App).
+
+Custom Hooks + useReducer() -
+
 ### Useful resources
 
 -  [Kevin Powell - Custom Select Menu](https://www.youtube.com/watch?v=bB14uo0Tu5A&t=183s&ab_channel=KevinPowell) - This resource helped me style the dropdown menu to allow users to filter the countries displayed, since I had never styled a select menu before this project. It was a great resource to learn how to hide the default arrow which is pinned to the edge of the select menu, and how to create a more custom design using pseudo elements to create the background and triangle shape using a border trick. I lastly learnt about an incredibly useful property named `pointer-events`, which we can use to control the targetability of events when positioning content in front of others.
