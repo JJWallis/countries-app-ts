@@ -122,19 +122,9 @@ const handleRegions = () => {
 
 filtering logic for drop down options | set() data structure + alphabetical order | Drop down - buttons in a div (originaly in select menu - difficult to override default styles + even occuring when no options present within)
 
-```jsx
-function fetchData(endpoint: string) {
-   axios
-      .get<data>(endpoint)
-      ...
-      }
-
-return <Button error>No bordering countries</Button>
-
-// good error handling - displaying alternative to user
-```
-
 ### Continued development
+
+Typescript advanced-basics - destructuring context bug | fixing any types for params in funcs (especially arr iteration methods - pass types around more dynamically due to dynamic helper functions cause much more bloated code)
 
 ### Useful resources
 
@@ -150,11 +140,3 @@ return <Button error>No bordering countries</Button>
 -  Linkedin - [Joshua Jameson-Wallis]()
 
 ## Acknowledgments
-
-CSS:
-
-Controlling imgs in grid items - all the same size (bg img vs img tag) | flex-wrap to fluid grid later (cover bg size bad at certain grid item widths + keep original design card width)
-
-JS:
-
-Typescript advanced-basics - destructuring context bug | fixing any types for params in funcs (especially arr iteration methods) | ex: Antartica - lacked properties attempting to convert to obj - undefined
