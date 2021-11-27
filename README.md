@@ -59,7 +59,7 @@ export default styled.div.attrs<Props>(
 `
 ```
 
-Styled components - attrs func | as keyword | organised structure - sub-folders + naming convention
+I was able to further develop my knowledge of Styled Components in this project, expanding into using the `attrs()` function and special `as` property to render certain components as different HTML elements (for example divs as sections). I further organised myself much better in regards to a separate folder structure for all my styled components, and utilised the 'Styled' naming convention to quickly search for the desired file.
 
 ```jsx
 useLayoutEffect(() => {
@@ -68,7 +68,7 @@ useLayoutEffect(() => {
 }, [])
 ```
 
-theme change synchronously on load (vs async)
+One problem I ran accross with my previous React TodoList application, was that synchronously placing my lightTheme object into the theme state would initially render that colour scheme to then quickly change to dark-mode if the user had previously used it. This was of course happening because of the asynchronous nature of useEffect(), which I was using to set the theme based on the toggle checkbox's saved state. In order to fix this bug, I decided to switch to using the `useLayoutEffect()` hook instead, which would synchronously (before React would render any of the local components JSX to the DOM) set the checkbox state as the app first loads.
 
 ```jsx
 const [countries, setCountries] = useState < data > null
