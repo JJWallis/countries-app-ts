@@ -13,6 +13,7 @@ beforeEach(() => {
 test('Search input correctly updates when user types', () => {
    const input = getByTestId
    expect(input).toHaveValue('')
+   expect(input).toBeEnabled()
    fireEvent.change(input, { target: { value: 'test' } })
    expect(input).toHaveValue('test')
 })
