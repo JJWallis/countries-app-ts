@@ -3,9 +3,15 @@ import { render, fireEvent } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 import Search from '../components/Search'
 
+let getByTestId: HTMLElement
+
+beforeEach(() => {
+   const model = render(<Search />)
+   getByTestId = model.getByTestId('search-input')
+})
+
 test('Search input correctly updates when user types', () => {
-   const { getByTestId } = render(<Search />)
-   const input = getByTestId('search-input')
+   const input = getByTestId
    expect(input).toHaveValue('')
    fireEvent.change(input, { target: { value: 'test' } })
    expect(input).toHaveValue('test')
