@@ -1,5 +1,5 @@
 import React from 'react'
-import { render, fireEvent, screen } from '@testing-library/react'
+import { render, fireEvent } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 import Search from '../components/Search'
 
@@ -15,5 +15,4 @@ test('Search input correctly updates when user types', () => {
    expect(input).toHaveValue('')
    fireEvent.change(input, { target: { value: 'test' } })
    expect(input).toHaveValue('test')
-   screen.getByRole('')
 })
