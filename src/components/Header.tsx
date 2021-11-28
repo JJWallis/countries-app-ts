@@ -15,7 +15,7 @@ const Header: React.FC = () => {
             padding="1rem 0"
             position="relative"
          >
-            <MainTitle data-testid="title">Where in the world?</MainTitle>
+            <MainTitle>Where in the world?</MainTitle>
             <ThemeSwitcher />
          </Wrapper>
       </StyledHeader>

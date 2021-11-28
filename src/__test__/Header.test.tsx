@@ -1,10 +1,8 @@
 import React from 'react'
 import { render } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
-import Header from '../components/Header'
+import App from '../App'
 
-test('Header title contains correct text', () => {
-   const { getByTestId } = render(<Header />)
-   const title = getByTestId('title')
-   expect(title).toHaveTextContent('Where in the world?')
+test('App error state contains correct default value', () => {
+   const { getByTestId } = render(<App />)
 })
