@@ -37,6 +37,7 @@ const Search: React.FC = () => {
    return (
       <>
          <StyledInput
+            data-testid="search-input"
             search
             disabled={fetchError?.current}
             error={hasErrorOccured()}
