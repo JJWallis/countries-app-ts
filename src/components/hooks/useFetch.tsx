@@ -14,10 +14,10 @@ export default async function useFetch(
       .then((value) => setData(value.data))
       .catch((err) => {
          fetchError.current = true
-         setError(true) // wont know what to update
+         setError(true) // wont know what state to update
          console.error(err.message)
       })
 
-   //    useEffect(() => fetchData(endpoint), [endpoint])
+   //  useEffect(() => fetchData(endpoint), [endpoint])
    return [data, fetchError]
 }
