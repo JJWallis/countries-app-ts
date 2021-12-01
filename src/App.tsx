@@ -5,6 +5,7 @@ import { darkTheme, lightTheme, theme } from './components/styled/Theme'
 import axios from 'axios'
 import Header from './components/Header'
 import Main from './components/Main'
+import useFetch from './components/hooks/useFetch'
 
 interface ContextInterface {
    countries: data
@@ -36,7 +37,7 @@ export interface Country {
    tld: string[]
 }
 
-type data = Country[] | null
+export type data = Country[] | null
 
 export const Context = React.createContext<ContextInterface | null>(null)
 
@@ -61,6 +62,7 @@ const App: React.FC = () => {
    }
 
    useEffect(() => fetchData('https://restcountries.com/v3.1/all'), [])
+   console.log(useFetch('https://restcountries.com/v3.1/all'))
 
    const handleThemeChange = useCallback(
       (dark: boolean) => (dark ? setTheme(darkTheme) : setTheme(lightTheme)),
