@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
 import { Context } from '../App'
 import Wrapper from './styled/Wrapper'
 import { CountryName } from './styled/StyledTitle'
@@ -24,8 +24,6 @@ const CountryCard: React.FC<Props> = ({ data }) => {
       region,
       capital,
    } = data
-
-   useEffect(() => console.log('changed'), [hfr])
 
    const printData = (data: {
       population: string | Props['data']['population']

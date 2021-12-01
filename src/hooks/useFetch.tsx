@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { useEffect, useState, useRef } from 'react'
-import { data } from '../../App'
+import { data } from '../App'
 
 export default function useFetch(
    endpoint: string,
