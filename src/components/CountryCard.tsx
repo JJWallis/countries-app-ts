@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import Context from '../components/Context'
+import { Context } from '../components/Context'
 import Wrapper from './styled/Wrapper'
 import { CountryName } from './styled/StyledTitle'
 import { CountrySubTitle } from './styled/CountryDataTitle'

@@ -5,7 +5,7 @@ import { darkTheme, lightTheme, theme } from './components/styled/Theme'
 import axios from 'axios'
 import Header from './components/Header'
 import Main from './components/Main'
-import Context from './components/Context'
+import { Context } from './components/Context'
 
 export interface Country {
    name: { common: string; nativeName: { official: string }[] }

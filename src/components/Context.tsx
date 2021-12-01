@@ -14,10 +14,8 @@ interface ContextInterface {
    fetchError: React.MutableRefObject<boolean>
 }
 
-const Context = React.createContext<ContextInterface | null>(null)
+export const Context = React.createContext<ContextInterface | null>(null)
 
-const ContextProvider = (children: ReactNode) => {
-   //    return <Context.Provider value={}></Context.Provider>
+export const ContextProvider = (children: ReactNode) => {
+   //   return <Context.Provider value={}>{children}</Context.Provider>
 }
-
-export default Context
