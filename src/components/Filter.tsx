@@ -24,6 +24,7 @@ const Filter: React.FC<Props> = ({ prevFilter, updatePrevFilter }) => {
          hasDataChanged.current = desiredRegion
          updatePrevFilter(desiredRegion)
       }
+      // console.log('Filter useEffect')
    }, [desiredRegion, hfr, updatePrevFilter])
 
    useEffect(() => {
