@@ -5,7 +5,6 @@ import { darkTheme, lightTheme, theme } from './components/styled/Theme'
 import axios from 'axios'
 import Header from './components/Header'
 import Main from './components/Main'
-import useFetch from './components/hooks/useFetch'
 
 interface ContextInterface {
    countries: data
