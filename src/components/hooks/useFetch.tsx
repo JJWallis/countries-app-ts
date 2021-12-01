@@ -9,15 +9,16 @@ export default async function useFetch(
    const [data, setData] = useState<data>(null)
    const fetchError = useRef(false)
 
-   axios
-      .get<data>(endpoint)
-      .then((value) => setData(value.data))
-      .catch((err) => {
-         fetchError.current = true
-         setError(true) // wont know what state to update
-         console.error(err.message)
-      })
+   useEffect(() => {
+      axios
+         .get<data>(endpoint)
+         .then((value) => setData(value.data))
+         .catch((err) => {
+            fetchError.current = true
+            setError(true) // wont know what state to update
+            console.error(err.message)
+         })
+   }, [endpoint, setError])
 
-   //  useEffect(() => fetchData(endpoint), [endpoint])
    return [data, fetchError]
 }
