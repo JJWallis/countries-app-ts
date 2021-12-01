@@ -16,6 +16,7 @@ const ThemeSwitcher: React.FC = () => {
    useLayoutEffect(() => {
       themeChange && themeChange(dark)
       localStorage.setItem('dark', JSON.stringify(dark))
+      console.log('theme changed')
    }, [dark, themeChange])
 
    return (

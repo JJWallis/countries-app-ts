@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef, useCallback } from 'react'
 import { ThemeProvider } from 'styled-components'
 import GlobalStyles from './components/styled/GlobalStyles'
 import { darkTheme, lightTheme, theme } from './components/styled/Theme'
@@ -62,8 +62,10 @@ const App: React.FC = () => {
 
    useEffect(() => fetchData('https://restcountries.com/v3.1/all'), [])
 
-   const handleThemeChange = (dark: boolean) =>
-      dark ? setTheme(darkTheme) : setTheme(lightTheme)
+   const handleThemeChange = useCallback(
+      (dark: boolean) => (dark ? setTheme(darkTheme) : setTheme(lightTheme)),
+      [setTheme]
+   )
 
    const handleFurtherDetails = (country: string) => {
       const countryData = countries?.filter(
