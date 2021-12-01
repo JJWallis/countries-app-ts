@@ -18,7 +18,6 @@ export default function useFetch(
             setError(true) // wont know what state to update
             console.error(err.message)
          })
-      console.log('fetching data...')
    }, [endpoint, setError])
 
    //    only run on mount - no every other re-render?
