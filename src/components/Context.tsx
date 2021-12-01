@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react'
 import { data } from '../App'
 
-interface ContextInterface {
+export interface ContextInterface {
    countries: data
    furtherDetails: data
    homepage: boolean
@@ -17,5 +17,5 @@ interface ContextInterface {
 export const Context = React.createContext<ContextInterface | null>(null)
 
 export const ContextProvider = (children: ReactNode) => {
-   //   return <Context.Provider value={}>{children}</Context.Provider>
+   //  return <Context.Provider value={}>{children}</Context.Provider>
 }
