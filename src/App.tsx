@@ -62,7 +62,6 @@ const App: React.FC = () => {
    }
 
    useEffect(() => fetchData('https://restcountries.com/v3.1/all'), [])
-   console.log(useFetch('https://restcountries.com/v3.1/all'))
 
    const handleThemeChange = useCallback(
       (dark: boolean) => (dark ? setTheme(darkTheme) : setTheme(lightTheme)),
