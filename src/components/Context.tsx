@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import { data } from '../App'
 
 interface ContextInterface {
@@ -14,4 +14,10 @@ interface ContextInterface {
    fetchError: React.MutableRefObject<boolean>
 }
 
-export default React.createContext<ContextInterface | null>(null)
+const Context = React.createContext<ContextInterface | null>(null)
+
+const ContextProvider = (children: ReactNode) => {
+   //    return <Context.Provider value={}></Context.Provider>
+}
+
+export default Context
