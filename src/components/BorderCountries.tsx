@@ -3,7 +3,7 @@ import Wrapper from './styled/Wrapper'
 import Button from './styled/StyledButton'
 import { v4 as uuid } from 'uuid'
 import { CountrySubTitle } from './styled/CountryDataTitle'
-import { Context } from '../App'
+import Context from '../components/Context'
 
 const BorderCountries: React.FC = () => {
    const {

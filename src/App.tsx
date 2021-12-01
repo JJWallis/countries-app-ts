@@ -5,19 +5,7 @@ import { darkTheme, lightTheme, theme } from './components/styled/Theme'
 import axios from 'axios'
 import Header from './components/Header'
 import Main from './components/Main'
-
-interface ContextInterface {
-   countries: data
-   furtherDetails: data
-   homepage: boolean
-   filteredRegions: data
-   error: boolean
-   setHomepage: React.Dispatch<React.SetStateAction<boolean>>
-   handleThemeChange: (dark: boolean) => void
-   handleFurtherDetails: (country: string) => void
-   handleFilterRegions: (region: string) => void
-   fetchError: React.MutableRefObject<boolean>
-}
+import Context from './components/Context'
 
 export interface Country {
    name: { common: string; nativeName: { official: string }[] }
@@ -37,8 +25,6 @@ export interface Country {
 }
 
 export type data = Country[] | null
-
-export const Context = React.createContext<ContextInterface | null>(null)
 
 const App: React.FC = () => {
    const [countries, setCountries] = useState<data>(null)

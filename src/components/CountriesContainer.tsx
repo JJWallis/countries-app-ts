@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Context } from '../App'
+import Context from '../components/Context'
 import { v4 as uuidv4 } from 'uuid'
 import Wrapper from './styled/Wrapper'
 import CountryCard from './CountryCard'

@@ -1,5 +1,5 @@
 import React, { useContext, useRef } from 'react'
-import { Context } from '../App'
+import Context from '../components/Context'
 import Wrapper from './styled/Wrapper'
 import Search from './Search'
 import Filter from './Filter'

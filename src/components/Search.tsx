@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
-import { Context } from '../App'
+import Context from '../components/Context'
 import StyledInput from './styled/StyledInput'
 import Icon from './styled/Icon'
 

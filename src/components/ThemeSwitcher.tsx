@@ -1,5 +1,5 @@
 import React, { useContext, useState, useLayoutEffect } from 'react'
-import { Context } from '../App'
+import Context from '../components/Context'
 import StyledInput from './styled/StyledInput'
 import { StyledLabel } from './styled/StyledLabel'
 import Icon from './styled/Icon'
