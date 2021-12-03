@@ -1,6 +1,5 @@
 import React, { ReactNode } from 'react'
 import { data } from '../App'
-
 export interface ContextInterface {
    countries: data
    furtherDetails: data
