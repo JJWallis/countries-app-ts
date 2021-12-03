@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState, useRef } from 'react'
 import { Context } from '../components/Context'
 import Button from './styled/StyledButton'
 import Wrapper from './styled/Wrapper'
-import { withToggle } from '../hoc/withToggle'
 
 interface Props {
    prevFilter: string
