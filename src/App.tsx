@@ -6,6 +6,7 @@ import axios from 'axios'
 import Header from './components/Header'
 import Main from './components/Main'
 import { Context } from './components/Context'
+import { useDarkMode } from './components/useDarkMode'
 
 export interface Country {
    name: { common: string; nativeName: { official: string }[] }
@@ -31,7 +32,10 @@ const App: React.FC = () => {
    const [furtherDetails, setFurtherDetails] = useState<data>(null)
    const [filteredRegions, setFilteredRegions] = useState<data>(null)
    const [homepage, setHomepage] = useState(true)
-   const [theme, setTheme] = useState<theme>(lightTheme)
+   const prefersDarkMode = useDarkMode()
+   const [theme, setTheme] = useState<theme>(() =>
+      prefersDarkMode ? darkTheme : lightTheme
+   )
    const [error, setError] = useState(false)
    const fetchError = useRef(false)
 
