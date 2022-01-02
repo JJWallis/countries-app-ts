@@ -130,5 +130,3 @@ Whilst I was building out each feature, I found my App component was quickly bec
 
 -  Website - [Joshua Jameson-Wallis](https://joshuajamesonwallis.com)
 -  Linkedin - [Joshua Jameson-Wallis](https://www.linkedin.com/in/joshua-jameson-wallis/)
-
-<!-- useDarkMode hook -->
