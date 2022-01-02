@@ -58,7 +58,7 @@ export default styled.div.attrs<Props>(
 `
 ```
 
-I was able to further develop my knowledge of Styled Components in this project, expanding into using the `attrs()` function and special `as` property to render certain components as different HTML elements (divs as sections for example). I further organised myself much better in regards to having a separate folder for all my styled components, and utilised the 'Styled' naming convention to quickly search for the desired file.
+I was able to further develop my knowledge of Styled Components in this project, expanding into using the `attrs()` function and the special `as` property to render certain components as different HTML elements (a div as a section). I further organised myself much better in regards to having a separate folder for all my styled components, and utilised the 'Styled' naming convention to quickly search for the desired file.
 
 ```jsx
 useLayoutEffect(() => {
@@ -67,12 +67,9 @@ useLayoutEffect(() => {
 }, [])
 ```
 
-One problem I ran accross with my previous React TodoList application was that synchronously placing my lightTheme object into the theme state would initially render that colour scheme, only to then quickly change to dark-mode if the user had previously selected it. This was of course happening because of the asynchronous nature of `useEffect()`, which I was using to set the theme based on the toggle checkbox's saved state. In order to fix this bug, I decided to switch to using the `useLayoutEffect()` hook instead, which would synchronously set the checkbox state as the app first loads, before React would render any of the local components JSX to the DOM.
+One problem I ran into with my previous React TodoList application, was that synchronously placing my lightTheme object into the theme state would initially render that colour scheme, only to then quickly change to dark-mode if the user had previously selected it. This was of course happening because of the asynchronous nature of `useEffect()`, which I was using to set the theme based on the checkbox's saved state. In order to fix this bug, I decided to switch to using the `useLayoutEffect()` hook instead, which would synchronously set the checkbox state as the app first loads, before React would render any of the local JSX to the DOM.
 
 ```jsx
-const [countries, setCountries] = useState < data > null
-const [furtherDetails, setFurtherDetails] = useState < data > null
-const [filteredRegions, setFilteredRegions] = useState < data > null
 const [homepage, setHomepage] = useState(true)
 
 const handleContentVisible = () => {
@@ -95,7 +92,7 @@ const handleContentVisible = () => {
 }
 ```
 
-I was further really proud of my ability to use multiple different states housed in the App component, to control multiple features of the application together dynamically. This was a nice progression from my previous React project, since I was able to build different versions of state (rather than achieving the same effect stylistically), which would control the layout and data displayed by the app. In order to create the 'multi-page' feature, I conditionally rendered multiple 'groups' of components based on which state held a truthy value.
+I was further really proud of my ability to use multiple different states housed in the App component, to control multiple features of the application together dynamically. This was a nice progression from my previous React project, since I was able to build different versions of state, rather than achieving the same effect stylistically. This would then control the layout and data displayed by the app in the manner of a single page application, which conditionally renders the data visible based on a user's actions.
 
 ```jsx
 const handleRegions = () => {
