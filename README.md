@@ -112,7 +112,7 @@ const handleRegions = () => {
 }
 ```
 
-I was really proud of the efficiency that the function above displays, which was used to generate the country regions to be displayed as separate buttons within the dropdown menu. I was able to use a combination of chaining methods and the `Set()` data structure to remove all duplicates from the returned Array, containing all the different regions for each country object in the original pulled data. I then sorted them in alphabetical order, and produced a <Button> for each one containing the required logic.
+I chose to highlight the function above due to its efficiency in generating the different country regions to be displayed as separate buttons within the dropdown menu. I was able to use a combination of chaining methods and the `Set()` data structure to remove all duplicates from the returned Array, originally containing over 200 regions for each country object in the pulled data. I then sorted them in alphabetical order, and produced a button for each one containing the required logic.
 
 ### Continued development
 
