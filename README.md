@@ -14,7 +14,6 @@ This is a solution to the [REST Countries API with color theme switcher challeng
    -  [Continued development](#continued-development)
    -  [Useful resources](#useful-resources)
 -  [Author](#author)
--  [Acknowledgments](#acknowledgments)
 
 ## Overview
 
@@ -31,7 +30,7 @@ Your users should be able to:
 
 ### Screenshot
 
-![](./Screenshot.png)
+![](./screenshot.png)
 
 ### Links
 
@@ -41,13 +40,13 @@ Your users should be able to:
 
 ### Built with
 
--  React - JS Library
--  Typescript
--  Styled Components
--  Mobile-first workflow
--  Flexbox
--  CSS Grid
 -  Semantic HTML5 markup
+-  Mobile-first workflow
+-  CSS Grid
+-  Flexbox
+-  [React](https://reactjs.org/) - JS library
+-  [Styled Components](https://styled-components.com/) - For styles
+-  Typescript
 
 ### What I learned
 
@@ -133,4 +132,6 @@ As I continued to build out each feature, I found my App component was quickly b
 ## Author
 
 -  Website - [Joshua Jameson-Wallis](https://joshuajamesonwallis.com)
--  Linkedin - [Joshua Jameson-Wallis]()
+-  Linkedin - [Joshua Jameson-Wallis](https://www.linkedin.com/in/joshua-jameson-wallis/)
+
+<!-- useDarkMode hook -->
