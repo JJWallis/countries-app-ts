@@ -1,19 +1,19 @@
-import React, { useContext, useRef } from 'react'
-import { Context } from '../components/Context'
+import React, { useRef } from 'react'
 import Wrapper from './styled/Wrapper'
 import Search from './Search'
 import Filter from './Filter'
 import Button from './styled/StyledButton'
 import Icon from './styled/Icon'
+import { useFurtherDetailsContext } from '../hooks/useFurtherDetailsContext'
 
 const SearchFilter: React.FC = () => {
-   const { homepage, setHomepage: sh } = { ...useContext(Context) }
    const prevFilter = useRef('')
+   const { furtherDetails, setFurtherDetails } = useFurtherDetailsContext()
 
    const updatePrevFilter = (filter: string) => (prevFilter.current = filter)
 
    const handleLayoutChange = () => {
-      return homepage ? (
+      return !furtherDetails ? (
          <>
             <Search />
             <Filter
@@ -23,8 +23,7 @@ const SearchFilter: React.FC = () => {
          </>
       ) : (
          <>
-            <Button back onClick={() => sh && sh(true)}>
-               {/* set furtherDetails to null */}
+            <Button back onClick={() => setFurtherDetails(null)}>
                Back
             </Button>
             <Icon
