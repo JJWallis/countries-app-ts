@@ -1,17 +1,5 @@
-export type theme = {
-   color: string
-   mainBgColor: string
-   input: string
-   elements: string
-   shadow: string
-   headerShadow: string
-   countryCardShadow: string
-   furtherImgShadowMb: string
-   furtherImgShadowWd: string
-   borderBtnShadow: string
-   breakpoint: string
-   furtherBreakpoint: string
-   themeTransition: string
+declare module 'styled-components' {
+   export interface DefaultTheme {}
 }
 
 export const lightTheme = {
