@@ -1,29 +1,12 @@
-<<<<<<< HEAD
 import React, { useState } from 'react'
-=======
-import React, { useState, useEffect, useRef } from 'react'
 import { ThemeProvider } from 'styled-components'
->>>>>>> parent of 5aad04b (CountriesContext working)
 import GlobalStyles from './components/styled/GlobalStyles'
-<<<<<<< HEAD
 import { darkTheme, lightTheme } from './components/styled/Theme'
-=======
-<<<<<<< HEAD
-import { darkTheme, lightTheme } from './components/styled/Theme'
-=======
->>>>>>> cc581c5a8799425f31d93183e5f20663ad1637e3
->>>>>>> 97cee2582db421bda3fa9af793eff42dd55bd874
 import Header from './components/Header'
 import Main from './components/Main'
-<<<<<<< HEAD
+import { useDarkMode } from './hooks/useDarkMode'
 import { Context } from './components/Context'
 import { useCountriesContext } from './hooks/useCountriesContext'
-import { data } from './context/countriesContext'
-=======
-import { useDarkMode } from './hooks/useDarkMode'
-import axios from 'axios'
-import { Context } from './components/Context'
-import { CountriesProvider } from './context/countriesContext'
 
 export interface Country {
    name: { common: string; nativeName: { official: string }[] }
@@ -43,10 +26,8 @@ export interface Country {
 }
 
 export type data = Country[] | null
->>>>>>> parent of 5aad04b (CountriesContext working)
 
 const App: React.FC = () => {
-   const [countries, setCountries] = useState<data>(null)
    const [furtherDetails, setFurtherDetails] = useState<data>(null)
    const [filteredRegions, setFilteredRegions] = useState<data>(null)
    const [homepage, setHomepage] = useState(true)
@@ -55,20 +36,10 @@ const App: React.FC = () => {
       prefersDarkMode ? darkTheme : lightTheme
    )
    const [error, setError] = useState(false)
-   const fetchError = useRef(false)
+   const { countries } = useCountriesContext()
 
-   function fetchData(endpoint: string) {
-      axios
-         .get<data>(endpoint)
-         .then((value) => setCountries(value.data))
-         .catch((err) => {
-            fetchError.current = true
-            setError(true)
-            console.error(err.message)
-         })
-   }
-
-   useEffect(() => fetchData('https://restcountries.com/v3.1/all'), [])
+   const handleThemeChange = (dark: boolean) =>
+      dark ? setTheme(darkTheme) : setTheme(lightTheme)
 
    const handleFurtherDetails = (country: string) => {
       const countryData = countries?.filter(
@@ -99,26 +70,22 @@ const App: React.FC = () => {
 
    return (
       <ThemeProvider theme={theme}>
-         <CountriesProvider>
-            <Context.Provider
-               value={{
-                  // countries,
-                  homepage,
-                  setHomepage,
-                  handleThemeChange,
-                  furtherDetails,
-                  handleFurtherDetails,
-                  filteredRegions,
-                  handleFilterRegions,
-                  error,
-                  // fetchError,
-               }}
-            >
-               <GlobalStyles />
-               <Header />
-               <Main />
-            </Context.Provider>
-         </CountriesProvider>
+         <Context.Provider
+            value={{
+               homepage,
+               setHomepage,
+               handleThemeChange,
+               furtherDetails,
+               handleFurtherDetails,
+               filteredRegions,
+               handleFilterRegions,
+               error,
+            }}
+         >
+            <GlobalStyles />
+            <Header />
+            <Main />
+         </Context.Provider>
       </ThemeProvider>
    )
 }

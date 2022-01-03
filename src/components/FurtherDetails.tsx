@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Country } from '../context/countriesContext'
+import { Country } from '../App'
 import { Context } from '../components/Context'
 import Wrapper from './styled/Wrapper'
 import CountryImg from './styled/StyledImg'

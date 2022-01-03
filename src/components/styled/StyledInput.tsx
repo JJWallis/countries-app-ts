@@ -13,19 +13,17 @@ export default styled.input<Props>`
          outline: none;
          border: none;
          border-radius: 5px;
-         box-shadow: ${({ theme: { baseTheme } }) => baseTheme.shadow};
-         background-color: ${({ theme: { dynamicTheme } }) =>
-            dynamicTheme.elements};
-         color: ${({ theme: { dynamicTheme } }) => dynamicTheme.input};
+         box-shadow: ${({ theme: { shadow } }) => shadow};
+         background-color: ${({ theme: { elements } }) => elements};
+         color: ${({ theme: { input } }) => input};
          font-size: 1.2rem;
          padding: 1.2rem 0 1.2rem 5.5rem;
          width: 100%;
          max-width: 550px;
          transition: background-color
-               ${({ theme: { baseTheme } }) => baseTheme.themeTransition},
-            color ${({ theme: { baseTheme } }) => baseTheme.themeTransition};
-         @media (min-width: ${({ theme: { baseTheme } }) =>
-               baseTheme.desktopBreakpoint}) {
+               ${({ theme: { themeTransition } }) => themeTransition},
+            color ${({ theme: { themeTransition } }) => themeTransition};
+         @media (min-width: ${({ theme }) => theme.breakpoint}) {
             font-size: 1.1rem;
             width: 55%;
          }

@@ -68,8 +68,7 @@ export default styled.div.attrs<Props>(
    ${({ main }) =>
       main &&
       css`
-         @media (min-width: ${({ theme: { baseTheme } }) =>
-               baseTheme.desktopBreakpoint}) {
+         @media (min-width: ${({ theme }) => theme.breakpoint}) {
             padding-top: 2.3rem;
          }
       `} 
@@ -77,8 +76,7 @@ export default styled.div.attrs<Props>(
    ${({ sf }) =>
       sf &&
       css`
-         @media (max-width: ${({ theme: { baseTheme } }) =>
-               baseTheme.desktopBreakpoint}) {
+         @media (max-width: ${({ theme }) => theme.breakpoint}) {
             flex-direction: column;
             justify-content: unset;
             align-items: flex-start;
@@ -110,8 +108,7 @@ export default styled.div.attrs<Props>(
          display: flex;
          flex-direction: column;
          gap: 3.5rem;
-         @media (min-width: ${({ theme: { baseTheme } }) =>
-               baseTheme.furtherBreakpoint}) {
+         @media (min-width: ${({ theme }) => theme.furtherBreakpoint}) {
             flex-direction: row;
          }
       `}
@@ -130,17 +127,14 @@ export default styled.div.attrs<Props>(
       css`
          flex-basis: 310px;
          border-radius: 5px;
-         box-shadow: ${({ theme: { dynamicTheme } }) =>
-            dynamicTheme.countryCardShadow};
+         box-shadow: ${({ theme }) => theme.countryCardShadow};
          overflow: hidden;
          cursor: pointer;
-         background-color: ${({ theme: { dynamicTheme } }) =>
-            dynamicTheme.elements};
+         /* background-color: ${({ theme }) => theme.elements}; */
          transition: transform 200ms linear,
             background-color
-               ${({ theme: { baseTheme } }) => baseTheme.themeTransition},
-            box-shadow
-               ${({ theme: { baseTheme } }) => baseTheme.themeTransition};
+               ${({ theme: { themeTransition } }) => themeTransition},
+            box-shadow ${({ theme: { themeTransition } }) => themeTransition};
          &:hover {
             transform: scale(1.05);
          }
@@ -164,8 +158,7 @@ export default styled.div.attrs<Props>(
          align-items: center;
          gap: 1rem;
          margin-top: 2.8rem;
-         @media (max-width: ${({ theme: { baseTheme } }) =>
-               baseTheme.desktopBreakpoint}) {
+         @media (max-width: ${({ theme }) => theme.breakpoint}) {
             flex-direction: column;
             align-items: flex-start;
             gap: 1.3rem;
@@ -179,8 +172,7 @@ export default styled.div.attrs<Props>(
          flex-wrap: wrap;
          align-items: baseline;
          gap: 3.1rem;
-         @media (min-width: ${({ theme: { baseTheme } }) =>
-               baseTheme.furtherBreakpoint}) {
+         @media (min-width: ${({ theme }) => theme.furtherBreakpoint}) {
             gap: 6rem;
          }
       `}
@@ -190,13 +182,12 @@ export default styled.div.attrs<Props>(
       css`
          flex: 1 220px;
          max-width: 300px;
-         @media (min-width: ${({ theme: { baseTheme } }) =>
-               baseTheme.desktopBreakpoint}) {
+         @media (min-width: ${({ theme }) => theme.breakpoint}) {
             flex-basis: 100px;
          }
       `}
 
-      ${({ filter, fetchError }) =>
+      ${({ filter }) =>
       filter &&
       css`
          display: flex;
@@ -205,11 +196,10 @@ export default styled.div.attrs<Props>(
          width: 240px;
          padding: 1.2rem 1.7rem;
          border-radius: 5px;
-         box-shadow: ${({ theme: { baseTheme } }) => baseTheme.shadow};
-         background-color: ${({ theme: { dynamicTheme } }) =>
-            dynamicTheme.elements};
+         box-shadow: ${({ theme }) => theme.shadow};
+         background-color: ${({ theme: { elements } }) => elements};
          cursor: pointer;
-         pointer-events: ${() => (fetchError ? 'none' : 'all')};
+         pointer-events: ${({ fetchError }) => (fetchError ? 'none' : 'all')};
          &::after {
             content: '';
             display: block;
@@ -217,15 +207,13 @@ export default styled.div.attrs<Props>(
             height: 0;
             border-right: 5px solid transparent;
             border-left: 5px solid transparent;
-            border-top: 5px solid
-               ${({ theme: { dynamicTheme } }) => dynamicTheme.color};
+            border-top: 5px solid ${({ theme: { color } }) => color};
             position: absolute;
             top: 153px;
             left: 200px;
             transition: border-top
-               ${({ theme: { baseTheme } }) => baseTheme.themeTransition};
-            @media (min-width: ${({ theme: { baseTheme } }) =>
-                  baseTheme.desktopBreakpoint}) {
+               ${({ theme: { themeTransition } }) => themeTransition};
+            @media (min-width: ${({ theme }) => theme.breakpoint}) {
                left: unset;
                right: 25px;
                top: 50%;
@@ -233,17 +221,15 @@ export default styled.div.attrs<Props>(
             }
          }
          transition: background-color
-               ${({ theme: { baseTheme } }) => baseTheme.themeTransition},
-            box-shadow
-               ${({ theme: { baseTheme } }) => baseTheme.themeTransition};
-         @media (min-width: ${({ theme: { baseTheme } }) =>
-               baseTheme.desktopBreakpoint}) {
+               ${({ theme: { themeTransition } }) => themeTransition},
+            box-shadow ${({ theme: { themeTransition } }) => themeTransition};
+         @media (min-width: ${({ theme }) => theme.breakpoint}) {
             justify-content: flex-end;
             width: 220px;
          }
       `}
 
-      ${({ dropDown, opacity }) =>
+      ${({ dropDown }) =>
       dropDown &&
       css`
          position: absolute;
@@ -252,18 +238,20 @@ export default styled.div.attrs<Props>(
          z-index: 300;
          border-radius: 5px;
          padding: 1.2rem 0rem 1.2rem 1rem;
-         background-color: ${({ theme: { dynamicTheme } }) =>
-            dynamicTheme.elements};
-         color: ${({ theme: { dynamicTheme } }) => dynamicTheme.color};
+         background-color: ${({ theme: { elements } }) => elements};
+         color: ${({ theme: { color } }) => color};
          font-size: 1.1rem;
          width: 240px;
+         transform: ${({ opacity }) =>
+            opacity === 0 ? 'translateY(-15%)' : 'translateY(0%)'};
+         opacity: ${({ opacity }) => opacity};
+         pointer-events: ${({ opacity }) => (opacity === 0 ? 'none' : 'all')};
          transition: background-color
-               ${({ theme: { baseTheme } }) => baseTheme.themeTransition},
-            color ${({ theme: { baseTheme } }) => baseTheme.themeTransition},
-            opacity ${({ theme: { baseTheme } }) => baseTheme.themeTransition},
-            transform ${({ theme: { baseTheme } }) => baseTheme.themeTransition};
-         @media (min-width: ${({ theme: { baseTheme } }) =>
-               baseTheme.desktopBreakpoint}) {
+               ${({ theme: { themeTransition } }) => themeTransition},
+            color ${({ theme: { themeTransition } }) => themeTransition},
+            opacity ${({ theme: { themeTransition } }) => themeTransition},
+            transform ${({ theme: { themeTransition } }) => themeTransition};
+         @media (min-width: ${({ theme }) => theme.breakpoint}) {
             top: 68px;
             left: unset;
             right: 0;
@@ -271,9 +259,3 @@ export default styled.div.attrs<Props>(
          }
       `}
 `
-
-// Dropdown:
-// transform: ${(opacity) =>
-// opacity === 0 ? 'translateY(-15%)' : 'translateY(0%)'};
-// opacity: ${({ opacity }) => opacity};
-// pointer-events: ${(opacity ) => (opacity === 0 ? 'none' : 'all')};

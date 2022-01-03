@@ -13,8 +13,8 @@ export default styled.svg<IconProps>`
    height: 27px;
    top: 50%;
    transform: translateY(-50%);
-   fill: ${({ theme: { dynamicTheme } }) => dynamicTheme.color};
-   transition: fill ${({ theme: { baseTheme } }) => baseTheme.themeTransition};
+   fill: ${({ theme: { color } }) => color};
+   transition: fill ${({ theme: { themeTransition } }) => themeTransition};
 
    ${({ moon }) =>
       moon &&
@@ -28,7 +28,7 @@ export default styled.svg<IconProps>`
       css`
          top: 20px;
          left: 30px;
-         fill: ${({ theme: { dynamicTheme } }) => dynamicTheme.input};
+         fill: ${({ theme: { input } }) => input};
          transform: unset;
       `}
 
@@ -37,8 +37,7 @@ export default styled.svg<IconProps>`
       css`
          top: 47px;
          left: 28px;
-         @media (max-width: ${({ theme: { baseTheme } }) =>
-               baseTheme.desktopBreakpoint}) {
+         @media (max-width: ${({ theme }) => theme.breakpoint}) {
             top: 42%;
          }
       `}

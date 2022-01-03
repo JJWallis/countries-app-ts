@@ -1,12 +1,12 @@
-import React, { useState, useLayoutEffect } from 'react'
+import React, { useContext, useState, useLayoutEffect } from 'react'
+import { Context } from '../components/Context'
 import StyledInput from './styled/StyledInput'
 import { StyledLabel } from './styled/StyledLabel'
 import Icon from './styled/Icon'
-import { useTheme } from 'styled-components'
 
 const ThemeSwitcher: React.FC = () => {
    const [dark, setDark] = useState(false)
-   const { handleThemeChange } = useTheme()
+   const { handleThemeChange: themeChange } = { ...useContext(Context) }
 
    useLayoutEffect(() => {
       const theme = localStorage.getItem('dark')
@@ -14,9 +14,9 @@ const ThemeSwitcher: React.FC = () => {
    }, [])
 
    useLayoutEffect(() => {
-      handleThemeChange(dark)
+      themeChange && themeChange(dark)
       localStorage.setItem('dark', JSON.stringify(dark))
-   }, [dark, handleThemeChange])
+   }, [dark, themeChange])
 
    return (
       <>

@@ -4,13 +4,12 @@ const StyledHeader = styled.header`
    position: absolute;
    top: 0;
    width: 100%;
-   box-shadow: ${({ theme: { baseTheme } }) => baseTheme.headerShadow};
+   box-shadow: ${({ theme: { headerShadow } }) => headerShadow};
    padding-block: 1.7rem;
-   background-color: ${({ theme: { dynamicTheme } }) => dynamicTheme.elements};
+   background-color: ${({ theme: { elements } }) => elements};
    transition: background-color
-      ${({ theme: { baseTheme } }) => baseTheme.themeTransition};
-   @media (min-width: ${({ theme: { baseTheme } }) =>
-         baseTheme.desktopBreakpoint}) {
+      ${({ theme: { themeTransition } }) => themeTransition};
+   @media (min-width: ${({ theme }) => theme.breakpoint}) {
       padding-block: 0;
    }
 `

@@ -8,17 +8,15 @@ export const CountryData = styled.p<Props>`
    display: inline;
    font-size: 1rem;
    font-weight: 200;
-   color: color: ${({ theme: { dynamicTheme } }) => dynamicTheme.color};
-   transition: color
-      ${({ theme: { baseTheme } }) => baseTheme.themeTransition};
+   color: ${({ theme: { color } }) => color};
+   transition: color ${({ theme: { themeTransition } }) => themeTransition};
    ${({ further }) =>
       further &&
       css`
          display: block;
          font-size: 1.1rem;
          margin-bottom: 1rem;
-         @media (min-width: ${({ theme: { baseTheme } }) =>
-               baseTheme.furtherBreakpoint}) {
+         @media (min-width: ${({ theme }) => theme.furtherBreakpoint}) {
             margin-bottom: 0.5rem;
          }
       `}
