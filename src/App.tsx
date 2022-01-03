@@ -88,7 +88,7 @@ const App: React.FC = () => {
          <CountriesProvider>
             <Context.Provider
                value={{
-                  countries,
+                  // countries,
                   homepage,
                   setHomepage,
                   handleThemeChange,
@@ -97,7 +97,7 @@ const App: React.FC = () => {
                   filteredRegions,
                   handleFilterRegions,
                   error,
-                  fetchError,
+                  // fetchError,
                }}
             >
                <GlobalStyles />
