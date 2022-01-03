@@ -30,13 +30,13 @@ const App: React.FC = () => {
             cioc === country ||
             cca3 === country
       )
-      if (countryData && countryData.length > 0) {
+      if (countryData && countryData.length) {
          error && setError(false)
          setFurtherDetails(countryData)
          homepage && setHomepage(false)
-      } else {
-         setError(true)
+         return
       }
+      setError(true)
    }
 
    const handleFilterRegions = (region: string) => {
