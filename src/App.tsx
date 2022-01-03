@@ -52,10 +52,8 @@ const App: React.FC = () => {
 
    useEffect(() => fetchData('https://restcountries.com/v3.1/all'), [])
 
-   const handleThemeChange = useCallback(
-      (dark: boolean) => (dark ? setTheme(darkTheme) : setTheme(lightTheme)),
-      [setTheme]
-   )
+   const handleThemeChange = (dark: boolean) =>
+      dark ? setTheme(darkTheme) : setTheme(lightTheme)
 
    const handleFurtherDetails = (country: string) => {
       const countryData = countries?.filter(
