@@ -1,6 +1,5 @@
 import React from 'react'
 import { useFurtherDetailsContext } from '../hooks/useFurtherDetailsContext'
-import { Country } from '../context/countriesContext'
 import { CountryName } from './styled/StyledTitle'
 import { CountrySubTitle } from './styled/CountryDataTitle'
 import { CountryData } from './styled/CountryData'
@@ -11,13 +10,13 @@ import BorderCountries from './BorderCountries'
 type DataToMap =
    | {
         nativeName: string | undefined
-        population: Country['population']
-        region: Country['region']
-        subRegion: Country['subregion']
-        capital: Country['capital']
+        population: number
+        region: string
+        subRegion: string
+        capital: string
      }
    | {
-        topLevelDomain: Country['tld'][0]
+        topLevelDomain: string[][0]
         currencies: string | undefined
         languages: string | undefined
      }
@@ -28,7 +27,6 @@ type DataToMap =
 const FurtherDetails: React.FC = () => {
    const { furtherDetails } = useFurtherDetailsContext()
    const data = furtherDetails ? furtherDetails[0] : null
-   const name = data ? data.name.common : 'No name'
 
    const printData = (data: DataToMap) => {
       return (
@@ -120,7 +118,9 @@ const FurtherDetails: React.FC = () => {
       <>
          {printFlag()}
          <Wrapper as="article" flexChild>
-            <CountryName further>{name}</CountryName>
+            <CountryName further>
+               {data ? data.name.common : 'No name'}
+            </CountryName>
             <Wrapper furtherColumns>
                {gatherDataOne()}
                {gatherDataTwo()}
