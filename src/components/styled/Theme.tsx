@@ -1,3 +1,12 @@
+import 'styled-components'
+
+declare module 'styled-components' {
+   export interface DefaultTheme {
+      theme: typeof lightTheme | typeof darkTheme
+      handleThemeChange: (dark: boolean) => void
+   }
+}
+
 export const lightTheme = {
    color: 'hsl(200, 15%, 8%)',
    mainBgColor: 'hsl(0, 0%, 98%)',

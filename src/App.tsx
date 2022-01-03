@@ -31,15 +31,15 @@ const App: React.FC = () => {
    const [furtherDetails, setFurtherDetails] = useState<data>(null)
    const [filteredRegions, setFilteredRegions] = useState<data>(null)
    const [homepage, setHomepage] = useState(true)
-   const prefersDarkMode = useDarkMode()
-   const [theme, setTheme] = useState(() =>
-      prefersDarkMode ? darkTheme : lightTheme
-   )
+   // const prefersDarkMode = useDarkMode()
+   // const [theme, setTheme] = useState(() =>
+   //    prefersDarkMode ? darkTheme : lightTheme
+   // )
    const [error, setError] = useState(false)
    const { countries } = useCountriesContext()
 
-   const handleThemeChange = (dark: boolean) =>
-      dark ? setTheme(darkTheme) : setTheme(lightTheme)
+   // const handleThemeChange = (dark: boolean) =>
+   //    dark ? setTheme(darkTheme) : setTheme(lightTheme)
 
    const handleFurtherDetails = (country: string) => {
       const countryData = countries?.filter(
@@ -69,24 +69,24 @@ const App: React.FC = () => {
    }
 
    return (
-      <ThemeProvider theme={theme}>
-         <Context.Provider
-            value={{
-               homepage,
-               setHomepage,
-               handleThemeChange,
-               furtherDetails,
-               handleFurtherDetails,
-               filteredRegions,
-               handleFilterRegions,
-               error,
-            }}
-         >
-            <GlobalStyles />
-            <Header />
-            <Main />
-         </Context.Provider>
-      </ThemeProvider>
+      // <ThemeProvider theme={theme}>
+      <Context.Provider
+         value={{
+            homepage,
+            setHomepage,
+            // handleThemeChange,
+            furtherDetails,
+            handleFurtherDetails,
+            filteredRegions,
+            handleFilterRegions,
+            error,
+         }}
+      >
+         <GlobalStyles />
+         <Header />
+         <Main />
+      </Context.Provider>
+      // </ThemeProvider>
    )
 }
 
