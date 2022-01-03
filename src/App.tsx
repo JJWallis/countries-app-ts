@@ -2,11 +2,12 @@ import React, { useState, useEffect, useRef } from 'react'
 import { ThemeProvider } from 'styled-components'
 import GlobalStyles from './components/styled/GlobalStyles'
 import { darkTheme, lightTheme, theme } from './components/styled/Theme'
-import axios from 'axios'
 import Header from './components/Header'
 import Main from './components/Main'
-import { Context } from './components/Context'
 import { useDarkMode } from './components/useDarkMode'
+import axios from 'axios'
+import { Context } from './components/Context'
+import { CountriesProvider } from './context/countriesContext'
 
 export interface Country {
    name: { common: string; nativeName: { official: string }[] }
@@ -84,24 +85,26 @@ const App: React.FC = () => {
 
    return (
       <ThemeProvider theme={theme}>
-         <Context.Provider
-            value={{
-               countries,
-               homepage,
-               setHomepage,
-               handleThemeChange,
-               furtherDetails,
-               handleFurtherDetails,
-               filteredRegions,
-               handleFilterRegions,
-               error,
-               fetchError,
-            }}
-         >
-            <GlobalStyles />
-            <Header />
-            <Main />
-         </Context.Provider>
+         <CountriesProvider>
+            <Context.Provider
+               value={{
+                  countries,
+                  homepage,
+                  setHomepage,
+                  handleThemeChange,
+                  furtherDetails,
+                  handleFurtherDetails,
+                  filteredRegions,
+                  handleFilterRegions,
+                  error,
+                  fetchError,
+               }}
+            >
+               <GlobalStyles />
+               <Header />
+               <Main />
+            </Context.Provider>
+         </CountriesProvider>
       </ThemeProvider>
    )
 }

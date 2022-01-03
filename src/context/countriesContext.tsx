@@ -30,7 +30,7 @@ export const CountriesContext = React.createContext<ContextInterface | null>(
    null
 )
 
-export const CountriesProvider = (children: ReactNode) => {
+export const CountriesProvider = ({ children }: { children: ReactNode }) => {
    const [countries, setCountries] = useState<data>(null)
    const [countriesError, setCountriesError] = useState(false)
    const fetchError = useRef(false)
