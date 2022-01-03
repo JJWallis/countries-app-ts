@@ -3,6 +3,7 @@ import Button from './styled/StyledButton'
 import Wrapper from './styled/Wrapper'
 import { useCountriesContext } from '../hooks/useCountriesContext'
 import { useGlobalContext } from '../hooks/useGlobalContext'
+import { useToggle } from '../hooks/useToggle'
 
 interface Props {
    prevFilter: string
@@ -13,11 +14,12 @@ const Filter: React.FC<Props> = ({ prevFilter, updatePrevFilter }) => {
    const { handleFilterRegions } = useGlobalContext()
    const { countries, fetchError } = useCountriesContext()
    const [desiredRegion, setDesiredRegion] = useState('')
-   const [toggleDropDown, setToggleDropDown] = useState(0)
+   const [toggleDropDown, setToggleDropDown] = useToggle(false)
    const hasDataChanged = useRef('')
 
-   const handleDropDown = () => setToggleDropDown(toggleDropDown ? 0 : 1)
-   const handleDropDownReset = () => !prevFilter && setDesiredRegion('')
+   const handleDropDownReset = () => {
+      if (!prevFilter) setDesiredRegion('')
+   }
 
    const handleRegions = () => {
       const regions = new Set(countries?.map(({ region }) => region))
@@ -52,7 +54,7 @@ const Filter: React.FC<Props> = ({ prevFilter, updatePrevFilter }) => {
          filter="true"
          display="flex"
          justify-content="flex-start"
-         onClick={handleDropDown}
+         onClick={setToggleDropDown}
          fetchError={fetchError?.current}
       >
          <Button
@@ -62,7 +64,7 @@ const Filter: React.FC<Props> = ({ prevFilter, updatePrevFilter }) => {
          >
             {!prevFilter ? 'Filter by region' : prevFilter}
          </Button>
-         <Wrapper dropDown opacity={toggleDropDown}>
+         <Wrapper dropDown opacity={toggleDropDown ? 1 : 0}>
             {prevFilter && (
                <Button
                   dropDown
