@@ -1,9 +1,9 @@
 import React, { useLayoutEffect } from 'react'
-import StyledInput from './styled/StyledInput'
-import { StyledLabel } from './styled/StyledLabel'
-import Icon from './styled/Icon'
-import { useLocalStorage } from '../hooks/useLocalStorage'
 import { useGlobalContext } from '../hooks/useGlobalContext'
+import { useLocalStorage } from '../hooks/useLocalStorage'
+import { StyledLabel } from './styled/StyledLabel'
+import StyledInput from './styled/StyledInput'
+import Icon from './styled/Icon'
 
 const ThemeSwitcher: React.FC = () => {
    const [dark, setDark] = useLocalStorage('darkTheme', false)

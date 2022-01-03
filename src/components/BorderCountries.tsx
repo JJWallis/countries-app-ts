@@ -1,10 +1,10 @@
 import React from 'react'
-import Wrapper from './styled/Wrapper'
-import Button from './styled/StyledButton'
-import { v4 as uuid } from 'uuid'
-import { CountrySubTitle } from './styled/CountryDataTitle'
 import { useCountriesContext } from '../hooks/useCountriesContext'
 import { useFurtherDetailsContext } from '../hooks/useFurtherDetailsContext'
+import { v4 as uuid } from 'uuid'
+import { CountrySubTitle } from './styled/CountryDataTitle'
+import Wrapper from './styled/Wrapper'
+import Button from './styled/StyledButton'
 
 const BorderCountries: React.FC = () => {
    const { furtherDetails, handleFurtherDetails } = useFurtherDetailsContext()

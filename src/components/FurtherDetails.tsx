@@ -1,12 +1,12 @@
 import React from 'react'
+import { useFurtherDetailsContext } from '../hooks/useFurtherDetailsContext'
 import { Country } from '../context/countriesContext'
-import Wrapper from './styled/Wrapper'
-import CountryImg from './styled/StyledImg'
 import { CountryName } from './styled/StyledTitle'
 import { CountrySubTitle } from './styled/CountryDataTitle'
 import { CountryData } from './styled/CountryData'
+import Wrapper from './styled/Wrapper'
+import CountryImg from './styled/StyledImg'
 import BorderCountries from './BorderCountries'
-import { useFurtherDetailsContext } from '../hooks/useFurtherDetailsContext'
 
 type DataToMap =
    | {

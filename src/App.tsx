@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
 import { ThemeProvider } from 'styled-components'
 import { FurtherDetailsProvider } from './context/furtherDetailsContext'
-import GlobalStyles from './components/styled/GlobalStyles'
-import { darkTheme, lightTheme } from './components/styled/Theme'
-import Header from './components/Header'
-import Main from './components/Main'
-import { useDarkMode } from './hooks/useDarkMode'
 import { GlobalContext } from './context/globalContext'
 import { useCountriesContext } from './hooks/useCountriesContext'
+import { useDarkMode } from './hooks/useDarkMode'
+import { darkTheme, lightTheme } from './components/styled/Theme'
 import { CountryData } from './context/countriesContext'
+import GlobalStyles from './components/styled/GlobalStyles'
+import Header from './components/Header'
+import Main from './components/Main'
 
 const App: React.FC = () => {
    const prefersDarkMode = useDarkMode()

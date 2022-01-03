@@ -1,12 +1,12 @@
 import React from 'react'
-import { v4 as uuidv4 } from 'uuid'
-import Wrapper from './styled/Wrapper'
-import CountryCard from './CountryCard'
-import { Loading } from './styled/StyledTitle'
-import FurtherDetails from './FurtherDetails'
 import { useCountriesContext } from '../hooks/useCountriesContext'
 import { useFurtherDetailsContext } from '../hooks/useFurtherDetailsContext'
 import { useGlobalContext } from '../hooks/useGlobalContext'
+import { v4 as uuidv4 } from 'uuid'
+import { Loading } from './styled/StyledTitle'
+import Wrapper from './styled/Wrapper'
+import CountryCard from './CountryCard'
+import FurtherDetails from './FurtherDetails'
 
 const CountriesContainer: React.FC = () => {
    const { filteredRegions } = useGlobalContext()

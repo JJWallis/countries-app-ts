@@ -1,9 +1,9 @@
 import React from 'react'
-import Wrapper from './styled/Wrapper'
+import { useFurtherDetailsContext } from '../hooks/useFurtherDetailsContext'
 import { CountryName } from './styled/StyledTitle'
 import { CountrySubTitle } from './styled/CountryDataTitle'
 import { CountryData } from './styled/CountryData'
-import { useFurtherDetailsContext } from '../hooks/useFurtherDetailsContext'
+import Wrapper from './styled/Wrapper'
 
 interface Props {
    data: {

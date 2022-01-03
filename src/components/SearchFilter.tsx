@@ -1,10 +1,10 @@
 import React, { useRef } from 'react'
+import { useFurtherDetailsContext } from '../hooks/useFurtherDetailsContext'
 import Wrapper from './styled/Wrapper'
 import Search from './Search'
 import Filter from './Filter'
 import Button from './styled/StyledButton'
 import Icon from './styled/Icon'
-import { useFurtherDetailsContext } from '../hooks/useFurtherDetailsContext'
 
 const SearchFilter: React.FC = () => {
    const { furtherDetails, setFurtherDetails } = useFurtherDetailsContext()

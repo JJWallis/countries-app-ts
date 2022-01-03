@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react'
-import StyledInput from './styled/StyledInput'
-import Icon from './styled/Icon'
 import { useCountriesContext } from '../hooks/useCountriesContext'
 import { useFurtherDetailsContext } from '../hooks/useFurtherDetailsContext'
+import StyledInput from './styled/StyledInput'
+import Icon from './styled/Icon'
 
 const Search: React.FC = () => {
    const [search, setSearch] = useState('')
