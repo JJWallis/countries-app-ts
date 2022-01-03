@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { Context } from '../components/Context'
 import { v4 as uuidv4 } from 'uuid'
 import Wrapper from './styled/Wrapper'
 import CountryCard from './CountryCard'
@@ -6,10 +7,11 @@ import { Loading } from './styled/StyledTitle'
 import FurtherDetails from './FurtherDetails'
 import { useCountriesContext } from '../hooks/useCountriesContext'
 import { useFurtherDetailsContext } from '../hooks/useFurtherDetailsContext'
-import { useFilteredRegionsContext } from '../hooks/useFilterRegionsContext'
 
 const CountriesContainer: React.FC = () => {
-   const { filteredRegions } = useFilteredRegionsContext()
+   const { filteredRegions } = {
+      ...useContext(Context),
+   }
    const { countries, countriesError } = useCountriesContext()
    const { furtherDetails } = useFurtherDetailsContext()
 

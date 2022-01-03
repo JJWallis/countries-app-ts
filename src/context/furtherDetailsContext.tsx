@@ -6,6 +6,8 @@ interface FurtherDetailsContextData {
    furtherDetails: CountryData | null
    setFurtherDetails: React.Dispatch<React.SetStateAction<CountryData | null>>
    handleFurtherDetails: (country: string) => void
+   // homepage: boolean
+   // setHomepage: React.Dispatch<React.SetStateAction<boolean>>
    furtherDetailsError: boolean
 }
 
