@@ -50,6 +50,7 @@ const Filter: React.FC<Props> = ({ prevFilter, updatePrevFilter }) => {
          filter="true"
          display="flex"
          justify-content="flex-start"
+         aria-label="Filter by region"
          onClick={setToggleDropDown}
          fetchError={fetchError?.current}
       >
