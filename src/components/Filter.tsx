@@ -71,7 +71,7 @@ const Filter: React.FC<Props> = ({ prevFilter, updatePrevFilter }) => {
                   dropDownItem
                   onClick={() => setDesiredRegion('')}
                >
-                  Back to Home
+                  Back to home
                </Button>
             )}
             {handleRegions()}
