@@ -24,21 +24,21 @@ const App: React.FC = () => {
    const handleThemeChange = (dark: boolean) =>
       dark ? setTheme(darkTheme) : setTheme(lightTheme)
 
-   const handleFurtherDetails = (country: string) => {
-      const countryData = countries?.filter(
-         ({ name, cioc, cca3 }) =>
-            name?.common.toLowerCase() === country.toLowerCase() ||
-            cioc === country ||
-            cca3 === country
-      )
-      if (countryData && countryData.length) {
-         error && setError(false)
-         setFurtherDetails(countryData)
-         homepage && setHomepage(false)
-         return
-      }
-      setError(true)
-   }
+   // const handleFurtherDetails = (country: string) => {
+   //    const countryData = countries?.filter(
+   //       ({ name, cioc, cca3 }) =>
+   //          name?.common.toLowerCase() === country.toLowerCase() ||
+   //          cioc === country ||
+   //          cca3 === country
+   //    )
+   //    if (countryData && countryData.length) {
+   //       error && setError(false)
+   //       setFurtherDetails(countryData)
+   //       homepage && setHomepage(false)
+   //       return
+   //    }
+   //    setError(true)
+   // }
 
    const handleFilterRegions = (region: string) => {
       if (region === '') {
@@ -55,14 +55,14 @@ const App: React.FC = () => {
       <ThemeProvider theme={theme}>
          <Context.Provider
             value={{
-               homepage,
-               setHomepage,
+               // homepage,
+               // setHomepage,
                handleThemeChange,
-               furtherDetails,
-               handleFurtherDetails,
+               // furtherDetails,
+               // handleFurtherDetails,
                filteredRegions,
                handleFilterRegions,
-               error,
+               // error,
             }}
          >
             <FurtherDetailsProvider>

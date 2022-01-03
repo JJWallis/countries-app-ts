@@ -5,8 +5,8 @@ import { CountryData } from './countriesContext'
 interface FurtherDetailsContextData {
    furtherDetails: CountryData | null
    handleFurtherDetails: (country: string) => void
-   homepage: boolean
-   setHomepage: React.Dispatch<React.SetStateAction<boolean>>
+   // homepage: boolean
+   // setHomepage: React.Dispatch<React.SetStateAction<boolean>>
    furtherDetailsError: boolean
 }
 
@@ -20,8 +20,6 @@ export const FurtherDetailsProvider = ({
 }) => {
    const [furtherDetails, setFurtherDetails] = useState<CountryData>(null)
    const [furtherDetailsError, setFurtherDetailsError] = useState(false)
-   const [homepage, setHomepage] = useState(true)
-   // infered from furtherDetails - set to null to return to homepage
    const { countries } = useCountriesContext()
 
    const handleFurtherDetails = (country: string) => {
@@ -34,7 +32,6 @@ export const FurtherDetailsProvider = ({
       if (countryData && countryData.length) {
          furtherDetailsError && setFurtherDetailsError(false)
          setFurtherDetails(countryData)
-         homepage && setHomepage(false)
          return
       }
       setFurtherDetailsError(true)
@@ -45,8 +42,6 @@ export const FurtherDetailsProvider = ({
          value={{
             furtherDetails,
             handleFurtherDetails,
-            homepage,
-            setHomepage,
             furtherDetailsError,
          }}
       >

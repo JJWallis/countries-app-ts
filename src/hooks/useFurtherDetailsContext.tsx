@@ -3,7 +3,7 @@ import { FurtherDetailsContext } from '../context/furtherDetailsContext'
 
 export function useFurtherDetailsContext() {
    const context = useContext(FurtherDetailsContext)
-   if (context === undefined) {
+   if (!context) {
       throw new Error(
          'useFurtherDetailsContext must be used within a FurtherDetailsProvider'
       )

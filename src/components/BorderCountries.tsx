@@ -1,15 +1,13 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import Wrapper from './styled/Wrapper'
 import Button from './styled/StyledButton'
 import { v4 as uuid } from 'uuid'
 import { CountrySubTitle } from './styled/CountryDataTitle'
-import { Context } from '../components/Context'
 import { useCountriesContext } from '../hooks/useCountriesContext'
+import { useFurtherDetailsContext } from '../hooks/useFurtherDetailsContext'
 
 const BorderCountries: React.FC = () => {
-   const { furtherDetails, handleFurtherDetails: hfr } = {
-      ...useContext(Context),
-   }
+   const { furtherDetails, handleFurtherDetails } = useFurtherDetailsContext()
    const { countries } = useCountriesContext()
 
    const produceButtons = () => {
@@ -27,7 +25,9 @@ const BorderCountries: React.FC = () => {
                      <Button
                         country
                         key={uuid()}
-                        onClick={() => hfr && hfr(border.toUpperCase())}
+                        onClick={() =>
+                           handleFurtherDetails(border.toUpperCase())
+                        }
                      >
                         {
                            countries?.find(
