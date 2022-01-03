@@ -1,6 +1,10 @@
 declare module 'styled-components' {
-   export interface DefaultTheme {}
+   export interface DefaultTheme {
+      // fetchError?: boolean
+   }
 }
+
+// type Theme = typeof lightTheme
 
 export const lightTheme = {
    color: 'hsl(200, 15%, 8%)',
