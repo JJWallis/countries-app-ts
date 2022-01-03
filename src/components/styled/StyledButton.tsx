@@ -14,12 +14,12 @@ const Button = styled.button<Props>`
    border-radius: 5px;
    padding: 0.8em 3em;
    cursor: pointer;
-   background-color: ${({ theme: { elements } }) => elements};
-   color: ${({ theme: { color } }) => color};
+   background-color: ${({ theme: { dynamicTheme } }) => dynamicTheme.elements};
+   color: ${({ theme: { dynamicTheme } }) => dynamicTheme.color};
    transition: background-color
-         ${({ theme: { themeTransition } }) => themeTransition},
-      color ${({ theme: { themeTransition } }) => themeTransition},
-      box-shadow ${({ theme: { themeTransition } }) => themeTransition};
+         ${({ theme: { baseTheme } }) => baseTheme.themeTransition},
+      color ${({ theme: { baseTheme } }) => baseTheme.themeTransition},
+      box-shadow ${({ theme: { baseTheme } }) => baseTheme.themeTransition};
 
    ${({ back }) =>
       back &&
@@ -30,7 +30,8 @@ const Button = styled.button<Props>`
          font-weight: 300;
          padding: 0.6em 2em 0.6em 3.8em;
          margin: 1rem 0 2rem;
-         @media (min-width: ${({ theme }) => theme.breakpoint}) {
+         @media (min-width: ${({ theme: { baseTheme } }) =>
+               baseTheme.desktopBreakpoint}) {
             margin: 1.6rem 0 1.6rem;
             padding-right: 2.4em;
             font-size: 1rem;
@@ -41,10 +42,12 @@ const Button = styled.button<Props>`
       country &&
       css`
          padding: 0.6em 2.5em;
-         box-shadow: ${({ theme }) => theme.borderBtnShadow};
+         box-shadow: ${({ theme: { dynamicTheme } }) =>
+            dynamicTheme.borderBtnShadow};
          &:hover {
-            color: ${({ theme: { elements } }) => elements};
-            background-color: ${({ theme: { color } }) => color};
+            color: ${({ theme: { dynamicTheme } }) => dynamicTheme.elements};
+            background-color: ${({ theme: { dynamicTheme } }) =>
+               dynamicTheme.color};
          }
       `}
 
@@ -72,7 +75,8 @@ const Button = styled.button<Props>`
       css`
          cursor: not-allowed;
          padding-inline: 1.7em;
-         box-shadow: ${({ theme }) => theme.borderBtnShadow};
+         box-shadow: ${({ theme: { dynamicTheme } }) =>
+            dynamicTheme.borderBtnShadow};
       `}
 `
 
