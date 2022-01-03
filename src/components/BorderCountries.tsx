@@ -4,15 +4,14 @@ import Button from './styled/StyledButton'
 import { v4 as uuid } from 'uuid'
 import { CountrySubTitle } from './styled/CountryDataTitle'
 import { Context } from '../components/Context'
+import { useCountriesContext } from '../hooks/useCountriesContext'
 
 const BorderCountries: React.FC = () => {
-   const {
-      furtherDetails,
-      countries,
-      handleFurtherDetails: hfr,
-   } = {
+   const { furtherDetails, handleFurtherDetails: hfr } = {
       ...useContext(Context),
    }
+
+   const { countries } = useCountriesContext()
 
    const produceButtons = () => {
       if (furtherDetails) {
