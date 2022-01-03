@@ -6,17 +6,19 @@ import CountryCard from './CountryCard'
 import { Loading } from './styled/StyledTitle'
 import FurtherDetails from './FurtherDetails'
 import { useCountriesContext } from '../hooks/useCountriesContext'
+import { useFurtherDetailsContext } from '../hooks/useFurtherDetailsContext'
 
 const CountriesContainer: React.FC = () => {
-   const { filteredRegions, homepage } = {
+   const { filteredRegions } = {
       ...useContext(Context),
    }
    const { countries, countriesError } = useCountriesContext()
+   const { furtherDetails } = useFurtherDetailsContext()
 
    const determineData = () => (!filteredRegions ? countries : filteredRegions)
 
    const handleContentVisible = () => {
-      if (homepage) {
+      if (!furtherDetails) {
          const data = determineData()
          return data ? (
             <Wrapper as="article" display={'grid'} role="grid">
