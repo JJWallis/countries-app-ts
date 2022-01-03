@@ -37,7 +37,7 @@ export const darkTheme = {
    mainBgColor: 'hsl(207, 26%, 17%)',
    input: 'hsl(0, 0%, 100%)',
    elements: 'hsl(209, 23%, 22%)',
-   // shadow: '0 0 20px 0 rgba(0,0,0,0.1)',
+   shadow: '0 0 20px 0 rgba(0,0,0,0.1)',
    headerShadow: '0 0px 6px 0 rgba(0, 0, 0, 0.2)',
    countryCardShadow: '0 0 3px 8px rgba(0, 0, 0, 0.05)',
    furtherImgShadowMb: '0 0 3px 8px rgba(0, 0, 0, 0.05)',

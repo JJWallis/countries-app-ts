@@ -10,8 +10,8 @@ export const CountrySubTitle = styled.strong<Props>`
    margin-right: 0.5rem;
    font-size: 1.1rem;
    font-weight: 400;
-   color: ${({ theme: theme: {color} }) => color};
-   transition: color ${({ theme: { themeTransition } }) => themeTransition};
+   color: ${({ theme: { dynamicTheme } }) => dynamicTheme.color};
+   transition: color ${({ theme: { baseTheme } }) => baseTheme.themeTransition};
 
    ${({ further }) =>
       further &&
@@ -23,7 +23,8 @@ export const CountrySubTitle = styled.strong<Props>`
       borderTitle &&
       css`
          font-size: 1.5rem;
-         @media (min-width: ${({ theme }) => theme.furtherBreakpoint}) {
+         @media (min-width: ${({ theme: { baseTheme } }) =>
+            baseTheme.furtherBreakpoint} {
             font-size: 1.1rem;
          }
       `}
