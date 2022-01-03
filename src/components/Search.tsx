@@ -1,12 +1,13 @@
-import React, { useContext, useEffect, useRef, useState } from 'react'
-import { Context } from '../components/Context'
+import React, { useEffect, useRef, useState } from 'react'
 import StyledInput from './styled/StyledInput'
 import Icon from './styled/Icon'
 import { useCountriesContext } from '../hooks/useCountriesContext'
+import { useFurtherDetailsContext } from '../hooks/useFurtherDetailsContext'
 
 const Search: React.FC = () => {
    const [search, setSearch] = useState('')
-   const { handleFurtherDetails: hfr, error } = { ...useContext(Context) }
+   const { handleFurtherDetails, furtherDetailsError } =
+      useFurtherDetailsContext()
    const hasInputChanged = useRef(false)
    const { fetchError } = useCountriesContext()
 
@@ -19,7 +20,7 @@ const Search: React.FC = () => {
    }, [search])
 
    const hasErrorOccured = () =>
-      hasInputChanged.current && error ? true : false
+      hasInputChanged.current && furtherDetailsError ? true : false
 
    const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
       if (e.key === 'Enter') handleSearchCountry()
@@ -27,7 +28,7 @@ const Search: React.FC = () => {
 
    const handleSearchCountry = () => {
       if (search !== '' && !fetchError?.current) {
-         hfr && hfr(search)
+         handleFurtherDetails(search)
          setSearch('')
       }
    }

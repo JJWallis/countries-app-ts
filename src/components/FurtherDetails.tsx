@@ -1,15 +1,15 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { Country } from '../context/countriesContext'
-import { Context } from '../components/Context'
 import Wrapper from './styled/Wrapper'
 import CountryImg from './styled/StyledImg'
 import { CountryName } from './styled/StyledTitle'
 import { CountrySubTitle } from './styled/CountryDataTitle'
 import { CountryData } from './styled/CountryData'
 import BorderCountries from './BorderCountries'
+import { useFurtherDetailsContext } from '../hooks/useFurtherDetailsContext'
 
 const FurtherDetails: React.FC = () => {
-   const { furtherDetails } = { ...useContext(Context) }
+   const { furtherDetails } = useFurtherDetailsContext()
    const data = furtherDetails ? furtherDetails[0] : null
    const name = data ? data.name.common : 'No name'
 

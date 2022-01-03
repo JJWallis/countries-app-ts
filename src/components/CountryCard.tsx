@@ -1,9 +1,9 @@
-import React, { useContext } from 'react'
-import { Context } from '../components/Context'
+import React from 'react'
 import Wrapper from './styled/Wrapper'
 import { CountryName } from './styled/StyledTitle'
 import { CountrySubTitle } from './styled/CountryDataTitle'
 import { CountryData } from './styled/CountryData'
+import { useFurtherDetailsContext } from '../hooks/useFurtherDetailsContext'
 
 interface Props {
    data: {
@@ -16,7 +16,7 @@ interface Props {
 }
 
 const CountryCard: React.FC<Props> = ({ data }) => {
-   const { handleFurtherDetails: hfr } = { ...useContext(Context) }
+   const { handleFurtherDetails } = useFurtherDetailsContext()
    const {
       flags: { svg: flag },
       name: { common: name },
@@ -46,7 +46,7 @@ const CountryCard: React.FC<Props> = ({ data }) => {
          role="grid-cell"
          country
          padding="0 0 1rem"
-         onClick={() => hfr && hfr(name.toLowerCase())}
+         onClick={() => handleFurtherDetails(name.toLowerCase())}
       >
          <Wrapper countryImgFlag={flag} />
          <Wrapper padding="1.5rem 1.7rem 2rem">
