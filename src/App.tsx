@@ -1,31 +1,18 @@
 import React, { useState } from 'react'
-import { ThemeProvider } from 'styled-components'
 import GlobalStyles from './components/styled/GlobalStyles'
+<<<<<<< HEAD
 import { darkTheme, lightTheme } from './components/styled/Theme'
+=======
+<<<<<<< HEAD
+import { darkTheme, lightTheme } from './components/styled/Theme'
+=======
+>>>>>>> cc581c5a8799425f31d93183e5f20663ad1637e3
+>>>>>>> 97cee2582db421bda3fa9af793eff42dd55bd874
 import Header from './components/Header'
 import Main from './components/Main'
-import { useDarkMode } from './hooks/useDarkMode'
 import { Context } from './components/Context'
 import { useCountriesContext } from './hooks/useCountriesContext'
-
-export interface Country {
-   name: { common: string; nativeName: { official: string }[] }
-   cioc: string
-   cca3: string
-   region: string
-   borders: string[]
-   flags: {
-      svg: string
-   }
-   currencies: { name: string }[]
-   languages: string[]
-   population: number
-   subregion: string
-   capital: string
-   tld: string[]
-}
-
-export type data = Country[] | null
+import { data } from './context/countriesContext'
 
 const App: React.FC = () => {
    const [furtherDetails, setFurtherDetails] = useState<data>(null)
@@ -37,9 +24,6 @@ const App: React.FC = () => {
    )
    const [error, setError] = useState(false)
    const { countries } = useCountriesContext()
-
-   const handleThemeChange = (dark: boolean) =>
-      dark ? setTheme(darkTheme) : setTheme(lightTheme)
 
    const handleFurtherDetails = (country: string) => {
       const countryData = countries?.filter(
@@ -69,24 +53,21 @@ const App: React.FC = () => {
    }
 
    return (
-      <ThemeProvider theme={theme}>
-         <Context.Provider
-            value={{
-               homepage,
-               setHomepage,
-               handleThemeChange,
-               furtherDetails,
-               handleFurtherDetails,
-               filteredRegions,
-               handleFilterRegions,
-               error,
-            }}
-         >
-            <GlobalStyles />
-            <Header />
-            <Main />
-         </Context.Provider>
-      </ThemeProvider>
+      <Context.Provider
+         value={{
+            homepage,
+            setHomepage,
+            furtherDetails,
+            handleFurtherDetails,
+            filteredRegions,
+            handleFilterRegions,
+            error,
+         }}
+      >
+         <GlobalStyles />
+         <Header />
+         <Main />
+      </Context.Provider>
    )
 }
 

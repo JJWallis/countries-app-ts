@@ -1,7 +1,7 @@
 import React, { ReactNode, useState, useEffect, useRef } from 'react'
 import axios from 'axios'
 
-interface Country {
+export interface Country {
    name: { common: string; nativeName: { official: string }[] }
    cioc: string
    cca3: string
@@ -18,7 +18,7 @@ interface Country {
    tld: string[]
 }
 
-type data = Country[] | null
+export type data = Country[] | null
 
 interface ContextInterface {
    countries: data

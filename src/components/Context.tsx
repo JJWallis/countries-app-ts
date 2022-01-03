@@ -1,12 +1,11 @@
 import React from 'react'
-import { data } from '../App'
+import { data } from '../context/countriesContext'
 export interface ContextInterface {
    furtherDetails: data
    homepage: boolean
    filteredRegions: data
    error: boolean
    setHomepage: React.Dispatch<React.SetStateAction<boolean>>
-   handleThemeChange: (dark: boolean) => void
    handleFurtherDetails: (country: string) => void
    handleFilterRegions: (region: string) => void
 }
