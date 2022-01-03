@@ -16,17 +16,8 @@ const Filter: React.FC<Props> = ({ prevFilter, updatePrevFilter }) => {
    const [toggleDropDown, setToggleDropDown] = useState(0)
    const hasDataChanged = useRef('')
 
-   useEffect(() => {
-      if (hasDataChanged.current !== desiredRegion) {
-         handleFilterRegions(desiredRegion)
-         hasDataChanged.current = desiredRegion
-         updatePrevFilter(desiredRegion)
-      }
-   }, [desiredRegion, handleFilterRegions, updatePrevFilter])
-
-   useEffect(() => {
-      prevFilter && setDesiredRegion(prevFilter)
-   }, [prevFilter])
+   const handleDropDown = () => setToggleDropDown(toggleDropDown ? 0 : 1)
+   const handleDropDownReset = () => !prevFilter && setDesiredRegion('')
 
    const handleRegions = () => {
       const regions = new Set(countries?.map(({ region }) => region))
@@ -44,8 +35,17 @@ const Filter: React.FC<Props> = ({ prevFilter, updatePrevFilter }) => {
          ))
    }
 
-   const handleDropDown = () => setToggleDropDown(toggleDropDown ? 0 : 1)
-   const handleDropDownReset = () => !prevFilter && setDesiredRegion('')
+   useEffect(() => {
+      if (hasDataChanged.current !== desiredRegion) {
+         handleFilterRegions(desiredRegion)
+         hasDataChanged.current = desiredRegion
+         updatePrevFilter(desiredRegion)
+      }
+   }, [desiredRegion, handleFilterRegions, updatePrevFilter])
+
+   useEffect(() => {
+      if (prevFilter) setDesiredRegion(prevFilter)
+   }, [prevFilter])
 
    return (
       <Wrapper
