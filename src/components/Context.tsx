@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import React from 'react'
 import { data } from '../App'
 export interface ContextInterface {
    countries: data
@@ -14,7 +14,3 @@ export interface ContextInterface {
 }
 
 export const Context = React.createContext<ContextInterface | null>(null)
-
-export const ContextProvider = (children: ReactNode) => {
-   //  return <Context.Provider value={}>{children}</Context.Provider>
-}
