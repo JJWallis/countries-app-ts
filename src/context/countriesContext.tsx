@@ -1,7 +1,7 @@
 import React, { ReactNode, useState, useEffect, useRef } from 'react'
 import axios from 'axios'
 
-export interface Country {
+interface Country {
    name: { common: string; nativeName: { official: string }[] }
    cioc: string
    cca3: string
@@ -26,7 +26,9 @@ interface ContextInterface {
    fetchError: React.MutableRefObject<boolean>
 }
 
-const CountriesContext = React.createContext<ContextInterface | null>(null)
+export const CountriesContext = React.createContext<ContextInterface | null>(
+   null
+)
 
 export const CountriesProvider = (children: ReactNode) => {
    const [countries, setCountries] = useState<data>(null)
