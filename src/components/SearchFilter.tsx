@@ -7,8 +7,8 @@ import Icon from './styled/Icon'
 import { useFurtherDetailsContext } from '../hooks/useFurtherDetailsContext'
 
 const SearchFilter: React.FC = () => {
-   const prevFilter = useRef('')
    const { furtherDetails, setFurtherDetails } = useFurtherDetailsContext()
+   const prevFilter = useRef('')
 
    const updatePrevFilter = (filter: string) => (prevFilter.current = filter)
 
