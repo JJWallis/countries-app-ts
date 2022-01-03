@@ -24,6 +24,7 @@ const SearchFilter: React.FC = () => {
       ) : (
          <>
             <Button back onClick={() => sh && sh(true)}>
+               {/* set furtherDetails to null */}
                Back
             </Button>
             <Icon
