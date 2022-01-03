@@ -6,7 +6,7 @@ import { darkTheme, lightTheme } from './components/styled/Theme'
 import Header from './components/Header'
 import Main from './components/Main'
 import { useDarkMode } from './hooks/useDarkMode'
-import { Context } from './components/Context'
+import { GlobalContext } from './context/globalContext'
 import { useCountriesContext } from './hooks/useCountriesContext'
 import { CountryData } from './context/countriesContext'
 
@@ -34,7 +34,7 @@ const App: React.FC = () => {
 
    return (
       <ThemeProvider theme={theme}>
-         <Context.Provider
+         <GlobalContext.Provider
             value={{
                handleThemeChange,
                filteredRegions,
@@ -46,7 +46,7 @@ const App: React.FC = () => {
                <Header />
                <Main />
             </FurtherDetailsProvider>
-         </Context.Provider>
+         </GlobalContext.Provider>
       </ThemeProvider>
    )
 }

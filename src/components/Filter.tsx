@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState, useRef } from 'react'
-import { Context } from '../components/Context'
+import { GlobalContext } from '../context/globalContext'
 import Button from './styled/StyledButton'
 import Wrapper from './styled/Wrapper'
 import { useCountriesContext } from '../hooks/useCountriesContext'
@@ -10,7 +10,7 @@ interface Props {
 }
 
 const Filter: React.FC<Props> = ({ prevFilter, updatePrevFilter }) => {
-   const { handleFilterRegions: hfr } = { ...useContext(Context) }
+   const { handleFilterRegions: hfr } = { ...useContext(GlobalContext) }
    const { countries, fetchError } = useCountriesContext()
    const [desiredRegion, setDesiredRegion] = useState('')
    const [toggleDropDown, setToggleDropDown] = useState(0)
