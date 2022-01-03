@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { ThemeProvider } from 'styled-components'
+import { FurtherDetailsProvider } from './context/furtherDetailsContext'
 import GlobalStyles from './components/styled/GlobalStyles'
 import { darkTheme, lightTheme } from './components/styled/Theme'
 import Header from './components/Header'
@@ -64,9 +65,11 @@ const App: React.FC = () => {
                error,
             }}
          >
-            <GlobalStyles />
-            <Header />
-            <Main />
+            <FurtherDetailsProvider>
+               <GlobalStyles />
+               <Header />
+               <Main />
+            </FurtherDetailsProvider>
          </Context.Provider>
       </ThemeProvider>
    )
