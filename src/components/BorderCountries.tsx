@@ -13,7 +13,7 @@ const BorderCountries: React.FC = () => {
    const produceButtons = () => {
       if (furtherDetails) {
          const { borders } = furtherDetails[0]
-         if (borders && borders.length > 0) {
+         if (borders && borders.length) {
             return (
                <Wrapper
                   display="flex"
