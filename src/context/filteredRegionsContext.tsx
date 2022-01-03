@@ -7,10 +7,10 @@ interface FilteredRegionsContextData {
    handleFilterRegions: (region: string) => void
 }
 
-export const FurtherDetailsContext =
+export const FilteredRegionsContext =
    React.createContext<FilteredRegionsContextData | null>(null)
 
-export const FurtherDetailsProvider = ({
+export const FilteredRegionsProvider = ({
    children,
 }: {
    children: ReactNode
@@ -30,10 +30,10 @@ export const FurtherDetailsProvider = ({
    }
 
    return (
-      <FurtherDetailsContext.Provider
+      <FilteredRegionsContext.Provider
          value={{ filteredRegions, handleFilterRegions }}
       >
          {children}
-      </FurtherDetailsContext.Provider>
+      </FilteredRegionsContext.Provider>
    )
 }
