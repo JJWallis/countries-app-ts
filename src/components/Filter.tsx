@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useRef } from 'react'
-import Button from './styled/StyledButton'
-import Wrapper from './styled/Wrapper'
 import { useCountriesContext } from '../hooks/useCountriesContext'
 import { useGlobalContext } from '../hooks/useGlobalContext'
 import { useToggle } from '../hooks/useToggle'
+import Button from './styled/StyledButton'
+import Wrapper from './styled/Wrapper'
 
 interface Props {
    prevFilter: string
@@ -17,11 +17,7 @@ const Filter: React.FC<Props> = ({ prevFilter, updatePrevFilter }) => {
    const [toggleDropDown, setToggleDropDown] = useToggle(false)
    const hasDataChanged = useRef('')
 
-   const handleDropDownReset = () => {
-      if (!prevFilter) setDesiredRegion('')
-   }
-
-   const handleRegions = () => {
+   const produceRegions = () => {
       const regions = new Set(countries?.map(({ region }) => region))
       return Array.from(regions)
          .sort()
@@ -43,7 +39,7 @@ const Filter: React.FC<Props> = ({ prevFilter, updatePrevFilter }) => {
          hasDataChanged.current = desiredRegion
          updatePrevFilter(desiredRegion)
       }
-   }, [desiredRegion, handleFilterRegions, updatePrevFilter])
+   }, [desiredRegion, handleFilterRegions, updatePrevFilter, prevFilter])
 
    useEffect(() => {
       if (prevFilter) setDesiredRegion(prevFilter)
@@ -60,7 +56,7 @@ const Filter: React.FC<Props> = ({ prevFilter, updatePrevFilter }) => {
          <Button
             dropDown
             disabled={fetchError?.current}
-            onClick={handleDropDownReset}
+            onClick={() => !prevFilter && setDesiredRegion('')}
          >
             {!prevFilter ? 'Filter by region' : prevFilter}
          </Button>
@@ -74,7 +70,7 @@ const Filter: React.FC<Props> = ({ prevFilter, updatePrevFilter }) => {
                   Back to home
                </Button>
             )}
-            {handleRegions()}
+            {produceRegions()}
          </Wrapper>
       </Wrapper>
    )
