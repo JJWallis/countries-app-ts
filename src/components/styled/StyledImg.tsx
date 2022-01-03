@@ -8,11 +8,14 @@ export default styled.img<Props>`
    ${({ flag }) =>
       flag &&
       css`
-         box-shadow: ${({ theme }) => theme.furtherImgShadowMb};
+         box-shadow: ${({ theme: { dynamicTheme } }) =>
+            dynamicTheme.furtherImgShadowMb};
          transition: box-shadow
-            ${({ theme: { themeTransition } }) => themeTransition};
-         @media (min-width: ${({ theme }) => theme.furtherBreakpoint}) {
-            box-shadow: ${({ theme }) => theme.furtherImgShadowWd};
+            ${({ theme: { baseTheme } }) => baseTheme.themeTransition};
+         @media (min-width: ${({ theme: { baseTheme } }) =>
+               baseTheme.furtherBreakpoint}) {
+            box-shadow: ${({ theme: { dynamicTheme } }) =>
+               dynamicTheme.furtherImgShadowWd};
          }
       `}
 `

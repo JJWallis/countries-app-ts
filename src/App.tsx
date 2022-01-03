@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
-import { ThemeProvider } from 'styled-components'
 import GlobalStyles from './components/styled/GlobalStyles'
+<<<<<<< HEAD
 import { darkTheme, lightTheme } from './components/styled/Theme'
+=======
+>>>>>>> cc581c5a8799425f31d93183e5f20663ad1637e3
 import Header from './components/Header'
 import Main from './components/Main'
-import { useDarkMode } from './hooks/useDarkMode'
 import { Context } from './components/Context'
 import { useCountriesContext } from './hooks/useCountriesContext'
 import { data } from './context/countriesContext'
@@ -13,15 +14,15 @@ const App: React.FC = () => {
    const [furtherDetails, setFurtherDetails] = useState<data>(null)
    const [filteredRegions, setFilteredRegions] = useState<data>(null)
    const [homepage, setHomepage] = useState(true)
+<<<<<<< HEAD
    const prefersDarkMode = useDarkMode()
    const [theme, setTheme] = useState(() =>
       prefersDarkMode ? darkTheme : lightTheme
    )
+=======
+>>>>>>> cc581c5a8799425f31d93183e5f20663ad1637e3
    const [error, setError] = useState(false)
    const { countries } = useCountriesContext()
-
-   const handleThemeChange = (dark: boolean) =>
-      dark ? setTheme(darkTheme) : setTheme(lightTheme)
 
    const handleFurtherDetails = (country: string) => {
       const countryData = countries?.filter(
@@ -51,24 +52,21 @@ const App: React.FC = () => {
    }
 
    return (
-      <ThemeProvider theme={theme}>
-         <Context.Provider
-            value={{
-               homepage,
-               setHomepage,
-               handleThemeChange,
-               furtherDetails,
-               handleFurtherDetails,
-               filteredRegions,
-               handleFilterRegions,
-               error,
-            }}
-         >
-            <GlobalStyles />
-            <Header />
-            <Main />
-         </Context.Provider>
-      </ThemeProvider>
+      <Context.Provider
+         value={{
+            homepage,
+            setHomepage,
+            furtherDetails,
+            handleFurtherDetails,
+            filteredRegions,
+            handleFilterRegions,
+            error,
+         }}
+      >
+         <GlobalStyles />
+         <Header />
+         <Main />
+      </Context.Provider>
    )
 }
 
