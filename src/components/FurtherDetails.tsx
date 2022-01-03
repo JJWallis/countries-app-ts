@@ -21,8 +21,6 @@ type DataToMap =
         languages: string | undefined
      }
 
-// or destructure data vars + spread into a new object immediately (post running func above each time)
-
 const FurtherDetails: React.FC = () => {
    const { furtherDetails } = useFurtherDetailsContext()
    const data = furtherDetails ? furtherDetails[0] : null
@@ -60,34 +58,40 @@ const FurtherDetails: React.FC = () => {
       )
    }
 
-   const gatherDataOne = () => {
+   const gatherDataPm = () => {
       if (data) {
          const {
-            name: { nativeName: native },
+            name: { nativeName },
             population,
             region,
-            subregion,
+            subregion: subRegion,
             capital,
          } = data
 
          return printData({
-            nativeName: native ? Object.values(native)[0].official : undefined,
+            nativeName: nativeName
+               ? Object.values(nativeName)[0].official
+               : undefined,
             population,
             region,
-            subRegion: subregion,
+            subRegion,
             capital,
          })
       }
    }
 
-   const gatherDataTwo = () => {
+   const gatherDataSd = () => {
       if (data) {
-         const { currencies: currency, languages: language } = data
+         const { currencies, languages, tld } = data
 
          return printData({
-            topLevelDomain: data.tld[0],
-            currencies: currency ? Object.values(currency)[0].name : undefined,
-            languages: language ? `${[...Object.values(language)]}` : undefined,
+            topLevelDomain: tld[0],
+            currencies: currencies
+               ? Object.values(currencies)[0].name
+               : undefined,
+            languages: languages
+               ? `${[...Object.values(languages)]}`
+               : undefined,
          })
       }
    }
@@ -100,8 +104,8 @@ const FurtherDetails: React.FC = () => {
                {data ? data.name.common : 'No name'}
             </CountryName>
             <Wrapper furtherColumns>
-               {gatherDataOne()}
-               {gatherDataTwo()}
+               {gatherDataPm()}
+               {gatherDataSd()}
             </Wrapper>
             <BorderCountries />
          </Wrapper>
