@@ -10,7 +10,6 @@ const BorderCountries: React.FC = () => {
    const { furtherDetails, handleFurtherDetails: hfr } = {
       ...useContext(Context),
    }
-
    const { countries } = useCountriesContext()
 
    const produceButtons = () => {
