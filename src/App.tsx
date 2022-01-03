@@ -11,11 +11,11 @@ import { useCountriesContext } from './hooks/useCountriesContext'
 import { CountryData } from './context/countriesContext'
 
 const App: React.FC = () => {
-   const [filteredRegions, setFilteredRegions] = useState<CountryData>(null)
    const prefersDarkMode = useDarkMode()
    const [theme, setTheme] = useState(() =>
       prefersDarkMode ? darkTheme : lightTheme
    )
+   const [filteredRegions, setFilteredRegions] = useState<CountryData>(null)
    const { countries } = useCountriesContext()
 
    const handleThemeChange = (dark: boolean) =>
