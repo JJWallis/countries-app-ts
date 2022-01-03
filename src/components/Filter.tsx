@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState, useRef } from 'react'
 import { Context } from '../components/Context'
 import Button from './styled/StyledButton'
 import Wrapper from './styled/Wrapper'
+import { useCountriesContext } from '../hooks/useCountriesContext'
 
 interface Props {
    prevFilter: string
@@ -9,11 +10,8 @@ interface Props {
 }
 
 const Filter: React.FC<Props> = ({ prevFilter, updatePrevFilter }) => {
-   const {
-      handleFilterRegions: hfr,
-      countries,
-      fetchError,
-   } = { ...useContext(Context) }
+   const { handleFilterRegions: hfr } = { ...useContext(Context) }
+   const { countries, fetchError } = useCountriesContext()
    const [desiredRegion, setDesiredRegion] = useState('')
    const [toggleDropDown, setToggleDropDown] = useState(0)
    const hasDataChanged = useRef('')

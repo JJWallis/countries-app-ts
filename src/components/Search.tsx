@@ -2,15 +2,13 @@ import React, { useContext, useEffect, useRef, useState } from 'react'
 import { Context } from '../components/Context'
 import StyledInput from './styled/StyledInput'
 import Icon from './styled/Icon'
+import { useCountriesContext } from '../hooks/useCountriesContext'
 
 const Search: React.FC = () => {
    const [search, setSearch] = useState('')
-   const {
-      handleFurtherDetails: hfr,
-      error,
-      fetchError,
-   } = { ...useContext(Context) }
+   const { handleFurtherDetails: hfr, error } = { ...useContext(Context) }
    const hasInputChanged = useRef(false)
+   const { fetchError } = useCountriesContext()
 
    useEffect(() => {
       if (search) {
