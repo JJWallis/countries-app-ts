@@ -2,9 +2,18 @@ import 'styled-components'
 
 declare module 'styled-components' {
    export interface DefaultTheme {
-      theme: typeof lightTheme | typeof darkTheme
+      dynamicTheme: typeof lightTheme | typeof darkTheme
+      baseTheme: typeof baseTheme
       handleThemeChange: (dark: boolean) => void
    }
+}
+
+export const baseTheme = {
+   shadow: '0 0 20px 0 rgba(0,0,0,0.1)',
+   headerShadow: '0 0px 6px 0 rgba(0, 0, 0, 0.2)',
+   desktopBreakpoint: '899.999999px',
+   furtherBreakpoint: '1100px',
+   themeTransition: '0.3s ease-in-out',
 }
 
 export const lightTheme = {
@@ -28,7 +37,7 @@ export const darkTheme = {
    mainBgColor: 'hsl(207, 26%, 17%)',
    input: 'hsl(0, 0%, 100%)',
    elements: 'hsl(209, 23%, 22%)',
-   shadow: '0 0 20px 0 rgba(0,0,0,0.1)',
+   // shadow: '0 0 20px 0 rgba(0,0,0,0.1)',
    headerShadow: '0 0px 6px 0 rgba(0, 0, 0, 0.2)',
    countryCardShadow: '0 0 3px 8px rgba(0, 0, 0, 0.05)',
    furtherImgShadowMb: '0 0 3px 8px rgba(0, 0, 0, 0.05)',

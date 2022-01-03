@@ -10,7 +10,7 @@ export const CountrySubTitle = styled.strong<Props>`
    margin-right: 0.5rem;
    font-size: 1.1rem;
    font-weight: 400;
-   color: ${({ theme: { color } }) => color};
+   color: ${({ theme: theme: {color} }) => color};
    transition: color ${({ theme: { themeTransition } }) => themeTransition};
 
    ${({ further }) =>

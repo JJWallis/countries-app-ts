@@ -1,7 +1,7 @@
 import React, { ReactNode, useState } from 'react'
 import { ThemeProvider } from 'styled-components'
 import { useDarkMode } from '../hooks/useDarkMode'
-import { darkTheme, lightTheme } from '../components/styled/Theme'
+import { darkTheme, lightTheme, baseTheme } from '../components/styled/Theme'
 
 export const CountriesThemeProvider = ({
    children,
@@ -9,16 +9,16 @@ export const CountriesThemeProvider = ({
    children: ReactNode
 }) => {
    const prefersDarkMode = useDarkMode()
-   const [theme, setTheme] = useState(() =>
+   const [dynamicTheme, setdynamicTheme] = useState(() =>
       prefersDarkMode ? darkTheme : lightTheme
    )
 
    const handleThemeChange = (dark: boolean) =>
-      dark ? setTheme(darkTheme) : setTheme(lightTheme)
+      dark ? setdynamicTheme(darkTheme) : setdynamicTheme(lightTheme)
    //   localstorage hook
 
    return (
-      <ThemeProvider theme={{ theme, handleThemeChange }}>
+      <ThemeProvider theme={{ baseTheme, dynamicTheme, handleThemeChange }}>
          {children}
       </ThemeProvider>
    )
