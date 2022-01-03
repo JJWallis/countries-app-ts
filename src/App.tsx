@@ -1,13 +1,12 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState } from 'react'
 import { ThemeProvider } from 'styled-components'
 import GlobalStyles from './components/styled/GlobalStyles'
 import { darkTheme, lightTheme, theme } from './components/styled/Theme'
 import Header from './components/Header'
 import Main from './components/Main'
 import { useDarkMode } from './hooks/useDarkMode'
-import axios from 'axios'
 import { Context } from './components/Context'
-import { CountriesProvider } from './context/countriesContext'
+import { useCountriesContext } from './hooks/useCountriesContext'
 
 export interface Country {
    name: { common: string; nativeName: { official: string }[] }
@@ -29,7 +28,6 @@ export interface Country {
 export type data = Country[] | null
 
 const App: React.FC = () => {
-   const [countries, setCountries] = useState<data>(null)
    const [furtherDetails, setFurtherDetails] = useState<data>(null)
    const [filteredRegions, setFilteredRegions] = useState<data>(null)
    const [homepage, setHomepage] = useState(true)
@@ -38,20 +36,7 @@ const App: React.FC = () => {
       prefersDarkMode ? darkTheme : lightTheme
    )
    const [error, setError] = useState(false)
-   const fetchError = useRef(false)
-
-   function fetchData(endpoint: string) {
-      axios
-         .get<data>(endpoint)
-         .then((value) => setCountries(value.data))
-         .catch((err) => {
-            fetchError.current = true
-            setError(true)
-            console.error(err.message)
-         })
-   }
-
-   useEffect(() => fetchData('https://restcountries.com/v3.1/all'), [])
+   const { countries } = useCountriesContext()
 
    const handleThemeChange = (dark: boolean) =>
       dark ? setTheme(darkTheme) : setTheme(lightTheme)
@@ -85,26 +70,22 @@ const App: React.FC = () => {
 
    return (
       <ThemeProvider theme={theme}>
-         <CountriesProvider>
-            <Context.Provider
-               value={{
-                  // countries,
-                  homepage,
-                  setHomepage,
-                  handleThemeChange,
-                  furtherDetails,
-                  handleFurtherDetails,
-                  filteredRegions,
-                  handleFilterRegions,
-                  error,
-                  // fetchError,
-               }}
-            >
-               <GlobalStyles />
-               <Header />
-               <Main />
-            </Context.Provider>
-         </CountriesProvider>
+         <Context.Provider
+            value={{
+               homepage,
+               setHomepage,
+               handleThemeChange,
+               furtherDetails,
+               handleFurtherDetails,
+               filteredRegions,
+               handleFilterRegions,
+               error,
+            }}
+         >
+            <GlobalStyles />
+            <Header />
+            <Main />
+         </Context.Provider>
       </ThemeProvider>
    )
 }
