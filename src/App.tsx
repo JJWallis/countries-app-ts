@@ -7,29 +7,11 @@ import Main from './components/Main'
 import { useDarkMode } from './hooks/useDarkMode'
 import { Context } from './components/Context'
 import { useCountriesContext } from './hooks/useCountriesContext'
-
-export interface Country {
-   name: { common: string; nativeName: { official: string }[] }
-   cioc: string
-   cca3: string
-   region: string
-   borders: string[]
-   flags: {
-      svg: string
-   }
-   currencies: { name: string }[]
-   languages: string[]
-   population: number
-   subregion: string
-   capital: string
-   tld: string[]
-}
-
-export type data = Country[] | null
+import { CountryData } from './context/countriesContext'
 
 const App: React.FC = () => {
-   const [furtherDetails, setFurtherDetails] = useState<data>(null)
-   const [filteredRegions, setFilteredRegions] = useState<data>(null)
+   const [furtherDetails, setFurtherDetails] = useState<CountryData>(null)
+   const [filteredRegions, setFilteredRegions] = useState<CountryData>(null)
    const [homepage, setHomepage] = useState(true)
    const prefersDarkMode = useDarkMode()
    const [theme, setTheme] = useState(() =>

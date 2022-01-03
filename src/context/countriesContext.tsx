@@ -1,7 +1,7 @@
 import React, { ReactNode, useState, useEffect, useRef } from 'react'
 import axios from 'axios'
 
-interface Country {
+export interface Country {
    name: { common: string; nativeName: { official: string }[] }
    cioc: string
    cca3: string
@@ -18,10 +18,10 @@ interface Country {
    tld: string[]
 }
 
-type data = Country[] | null
+export type CountryData = Country[] | null
 
 interface ContextInterface {
-   countries: data
+   countries: CountryData
    countriesError: boolean
    fetchError: React.MutableRefObject<boolean>
 }
@@ -31,13 +31,13 @@ export const CountriesContext = React.createContext<ContextInterface | null>(
 )
 
 export const CountriesProvider = ({ children }: { children: ReactNode }) => {
-   const [countries, setCountries] = useState<data>(null)
+   const [countries, setCountries] = useState<CountryData>(null)
    const [countriesError, setCountriesError] = useState(false)
    const fetchError = useRef(false)
 
    function fetchData(endpoint: string) {
       axios
-         .get<data>(endpoint)
+         .get<CountryData>(endpoint)
          .then((value) => setCountries(value.data))
          .catch((err) => {
             fetchError.current = true
