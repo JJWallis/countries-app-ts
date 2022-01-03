@@ -1,5 +1,5 @@
 import React from 'react'
-import { data } from '../App'
+import { data } from '../context/countriesContext'
 export interface ContextInterface {
    furtherDetails: data
    homepage: boolean
