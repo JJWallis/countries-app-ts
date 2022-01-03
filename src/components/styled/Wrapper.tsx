@@ -88,7 +88,6 @@ export default styled.div.attrs<Props>(
       ${({ display }) =>
       display === 'grid' &&
       css`
-         /* outline: 2px solid white; */
          display: flex;
          flex-wrap: wrap;
          justify-content: center;
@@ -130,7 +129,7 @@ export default styled.div.attrs<Props>(
          box-shadow: ${({ theme }) => theme.countryCardShadow};
          overflow: hidden;
          cursor: pointer;
-         /* background-color: ${({ theme }) => theme.elements}; */
+         background-color: ${({ theme }) => theme.elements};
          transition: transform 200ms linear,
             background-color
                ${({ theme: { themeTransition } }) => themeTransition},
