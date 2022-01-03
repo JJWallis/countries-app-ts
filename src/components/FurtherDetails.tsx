@@ -8,24 +8,24 @@ import { CountryData } from './styled/CountryData'
 import BorderCountries from './BorderCountries'
 import { useFurtherDetailsContext } from '../hooks/useFurtherDetailsContext'
 
+type DataToMap =
+   | {
+        nativeName: string | undefined
+        population: Country['population']
+        region: Country['region']
+        subRegion: Country['subregion']
+        capital: Country['capital']
+     }
+   | {
+        topLevelDomain: Country['tld'][0]
+        currencies: string | undefined
+        languages: string | undefined
+     }
+
 const FurtherDetails: React.FC = () => {
    const { furtherDetails } = useFurtherDetailsContext()
    const data = furtherDetails ? furtherDetails[0] : null
    const name = data ? data.name.common : 'No name'
-
-   type DataToMap =
-      | {
-           nativeName: string | undefined
-           population: Country['population']
-           region: Country['region']
-           subRegion: Country['subregion']
-           capital: Country['capital']
-        }
-      | {
-           topLevelDomain: Country['tld'][0]
-           currencies: string | undefined
-           languages: string | undefined
-        }
 
    const printData = (data: DataToMap) => {
       return (
