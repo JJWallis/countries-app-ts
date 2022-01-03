@@ -27,6 +27,16 @@ const FurtherDetails: React.FC = () => {
    const { furtherDetails } = useFurtherDetailsContext()
    const data = furtherDetails ? furtherDetails[0] : null
 
+   const printFlag = () => {
+      if (data) {
+         return (
+            <Wrapper as="article" flexChild>
+               <CountryImg flag src={data.flags.svg} alt="Country flag." />
+            </Wrapper>
+         )
+      }
+   }
+
    const printData = (data: DataToMap) => {
       return (
          <Wrapper as="article" furtherColumnsChild>
@@ -50,16 +60,6 @@ const FurtherDetails: React.FC = () => {
       )
    }
 
-   const printFlag = () => {
-      if (data) {
-         return (
-            <Wrapper as="article" flexChild>
-               <CountryImg flag src={data.flags.svg} alt="Country flag." />
-            </Wrapper>
-         )
-      }
-   }
-
    const gatherDataOne = () => {
       if (data) {
          const {
@@ -70,19 +70,13 @@ const FurtherDetails: React.FC = () => {
             capital,
          } = data
 
-         const nativeName = native
-            ? Object.values(native)[0].official
-            : undefined
-
-         const dataToMap = {
-            nativeName,
+         return printData({
+            nativeName: native ? Object.values(native)[0].official : undefined,
             population,
             region,
             subRegion: subregion,
             capital,
-         }
-
-         return printData(dataToMap)
+         })
       }
    }
 
@@ -90,21 +84,11 @@ const FurtherDetails: React.FC = () => {
       if (data) {
          const { currencies: currency, languages: language } = data
 
-         const currencies = currency
-            ? Object.values(currency)[0].name
-            : undefined
-
-         const languages = language
-            ? `${[...Object.values(language)]}`
-            : undefined
-
-         const dataToMap = {
+         return printData({
             topLevelDomain: data.tld[0],
-            currencies,
-            languages,
-         }
-
-         return printData(dataToMap)
+            currencies: currency ? Object.values(currency)[0].name : undefined,
+            languages: language ? `${[...Object.values(language)]}` : undefined,
+         })
       }
    }
 
