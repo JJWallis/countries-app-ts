@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { ThemeProvider } from 'styled-components'
 import GlobalStyles from './components/styled/GlobalStyles'
-import { darkTheme, lightTheme, theme } from './components/styled/Theme'
+import { darkTheme, lightTheme } from './components/styled/Theme'
 import Header from './components/Header'
 import Main from './components/Main'
 import { useDarkMode } from './hooks/useDarkMode'
@@ -32,7 +32,7 @@ const App: React.FC = () => {
    const [filteredRegions, setFilteredRegions] = useState<data>(null)
    const [homepage, setHomepage] = useState(true)
    const prefersDarkMode = useDarkMode()
-   const [theme, setTheme] = useState<theme>(() =>
+   const [theme, setTheme] = useState(() =>
       prefersDarkMode ? darkTheme : lightTheme
    )
    const [error, setError] = useState(false)
