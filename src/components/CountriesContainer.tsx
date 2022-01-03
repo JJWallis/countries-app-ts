@@ -5,11 +5,13 @@ import Wrapper from './styled/Wrapper'
 import CountryCard from './CountryCard'
 import { Loading } from './styled/StyledTitle'
 import FurtherDetails from './FurtherDetails'
+import { useCountriesContext } from '../hooks/useCountriesContext'
 
 const CountriesContainer: React.FC = () => {
-   const { filteredRegions, countries, homepage, error } = {
+   const { filteredRegions, homepage } = {
       ...useContext(Context),
    }
+   const { countries, countriesError } = useCountriesContext()
 
    const determineData = () => (!filteredRegions ? countries : filteredRegions)
 
@@ -24,7 +26,7 @@ const CountriesContainer: React.FC = () => {
             </Wrapper>
          ) : (
             <Loading>
-               {error
+               {countriesError
                   ? 'Country data could not be retrieved. Please reload & try again.'
                   : 'Loading...'}
             </Loading>
