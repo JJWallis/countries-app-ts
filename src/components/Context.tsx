@@ -6,7 +6,6 @@ export interface ContextInterface {
    filteredRegions: data
    error: boolean
    setHomepage: React.Dispatch<React.SetStateAction<boolean>>
-   // handleThemeChange: (dark: boolean) => void
    handleFurtherDetails: (country: string) => void
    handleFilterRegions: (region: string) => void
 }
