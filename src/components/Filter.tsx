@@ -39,7 +39,7 @@ const Filter: React.FC<Props> = ({ prevFilter, updatePrevFilter }) => {
          hasDataChanged.current = desiredRegion
          updatePrevFilter(desiredRegion)
       }
-   }, [desiredRegion, handleFilterRegions, updatePrevFilter, prevFilter])
+   }, [desiredRegion, handleFilterRegions, updatePrevFilter])
 
    useEffect(() => {
       if (prevFilter) setDesiredRegion(prevFilter)
