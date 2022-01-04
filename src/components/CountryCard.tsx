@@ -26,9 +26,9 @@ const CountryCard: React.FC<Props> = ({ data }) => {
    } = data
 
    const printData = (data: {
-      population: string | Props['data']['population']
-      region: Props['data']['region']
-      capital: Props['data']['capital']
+      population: number
+      region: string
+      capital: string
    }) => {
       return Object.entries(data).map(([key, value]) => (
          <Wrapper margin="0 0 0.2rem" key={key}>
