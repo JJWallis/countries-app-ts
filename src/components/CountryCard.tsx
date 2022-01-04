@@ -25,12 +25,8 @@ const CountryCard: React.FC<Props> = ({ data }) => {
       capital,
    } = data
 
-   const printData = (data: {
-      population: number
-      region: string
-      capital: string
-   }) => {
-      return Object.entries(data).map(([key, value]) => (
+   const printData = (newData: Partial<Props['data']>) => {
+      return Object.entries(newData).map(([key, value]) => (
          <Wrapper margin="0 0 0.2rem" key={key}>
             <CountrySubTitle as="p">
                {key[0].toUpperCase() + key.slice(1, key.length) + ':'}
