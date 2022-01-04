@@ -12,9 +12,8 @@ const Search: React.FC = () => {
    const { fetchError } = useCountriesContext()
 
    useEffect(() => {
-      if (search) {
-         hasInputChanged.current = true
-      } else if (search === '' && hasInputChanged.current) {
+      if (search) hasInputChanged.current = true
+      if (search === '' && hasInputChanged.current) {
          hasInputChanged.current = false
       }
    }, [search])
