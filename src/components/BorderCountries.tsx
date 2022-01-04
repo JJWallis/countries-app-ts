@@ -13,7 +13,7 @@ const BorderCountries: React.FC = () => {
    const produceButtons = () => {
       if (furtherDetails) {
          const { borders } = furtherDetails[0]
-         if (borders && borders.length > 0) {
+         if (borders?.length) {
             return (
                <Wrapper
                   display="flex"
@@ -21,7 +21,7 @@ const BorderCountries: React.FC = () => {
                   alignItems="center"
                   gap="0.7rem"
                >
-                  {borders.map((border: string) => (
+                  {borders.map((border) => (
                      <Button
                         country
                         key={uuid()}
@@ -31,7 +31,7 @@ const BorderCountries: React.FC = () => {
                      >
                         {
                            countries?.find(
-                              (country: any) =>
+                              (country) =>
                                  country.cioc === border ||
                                  country.cca3 === border
                            )?.name.common
