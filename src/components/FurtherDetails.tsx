@@ -58,7 +58,7 @@ const FurtherDetails: React.FC = () => {
       )
    }
 
-   const gatherDataPm = () => {
+   const gatherData = () => {
       if (data) {
          const {
             name: { nativeName },
@@ -66,33 +66,32 @@ const FurtherDetails: React.FC = () => {
             region,
             subregion: subRegion,
             capital,
+            currencies,
+            languages,
+            tld,
          } = data
 
-         return printData({
-            nativeName: nativeName
-               ? Object.values(nativeName)[0].official
-               : undefined,
-            population,
-            region,
-            subRegion,
-            capital,
-         })
-      }
-   }
+         return [
+            printData({
+               nativeName: nativeName
+                  ? Object.values(nativeName)[0].official
+                  : undefined,
+               population,
+               region,
+               subRegion,
+               capital,
+            }),
 
-   const gatherDataSd = () => {
-      if (data) {
-         const { currencies, languages, tld } = data
-
-         return printData({
-            topLevelDomain: tld[0],
-            currencies: currencies
-               ? Object.values(currencies)[0].name
-               : undefined,
-            languages: languages
-               ? `${[...Object.values(languages)]}`
-               : undefined,
-         })
+            printData({
+               topLevelDomain: tld[0],
+               currencies: currencies
+                  ? Object.values(currencies)[0].name
+                  : undefined,
+               languages: languages
+                  ? `${[...Object.values(languages)]}`
+                  : undefined,
+            }),
+         ]
       }
    }
 
@@ -103,10 +102,7 @@ const FurtherDetails: React.FC = () => {
             <CountryName further>
                {data ? data.name.common : 'No name'}
             </CountryName>
-            <Wrapper furtherColumns>
-               {gatherDataPm()}
-               {gatherDataSd()}
-            </Wrapper>
+            <Wrapper furtherColumns>{gatherData()}</Wrapper>
             <BorderCountries />
          </Wrapper>
       </>
