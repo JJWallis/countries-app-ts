@@ -62,6 +62,8 @@ const Button = styled.button<Props>`
       dropDownItem &&
       css`
          padding-block: 0.2rem;
+         width: 100%;
+         text-align: left;
          &:hover {
             text-decoration: underline;
          }
