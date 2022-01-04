@@ -27,6 +27,7 @@ export default styled(SVG)<IconProps>`
       css`
          right: 100px;
          height: 20px;
+         cursor: unset;
       `}
 
    ${({ search }) =>
