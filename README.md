@@ -118,7 +118,7 @@ I chose to highlight the function above due to its efficiency in generating the 
 
 Although learning the basics of Typescript has proved to be incredibly valuable so far, I still face many problems with refactoring my type declarations, and using the 'any' type to temporarily fix any bugs which may occur during development. I would therefore like to learn more about how to solve these kind of issues, whilst also focusing on how to destructure dynamic data which could potentially return falsy, such as data returned from the Context API.
 
-Whilst I was building out each feature, I found my App component was quickly becoming bloated with important fundamental logic which, at the current time, I wasn't able to house anywhere else. I therefore look forward to learning more about advanced React concepts such as Reducers, which I believe will come in handy in extracting this logic into its own re-usable component.
+Whilst I was building out each feature, I found my App component was quickly becoming bloated with important fundamental logic which, at the current time, I wasn't able to house anywhere else. I therefore look forward to learning more about advanced React concepts such as Reducers, which I believe will come in handy in organising more complex state.
 
 ### Useful resources
 
