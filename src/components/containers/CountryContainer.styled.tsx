@@ -1,5 +1,9 @@
 import styled from 'styled-components'
 
+interface Props {
+   countryImgFlag: string
+}
+
 export const CountryCard = styled.div`
    flex-basis: 310px;
    padding: 0 0 1rem;
@@ -14,4 +18,12 @@ export const CountryCard = styled.div`
    &:hover {
       transform: scale(1.05);
    }
+`
+
+export const CountryImageContainer = styled.div<Props>`
+   background-image: url(${({ countryImgFlag }) => countryImgFlag});
+   background-size: cover;
+   background-position: center;
+   background-repeat: no-repeat;
+   min-height: 12rem;
 `
