@@ -12,7 +12,6 @@ export const CountryContainer = styled.div`
    @media (min-width: 1250px) {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      grid-auto-rows: auto;
       justify-content: unset;
       gap: 6rem 6rem;
    }

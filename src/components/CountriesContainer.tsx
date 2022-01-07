@@ -3,6 +3,7 @@ import { useCountriesContext } from '../hooks/useCountriesContext'
 import { useFurtherDetailsContext } from '../hooks/useFurtherDetailsContext'
 import { useGlobalContext } from '../hooks/useGlobalContext'
 import { v4 as uuidv4 } from 'uuid'
+import { CountryContainer as Countries } from './containers/CountryContainer.styled'
 import { Loading } from './styled/StyledTitle'
 import Wrapper from './styled/Wrapper'
 import CountryCard from './CountryCard'
@@ -19,11 +20,11 @@ const CountriesContainer: React.FC = () => {
       if (!furtherDetails) {
          const data = determineData()
          return data ? (
-            <Wrapper as="article" display={'grid'}>
+            <Countries as="article">
                {data.map((country) => (
                   <CountryCard key={uuidv4()} data={country} />
                ))}
-            </Wrapper>
+            </Countries>
          ) : (
             <Loading>
                {countriesError
