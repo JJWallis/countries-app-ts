@@ -3,8 +3,8 @@ import { useCountriesContext } from '../hooks/useCountriesContext'
 import { useGlobalContext } from '../hooks/useGlobalContext'
 import { useToggle } from '../hooks/useToggle'
 import { FilterContainer } from './containers/FilterContainer.styled'
+import { DropDownContainer } from './containers/DropDownContainer.styled'
 import Button from './styled/StyledButton'
-import Wrapper from './styled/Wrapper'
 
 interface Props {
    prevFilter: string
@@ -59,7 +59,7 @@ const Filter: React.FC<Props> = ({ prevFilter, updatePrevFilter }) => {
          >
             {!prevFilter ? 'Filter by region' : prevFilter}
          </Button>
-         <Wrapper dropDown opacity={toggleDropDown ? 1 : 0}>
+         <DropDownContainer opacity={toggleDropDown ? 1 : 0}>
             {prevFilter && (
                <Button
                   dropDown
@@ -70,7 +70,7 @@ const Filter: React.FC<Props> = ({ prevFilter, updatePrevFilter }) => {
                </Button>
             )}
             {produceRegions()}
-         </Wrapper>
+         </DropDownContainer>
       </FilterContainer>
    )
 }
