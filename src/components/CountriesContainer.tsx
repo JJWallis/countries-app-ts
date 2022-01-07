@@ -6,7 +6,6 @@ import { v4 as uuidv4 } from 'uuid'
 import { CountryContainer as Countries } from './containers/CountryContainer.styled'
 import { FurtherDetailsParent } from './containers/FurtherDetailsContainers.styled'
 import { Loading } from './styled/StyledTitle'
-import Wrapper from './styled/Wrapper'
 import CountryCard from './CountryCard'
 import FurtherDetails from './FurtherDetails'
 

@@ -12,3 +12,10 @@ export const BordersContainer = styled.div`
       gap: 1.3rem;
    }
 `
+
+export const BorderButtonsContainer = styled.div`
+   display: flex;
+   flex-wrap: wrap;
+   align-items: center;
+   gap: 0.7rem;
+`
