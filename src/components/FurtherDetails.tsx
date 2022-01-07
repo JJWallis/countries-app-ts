@@ -6,6 +6,7 @@ import { CountryData } from './styled/CountryData'
 import Wrapper from './styled/Wrapper'
 import CountryImg from './styled/StyledImg'
 import BorderCountries from './BorderCountries'
+import { FurtherDetailsChild } from './containers/FurtherDetailsChild.styled'
 
 type DataToMap =
    | {
@@ -28,9 +29,9 @@ const FurtherDetails: React.FC = () => {
    const printFlag = () => {
       if (data) {
          return (
-            <Wrapper as="article" flexChild>
+            <FurtherDetailsChild as="article">
                <CountryImg flag src={data.flags.svg} alt="Country flag." />
-            </Wrapper>
+            </FurtherDetailsChild>
          )
       }
    }
@@ -98,13 +99,13 @@ const FurtherDetails: React.FC = () => {
    return (
       <>
          {printFlag()}
-         <Wrapper as="article" flexChild>
+         <FurtherDetailsChild as="article">
             <CountryName further>
                {data ? data.name.common : 'No name'}
             </CountryName>
             <Wrapper furtherColumns>{gatherData()}</Wrapper>
             <BorderCountries />
-         </Wrapper>
+         </FurtherDetailsChild>
       </>
    )
 }
