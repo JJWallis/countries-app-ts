@@ -1,5 +1,14 @@
 import styled from 'styled-components'
 
+export const FurtherDetailsParent = styled.div`
+   display: flex;
+   flex-direction: column;
+   gap: 3.5rem;
+   @media (min-width: ${({ theme }) => theme.furtherBreakpoint}) {
+      flex-direction: row;
+   }
+`
+
 export const FurtherDetailsChild = styled.div`
    display: flex;
    flex-direction: column;

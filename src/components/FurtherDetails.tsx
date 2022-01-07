@@ -9,7 +9,7 @@ import {
    FurtherDetailsChild,
    FurtherDetailsColumns,
    FurtherDetailsColumnsChild,
-} from './containers/FurtherDetailsChild.styled'
+} from './containers/FurtherDetailsContainers.styled'
 
 type DataToMap =
    | {
