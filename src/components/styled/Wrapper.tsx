@@ -57,18 +57,6 @@ export default styled.div.attrs<Props>(
    justify-content: ${({ justifyContent }) => justifyContent};
    position: ${({ position }) => position};
 
-   ${({ sf }) =>
-      sf &&
-      css`
-         @media (max-width: ${({ theme }) => theme.breakpoint}) {
-            flex-direction: column;
-            justify-content: unset;
-            align-items: flex-start;
-            gap: 3.5rem;
-            margin-bottom: 3.5rem;
-         }
-      `}
-
    ${({ display }) =>
       display === 'grid' &&
       css`
