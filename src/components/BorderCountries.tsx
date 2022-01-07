@@ -3,8 +3,10 @@ import { useCountriesContext } from '../hooks/useCountriesContext'
 import { useFurtherDetailsContext } from '../hooks/useFurtherDetailsContext'
 import { v4 as uuid } from 'uuid'
 import { CountrySubTitle } from './styled/CountryDataTitle'
-import { BordersContainer } from './containers/BordersContainer.styled'
-import Wrapper from './styled/Wrapper'
+import {
+   BordersContainer,
+   BorderButtonsContainer,
+} from './containers/BordersContainer.styled'
 import Button from './styled/StyledButton'
 
 const BorderCountries: React.FC = () => {
@@ -16,12 +18,7 @@ const BorderCountries: React.FC = () => {
          const { borders } = furtherDetails[0]
          if (borders?.length) {
             return (
-               <Wrapper
-                  display="flex"
-                  flexWrap="wrap"
-                  alignItems="center"
-                  gap="0.7rem"
-               >
+               <BorderButtonsContainer>
                   {borders.map((border) => (
                      <Button
                         country
@@ -39,7 +36,7 @@ const BorderCountries: React.FC = () => {
                         }
                      </Button>
                   ))}
-               </Wrapper>
+               </BorderButtonsContainer>
             )
          }
          return <Button error>No bordering countries</Button>
