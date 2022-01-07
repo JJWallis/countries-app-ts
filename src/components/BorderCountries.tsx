@@ -3,6 +3,7 @@ import { useCountriesContext } from '../hooks/useCountriesContext'
 import { useFurtherDetailsContext } from '../hooks/useFurtherDetailsContext'
 import { v4 as uuid } from 'uuid'
 import { CountrySubTitle } from './styled/CountryDataTitle'
+import { BordersContainer } from './containers/BordersContainer.styled'
 import Wrapper from './styled/Wrapper'
 import Button from './styled/StyledButton'
 
@@ -46,10 +47,10 @@ const BorderCountries: React.FC = () => {
    }
 
    return (
-      <Wrapper as="section" bordersParent>
+      <BordersContainer as="section">
          <CountrySubTitle borderTitle>Border Countries:</CountrySubTitle>
          {produceButtons()}
-      </Wrapper>
+      </BordersContainer>
    )
 }
 
