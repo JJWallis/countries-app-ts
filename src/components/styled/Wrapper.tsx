@@ -68,3 +68,5 @@ export default styled.div.attrs<Props>(
          }
       `}
 `
+
+// Country card - margin + padding
