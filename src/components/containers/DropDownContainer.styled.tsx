@@ -9,12 +9,13 @@ export const DropDownContainer = styled.div<Props>`
    top: 193px;
    left: 0;
    z-index: 300;
-   border-radius: 5px;
-   padding: 1.2rem 0rem 1.2rem 1rem;
-   background-color: ${({ theme: { elements } }) => elements};
-   color: ${({ theme: { color } }) => color};
-   font-size: 1.1rem;
    width: 240px;
+   padding: 1.2rem 0rem 1.2rem 1rem;
+   border-radius: 5px;
+   font-size: 1.1rem;
+   color: ${({ theme: { color } }) => color};
+   background-color: ${({ theme: { elements } }) => elements};
+   box-shadow: ${({ theme }) => theme.shadow};
    transform: ${({ opacity }) =>
       opacity === 0 ? 'translateY(-15%)' : 'translateY(0%)'};
    opacity: ${({ opacity }) => opacity};
