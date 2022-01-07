@@ -48,8 +48,6 @@ const Filter: React.FC<Props> = ({ prevFilter, updatePrevFilter }) => {
    return (
       <Wrapper
          filter="true"
-         display="flex"
-         justify-content="flex-start"
          aria-label="Filter by region"
          onClick={setToggleDropDown}
          fetchError={fetchError?.current}

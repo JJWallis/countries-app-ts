@@ -90,6 +90,7 @@ export default styled.div.attrs<Props>(
          display: flex;
          flex-direction: column;
          align-items: flex-start;
+         justify-content: flex-start;
          width: 240px;
          padding: 1.2rem 1.7rem;
          border-radius: 5px;
