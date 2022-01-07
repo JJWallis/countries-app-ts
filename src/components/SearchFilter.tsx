@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import { useFurtherDetailsContext } from '../hooks/useFurtherDetailsContext'
-import Wrapper from './styled/Wrapper'
+import { SearchFilterContainer } from './containers/SearchFilterContainer.styled'
 import Search from './Search'
 import Filter from './Filter'
 import Button from './styled/StyledButton'
@@ -38,18 +38,7 @@ const SearchFilter: React.FC = () => {
       )
    }
 
-   return (
-      <Wrapper
-         display="flex"
-         justifyContent="space-between"
-         alignItems="center"
-         position="relative"
-         sf
-         margin="1.5rem 0 4rem"
-      >
-         {handleLayoutChange()}
-      </Wrapper>
-   )
+   return <SearchFilterContainer>{handleLayoutChange()}</SearchFilterContainer>
 }
 
 export default SearchFilter
