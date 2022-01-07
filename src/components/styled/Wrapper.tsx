@@ -85,7 +85,7 @@ export default styled.div.attrs<Props>(
          }
       `}
 
-      ${({ display }) =>
+   ${({ display }) =>
       display === 'flexWrap' &&
       css`
          display: flex;
