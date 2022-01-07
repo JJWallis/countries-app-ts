@@ -83,24 +83,6 @@ export default styled.div.attrs<Props>(
             flex-direction: row;
          }
       `}
-
-      ${({ country }) =>
-      country &&
-      css`
-         flex-basis: 310px;
-         border-radius: 5px;
-         box-shadow: ${({ theme }) => theme.countryCardShadow};
-         overflow: hidden;
-         cursor: pointer;
-         background-color: ${({ theme }) => theme.elements};
-         transition: transform 200ms linear,
-            background-color
-               ${({ theme: { themeTransition } }) => themeTransition},
-            box-shadow ${({ theme: { themeTransition } }) => themeTransition};
-         &:hover {
-            transform: scale(1.05);
-         }
-      `}
       
       ${({ countryImgFlag }) =>
       countryImgFlag &&
