@@ -11,7 +11,6 @@ export const lightTheme = {
    borderBtnShadow: '0 0 4px 2px rgba(0,0,0,0.05)',
    breakpoint: '61.999em',
    furtherBreakpoint: '71.999em',
-   themeTransition: '0.3s ease-in-out',
 }
 
 export const darkTheme = {
@@ -27,5 +26,4 @@ export const darkTheme = {
    borderBtnShadow: '0 0 5px 5px rgba(0,0,0,0.1)',
    breakpoint: '61.999em',
    furtherBreakpoint: '71.999em',
-   themeTransition: '0.3s ease-in-out',
 }
