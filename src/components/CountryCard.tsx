@@ -7,7 +7,7 @@ import {
    CountryCard as Card,
    CountryImageContainer,
 } from './containers/CountryContainer.styled'
-import Wrapper from './styled/Wrapper'
+import Wrapper from './containers/Wrapper'
 
 interface Props {
    data: {
