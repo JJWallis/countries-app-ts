@@ -9,8 +9,8 @@ export const lightTheme = {
    furtherImgShadowMb: '0 0 5px rgba(0, 0, 0, 0.05)',
    furtherImgShadowWd: '0 0 3px rgba(0, 0, 0, 0.05)',
    borderBtnShadow: '0 0 4px 2px rgba(0,0,0,0.05)',
-   breakpoint: '899.999999px',
-   furtherBreakpoint: '1100px',
+   breakpoint: '61.999em',
+   furtherBreakpoint: '71.999em',
    themeTransition: '0.3s ease-in-out',
 }
 
@@ -25,7 +25,7 @@ export const darkTheme = {
    furtherImgShadowMb: '0 0 3px 8px rgba(0, 0, 0, 0.05)',
    furtherImgShadowWd: '0 0 3px 20px rgba(0, 0, 0, 0.05)',
    borderBtnShadow: '0 0 5px 5px rgba(0,0,0,0.1)',
-   breakpoint: '899.999999px',
-   furtherBreakpoint: '1100px',
+   breakpoint: '61.999em',
+   furtherBreakpoint: '71.999em',
    themeTransition: '0.3s ease-in-out',
 }
