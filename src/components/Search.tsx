@@ -9,14 +9,6 @@ const Search: React.FC = () => {
    const { handleFurtherDetails, furtherDetailsError } =
       useFurtherDetailsContext()
    const { fetchError } = useCountriesContext()
-   const hasInputChanged = useRef(false)
-
-   useEffect(() => {
-      if (search) hasInputChanged.current = true
-      if (search === '' && hasInputChanged.current) {
-         hasInputChanged.current = false
-      }
-   }, [search])
 
    const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
       if (e.key === 'Enter') handleSearchCountry()
