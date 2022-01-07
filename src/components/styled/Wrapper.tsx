@@ -83,34 +83,4 @@ export default styled.div.attrs<Props>(
             flex-direction: row;
          }
       `}
-
-      ${({ dropDown }) =>
-      dropDown &&
-      css`
-         position: absolute;
-         top: 193px;
-         left: 0;
-         z-index: 300;
-         border-radius: 5px;
-         padding: 1.2rem 0rem 1.2rem 1rem;
-         background-color: ${({ theme: { elements } }) => elements};
-         color: ${({ theme: { color } }) => color};
-         font-size: 1.1rem;
-         width: 240px;
-         transform: ${({ opacity }) =>
-            opacity === 0 ? 'translateY(-15%)' : 'translateY(0%)'};
-         opacity: ${({ opacity }) => opacity};
-         pointer-events: ${({ opacity }) => (opacity === 0 ? 'none' : 'all')};
-         transition: background-color
-               ${({ theme: { themeTransition } }) => themeTransition},
-            color ${({ theme: { themeTransition } }) => themeTransition},
-            opacity ${({ theme: { themeTransition } }) => themeTransition},
-            transform ${({ theme: { themeTransition } }) => themeTransition};
-         @media (min-width: ${({ theme }) => theme.breakpoint}) {
-            top: 68px;
-            left: unset;
-            right: 0;
-            width: 220px;
-         }
-      `}
 `
