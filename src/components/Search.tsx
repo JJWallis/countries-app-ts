@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useState } from 'react'
 import { useCountriesContext } from '../hooks/useCountriesContext'
 import { useFurtherDetailsContext } from '../hooks/useFurtherDetailsContext'
 import StyledInput from './styled/StyledInput'
@@ -15,7 +15,7 @@ const Search: React.FC = () => {
    }
 
    const handleSearchCountry = () => {
-      if (search !== '' && !fetchError?.current) {
+      if (search && !fetchError?.current) {
          handleFurtherDetails(search)
          setSearch('')
       }
