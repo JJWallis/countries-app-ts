@@ -25,9 +25,7 @@ export const CountryCard = styled.div`
    overflow: hidden;
    cursor: pointer;
    background-color: ${({ theme }) => theme.elements};
-   transition: transform 200ms linear,
-      background-color ${({ theme: { themeTransition } }) => themeTransition},
-      box-shadow ${({ theme: { themeTransition } }) => themeTransition};
+   transition: transform 200ms linear;
    &:hover {
       transform: scale(1.05);
    }

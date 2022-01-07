@@ -19,11 +19,7 @@ export const DropDownContainer = styled.div<Props>`
       opacity === 0 ? 'translateY(-15%)' : 'translateY(0%)'};
    opacity: ${({ opacity }) => opacity};
    pointer-events: ${({ opacity }) => (opacity === 0 ? 'none' : 'all')};
-   transition: background-color
-         ${({ theme: { themeTransition } }) => themeTransition},
-      color ${({ theme: { themeTransition } }) => themeTransition},
-      opacity ${({ theme: { themeTransition } }) => themeTransition},
-      transform ${({ theme: { themeTransition } }) => themeTransition};
+   transition: transform 200ms linear, opacity 200ms linear;
    @media (min-width: ${({ theme }) => theme.breakpoint}) {
       top: 68px;
       left: unset;
