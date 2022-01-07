@@ -83,16 +83,6 @@ export default styled.div.attrs<Props>(
             flex-direction: row;
          }
       `}
-      
-      ${({ furtherColumnsChild }) =>
-      furtherColumnsChild &&
-      css`
-         flex: 1 220px;
-         max-width: 300px;
-         @media (min-width: ${({ theme }) => theme.breakpoint}) {
-            flex-basis: 100px;
-         }
-      `}
 
       ${({ filter }) =>
       filter &&
