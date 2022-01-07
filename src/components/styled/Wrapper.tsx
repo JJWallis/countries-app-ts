@@ -65,14 +65,6 @@ export default styled.div.attrs<Props>(
          max-width: 1530px;
       `}
 
-   ${({ main }) =>
-      main &&
-      css`
-         @media (min-width: ${({ theme }) => theme.breakpoint}) {
-            padding-top: 2.3rem;
-         }
-      `}
-
    ${({ sf }) =>
       sf &&
       css`
