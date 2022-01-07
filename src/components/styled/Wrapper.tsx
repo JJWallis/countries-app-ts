@@ -25,37 +25,10 @@ interface Props {
    opacity?: number
 }
 
-export default styled.div.attrs<Props>(
-   ({
-      margin,
-      padding,
-      display,
-      flexWrap,
-      alignItems,
-      gap,
-      justifyContent,
-      position,
-      opacity,
-   }) => ({
-      display: display,
-      margin: margin,
-      padding: padding,
-      flexWrap: flexWrap,
-      alignItems: alignItems,
-      justifyContent: justifyContent,
-      gap: gap,
-      position: position,
-      opacity: opacity,
-   })
-)<Props>`
-   display: ${({ display }) => display};
+export default styled.div.attrs<Props>(({ margin, padding }) => ({
+   margin: margin,
+   padding: padding,
+}))<Props>`
    padding: ${({ padding }) => padding};
    margin: ${({ margin }) => margin};
-   flex-wrap: ${({ flexWrap }) => flexWrap};
-   align-items: ${({ alignItems }) => alignItems};
-   gap: ${({ gap }) => gap};
-   justify-content: ${({ justifyContent }) => justifyContent};
-   position: ${({ position }) => position};
 `
-
-// Country card - margin + padding
