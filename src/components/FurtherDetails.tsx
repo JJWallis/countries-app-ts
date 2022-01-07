@@ -6,7 +6,10 @@ import { CountryData } from './styled/CountryData'
 import Wrapper from './styled/Wrapper'
 import CountryImg from './styled/StyledImg'
 import BorderCountries from './BorderCountries'
-import { FurtherDetailsChild } from './containers/FurtherDetailsChild.styled'
+import {
+   FurtherDetailsChild,
+   FurtherDetailsColumns,
+} from './containers/FurtherDetailsChild.styled'
 
 type DataToMap =
    | {
@@ -103,7 +106,7 @@ const FurtherDetails: React.FC = () => {
             <CountryName further>
                {data ? data.name.common : 'No name'}
             </CountryName>
-            <Wrapper furtherColumns>{gatherData()}</Wrapper>
+            <FurtherDetailsColumns>{gatherData()}</FurtherDetailsColumns>
             <BorderCountries />
          </FurtherDetailsChild>
       </>
