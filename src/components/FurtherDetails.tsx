@@ -32,7 +32,7 @@ const FurtherDetails: React.FC = () => {
    const printFlag = () => {
       if (data) {
          return (
-            <FurtherDetailsChild as="article">
+            <FurtherDetailsChild>
                <CountryImg flag src={data.flags.svg} alt="Country flag." />
             </FurtherDetailsChild>
          )
@@ -41,7 +41,7 @@ const FurtherDetails: React.FC = () => {
 
    const printData = (data: DataToMap) => {
       return (
-         <FurtherDetailsColumnsChild as="article">
+         <FurtherDetailsColumnsChild>
             {data &&
                Object.entries(data).map(([key, value]) => (
                   <CountryData further key={key}>

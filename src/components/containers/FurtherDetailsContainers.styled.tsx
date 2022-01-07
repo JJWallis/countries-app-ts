@@ -9,7 +9,7 @@ export const FurtherDetailsParent = styled.div`
    }
 `
 
-export const FurtherDetailsChild = styled.div`
+export const FurtherDetailsChild = styled.article`
    display: flex;
    flex-direction: column;
    justify-content: center;
@@ -26,7 +26,7 @@ export const FurtherDetailsColumns = styled.div`
    }
 `
 
-export const FurtherDetailsColumnsChild = styled.div`
+export const FurtherDetailsColumnsChild = styled.article`
    flex: 1 220px;
    max-width: 300px;
    @media (min-width: ${({ theme }) => theme.breakpoint}) {
