@@ -4,6 +4,20 @@ interface Props {
    countryImgFlag: string
 }
 
+export const CountryContainer = styled.div`
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   gap: 3.5rem 5rem;
+   @media (min-width: 1250px) {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-auto-rows: auto;
+      justify-content: unset;
+      gap: 6rem 6rem;
+   }
+`
+
 export const CountryCard = styled.div`
    flex-basis: 310px;
    padding: 0 0 1rem;
