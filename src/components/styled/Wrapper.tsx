@@ -84,18 +84,6 @@ export default styled.div.attrs<Props>(
          }
       `}
       
-      ${({ furtherColumns }) =>
-      furtherColumns &&
-      css`
-         display: flex;
-         flex-wrap: wrap;
-         align-items: baseline;
-         gap: 3.1rem;
-         @media (min-width: ${({ theme }) => theme.furtherBreakpoint}) {
-            gap: 6rem;
-         }
-      `}
-
       ${({ furtherColumnsChild }) =>
       furtherColumnsChild &&
       css`
