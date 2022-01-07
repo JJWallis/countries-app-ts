@@ -84,16 +84,6 @@ export default styled.div.attrs<Props>(
          }
       `}
       
-      ${({ countryImgFlag }) =>
-      countryImgFlag &&
-      css`
-         background-image: url(${countryImgFlag});
-         background-size: cover;
-         background-position: center;
-         background-repeat: no-repeat;
-         min-height: 12rem;
-      `}
-
       ${({ bordersParent }) =>
       bordersParent &&
       css`
