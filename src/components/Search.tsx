@@ -8,8 +8,8 @@ const Search: React.FC = () => {
    const [search, setSearch] = useState('')
    const { handleFurtherDetails, furtherDetailsError } =
       useFurtherDetailsContext()
-   const hasInputChanged = useRef(false)
    const { fetchError } = useCountriesContext()
+   const hasInputChanged = useRef(false)
 
    useEffect(() => {
       if (search) hasInputChanged.current = true
@@ -17,9 +17,6 @@ const Search: React.FC = () => {
          hasInputChanged.current = false
       }
    }, [search])
-
-   const hasErrorOccured = () =>
-      hasInputChanged.current && furtherDetailsError ? true : false
 
    const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
       if (e.key === 'Enter') handleSearchCountry()
@@ -37,9 +34,9 @@ const Search: React.FC = () => {
          <StyledInput
             search
             disabled={fetchError?.current}
-            error={hasErrorOccured()}
+            error={furtherDetailsError}
             placeholder={
-               hasErrorOccured()
+               furtherDetailsError
                   ? 'Please enter a valid country'
                   : 'Search for a country'
             }
