@@ -56,17 +56,6 @@ export default styled.div.attrs<Props>(
    gap: ${({ gap }) => gap};
    justify-content: ${({ justifyContent }) => justifyContent};
    position: ${({ position }) => position};
-
-   ${({ display }) =>
-      display === 'flexWrap' &&
-      css`
-         display: flex;
-         flex-direction: column;
-         gap: 3.5rem;
-         @media (min-width: ${({ theme }) => theme.furtherBreakpoint}) {
-            flex-direction: row;
-         }
-      `}
 `
 
 // Country card - margin + padding
