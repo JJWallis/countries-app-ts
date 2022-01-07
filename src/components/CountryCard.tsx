@@ -3,6 +3,7 @@ import { useFurtherDetailsContext } from '../hooks/useFurtherDetailsContext'
 import { CountryName } from './styled/StyledTitle'
 import { CountrySubTitle } from './styled/CountryDataTitle'
 import { CountryData } from './styled/CountryData'
+import { CountryCard as Card } from './containers/CountryContainer.styled'
 import Wrapper from './styled/Wrapper'
 
 interface Props {
@@ -37,10 +38,8 @@ const CountryCard: React.FC<Props> = ({ data }) => {
    }
 
    return (
-      <Wrapper
+      <Card
          as="section"
-         country
-         padding="0 0 1rem"
          onClick={() => handleFurtherDetails(name.toLowerCase())}
       >
          <Wrapper countryImgFlag={flag} aria-label={`Flag of ${name}`} />
@@ -48,7 +47,7 @@ const CountryCard: React.FC<Props> = ({ data }) => {
             <CountryName>{name ? name : 'No data provided'}</CountryName>
             {printData({ population, region, capital })}
          </Wrapper>
-      </Wrapper>
+      </Card>
    )
 }
 
