@@ -20,7 +20,7 @@ const CountriesContainer: React.FC = () => {
       if (!furtherDetails) {
          const data = determineData()
          return data ? (
-            <Countries as="article">
+            <Countries>
                {data.map((country) => (
                   <CountryCard key={uuidv4()} data={country} />
                ))}

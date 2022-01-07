@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const BordersContainer = styled.div`
+export const BordersContainer = styled.section`
    display: flex;
    flex-wrap: wrap;
    align-items: center;

@@ -4,7 +4,7 @@ interface Props {
    countryImgFlag: string
 }
 
-export const CountryContainer = styled.div`
+export const CountryContainer = styled.article`
    display: flex;
    flex-wrap: wrap;
    justify-content: center;
@@ -17,7 +17,7 @@ export const CountryContainer = styled.div`
    }
 `
 
-export const CountryCard = styled.div`
+export const CountryCard = styled.section`
    flex-basis: 310px;
    padding: 0 0 1rem;
    border-radius: 5px;

@@ -44,7 +44,7 @@ const BorderCountries: React.FC = () => {
    }
 
    return (
-      <BordersContainer as="section">
+      <BordersContainer>
          <CountrySubTitle borderTitle>Border Countries:</CountrySubTitle>
          {produceButtons()}
       </BordersContainer>

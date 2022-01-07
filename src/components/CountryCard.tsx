@@ -41,10 +41,7 @@ const CountryCard: React.FC<Props> = ({ data }) => {
    }
 
    return (
-      <Card
-         as="section"
-         onClick={() => handleFurtherDetails(name.toLowerCase())}
-      >
+      <Card onClick={() => handleFurtherDetails(name.toLowerCase())}>
          <CountryImageContainer
             countryImgFlag={flag}
             aria-label={`Flag of ${name}`}
