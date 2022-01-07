@@ -11,7 +11,7 @@ interface CountryNameProps {
 export const MainTitle = styled.h1`
    font-size: 1.5rem;
    color: ${({ theme: { color } }) => color};
-   transition: color ${({ theme: { themeTransition } }) => themeTransition};
+
    @media (min-width: ${({ theme: { breakpoint } }) => breakpoint}) {
       font-size: 1.7rem;
    }
@@ -24,14 +24,12 @@ export const Loading = styled.h2<LoadingProps>`
    line-height: 1.1;
    max-width: 700px;
    margin: 0 auto;
-   transition: color ${({ theme: { themeTransition } }) => themeTransition};
 `
 
 export const CountryName = styled.h2<CountryNameProps>`
    margin-bottom: 0.8rem;
    font-size: 1.4rem;
    color: ${({ theme: { color } }) => color};
-   transition: color ${({ theme: { themeTransition } }) => themeTransition};
 
    ${({ further }) =>
       further &&
@@ -45,5 +43,4 @@ export const CountrySubTitle = styled.h4`
    display: inline-block;
    font-size: 1.2rem;
    color: ${({ theme: { color } }) => color};
-   transition: color ${({ theme: { themeTransition } }) => themeTransition};
 `
