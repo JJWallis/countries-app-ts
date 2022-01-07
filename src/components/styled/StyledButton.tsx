@@ -16,10 +16,6 @@ const Button = styled.button<Props>`
    cursor: pointer;
    background-color: ${({ theme: { elements } }) => elements};
    color: ${({ theme: { color } }) => color};
-   transition: background-color
-         ${({ theme: { themeTransition } }) => themeTransition},
-      color ${({ theme: { themeTransition } }) => themeTransition},
-      box-shadow ${({ theme: { themeTransition } }) => themeTransition};
 
    ${({ back }) =>
       back &&
@@ -42,6 +38,7 @@ const Button = styled.button<Props>`
       css`
          padding: 0.6em 2.5em;
          box-shadow: ${({ theme }) => theme.borderBtnShadow};
+         transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
          &:hover {
             color: ${({ theme: { elements } }) => elements};
             background-color: ${({ theme: { color } }) => color};

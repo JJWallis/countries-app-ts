@@ -9,7 +9,6 @@ export const CountryData = styled.p<Props>`
    font-size: 1rem;
    font-weight: 200;
    color: ${({ theme: { color } }) => color};
-   transition: color ${({ theme: { themeTransition } }) => themeTransition};
    ${({ further }) =>
       further &&
       css`
