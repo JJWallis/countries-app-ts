@@ -3,12 +3,12 @@ import { useFurtherDetailsContext } from '../hooks/useFurtherDetailsContext'
 import { CountryName } from './styled/StyledTitle'
 import { CountrySubTitle } from './styled/CountryDataTitle'
 import { CountryData } from './styled/CountryData'
-import Wrapper from './styled/Wrapper'
 import CountryImg from './styled/StyledImg'
 import BorderCountries from './BorderCountries'
 import {
    FurtherDetailsChild,
    FurtherDetailsColumns,
+   FurtherDetailsColumnsChild,
 } from './containers/FurtherDetailsChild.styled'
 
 type DataToMap =
@@ -41,7 +41,7 @@ const FurtherDetails: React.FC = () => {
 
    const printData = (data: DataToMap) => {
       return (
-         <Wrapper as="article" furtherColumnsChild>
+         <FurtherDetailsColumnsChild as="article">
             {data &&
                Object.entries(data).map(([key, value]) => (
                   <CountryData further key={key}>
@@ -58,7 +58,7 @@ const FurtherDetails: React.FC = () => {
                         : 'No data provided'}
                   </CountryData>
                ))}
-         </Wrapper>
+         </FurtherDetailsColumnsChild>
       )
    }
 
