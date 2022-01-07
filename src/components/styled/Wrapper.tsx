@@ -84,15 +84,6 @@ export default styled.div.attrs<Props>(
          }
       `}
 
-      ${({ flexChild }) =>
-      flexChild &&
-      css`
-         flex: 1 100%;
-         display: flex;
-         flex-direction: column;
-         justify-content: center;
-      `}
-
       ${({ country }) =>
       country &&
       css`
