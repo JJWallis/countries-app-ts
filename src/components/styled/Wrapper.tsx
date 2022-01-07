@@ -71,7 +71,7 @@ export default styled.div.attrs<Props>(
          @media (min-width: ${({ theme }) => theme.breakpoint}) {
             padding-top: 2.3rem;
          }
-      `} 
+      `}
 
    ${({ sf }) =>
       sf &&
