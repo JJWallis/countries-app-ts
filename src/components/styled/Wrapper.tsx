@@ -57,14 +57,6 @@ export default styled.div.attrs<Props>(
    justify-content: ${({ justifyContent }) => justifyContent};
    position: ${({ position }) => position};
 
-   ${({ align }) =>
-      align &&
-      css`
-         margin: 0 auto;
-         width: 90%;
-         max-width: 1530px;
-      `}
-
    ${({ sf }) =>
       sf &&
       css`
@@ -76,8 +68,8 @@ export default styled.div.attrs<Props>(
             margin-bottom: 3.5rem;
          }
       `}
- 
-      ${({ display }) =>
+
+   ${({ display }) =>
       display === 'grid' &&
       css`
          display: flex;
