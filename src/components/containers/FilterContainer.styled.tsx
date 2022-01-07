@@ -16,9 +16,6 @@ export const FilterContainer = styled.div<Props>`
    pointer-events: ${({ fetchError }) => (fetchError ? 'none' : 'all')};
    box-shadow: ${({ theme }) => theme.shadow};
    background-color: ${({ theme: { elements } }) => elements};
-   transition: background-color
-         ${({ theme: { themeTransition } }) => themeTransition},
-      box-shadow ${({ theme: { themeTransition } }) => themeTransition};
 
    @media (min-width: ${({ theme }) => theme.breakpoint}) {
       justify-content: flex-end;
@@ -36,8 +33,6 @@ export const FilterContainer = styled.div<Props>`
       position: absolute;
       top: 153px;
       left: 200px;
-      transition: border-top
-         ${({ theme: { themeTransition } }) => themeTransition};
 
       @media (min-width: ${({ theme }) => theme.breakpoint}) {
          left: unset;
