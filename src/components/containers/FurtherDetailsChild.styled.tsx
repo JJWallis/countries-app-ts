@@ -16,3 +16,11 @@ export const FurtherDetailsColumns = styled.div`
       gap: 6rem;
    }
 `
+
+export const FurtherDetailsColumnsChild = styled.div`
+   flex: 1 220px;
+   max-width: 300px;
+   @media (min-width: ${({ theme }) => theme.breakpoint}) {
+      flex-basis: 100px;
+   }
+`
