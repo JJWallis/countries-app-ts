@@ -114,13 +114,13 @@ const handleRegions = () => {
 }
 ```
 
-I chose to highlight the function above due to its efficiency in generating the different country regions to be displayed as separate buttons within the dropdown menu. I was able to use a combination of chaining methods and the `Set()` data structure to remove all duplicates from the returned Array, originally containing over 200 regions for each country object in the pulled data. I then sorted them in alphabetical order, and produced a button for each one containing the required logic.
+I chose to highlight the function above due to its efficiency in generating the different country regions to be displayed within the dropdown menu. I was able to use a combination of chaining methods and the `Set()` data structure to remove all duplicates from the returned Array, whilst then sorting them in alphabetical order and producing a button for each one.
 
 ### Continued development
 
-Although learning the basics of Typescript has proved to be incredibly valuable so far, I still face many problems with refactoring my type declarations, and using the 'any' type to temporarily fix any bugs which may occur during development. I would therefore like to learn more about how to solve these kind of issues, whilst also focusing on how to destructure dynamic data which could potentially return falsy, such as data returned from the Context API.
+Although learning the basics of Typescript has proved to be incredibly valuable so far, I still face many problems with refactoring my type declarations, and using the 'any' type to temporarily fix any bugs. I would therefore like to learn more about how to solve these kind of issues, whilst also focusing on how to destructure potentially falsy data (such as that returned from the Context API).
 
-Whilst I was building out each feature, I found my App component was quickly becoming bloated with important fundamental logic which, at the current time, I wasn't able to house anywhere else. I therefore look forward to learning more about advanced React concepts such as Reducers, which I believe will come in handy in organising more complex state.
+Whilst I was building out each feature, I found that my App component was quickly becoming bloated with important global logic that I wasn't able to house anywhere else. I therefore look forward to learning more about advanced React concepts such as Reducers, which I believe will come in handy at organising more complicated state and extending my knowledge on where to house important logic.
 
 ### Useful resources
 
