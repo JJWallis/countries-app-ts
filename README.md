@@ -58,7 +58,7 @@ export default styled.div.attrs<Props>(
 `
 ```
 
-I was able to further develop my knowledge of Styled Components in this project, expanding into using the `attrs()` function and the special `as` property to render certain components as different HTML elements (a div as a section). I further organised myself much better in regards to having a separate folder for all my styled components, and utilised the 'Styled' naming convention to quickly search for the desired file.
+I was able to further develop my knowledge of Styled Components in this project, expanding into using the `attrs()` function and the special `as` property to render certain components as different HTML elements, such as converting a `div` to a `section`. I further organised myself better in regards to having a separate folder for all my styled components, and utilised the `*.styled` naming convention to enable faster searching for any desired file.
 
 ```jsx
 useLayoutEffect(() => {
@@ -67,7 +67,9 @@ useLayoutEffect(() => {
 }, [])
 ```
 
-One problem I ran into with my previous React TodoList application, was that synchronously placing my lightTheme object into the theme state would initially render that colour scheme, only to then quickly change to dark-mode if the user had previously selected it. This was of course happening because of the asynchronous nature of `useEffect()`, which I was using to set the theme based on the checkbox's saved state. In order to fix this bug, I decided to switch to using the `useLayoutEffect()` hook instead, which would synchronously set the checkbox state as the app first loads, before React would render any of the local JSX to the DOM.
+One problem I ran into with my previous React TodoList application was that synchronously placing my lightTheme object into the theme state would initially render that colour scheme, only to then quickly change to dark-mode if the user had previously selected it.
+
+This was of course happening because of the asynchronous nature of `useEffect()`, which I was using to set the theme based on the checkbox's saved state. In order to fix this bug, I decided to switch to using the `useLayoutEffect()` hook, which would synchronously set the checkbox state when that component is first loaded and on every future re-render.
 
 ```jsx
 const [homepage, setHomepage] = useState(true)
