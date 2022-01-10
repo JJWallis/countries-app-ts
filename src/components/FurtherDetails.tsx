@@ -114,7 +114,7 @@ const FurtherDetails: React.FC = () => {
                {data ? data.name.common : 'No name'}
             </CountryName>
             <FurtherDetailsColumns>{gatherData()}</FurtherDetailsColumns>
-            <BorderCountries />
+            <BorderCountries country={data} />
          </FurtherDetailsChild>
       </>
    )
