@@ -47,7 +47,7 @@ const SearchFilter: React.FC = () => {
             prevFilter={prevFilter.current}
             updatePrevFilter={updatePrevFilter}
          />
-         <Link to="/">home</Link>
+         <Link to="/home">home</Link>
          <Link to="/details">details</Link>
          <Outlet />
       </>
