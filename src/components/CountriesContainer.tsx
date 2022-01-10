@@ -10,7 +10,7 @@ const CountriesContainer: React.FC = () => {
          <Routes>
             <Route path="/" element={<HomeMain />} />
             <Route
-               path="/details"
+               path="/details/:country"
                element={
                   <FurtherDetailsParent>
                      <FurtherDetails />
