@@ -26,6 +26,7 @@ const Search: React.FC = () => {
          setError(true)
          setSearch('')
 
+         // merge into master branch first
          // instead of above - above function housed in FurtherDetails to automatically
          // run using current country from useParams()
       }
