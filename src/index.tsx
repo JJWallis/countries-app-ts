@@ -12,6 +12,9 @@ ReactDOM.render(
             <Routes>
                <Route path="/" element={<App />}>
                   <Route path="/details" element={<FurtherHeader />} />
+                  {/* homepage route */}
+                  {/* neted details routes */}
+                  <Route path="*" element={<div>404 error</div>} />
                </Route>
             </Routes>
          </BrowserRouter>
