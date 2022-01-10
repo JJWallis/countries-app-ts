@@ -42,11 +42,11 @@ const CountryCard: React.FC<Props> = ({ data }) => {
    }
 
    return (
-      <Link
-         to="/details"
-         onClick={() => handleFurtherDetails(name.toLowerCase())}
-      >
-         <Card>
+      <Card>
+         <Link
+            to={`/details`}
+            onClick={() => handleFurtherDetails(name.toLowerCase())}
+         >
             <CountryImageContainer
                countryImgFlag={flag}
                aria-label={`Flag of ${name}`}
@@ -55,8 +55,8 @@ const CountryCard: React.FC<Props> = ({ data }) => {
                <CountryName>{name ? name : 'No data provided'}</CountryName>
                {printData({ population, region, capital })}
             </Wrapper>
-         </Card>
-      </Link>
+         </Link>
+      </Card>
    )
 }
 
