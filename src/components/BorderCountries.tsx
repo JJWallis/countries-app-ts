@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { useCountriesContext } from '../hooks/useCountriesContext'
 import { useFurtherDetailsContext } from '../hooks/useFurtherDetailsContext'
 import { v4 as uuid } from 'uuid'
@@ -20,21 +21,23 @@ const BorderCountries: React.FC = () => {
             return (
                <BorderButtonsContainer>
                   {borders.map((border) => (
-                     <Button
-                        country
-                        key={uuid()}
-                        onClick={() =>
-                           handleFurtherDetails(border.toUpperCase())
-                        }
-                     >
-                        {
-                           countries?.find(
-                              (country) =>
-                                 country.cioc === border ||
-                                 country.cca3 === border
-                           )?.name.common
-                        }
-                     </Button>
+                     <Link to={`/details/${border.toLowerCase()}`}>
+                        <Button
+                           country
+                           key={uuid()}
+                           onClick={() =>
+                              handleFurtherDetails(border.toUpperCase())
+                           }
+                        >
+                           {
+                              countries?.find(
+                                 (country) =>
+                                    country.cioc === border ||
+                                    country.cca3 === border
+                              )?.name.common
+                           }
+                        </Button>
+                     </Link>
                   ))}
                </BorderButtonsContainer>
             )

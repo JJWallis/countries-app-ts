@@ -10,7 +10,7 @@ import {
    FurtherDetailsColumns,
    FurtherDetailsColumnsChild,
 } from './containers/FurtherDetailsContainers.styled'
-import { useParams } from 'react-router-dom'
+// import { useParams } from 'react-router-dom'
 
 type DataToMap =
    | {
@@ -29,8 +29,10 @@ type DataToMap =
 const FurtherDetails: React.FC = () => {
    const { furtherDetails } = useFurtherDetailsContext()
    const data = furtherDetails ? furtherDetails[0] : null
-   const params = useParams()
-   console.log(params)
+   // const params = useParams()
+   // console.log(params)
+   // route changes causes this to render - local find() to determine
+   // data var above
 
    const printFlag = () => {
       if (data) {
