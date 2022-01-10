@@ -9,10 +9,7 @@ ReactDOM.render(
       <CountriesProvider>
          <BrowserRouter>
             <Routes>
-               <Route path="*" element={<App />}>
-                  <Route path="details" element={<></>} />
-               </Route>
-               {/* <Route path="*" element={<div>404 error</div>} /> */}
+               <Route path="*" element={<App />} />
             </Routes>
          </BrowserRouter>
       </CountriesProvider>

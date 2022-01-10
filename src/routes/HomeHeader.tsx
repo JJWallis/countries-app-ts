@@ -1,11 +1,13 @@
-import React, { useRef } from 'react'
+import React from 'react'
 import Search from '../components/Search'
 import Filter from '../components/Filter'
 
-const HomeHeader: React.FC = () => {
-   const prevFilter = useRef('')
-   const updatePrevFilter = (filter: string) => (prevFilter.current = filter)
+interface Props {
+   prevFilter: React.MutableRefObject<string>
+   updatePrevFilter: (filter: string) => string
+}
 
+const HomeHeader: React.FC<Props> = ({ prevFilter, updatePrevFilter }) => {
    return (
       <>
          <Search />
