@@ -6,11 +6,11 @@ import { CountriesProvider } from './context/countriesContext'
 
 ReactDOM.render(
    <React.StrictMode>
-      <BrowserRouter>
-         <CountriesProvider>
+      <CountriesProvider>
+         <BrowserRouter>
             <App />
-         </CountriesProvider>
-      </BrowserRouter>
+         </BrowserRouter>
+      </CountriesProvider>
    </React.StrictMode>,
    document.getElementById('root')
 )
