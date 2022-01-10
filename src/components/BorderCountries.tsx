@@ -20,25 +20,31 @@ const BorderCountries: React.FC = () => {
          if (borders?.length) {
             return (
                <BorderButtonsContainer>
-                  {borders.map((border) => (
-                     <Link to={`/details/${border.toLowerCase()}`}>
-                        <Button
-                           country
-                           key={uuid()}
-                           onClick={() =>
-                              handleFurtherDetails(border.toUpperCase())
-                           }
+                  {borders.map((border) => {
+                     const name = countries?.find(
+                        (country) =>
+                           country.cioc === border || country.cca3 === border
+                     )?.name.common
+
+                     return (
+                        <Link
+                           to={`/details/${name
+                              ?.split(' ')
+                              .join('-')
+                              .toLowerCase()}`}
                         >
-                           {
-                              countries?.find(
-                                 (country) =>
-                                    country.cioc === border ||
-                                    country.cca3 === border
-                              )?.name.common
-                           }
-                        </Button>
-                     </Link>
-                  ))}
+                           <Button
+                              country
+                              key={uuid()}
+                              onClick={() =>
+                                 handleFurtherDetails(border.toUpperCase())
+                              }
+                           >
+                              {name}
+                           </Button>
+                        </Link>
+                     )
+                  })}
                </BorderButtonsContainer>
             )
          }
