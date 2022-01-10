@@ -6,7 +6,7 @@ import { CountryContainer as Countries } from '../components/containers/CountryC
 import { Loading } from '../components/styled/StyledTitle'
 import CountryCard from '../components/CountryCard'
 
-const CountriesContainer: React.FC = () => {
+const HomeMain: React.FC = () => {
    const { filteredRegions } = useGlobalContext()
    const { countries, countriesError } = useCountriesContext()
    const determineData = () => (!filteredRegions ? countries : filteredRegions)
@@ -27,4 +27,4 @@ const CountriesContainer: React.FC = () => {
    )
 }
 
-export default CountriesContainer
+export default HomeMain
