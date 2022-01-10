@@ -19,7 +19,7 @@ const Search: React.FC = () => {
          handleFurtherDetails(search)
          // history.push('/details/' + search.split(' ').join('-').toLowerCase())
          // instead of above - above function housed in FurtherDetails to automatically
-         // run using current id
+         // run using current country from useParams()
          // furtherDetailsError - replaced with local error state
          setSearch('')
       }
