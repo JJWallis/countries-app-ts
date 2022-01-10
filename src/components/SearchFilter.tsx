@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, Outlet, Routes, Route } from 'react-router-dom'
+import { Link, Routes, Route } from 'react-router-dom'
 import HomeHeader from '../routes/HomeHeader'
 import FurtherHeader from '../routes/FurtherHeader'
 
@@ -12,8 +12,8 @@ const SearchFilter: React.FC = () => {
          <Routes>
             <Route path="/" element={<HomeHeader />} />
             <Route path="/details" element={<FurtherHeader />} />
+            {/* inline component rendering to fix CSS bugs? */}
          </Routes>
-         <Outlet />
       </>
    )
 }
