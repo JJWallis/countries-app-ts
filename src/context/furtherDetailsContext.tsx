@@ -28,6 +28,7 @@ export const FurtherDetailsProvider = ({
             cioc === country ||
             cca3 === country
       )
+      // find() instead
       if (countryData && countryData.length) {
          furtherDetailsError && setFurtherDetailsError(false)
          setFurtherDetails(countryData)

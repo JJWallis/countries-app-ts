@@ -21,6 +21,7 @@ const Search: React.FC = () => {
          // instead of above - above function housed in FurtherDetails to automatically
          // run using current country from useParams()
          // furtherDetailsError - replaced with local error state
+         // better because only this component will re-render if fasly input
          setSearch('')
       }
    }
