@@ -5,7 +5,7 @@ import { CountryData } from './countriesContext'
 interface FurtherDetailsContextData {
    furtherDetails: CountryData | null
    setFurtherDetails: React.Dispatch<React.SetStateAction<CountryData | null>>
-   handleFurtherDetails: (country: string) => void
+   handleFurtherDetails: (country: string) => boolean
    furtherDetailsError: boolean
 }
 
@@ -32,9 +32,10 @@ export const FurtherDetailsProvider = ({
       if (countryData && countryData.length) {
          furtherDetailsError && setFurtherDetailsError(false)
          setFurtherDetails(countryData)
-         return
+         return true
       }
       setFurtherDetailsError(true)
+      return false
    }
 
    return (

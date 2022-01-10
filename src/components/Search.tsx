@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useCountriesContext } from '../hooks/useCountriesContext'
 import { useFurtherDetailsContext } from '../hooks/useFurtherDetailsContext'
 import StyledInput from './styled/StyledInput'
@@ -6,9 +7,10 @@ import Icon from './styled/Icon'
 
 const Search: React.FC = () => {
    const [search, setSearch] = useState('')
-   const { handleFurtherDetails, furtherDetailsError } =
-      useFurtherDetailsContext()
+   const [error, setError] = useState(false)
+   const { handleFurtherDetails } = useFurtherDetailsContext()
    const { fetchError } = useCountriesContext()
+   const navigate = useNavigate()
 
    const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
       if (e.key === 'Enter') handleSearchCountry()
@@ -16,13 +18,18 @@ const Search: React.FC = () => {
 
    const handleSearchCountry = () => {
       if (search) {
-         handleFurtherDetails(search)
-         // history.push('/details/' + search.split(' ').join('-').toLowerCase())
+         const country = handleFurtherDetails(search)
+         if (country) {
+            navigate(`/details/${search.split(' ').join('-').toLowerCase()}`)
+            return
+         }
+         setError(true)
+         setSearch('')
+
          // instead of above - above function housed in FurtherDetails to automatically
          // run using current country from useParams()
          // furtherDetailsError - replaced with local error state
          // better because only this component will re-render if fasly input
-         setSearch('')
       }
    }
 
@@ -31,11 +38,9 @@ const Search: React.FC = () => {
          <StyledInput
             search
             disabled={fetchError?.current}
-            error={furtherDetailsError}
+            error={error}
             placeholder={
-               furtherDetailsError
-                  ? 'Please enter a valid country'
-                  : 'Search for a country'
+               error ? 'Please enter a valid country' : 'Search for a country'
             }
             value={search}
             onChange={(e) => setSearch(e.target.value)}
