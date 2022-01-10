@@ -2,7 +2,7 @@ import React, { useRef } from 'react'
 import Search from '../components/Search'
 import Filter from '../components/Filter'
 
-const SearchFilter: React.FC = () => {
+const HomeHeader: React.FC = () => {
    const prevFilter = useRef('')
    const updatePrevFilter = (filter: string) => (prevFilter.current = filter)
 
@@ -17,4 +17,4 @@ const SearchFilter: React.FC = () => {
    )
 }
 
-export default SearchFilter
+export default HomeHeader

@@ -3,7 +3,7 @@ import { useFurtherDetailsContext } from '../hooks/useFurtherDetailsContext'
 import Button from '../components/styled/StyledButton'
 import Icon from '../components/styled/Icon'
 
-const SearchFilter: React.FC = () => {
+const FurtherHeader: React.FC = () => {
    const { setFurtherDetails } = useFurtherDetailsContext()
 
    return (
@@ -18,4 +18,4 @@ const SearchFilter: React.FC = () => {
    )
 }
 
-export default SearchFilter
+export default FurtherHeader
