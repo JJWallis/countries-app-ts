@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { useFurtherDetailsContext } from '../hooks/useFurtherDetailsContext'
 import { CountryName } from './styled/StyledTitle'
 import { CountrySubTitle } from './styled/CountryDataTitle'
 import { CountryData } from './styled/CountryData'
@@ -21,7 +20,6 @@ interface Props {
 }
 
 const CountryCard: React.FC<Props> = ({ data }) => {
-   const { handleFurtherDetails } = useFurtherDetailsContext()
    const {
       flags: { svg: flag },
       name: { common: name },
@@ -43,10 +41,7 @@ const CountryCard: React.FC<Props> = ({ data }) => {
 
    return (
       <Card>
-         <Link
-            to={`/details/${name.split(' ').join('-').toLowerCase()}`}
-            onClick={() => handleFurtherDetails(name.toLowerCase())}
-         >
+         <Link to={`/details/${name.split(' ').join('-').toLowerCase()}`}>
             <CountryImageContainer
                countryImgFlag={flag}
                aria-label={`Flag of ${name}`}
