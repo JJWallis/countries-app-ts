@@ -20,7 +20,7 @@ type DataToMap =
         capital: string
      }
    | {
-        topLevelDomain: string[][0]
+        topLevelDomain: string[][0] | undefined
         currencies: string | undefined
         languages: string | undefined
      }
@@ -87,7 +87,7 @@ const FurtherDetails: React.FC = () => {
             }),
 
             printData({
-               topLevelDomain: tld[0],
+               topLevelDomain: tld[0] ? tld[0] : undefined,
                currencies: currencies
                   ? Object.values(currencies)[0].name
                   : undefined,

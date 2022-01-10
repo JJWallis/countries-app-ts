@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { useFurtherDetailsContext } from '../hooks/useFurtherDetailsContext'
 import { CountryName } from './styled/StyledTitle'
 import { CountrySubTitle } from './styled/CountryDataTitle'
@@ -41,15 +42,20 @@ const CountryCard: React.FC<Props> = ({ data }) => {
    }
 
    return (
-      <Card onClick={() => handleFurtherDetails(name.toLowerCase())}>
-         <CountryImageContainer
-            countryImgFlag={flag}
-            aria-label={`Flag of ${name}`}
-         />
-         <Wrapper padding="1.5rem 1.7rem 2rem">
-            <CountryName>{name ? name : 'No data provided'}</CountryName>
-            {printData({ population, region, capital })}
-         </Wrapper>
+      <Card>
+         <Link
+            to={`/details/${name.split(' ').join('-').toLowerCase()}`}
+            onClick={() => handleFurtherDetails(name.toLowerCase())}
+         >
+            <CountryImageContainer
+               countryImgFlag={flag}
+               aria-label={`Flag of ${name}`}
+            />
+            <Wrapper padding="1.5rem 1.7rem 2rem">
+               <CountryName>{name ? name : 'No data provided'}</CountryName>
+               {printData({ population, region, capital })}
+            </Wrapper>
+         </Link>
       </Card>
    )
 }
