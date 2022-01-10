@@ -6,7 +6,7 @@ interface FurtherDetailsContextData {
    furtherDetails: CountryData | null
    setFurtherDetails: React.Dispatch<React.SetStateAction<CountryData | null>>
    handleFurtherDetails: (country: string) => boolean
-   furtherDetailsError: boolean
+   // furtherDetailsError: boolean
 }
 
 export const FurtherDetailsContext =
@@ -44,7 +44,7 @@ export const FurtherDetailsProvider = ({
             furtherDetails,
             setFurtherDetails,
             handleFurtherDetails,
-            furtherDetailsError,
+            // furtherDetailsError,
          }}
       >
          {children}
