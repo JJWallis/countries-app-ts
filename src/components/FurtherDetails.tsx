@@ -1,4 +1,5 @@
 import React from 'react'
+import { useParams } from 'react-router-dom'
 import { useFurtherDetailsContext } from '../hooks/useFurtherDetailsContext'
 import { CountryName } from './styled/StyledTitle'
 import { CountrySubTitle } from './styled/CountryDataTitle'
@@ -10,6 +11,7 @@ import {
    FurtherDetailsColumns,
    FurtherDetailsColumnsChild,
 } from './containers/FurtherDetailsContainers.styled'
+import { useCountriesContext } from '../hooks/useCountriesContext'
 
 type DataToMap =
    | {
@@ -26,8 +28,14 @@ type DataToMap =
      }
 
 const FurtherDetails: React.FC = () => {
-   const { furtherDetails } = useFurtherDetailsContext()
-   const data = furtherDetails ? furtherDetails[0] : null
+   const { countries } = useCountriesContext()
+   const { country } = useParams()
+   const data = countries?.find(
+      ({ name, cioc, cca3 }) =>
+         name?.common.toLowerCase() === country?.toLowerCase() ||
+         cioc === country ||
+         cca3 === country
+   )
 
    const printFlag = () => {
       if (data) {
