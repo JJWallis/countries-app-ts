@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { ThemeProvider } from 'styled-components'
-import { FurtherDetailsProvider } from './context/furtherDetailsContext'
 import { GlobalContext } from './context/globalContext'
 import { useCountriesContext } from './hooks/useCountriesContext'
 import { useDarkMode } from './hooks/useDarkMode'
@@ -41,11 +40,9 @@ const App: React.FC = () => {
                handleFilterRegions,
             }}
          >
-            <FurtherDetailsProvider>
-               <GlobalStyles />
-               <Header />
-               <Main />
-            </FurtherDetailsProvider>
+            <GlobalStyles />
+            <Header />
+            <Main />
          </GlobalContext.Provider>
       </ThemeProvider>
    )

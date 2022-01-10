@@ -3,9 +3,9 @@ import { useCountriesContext } from '../hooks/useCountriesContext'
 import { CountryData } from './countriesContext'
 
 interface FurtherDetailsContextData {
-   furtherDetails: CountryData | null
-   setFurtherDetails: React.Dispatch<React.SetStateAction<CountryData | null>>
-   handleFurtherDetails: (country: string) => boolean
+   // furtherDetails: CountryData | null
+   // setFurtherDetails: React.Dispatch<React.SetStateAction<CountryData | null>>
+   // handleFurtherDetails: (country: string) => boolean
 }
 
 export const FurtherDetailsContext =
@@ -35,11 +35,13 @@ export const FurtherDetailsProvider = ({
 
    return (
       <FurtherDetailsContext.Provider
-         value={{
-            furtherDetails,
-            setFurtherDetails,
-            handleFurtherDetails,
-         }}
+         value={
+            {
+               // furtherDetails,
+               // setFurtherDetails,
+               // handleFurtherDetails,
+            }
+         }
       >
          {children}
       </FurtherDetailsContext.Provider>
