@@ -1,4 +1,5 @@
 import React, { useRef } from 'react'
+import { Link, Outlet } from 'react-router-dom'
 import { useFurtherDetailsContext } from '../hooks/useFurtherDetailsContext'
 import { SearchFilterContainer } from './containers/SearchFilterContainer.styled'
 import Search from './Search'
@@ -38,7 +39,18 @@ const SearchFilter: React.FC = () => {
       )
    }
 
-   return <SearchFilterContainer>{handleLayoutChange()}</SearchFilterContainer>
+   // return <SearchFilterContainer>{handleLayoutChange()}</SearchFilterContainer>
+   return (
+      <>
+         <Search />
+         <Filter
+            prevFilter={prevFilter.current}
+            updatePrevFilter={updatePrevFilter}
+         />
+         <Link to="/details">details</Link>
+         <Outlet />
+      </>
+   )
 }
 
 export default SearchFilter
