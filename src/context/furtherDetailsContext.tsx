@@ -6,7 +6,6 @@ interface FurtherDetailsContextData {
    furtherDetails: CountryData | null
    setFurtherDetails: React.Dispatch<React.SetStateAction<CountryData | null>>
    handleFurtherDetails: (country: string) => boolean
-   // furtherDetailsError: boolean
 }
 
 export const FurtherDetailsContext =
@@ -18,7 +17,6 @@ export const FurtherDetailsProvider = ({
    children: ReactNode
 }) => {
    const [furtherDetails, setFurtherDetails] = useState<CountryData>(null)
-   const [furtherDetailsError, setFurtherDetailsError] = useState(false)
    const { countries } = useCountriesContext()
 
    const handleFurtherDetails = (country: string) => {
@@ -30,11 +28,9 @@ export const FurtherDetailsProvider = ({
       )
       // find() instead
       if (countryData && countryData.length) {
-         furtherDetailsError && setFurtherDetailsError(false)
          setFurtherDetails(countryData)
          return true
       }
-      setFurtherDetailsError(true)
       return false
    }
 
@@ -44,7 +40,6 @@ export const FurtherDetailsProvider = ({
             furtherDetails,
             setFurtherDetails,
             handleFurtherDetails,
-            // furtherDetailsError,
          }}
       >
          {children}
