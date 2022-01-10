@@ -15,8 +15,12 @@ const Search: React.FC = () => {
    }
 
    const handleSearchCountry = () => {
-      if (search && !fetchError?.current) {
+      if (search) {
          handleFurtherDetails(search)
+         // history.push('/details/' + search.split(' ').join('-').toLowerCase())
+         // instead of above - above function housed in FurtherDetails to automatically
+         // run using current id
+         // furtherDetailsError - replaced with local error state
          setSearch('')
       }
    }
