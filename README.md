@@ -70,29 +70,21 @@ useLayoutEffect(() => {
 One problem I ran into with my previous React TodoList application, was that synchronously placing my lightTheme object into the theme state would initially render that colour scheme, only to then quickly change to dark-mode if the user had previously selected it. This was of course happening because of the asynchronous nature of `useEffect()`, which I was using to set the theme based on the checkbox's saved state. In order to fix this bug, I decided to switch to using the `useLayoutEffect()` hook instead, which would synchronously set the checkbox state as the app first loads, before React would render any of the local JSX to the DOM.
 
 ```jsx
-const [homepage, setHomepage] = useState(true)
-
-const handleContentVisible = () => {
-   if (homepage) {
-      const data = determineData()
-      return data ? (
-         <Wrapper as="article" display={'grid'} role="grid">
-            {data.map((country) => (
-               <CountryCard key={uuidv4()} data={country} />
-            ))}
-         </Wrapper>
-      ) : (
-         <Loading>
-            {error
-               ? 'Country data could not be retrieved. Please reload & try again.'
-               : 'Loading...'}
-         </Loading>
-      )
-   }
-}
+<Routes>
+   <Route
+      path="/"
+      element={
+         <HomeHeader
+            prevFilter={prevFilter}
+            updatePrevFilter={updatePrevFilter}
+         />
+      }
+   />
+   <Route path="/details/:country" element={<FurtherHeader />} />
+</Routes>
 ```
 
-I was further really proud of my ability to use multiple different states housed in the App component, to control multiple features of the application together dynamically. This was a nice progression from my previous React project, since I was able to build different versions of state, rather than achieving the same effect stylistically. This would then control the layout and data displayed by the app in the manner of a single page application, which conditionally renders the data visible based on a user's actions.
+My original solution to creating the about page was to conditionally render components based on a change in state. However, I later decided to learn React Router and implemented it as my official solution instead. I learned how to setup routes and link to those from whatever components we may choose, as well as making use of the useParams() hook to attach additional information onto the path and dynamically generate JSX based on it.
 
 ```jsx
 const handleRegions = () => {
