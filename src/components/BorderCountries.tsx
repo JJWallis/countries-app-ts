@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { useCountriesContext } from '../hooks/useCountriesContext'
-import { useFurtherDetailsContext } from '../hooks/useFurtherDetailsContext'
 import { v4 as uuid } from 'uuid'
 import { CountrySubTitle } from './styled/CountryDataTitle'
 import {
@@ -9,14 +8,18 @@ import {
    BorderButtonsContainer,
 } from './containers/BordersContainer.styled'
 import Button from './styled/StyledButton'
+import { Country } from '../context/countriesContext'
 
-const BorderCountries: React.FC = () => {
-   const { furtherDetails, handleFurtherDetails } = useFurtherDetailsContext()
+interface Props {
+   country: Country | undefined
+}
+
+const BorderCountries: React.FC<Props> = ({ country }) => {
    const { countries } = useCountriesContext()
 
    const produceButtons = () => {
-      if (furtherDetails) {
-         const { borders } = furtherDetails[0]
+      if (country) {
+         const { borders } = country
          if (borders?.length) {
             return (
                <BorderButtonsContainer>
@@ -28,20 +31,13 @@ const BorderCountries: React.FC = () => {
 
                      return (
                         <Link
+                           key={uuid()}
                            to={`/details/${name
                               ?.split(' ')
                               .join('-')
                               .toLowerCase()}`}
                         >
-                           <Button
-                              country
-                              key={uuid()}
-                              onClick={() =>
-                                 handleFurtherDetails(border.toUpperCase())
-                              }
-                           >
-                              {name}
-                           </Button>
+                           <Button country>{name}</Button>
                         </Link>
                      )
                   })}

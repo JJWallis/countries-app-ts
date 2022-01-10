@@ -1,15 +1,13 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useCountriesContext } from '../hooks/useCountriesContext'
-import { useFurtherDetailsContext } from '../hooks/useFurtherDetailsContext'
 import StyledInput from './styled/StyledInput'
 import Icon from './styled/Icon'
 
 const Search: React.FC = () => {
    const [search, setSearch] = useState('')
    const [error, setError] = useState(false)
-   const { handleFurtherDetails } = useFurtherDetailsContext()
-   const { fetchError } = useCountriesContext()
+   const { countries, fetchError } = useCountriesContext()
    const navigate = useNavigate()
 
    const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -17,19 +15,17 @@ const Search: React.FC = () => {
    }
 
    const handleSearchCountry = () => {
-      if (search) {
-         const country = handleFurtherDetails(search)
-         if (country) {
-            navigate(`/details/${search.split(' ').join('-').toLowerCase()}`)
-            return
-         }
-         setError(true)
-         setSearch('')
-
-         // merge into master branch first
-         // instead of above - above function housed in FurtherDetails to automatically
-         // run using current country from useParams()
+      if (
+         search &&
+         countries?.find(
+            ({ name }) => name?.common.toLowerCase() === search.toLowerCase()
+         )
+      ) {
+         navigate(`/details/${search.split(' ').join('-').toLowerCase()}`)
+         return
       }
+      setError(true)
+      setSearch('')
    }
 
    return (

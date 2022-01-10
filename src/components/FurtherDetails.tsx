@@ -1,5 +1,6 @@
 import React from 'react'
-import { useFurtherDetailsContext } from '../hooks/useFurtherDetailsContext'
+import { useParams } from 'react-router-dom'
+import { useCountriesContext } from '../hooks/useCountriesContext'
 import { CountryName } from './styled/StyledTitle'
 import { CountrySubTitle } from './styled/CountryDataTitle'
 import { CountryData } from './styled/CountryData'
@@ -10,6 +11,7 @@ import {
    FurtherDetailsColumns,
    FurtherDetailsColumnsChild,
 } from './containers/FurtherDetailsContainers.styled'
+import { v4 as uuid } from 'uuid'
 
 type DataToMap =
    | {
@@ -26,8 +28,13 @@ type DataToMap =
      }
 
 const FurtherDetails: React.FC = () => {
-   const { furtherDetails } = useFurtherDetailsContext()
-   const data = furtherDetails ? furtherDetails[0] : null
+   const { countries } = useCountriesContext()
+   const { country } = useParams()
+   const countryFormatted = country?.split('-').join(' ')
+   const data = countries?.find(
+      ({ name }) =>
+         name?.common.toLowerCase() === countryFormatted?.toLowerCase()
+   )
 
    const printFlag = () => {
       if (data) {
@@ -41,7 +48,7 @@ const FurtherDetails: React.FC = () => {
 
    const printData = (data: DataToMap) => {
       return (
-         <FurtherDetailsColumnsChild>
+         <FurtherDetailsColumnsChild key={uuid()}>
             {data &&
                Object.entries(data).map(([key, value]) => (
                   <CountryData further key={key}>
@@ -107,7 +114,7 @@ const FurtherDetails: React.FC = () => {
                {data ? data.name.common : 'No name'}
             </CountryName>
             <FurtherDetailsColumns>{gatherData()}</FurtherDetailsColumns>
-            <BorderCountries />
+            <BorderCountries country={data} />
          </FurtherDetailsChild>
       </>
    )

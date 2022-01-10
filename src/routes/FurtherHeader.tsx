@@ -1,15 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { useFurtherDetailsContext } from '../hooks/useFurtherDetailsContext'
 import Button from '../components/styled/StyledButton'
 import Icon from '../components/styled/Icon'
 
 const FurtherHeader: React.FC = () => {
-   const { setFurtherDetails } = useFurtherDetailsContext()
-
    return (
       <>
-         <Link to="/" onClick={() => setFurtherDetails(null)}>
+         <Link to="/">
             <Button back>Back</Button>
             <Icon
                arrow
