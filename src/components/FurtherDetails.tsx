@@ -11,6 +11,7 @@ import {
    FurtherDetailsColumns,
    FurtherDetailsColumnsChild,
 } from './containers/FurtherDetailsContainers.styled'
+import { v4 as uuid } from 'uuid'
 
 type DataToMap =
    | {
@@ -47,7 +48,7 @@ const FurtherDetails: React.FC = () => {
 
    const printData = (data: DataToMap) => {
       return (
-         <FurtherDetailsColumnsChild>
+         <FurtherDetailsColumnsChild key={uuid()}>
             {data &&
                Object.entries(data).map(([key, value]) => (
                   <CountryData further key={key}>

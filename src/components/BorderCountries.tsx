@@ -28,6 +28,7 @@ const BorderCountries: React.FC = () => {
 
                      return (
                         <Link
+                           key={uuid()}
                            to={`/details/${name
                               ?.split(' ')
                               .join('-')
@@ -35,7 +36,6 @@ const BorderCountries: React.FC = () => {
                         >
                            <Button
                               country
-                              key={uuid()}
                               onClick={() =>
                                  handleFurtherDetails(border.toUpperCase())
                               }
