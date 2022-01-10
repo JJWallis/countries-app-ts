@@ -9,7 +9,7 @@ const SearchFilter: React.FC = () => {
       <SearchFilterContainer>
          <Routes>
             <Route path="/" element={<HomeHeader />} />
-            <Route path="/details" element={<FurtherHeader />} />
+            <Route path="/details/:country" element={<FurtherHeader />} />
          </Routes>
       </SearchFilterContainer>
    )

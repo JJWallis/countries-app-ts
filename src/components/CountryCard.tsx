@@ -44,7 +44,7 @@ const CountryCard: React.FC<Props> = ({ data }) => {
    return (
       <Card>
          <Link
-            to={`/details/${name.toLowerCase()}`}
+            to={`/details/${name.split(' ').join('-').toLowerCase()}`}
             onClick={() => handleFurtherDetails(name.toLowerCase())}
          >
             <CountryImageContainer
