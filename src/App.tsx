@@ -21,14 +21,14 @@ const App: React.FC = () => {
       dark ? setTheme(darkTheme) : setTheme(lightTheme)
 
    const handleFilterRegions = (region: string) => {
-      if (region === '') {
+      if (!region) {
          setFilteredRegions(null)
-      } else {
-         const filteredData = countries?.filter(
-            (country) => country.region.toLowerCase() === region.toLowerCase()
-         )
-         filteredData && setFilteredRegions(filteredData)
+         return
       }
+      const filteredData = countries?.filter(
+         (country) => country.region.toLowerCase() === region.toLowerCase()
+      )
+      filteredData && setFilteredRegions(filteredData)
    }
 
    return (
