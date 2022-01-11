@@ -14,16 +14,16 @@ import { v4 as uuid } from 'uuid'
 
 export type DataToMap =
    | {
-        nativeName: string | undefined
+        nativeName?: string
         population: number
         region: string
         subRegion: string
         capital: string
      }
    | {
-        topLevelDomain: string[][0] | undefined
-        currencies: string | undefined
-        languages: string | undefined
+        topLevelDomain?: string[][0]
+        currencies?: string
+        languages?: string
      }
 
 const FurtherMain: FC = () => {

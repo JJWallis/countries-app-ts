@@ -40,7 +40,7 @@ const FurtherDetails: React.FC<Props> = ({ data, printData, printFlag }) => {
             }),
 
             printData({
-               topLevelDomain: tld[0] ? tld[0] : undefined,
+               topLevelDomain: tld ? tld[0] : undefined,
                currencies: currencies
                   ? Object.values(currencies)[0].name
                   : undefined,
