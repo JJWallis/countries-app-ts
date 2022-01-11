@@ -1,10 +1,9 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
-import { FurtherDetailsParent } from './containers/FurtherDetailsContainers.styled'
 import { ErrorMsg } from './styled/ErrorMsg.styled'
 import { SearchFilterContainer } from './containers/SearchFilterContainer.styled'
 import HomeMain from '../routes/HomeMain'
-import FurtherDetails from './FurtherDetails'
+import FurtherMain from '../routes/FurtherMain'
 import BackButton from './BackButton'
 
 const CountriesContainer: React.FC = () => {
@@ -12,14 +11,7 @@ const CountriesContainer: React.FC = () => {
       <>
          <Routes>
             <Route path="/" element={<HomeMain />} />
-            <Route
-               path="/details/:country"
-               element={
-                  <FurtherDetailsParent>
-                     <FurtherDetails />
-                  </FurtherDetailsParent>
-               }
-            />
+            <Route path="/details/:country" element={<FurtherMain />} />
             <Route
                path="*"
                element={
