@@ -6,5 +6,5 @@ interface FilteredRegionsInterface {
    handleFilterRegions: (region: string) => void
 }
 
-export const GlobalContext =
+export const FilteredRegionsContext =
    React.createContext<FilteredRegionsInterface | null>(null)
