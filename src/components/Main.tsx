@@ -5,7 +5,7 @@ import SearchFilter from './SearchFilter'
 import Countries from './CountriesContainer'
 import { CountryData } from '../types/countriesContext.interface'
 import { useCountriesContext } from '../hooks/useCountriesContext'
-import { FilteredRegionsContext } from '../context/filteredRegionsContext'
+import { FilteredRegionsProvider } from '../context/filteredRegionsContext'
 
 const Main: FC = () => {
    const [filteredRegions, setFilteredRegions] = useState<CountryData>(null)
@@ -25,15 +25,13 @@ const Main: FC = () => {
    return (
       <StyledMain>
          <MainContainer>
-            <FilteredRegionsContext.Provider
-               value={{
-                  filteredRegions,
-                  handleFilterRegions,
-               }}
+            <FilteredRegionsProvider
+               filteredRegions={filteredRegions}
+               handleFilterRegions={handleFilterRegions}
             >
                <SearchFilter />
                <Countries />
-            </FilteredRegionsContext.Provider>
+            </FilteredRegionsProvider>
          </MainContainer>
       </StyledMain>
    )
