@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { ThemeProvider } from 'styled-components'
-import { GlobalContext } from './context/globalContext'
+import { GlobalContext } from './context/filteredRegionsContext'
 import { useCountriesContext } from './hooks/useCountriesContext'
 import { useDarkMode } from './hooks/useDarkMode'
 import { darkTheme, lightTheme } from './components/styled/Theme'

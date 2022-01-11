@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { GlobalContext } from '../context/globalContext'
+import { GlobalContext } from '../context/filteredRegionsContext'
 
 export function useGlobalContext() {
    const context = useContext(GlobalContext)
