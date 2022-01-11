@@ -20,5 +20,4 @@ export interface Country {
 export interface ContextInterface {
    countries: CountryData
    countriesError: boolean
-   fetchError: React.MutableRefObject<boolean>
 }

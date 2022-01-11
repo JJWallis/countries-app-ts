@@ -4,6 +4,7 @@ type IconProps = {
    moon?: boolean
    search?: boolean
    arrow?: boolean
+   disabled?: boolean
 }
 
 const SVG = styled.svg.attrs({
@@ -29,13 +30,14 @@ export default styled(SVG)<IconProps>`
          cursor: unset;
       `}
 
-   ${({ search }) =>
+   ${({ search, disabled }) =>
       search &&
       css`
          top: 20px;
          left: 30px;
          fill: ${({ theme: { input } }) => input};
          transform: unset;
+         pointer-events: ${disabled ? 'none' : 'all'};
       `}
 
       ${({ arrow }) =>

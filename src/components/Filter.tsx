@@ -12,7 +12,7 @@ interface Props {
 }
 
 const Filter: FC<Props> = ({ prevFilter, updatePrevFilter }) => {
-   const { countries, fetchError } = useCountriesContext()
+   const { countries, countriesError } = useCountriesContext()
    const { handleFilterRegions } = useFilteredRegionsContext()
    const [desiredRegion, setDesiredRegion] = useState('')
    const [toggleDropDown, setToggleDropDown] = useToggle(false)
@@ -48,13 +48,13 @@ const Filter: FC<Props> = ({ prevFilter, updatePrevFilter }) => {
 
    return (
       <FilterContainer
-         fetchError={fetchError?.current}
+         fetchError={countriesError}
          aria-label="Filter by region"
          onClick={setToggleDropDown}
       >
          <Button
             dropDown
-            disabled={fetchError?.current}
+            disabled={countriesError}
             onClick={() => !prevFilter && setDesiredRegion('')}
          >
             {!prevFilter ? 'Filter by region' : prevFilter}
