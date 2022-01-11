@@ -4,7 +4,7 @@ import { GlobalContext } from './context/globalContext'
 import { useCountriesContext } from './hooks/useCountriesContext'
 import { useDarkMode } from './hooks/useDarkMode'
 import { darkTheme, lightTheme } from './components/styled/Theme'
-import { CountryData } from './context/countriesContext'
+import { CountryData } from './types/countriesContext.interface'
 import GlobalStyles from './components/styled/GlobalStyles'
 import Header from './components/Header'
 import Main from './components/Main'
@@ -35,13 +35,12 @@ const App: React.FC = () => {
       <ThemeProvider theme={theme}>
          <GlobalContext.Provider
             value={{
-               handleThemeChange,
                filteredRegions,
                handleFilterRegions,
             }}
          >
             <GlobalStyles />
-            <Header />
+            <Header handleThemeChange={handleThemeChange} />
             <Main />
          </GlobalContext.Provider>
       </ThemeProvider>

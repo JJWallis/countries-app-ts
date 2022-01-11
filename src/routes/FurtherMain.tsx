@@ -11,20 +11,7 @@ import {
    FurtherDetailsColumnsChild,
 } from '../components/containers/FurtherDetailsContainers.styled'
 import { v4 as uuid } from 'uuid'
-
-export type DataToMap =
-   | {
-        nativeName?: string
-        population: number
-        region: string
-        subRegion: string
-        capital: string
-     }
-   | {
-        topLevelDomain?: string[][0]
-        currencies?: string
-        languages?: string
-     }
+import { DataToMap } from '../types/FurtherMain.interface'
 
 const FurtherMain: FC = () => {
    const { countries } = useCountriesContext()

@@ -7,10 +7,9 @@ import { Loading } from '../components/styled/StyledTitle'
 import CountryCard from '../components/CountryCard'
 
 const HomeMain: React.FC = () => {
-   const { filteredRegions } = useGlobalContext()
    const { countries, countriesError } = useCountriesContext()
-   const determineData = () => (!filteredRegions ? countries : filteredRegions)
-   const data = determineData()
+   const { filteredRegions } = useGlobalContext()
+   const data = !filteredRegions ? countries : filteredRegions
 
    return data ? (
       <Countries>
