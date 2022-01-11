@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { useCountriesContext } from '../hooks/useCountriesContext'
-import { useGlobalContext } from '../hooks/useFilteredRegionsContext'
+import { useFilteredRegionsContext } from '../hooks/useFilteredRegionsContext'
 import { useToggle } from '../hooks/useToggle'
 import { FilterContainer } from './containers/FilterContainer.styled'
 import { DropDownContainer } from './containers/DropDownContainer.styled'
@@ -12,8 +12,8 @@ interface Props {
 }
 
 const Filter: React.FC<Props> = ({ prevFilter, updatePrevFilter }) => {
-   const { handleFilterRegions } = useGlobalContext()
    const { countries, fetchError } = useCountriesContext()
+   const { handleFilterRegions } = useFilteredRegionsContext()
    const [desiredRegion, setDesiredRegion] = useState('')
    const [toggleDropDown, setToggleDropDown] = useToggle(false)
    const hasDataChanged = useRef('')
