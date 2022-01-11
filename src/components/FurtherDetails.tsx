@@ -1,6 +1,4 @@
 import React from 'react'
-import { Country } from '../types/countriesContext.interface'
-import { DataToMap } from '../types/FurtherMain.interface'
 import { CountryName } from './styled/StyledTitle'
 import BorderCountries from './BorderCountries'
 import {
@@ -8,14 +6,13 @@ import {
    FurtherDetailsColumns,
 } from './containers/FurtherDetailsContainers.styled'
 import { ErrorMsg } from './styled/ErrorMsg.styled'
+import { FurtherDetailsProps } from '../types/FurtherDetails.interface'
 
-interface Props {
-   data: Country | undefined
-   printFlag: () => JSX.Element | undefined
-   printData: (data: DataToMap) => JSX.Element
-}
-
-const FurtherDetails: React.FC<Props> = ({ data, printData, printFlag }) => {
+const FurtherDetails: React.FC<FurtherDetailsProps> = ({
+   data,
+   printData,
+   printFlag,
+}) => {
    const gatherData = () => {
       if (data) {
          const {
