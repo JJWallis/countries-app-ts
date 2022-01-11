@@ -2,7 +2,7 @@ import React, { useRef } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { SearchFilterContainer } from './containers/SearchFilterContainer.styled'
 import HomeHeader from '../routes/HomeHeader'
-import FurtherHeader from '../routes/FurtherHeader'
+import BackButton from './BackButton'
 
 const SearchFilter: React.FC = () => {
    const prevFilter = useRef('')
@@ -20,7 +20,7 @@ const SearchFilter: React.FC = () => {
                   />
                }
             />
-            <Route path="/details/:country" element={<FurtherHeader />} />
+            <Route path="/details/:country" element={<BackButton />} />
          </Routes>
       </SearchFilterContainer>
    )
