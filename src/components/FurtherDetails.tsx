@@ -1,19 +1,12 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
-import { useCountriesContext } from '../hooks/useCountriesContext'
 import { Country } from '../context/countriesContext'
 import { DataToMap } from '../routes/FurtherMain'
 import { CountryName } from './styled/StyledTitle'
-import { CountrySubTitle } from './styled/CountryDataTitle'
-import { CountryData } from './styled/CountryData'
-import CountryImg from './styled/StyledImg'
 import BorderCountries from './BorderCountries'
 import {
    FurtherDetailsChild,
    FurtherDetailsColumns,
-   FurtherDetailsColumnsChild,
 } from './containers/FurtherDetailsContainers.styled'
-import { v4 as uuid } from 'uuid'
 
 interface Props {
    data: Country | undefined
@@ -21,48 +14,7 @@ interface Props {
    printData: (data: DataToMap) => JSX.Element
 }
 
-const FurtherDetails: React.FC<Props> = () => {
-   const { countries } = useCountriesContext()
-   const { country } = useParams()
-   const countryFormatted = country?.split('-').join(' ')
-   const data = countries?.find(
-      ({ name }) =>
-         name?.common.toLowerCase() === countryFormatted?.toLowerCase()
-   )
-
-   const printFlag = () => {
-      if (data) {
-         return (
-            <FurtherDetailsChild>
-               <CountryImg flag src={data.flags.svg} alt="Country flag." />
-            </FurtherDetailsChild>
-         )
-      }
-   }
-
-   const printData = (data: DataToMap) => {
-      return (
-         <FurtherDetailsColumnsChild key={uuid()}>
-            {data &&
-               Object.entries(data).map(([key, value]) => (
-                  <CountryData further key={key}>
-                     <CountrySubTitle further>
-                        {key[0].toUpperCase() +
-                           key
-                              .slice(1, key.length)
-                              .split(/(?=[A-Z])/)
-                              .join(' ')}
-                        :
-                     </CountrySubTitle>
-                     {value
-                        ? value.toString().split(',').join(', ')
-                        : 'No data provided'}
-                  </CountryData>
-               ))}
-         </FurtherDetailsColumnsChild>
-      )
-   }
-
+const FurtherDetails: React.FC<Props> = ({ data, printData, printFlag }) => {
    const gatherData = () => {
       if (data) {
          const {
