@@ -16,7 +16,7 @@ const Filter: FC<Props> = ({ prevFilter, updatePrevFilter }) => {
    const { handleFilterRegions } = useFilteredRegionsContext()
    const [desiredRegion, setDesiredRegion] = useState('')
    const [toggleDropDown, setToggleDropDown] = useToggle(false)
-   const hasDataChanged = useRef('')
+   const prevRegion = useRef('')
 
    const produceRegions = () => {
       const regions = new Set(countries?.map(({ region }) => region))
@@ -35,9 +35,9 @@ const Filter: FC<Props> = ({ prevFilter, updatePrevFilter }) => {
    }
 
    useEffect(() => {
-      if (hasDataChanged.current !== desiredRegion) {
+      if (prevRegion.current !== desiredRegion) {
          handleFilterRegions(desiredRegion)
-         hasDataChanged.current = desiredRegion
+         prevRegion.current = desiredRegion
          updatePrevFilter(desiredRegion)
       }
    }, [desiredRegion, handleFilterRegions, updatePrevFilter])
@@ -47,11 +47,7 @@ const Filter: FC<Props> = ({ prevFilter, updatePrevFilter }) => {
    }, [prevFilter])
 
    return (
-      <FilterContainer
-         fetchError={countriesError}
-         aria-label="Filter by region"
-         onClick={setToggleDropDown}
-      >
+      <FilterContainer fetchError={countriesError} onClick={setToggleDropDown}>
          <Button
             dropDown
             disabled={countriesError}
