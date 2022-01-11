@@ -1,8 +1,8 @@
 import { useContext } from 'react'
-import { GlobalContext } from '../context/globalContext'
+import { FilteredRegionsContext } from '../context/filteredRegionsContext'
 
-export function useGlobalContext() {
-   const context = useContext(GlobalContext)
+export function useFilteredRegionsContext() {
+   const context = useContext(FilteredRegionsContext)
    if (!context) {
       throw new Error(
          'useGlobalContext must be used within a GlobalContextProvider'

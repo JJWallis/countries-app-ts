@@ -1,6 +1,6 @@
 import React from 'react'
 import { useCountriesContext } from '../hooks/useCountriesContext'
-import { useGlobalContext } from '../hooks/useGlobalContext'
+import { useFilteredRegionsContext } from '../hooks/useFilteredRegionsContext'
 import { v4 as uuidv4 } from 'uuid'
 import { CountryContainer as Countries } from '../components/containers/CountryContainer.styled'
 import { Loading } from '../components/styled/StyledTitle'
@@ -8,7 +8,7 @@ import CountryCard from '../components/CountryCard'
 
 const HomeMain: React.FC = () => {
    const { countries, countriesError } = useCountriesContext()
-   const { filteredRegions } = useGlobalContext()
+   const { filteredRegions } = useFilteredRegionsContext()
    const data = !filteredRegions ? countries : filteredRegions
 
    return data ? (
