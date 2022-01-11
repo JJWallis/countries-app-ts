@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, FC } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useCountriesContext } from '../hooks/useCountriesContext'
 import StyledInput from './styled/StyledInput'
 import Icon from './styled/Icon'
 
-const Search: React.FC = () => {
+const Search: FC = () => {
    const [search, setSearch] = useState('')
    const [error, setError] = useState(false)
    const { countries, fetchError } = useCountriesContext()

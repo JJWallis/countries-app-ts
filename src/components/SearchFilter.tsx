@@ -1,10 +1,10 @@
-import React, { useRef } from 'react'
+import React, { useRef, FC } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { SearchFilterContainer } from './containers/SearchFilterContainer.styled'
 import HomeHeader from '../routes/HomeHeader'
 import BackButton from './BackButton'
 
-const SearchFilter: React.FC = () => {
+const SearchFilter: FC = () => {
    const prevFilter = useRef('')
    const updatePrevFilter = (filter: string) => (prevFilter.current = filter)
 

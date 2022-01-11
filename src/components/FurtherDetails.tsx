@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { CountryName } from './styled/StyledTitle'
 import BorderCountries from './BorderCountries'
 import {
@@ -8,7 +8,7 @@ import {
 import { ErrorMsg } from './styled/ErrorMsg.styled'
 import { FurtherDetailsProps } from '../types/FurtherDetails.interface'
 
-const FurtherDetails: React.FC<FurtherDetailsProps> = ({
+const FurtherDetails: FC<FurtherDetailsProps> = ({
    data,
    printData,
    printFlag,

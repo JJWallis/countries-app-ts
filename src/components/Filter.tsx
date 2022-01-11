@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState, useRef, FC } from 'react'
 import { useCountriesContext } from '../hooks/useCountriesContext'
 import { useFilteredRegionsContext } from '../hooks/useFilteredRegionsContext'
 import { useToggle } from '../hooks/useToggle'
@@ -11,7 +11,7 @@ interface Props {
    updatePrevFilter: (filter: string) => string
 }
 
-const Filter: React.FC<Props> = ({ prevFilter, updatePrevFilter }) => {
+const Filter: FC<Props> = ({ prevFilter, updatePrevFilter }) => {
    const { countries, fetchError } = useCountriesContext()
    const { handleFilterRegions } = useFilteredRegionsContext()
    const [desiredRegion, setDesiredRegion] = useState('')
