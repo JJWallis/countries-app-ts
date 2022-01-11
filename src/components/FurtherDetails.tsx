@@ -1,5 +1,5 @@
 import React from 'react'
-import { Country } from '../context/countriesContext'
+import { Country } from '../types/countriesContext.interface'
 import { DataToMap } from '../routes/FurtherMain'
 import { CountryName } from './styled/StyledTitle'
 import BorderCountries from './BorderCountries'

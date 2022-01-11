@@ -1,5 +1,5 @@
 import React from 'react'
-import { CountryData } from './countriesContext'
+import { CountryData } from '../types/countriesContext.interface'
 
 export interface GlobalContextInterface {
    filteredRegions: CountryData

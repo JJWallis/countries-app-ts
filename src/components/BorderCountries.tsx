@@ -8,7 +8,7 @@ import {
    BorderButtonsContainer,
 } from './containers/BordersContainer.styled'
 import Button from './styled/StyledButton'
-import { Country } from '../context/countriesContext'
+import { Country } from '../types/countriesContext.interface'
 
 interface Props {
    country: Country | undefined
