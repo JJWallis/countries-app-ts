@@ -1,4 +1,5 @@
 import React from 'react'
+import { CountryCardProps } from '../types/CountryCard.interface'
 import { Link } from 'react-router-dom'
 import { CountryName } from './styled/StyledTitle'
 import { CountrySubTitle } from './styled/CountryDataTitle'
@@ -9,17 +10,7 @@ import {
 } from './containers/CountryContainer.styled'
 import Wrapper from './containers/Wrapper'
 
-interface Props {
-   data: {
-      flags: { svg: string }
-      name: { common: string }
-      population: number
-      region: string
-      capital: string
-   }
-}
-
-const CountryCard: React.FC<Props> = ({ data }) => {
+const CountryCard: React.FC<CountryCardProps> = ({ data }) => {
    const {
       flags: { svg: flag },
       name: { common: name },
@@ -28,7 +19,7 @@ const CountryCard: React.FC<Props> = ({ data }) => {
       capital,
    } = data
 
-   const printData = (newData: Partial<Props['data']>) => {
+   const printData = (newData: Partial<CountryCardProps['data']>) => {
       return Object.entries(newData).map(([key, value]) => (
          <Wrapper margin="0 0 0.2rem" key={key}>
             <CountrySubTitle as="p">
