@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { ErrorMsg } from './styled/ErrorMsg.styled'
 import { SearchFilterContainer } from './containers/SearchFilterContainer.styled'
@@ -6,7 +6,7 @@ import HomeMain from '../routes/HomeMain'
 import FurtherMain from '../routes/FurtherMain'
 import BackButton from './BackButton'
 
-const CountriesContainer: React.FC = () => {
+const CountriesContainer: FC = () => {
    return (
       <>
          <Routes>

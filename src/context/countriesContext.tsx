@@ -1,4 +1,4 @@
-import React, { ReactNode, useState, useEffect, useRef } from 'react'
+import React, { ReactNode, useState, useEffect } from 'react'
 import {
    CountryData,
    ContextInterface,
@@ -12,14 +12,12 @@ export const CountriesContext = React.createContext<ContextInterface | null>(
 export const CountriesProvider = ({ children }: { children: ReactNode }) => {
    const [countries, setCountries] = useState<CountryData>(null)
    const [countriesError, setCountriesError] = useState(false)
-   const fetchError = useRef(false)
 
    function fetchData(endpoint: string) {
       axios
          .get<CountryData>(endpoint)
          .then((value) => setCountries(value.data))
          .catch((err) => {
-            fetchError.current = true
             setCountriesError(true)
             console.error(err.message)
          })
@@ -28,9 +26,7 @@ export const CountriesProvider = ({ children }: { children: ReactNode }) => {
    useEffect(() => fetchData('https://restcountries.com/v3.1/all'), [])
 
    return (
-      <CountriesContext.Provider
-         value={{ countries, countriesError, fetchError }}
-      >
+      <CountriesContext.Provider value={{ countries, countriesError }}>
          {children}
       </CountriesContext.Provider>
    )

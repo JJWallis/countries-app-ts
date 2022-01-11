@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState, useRef, FC } from 'react'
 import { useCountriesContext } from '../hooks/useCountriesContext'
 import { useFilteredRegionsContext } from '../hooks/useFilteredRegionsContext'
 import { useToggle } from '../hooks/useToggle'
@@ -11,12 +11,12 @@ interface Props {
    updatePrevFilter: (filter: string) => string
 }
 
-const Filter: React.FC<Props> = ({ prevFilter, updatePrevFilter }) => {
-   const { countries, fetchError } = useCountriesContext()
+const Filter: FC<Props> = ({ prevFilter, updatePrevFilter }) => {
+   const { countries, countriesError } = useCountriesContext()
    const { handleFilterRegions } = useFilteredRegionsContext()
    const [desiredRegion, setDesiredRegion] = useState('')
    const [toggleDropDown, setToggleDropDown] = useToggle(false)
-   const hasDataChanged = useRef('')
+   const prevRegion = useRef('')
 
    const produceRegions = () => {
       const regions = new Set(countries?.map(({ region }) => region))
@@ -35,9 +35,9 @@ const Filter: React.FC<Props> = ({ prevFilter, updatePrevFilter }) => {
    }
 
    useEffect(() => {
-      if (hasDataChanged.current !== desiredRegion) {
+      if (prevRegion.current !== desiredRegion) {
          handleFilterRegions(desiredRegion)
-         hasDataChanged.current = desiredRegion
+         prevRegion.current = desiredRegion
          updatePrevFilter(desiredRegion)
       }
    }, [desiredRegion, handleFilterRegions, updatePrevFilter])
@@ -47,14 +47,10 @@ const Filter: React.FC<Props> = ({ prevFilter, updatePrevFilter }) => {
    }, [prevFilter])
 
    return (
-      <FilterContainer
-         fetchError={fetchError?.current}
-         aria-label="Filter by region"
-         onClick={setToggleDropDown}
-      >
+      <FilterContainer fetchError={countriesError} onClick={setToggleDropDown}>
          <Button
             dropDown
-            disabled={fetchError?.current}
+            disabled={countriesError}
             onClick={() => !prevFilter && setDesiredRegion('')}
          >
             {!prevFilter ? 'Filter by region' : prevFilter}

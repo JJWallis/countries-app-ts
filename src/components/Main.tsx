@@ -1,13 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState, FC } from 'react'
 import StyledMain from './styled/StyledMain'
 import { MainContainer } from './containers/MainContainer.styled'
 import SearchFilter from './SearchFilter'
 import Countries from './CountriesContainer'
 import { CountryData } from '../types/countriesContext.interface'
 import { useCountriesContext } from '../hooks/useCountriesContext'
-import { FilteredRegionsContext } from '../context/filteredRegionsContext'
+import { FilteredRegionsProvider } from '../context/filteredRegionsContext'
 
-const Main: React.FC = () => {
+const Main: FC = () => {
    const [filteredRegions, setFilteredRegions] = useState<CountryData>(null)
    const { countries } = useCountriesContext()
 
@@ -25,15 +25,13 @@ const Main: React.FC = () => {
    return (
       <StyledMain>
          <MainContainer>
-            <FilteredRegionsContext.Provider
-               value={{
-                  filteredRegions,
-                  handleFilterRegions,
-               }}
+            <FilteredRegionsProvider
+               filteredRegions={filteredRegions}
+               handleFilterRegions={handleFilterRegions}
             >
                <SearchFilter />
                <Countries />
-            </FilteredRegionsContext.Provider>
+            </FilteredRegionsProvider>
          </MainContainer>
       </StyledMain>
    )

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { CountryCardProps } from '../types/CountryCard.interface'
 import { Link } from 'react-router-dom'
 import { CountryName } from './styled/StyledTitle'
@@ -10,7 +10,7 @@ import {
 } from './containers/CountryContainer.styled'
 import Wrapper from './containers/Wrapper'
 
-const CountryCard: React.FC<CountryCardProps> = ({ data }) => {
+const CountryCard: FC<CountryCardProps> = ({ data }) => {
    const {
       flags: { svg: flag },
       name: { common: name },

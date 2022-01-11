@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { Link } from 'react-router-dom'
 import { useCountriesContext } from '../hooks/useCountriesContext'
 import { v4 as uuid } from 'uuid'
@@ -14,7 +14,7 @@ interface Props {
    country: Country | undefined
 }
 
-const BorderCountries: React.FC<Props> = ({ country }) => {
+const BorderCountries: FC<Props> = ({ country }) => {
    const { countries } = useCountriesContext()
 
    const produceButtons = () => {
