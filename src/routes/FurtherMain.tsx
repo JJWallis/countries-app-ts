@@ -32,7 +32,8 @@ const FurtherMain: FC = () => {
    const countryFormatted = country?.split('-').join(' ')
    const data = countries?.find(
       ({ name }) =>
-         name?.common.toLowerCase() === countryFormatted?.toLowerCase()
+         name?.common.toLowerCase() === countryFormatted?.toLowerCase() ||
+         name?.common.toLowerCase() === country?.toLowerCase()
    )
 
    const printFlag = () => {
