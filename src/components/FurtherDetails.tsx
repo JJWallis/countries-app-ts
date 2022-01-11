@@ -7,6 +7,7 @@ import {
    FurtherDetailsChild,
    FurtherDetailsColumns,
 } from './containers/FurtherDetailsContainers.styled'
+import { ErrorMsg } from './styled/ErrorMsg.styled'
 
 interface Props {
    data: Country | undefined
@@ -50,15 +51,14 @@ const FurtherDetails: React.FC<Props> = ({ data, printData, printFlag }) => {
             }),
          ]
       }
+      return <ErrorMsg>{'Country not found'}</ErrorMsg>
    }
 
    return (
       <>
          {printFlag()}
          <FurtherDetailsChild as="article">
-            <CountryName further>
-               {data ? data.name.common : 'No name'}
-            </CountryName>
+            <CountryName further>{data ? data.name.common : ''}</CountryName>
             <FurtherDetailsColumns>{gatherData()}</FurtherDetailsColumns>
             <BorderCountries country={data} />
          </FurtherDetailsChild>
