@@ -35,13 +35,12 @@ const App: React.FC = () => {
       <ThemeProvider theme={theme}>
          <GlobalContext.Provider
             value={{
-               handleThemeChange,
                filteredRegions,
                handleFilterRegions,
             }}
          >
             <GlobalStyles />
-            <Header />
+            <Header handleThemeChange={handleThemeChange} />
             <Main />
          </GlobalContext.Provider>
       </ThemeProvider>

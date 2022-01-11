@@ -1,15 +1,19 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { HeaderContainer } from './containers/HeaderContainer.styled'
 import { MainTitle } from './styled/StyledTitle'
 import StyledHeader from './styled/StyledHeader'
 import ThemeSwitcher from './ThemeSwitcher'
 
-const Header: React.FC = () => {
+interface Props {
+   handleThemeChange: (dark: boolean) => void
+}
+
+const Header: FC<Props> = ({ handleThemeChange }) => {
    return (
       <StyledHeader>
          <HeaderContainer>
             <MainTitle>Where in the world?</MainTitle>
-            <ThemeSwitcher />
+            <ThemeSwitcher handleThemeChange={handleThemeChange} />
          </HeaderContainer>
       </StyledHeader>
    )
