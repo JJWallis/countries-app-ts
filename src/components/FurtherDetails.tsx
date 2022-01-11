@@ -1,6 +1,8 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import { useCountriesContext } from '../hooks/useCountriesContext'
+import { Country } from '../context/countriesContext'
+import { DataToMap } from '../routes/FurtherMain'
 import { CountryName } from './styled/StyledTitle'
 import { CountrySubTitle } from './styled/CountryDataTitle'
 import { CountryData } from './styled/CountryData'
@@ -13,21 +15,13 @@ import {
 } from './containers/FurtherDetailsContainers.styled'
 import { v4 as uuid } from 'uuid'
 
-type DataToMap =
-   | {
-        nativeName: string | undefined
-        population: number
-        region: string
-        subRegion: string
-        capital: string
-     }
-   | {
-        topLevelDomain: string[][0] | undefined
-        currencies: string | undefined
-        languages: string | undefined
-     }
+interface Props {
+   data: Country | undefined
+   printFlag: () => JSX.Element | undefined
+   printData: (data: DataToMap) => JSX.Element
+}
 
-const FurtherDetails: React.FC = () => {
+const FurtherDetails: React.FC<Props> = () => {
    const { countries } = useCountriesContext()
    const { country } = useParams()
    const countryFormatted = country?.split('-').join(' ')
