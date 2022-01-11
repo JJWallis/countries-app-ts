@@ -50,7 +50,9 @@ const BorderCountries: React.FC<Props> = ({ country }) => {
 
    return (
       <BordersContainer>
-         <CountrySubTitle borderTitle>Border Countries:</CountrySubTitle>
+         <CountrySubTitle borderTitle>
+            {country ? 'Border Countries:' : ''}
+         </CountrySubTitle>
          {produceButtons()}
       </BordersContainer>
    )

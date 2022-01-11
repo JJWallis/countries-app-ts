@@ -1,74 +1,21 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
-import { useCountriesContext } from '../hooks/useCountriesContext'
+import { Country } from '../context/countriesContext'
+import { DataToMap } from '../routes/FurtherMain'
 import { CountryName } from './styled/StyledTitle'
-import { CountrySubTitle } from './styled/CountryDataTitle'
-import { CountryData } from './styled/CountryData'
-import CountryImg from './styled/StyledImg'
 import BorderCountries from './BorderCountries'
 import {
    FurtherDetailsChild,
    FurtherDetailsColumns,
-   FurtherDetailsColumnsChild,
 } from './containers/FurtherDetailsContainers.styled'
-import { v4 as uuid } from 'uuid'
+import { ErrorMsg } from './styled/ErrorMsg.styled'
 
-type DataToMap =
-   | {
-        nativeName: string | undefined
-        population: number
-        region: string
-        subRegion: string
-        capital: string
-     }
-   | {
-        topLevelDomain: string[][0] | undefined
-        currencies: string | undefined
-        languages: string | undefined
-     }
+interface Props {
+   data: Country | undefined
+   printFlag: () => JSX.Element | undefined
+   printData: (data: DataToMap) => JSX.Element
+}
 
-const FurtherDetails: React.FC = () => {
-   const { countries } = useCountriesContext()
-   const { country } = useParams()
-   const countryFormatted = country?.split('-').join(' ')
-   const data = countries?.find(
-      ({ name }) =>
-         name?.common.toLowerCase() === countryFormatted?.toLowerCase()
-   )
-
-   const printFlag = () => {
-      if (data) {
-         return (
-            <FurtherDetailsChild>
-               <CountryImg flag src={data.flags.svg} alt="Country flag." />
-            </FurtherDetailsChild>
-         )
-      }
-   }
-
-   const printData = (data: DataToMap) => {
-      return (
-         <FurtherDetailsColumnsChild key={uuid()}>
-            {data &&
-               Object.entries(data).map(([key, value]) => (
-                  <CountryData further key={key}>
-                     <CountrySubTitle as="p" further>
-                        {key[0].toUpperCase() +
-                           key
-                              .slice(1, key.length)
-                              .split(/(?=[A-Z])/)
-                              .join(' ')}
-                        :
-                     </CountrySubTitle>
-                     {value
-                        ? value.toString().split(',').join(', ')
-                        : 'No data provided'}
-                  </CountryData>
-               ))}
-         </FurtherDetailsColumnsChild>
-      )
-   }
-
+const FurtherDetails: React.FC<Props> = ({ data, printData, printFlag }) => {
    const gatherData = () => {
       if (data) {
          const {
@@ -94,7 +41,7 @@ const FurtherDetails: React.FC = () => {
             }),
 
             printData({
-               topLevelDomain: tld[0] ? tld[0] : undefined,
+               topLevelDomain: tld ? tld[0] : undefined,
                currencies: currencies
                   ? Object.values(currencies)[0].name
                   : undefined,
@@ -104,15 +51,14 @@ const FurtherDetails: React.FC = () => {
             }),
          ]
       }
+      return <ErrorMsg>{'Country not found'}</ErrorMsg>
    }
 
    return (
       <>
          {printFlag()}
          <FurtherDetailsChild as="article">
-            <CountryName further>
-               {data ? data.name.common : 'No name'}
-            </CountryName>
+            <CountryName further>{data ? data.name.common : ''}</CountryName>
             <FurtherDetailsColumns>{gatherData()}</FurtherDetailsColumns>
             <BorderCountries country={data} />
          </FurtherDetailsChild>
