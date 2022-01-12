@@ -1,4 +1,4 @@
-import React, { FC, forwardRef } from 'react'
+import React, { FC } from 'react'
 import { CountryCardProps } from '../types/CountryCard.interface'
 import { Link } from 'react-router-dom'
 import { CountryName } from './styled/StyledTitle'
