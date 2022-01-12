@@ -52,7 +52,7 @@ Your users should be able to:
 
 > ###### Console Warning
 >
-> I'm aware of Styled Components warning me about producing over 200 divs for each country on the homepage. I could always slice the array of country data being displayed to the user, but I chose to let the user navigate through the whole list instead.
+> I'm aware of Styled Components warning me about producing over 200 divs for each country on the homepage. I could always slice the array of country data being displayed to the user, but I chose to let the user browse through the whole list instead.
 
 ```jsx
 export default styled.div.attrs<Props>(
