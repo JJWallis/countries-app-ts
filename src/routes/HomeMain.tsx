@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { useCountriesContext } from '../hooks/useCountriesContext'
 import { useFilteredRegionsContext } from '../hooks/useFilteredRegionsContext'
 import { v4 as uuidv4 } from 'uuid'
@@ -10,9 +10,10 @@ const HomeMain: React.FC = () => {
    const { countries, countriesError } = useCountriesContext()
    const { filteredRegions } = useFilteredRegionsContext()
    const data = !filteredRegions ? countries : filteredRegions
+   const cardRef = useRef<HTMLElement | null>(null)
 
    return data ? (
-      <Countries>
+      <Countries ref={cardRef}>
          {data.map((country) => (
             <CountryCard key={uuidv4()} data={country} />
          ))}
