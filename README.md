@@ -50,6 +50,10 @@ Your users should be able to:
 
 ### What I learned
 
+> ###### Console Warning
+>
+> I'm aware of ....
+
 ```jsx
 export default styled.div.attrs<Props>(
    ({margin, ...}) => ({ margin: margin,}))<Props>`
