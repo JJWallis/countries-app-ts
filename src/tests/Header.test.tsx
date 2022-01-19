@@ -2,11 +2,8 @@ import React from 'react'
 import Header from '../components/Header'
 import { render, Matcher, MatcherOptions } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
-let getTestById: (
-   text: Matcher,
-   options?: MatcherOptions | undefined,
-   waitForElementOptions?: unknown
-) => HTMLElement
+import { GetTestById } from '../types/Tests.interface'
+let getTestById: GetTestById
 
 beforeEach(() => {
    const component = render(
