@@ -10,7 +10,7 @@ beforeEach(() => {
    getTestById = component.getByTestId
 })
 
-test('search input value updates on change', () => {
-   const search = getTestById('search-input')
+test('search input value updates on change', async () => {
+   const search = getTestById('search-input') as HTMLInputElement
    expect(search.value).toBe('')
 })
