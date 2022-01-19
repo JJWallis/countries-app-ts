@@ -21,4 +21,6 @@ beforeEach(() => {
 test('search input value updates on change', () => {
    const search = getTestById('search-input') as HTMLInputElement
    expect(search.value).toBe('')
+   fireEvent.change(search, { target: { value: 'test' } })
+   expect(search.value).toBe('test')
 })
