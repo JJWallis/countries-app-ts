@@ -27,12 +27,19 @@ test('input value updates on change', () => {
 })
 
 test('input error styles update on invalid search', () => {
+   //    act(() => {
+   //       render(
+   //          <CountriesProvider>
+   //             <BrowserRouter>
+   //                <Search />
+   //             </BrowserRouter>
+   //          </CountriesProvider>
+   //       )
+   //    })
    const search = getTestById('search-input') as HTMLInputElement
    const searchIcon = getTestById('search-icon')
    expect(search.value).toBe('')
    fireEvent.change(search, { target: { value: 'test' } })
-   act(() => {
-      fireEvent.click(searchIcon)
-   })
+   fireEvent.click(searchIcon)
    expect(search.placeholder).toBe('Please enter a valid country')
 })
