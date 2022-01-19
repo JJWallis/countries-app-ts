@@ -1,6 +1,6 @@
 import React from 'react'
 import Header from '../components/Header'
-import { render, Matcher, MatcherOptions } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 import { GetTestById } from '../types/Tests.interface'
 let getTestById: GetTestById
