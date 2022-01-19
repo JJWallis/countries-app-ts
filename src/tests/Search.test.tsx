@@ -5,7 +5,6 @@ import '@testing-library/jest-dom/extend-expect'
 import { CountriesProvider } from '../context/countriesContext'
 import { BrowserRouter } from 'react-router-dom'
 import { GetTestById } from '../types/Tests.interface'
-import { act } from 'react-dom/test-utils'
 let getTestById: GetTestById
 
 beforeEach(() => {
@@ -27,15 +26,6 @@ test('input value updates on change', () => {
 })
 
 test('input error styles update on invalid search', () => {
-   //    act(() => {
-   //       render(
-   //          <CountriesProvider>
-   //             <BrowserRouter>
-   //                <Search />
-   //             </BrowserRouter>
-   //          </CountriesProvider>
-   //       )
-   //    })
    const search = getTestById('search-input') as HTMLInputElement
    const searchIcon = getTestById('search-icon')
    expect(search.value).toBe('')
