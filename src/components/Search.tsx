@@ -40,6 +40,7 @@ const Search: FC = () => {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             onKeyDown={handleKeyPress}
+            data-testid="search-input"
          />
          <Icon
             search
