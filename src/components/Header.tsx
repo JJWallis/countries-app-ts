@@ -12,7 +12,9 @@ const Header: FC<Props> = ({ handleThemeChange }) => {
    return (
       <StyledHeader>
          <HeaderContainer>
-            <MainTitle>Where in the world?</MainTitle>
+            <MainTitle data-testid="header-title">
+               Where in the world?
+            </MainTitle>
             <ThemeSwitcher handleThemeChange={handleThemeChange} />
          </HeaderContainer>
       </StyledHeader>

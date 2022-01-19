@@ -1,0 +1,12 @@
+import React from 'react'
+import Header from '../components/Header'
+import { render, fireEvent } from '@testing-library/react'
+import '@testing-library/jest-dom/extend-expect'
+
+test('header title renders with correct text', () => {
+   const { getByTestId } = render(
+      <Header handleThemeChange={(dark: boolean) => undefined} />
+   )
+   const title = getByTestId('header-title')
+   expect(title).toHaveTextContent('Where in the world?')
+})
