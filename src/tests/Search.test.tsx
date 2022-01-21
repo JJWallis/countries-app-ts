@@ -1,6 +1,6 @@
 import Search from '../components/Search'
 import React from 'react'
-import { render, fireEvent, screen } from '@testing-library/react'
+import { render, fireEvent } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 import { CountriesProvider } from '../context/countriesContext'
 import { BrowserRouter } from 'react-router-dom'
@@ -25,7 +25,7 @@ test('input value updates on change', () => {
    expect(search.value).toBe('')
    fireEvent.change(search, { target: { value: 'test' } })
    expect(search.value).toBe('test')
-   screen.getByRole('')
+   // screen.getByRole('')
 })
 
 describe('search', () => {
