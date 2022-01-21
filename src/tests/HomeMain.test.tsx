@@ -23,10 +23,14 @@ beforeAll(() => {
    )
 })
 
-test('loading title displays on initial render', async () => {
-   expect(screen.getByRole('heading')).toBeTruthy()
-   screen.debug()
-   expect(await screen.findByRole('heading')).toBeNull()
+test('loading title is rendered', () => {
+   expect(screen.getByText('Loading...')).toBeInTheDocument()
 })
+
+// test('loading title displays on initial render', async () => {
+//    expect(screen.getByRole('heading')).toBeTruthy()
+//    screen.debug()
+//    expect(await screen.findByRole('heading')).toBeNull()
+// })
 
 // FilteredRegions data - nothing there
