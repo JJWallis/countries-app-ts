@@ -1,5 +1,5 @@
-import React from 'react'
 import Search from '../components/Search'
+import React from 'react'
 import { render, fireEvent } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 import { CountriesProvider } from '../context/countriesContext'
@@ -32,4 +32,10 @@ test('input error styles update on invalid search', () => {
    fireEvent.change(search, { target: { value: 'test' } })
    fireEvent.click(searchIcon)
    expect(search.placeholder).toBe('Please enter a valid country')
+})
+
+describe('sum', () => {
+   test('sums up two numbers', () => {
+      // expect(sum(1, 2)).toBe(3)
+   })
 })
