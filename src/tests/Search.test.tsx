@@ -1,6 +1,6 @@
 import Search from '../components/Search'
 import React from 'react'
-import { render, fireEvent } from '@testing-library/react'
+import { render, fireEvent, screen } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 import { CountriesProvider } from '../context/countriesContext'
 import { BrowserRouter } from 'react-router-dom'
@@ -20,26 +20,23 @@ beforeEach(() => {
    getElByRole = component.getByRole
 })
 
-test('input value updates on change', () => {
+test('is rendered correctly', () => {
+   const search = getElByRole('textbox')
+   expect(search).toBeTruthy()
+})
+
+test('input value updates on change', async () => {
    const search = getTestById('search-input') as HTMLInputElement
    expect(search.value).toBe('')
    fireEvent.change(search, { target: { value: 'test' } })
-   expect(search.value).toBe('test')
-   // screen.getByRole('')
+   expect(screen.getByRole('textbox')).toHaveValue('test')
 })
 
-describe('search', () => {
-   test('is rendered correctly', () => {
-      const search = getElByRole('textbox')
-      expect(search).toBeTruthy()
-   })
-})
-
-test('input error styles update on invalid search', () => {
-   const search = getTestById('search-input') as HTMLInputElement
-   const searchIcon = getTestById('search-icon')
-   expect(search.value).toBe('')
-   fireEvent.change(search, { target: { value: 'test' } })
-   fireEvent.click(searchIcon)
-   expect(search.placeholder).toBe('Please enter a valid country')
-})
+// test('input error styles update on invalid search', () => {
+//    const search = getTestById('search-input') as HTMLInputElement
+//    const searchIcon = getTestById('search-icon')
+//    expect(search.value).toBe('')
+//    fireEvent.change(search, { target: { value: 'test' } })
+//    fireEvent.click(searchIcon)
+//    expect(search.placeholder).toBe('Please enter a valid country')
+// })
