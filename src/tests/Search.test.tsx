@@ -36,5 +36,7 @@ test('input error styles update on invalid search', () => {
 })
 
 describe('search', () => {
-   test('renders correctly', () => {})
+   test('is rendered correctly', () => {
+      expect(getTestById('search-input')).toBeInTheDocument()
+   })
 })
