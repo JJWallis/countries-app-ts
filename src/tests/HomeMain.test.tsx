@@ -23,11 +23,10 @@ beforeAll(() => {
    )
 })
 
-describe('country data', () => {
-   test('loading title displays on initial render', async () => {
-      expect(screen.getByRole('heading')).toBeTruthy()
-      screen.debug()
-      expect(await screen.findByRole('heading')).toBeNull()
-      screen.debug()
-   })
+test('loading title displays on initial render', async () => {
+   expect(screen.getByRole('heading')).toBeTruthy()
+   screen.debug()
+   expect(await screen.findByRole('heading')).toBeNull()
 })
+
+// FilteredRegions data - nothing there
