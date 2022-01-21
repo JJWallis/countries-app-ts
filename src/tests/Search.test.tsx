@@ -1,11 +1,12 @@
 import Search from '../components/Search'
-import React from 'react'
-import { render, fireEvent, screen } from '@testing-library/react'
+import React, { Component } from 'react'
+import { render, fireEvent, screen, getByRole } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 import { CountriesProvider } from '../context/countriesContext'
 import { BrowserRouter } from 'react-router-dom'
 import { GetTestById } from '../types/Tests.interface'
 let getTestById: GetTestById
+let getElByRole: any
 
 beforeEach(() => {
    const component = render(
@@ -16,6 +17,7 @@ beforeEach(() => {
       </CountriesProvider>
    )
    getTestById = component.getByTestId
+   getElByRole = component.getByRole
 })
 
 test('input value updates on change', () => {
@@ -23,7 +25,14 @@ test('input value updates on change', () => {
    expect(search.value).toBe('')
    fireEvent.change(search, { target: { value: 'test' } })
    expect(search.value).toBe('test')
-   screen.debug()
+   // screen.getByRole('')
+})
+
+describe('search', () => {
+   test('is rendered correctly', () => {
+      const search = getElByRole('textbox')
+      expect(search).toBeTruthy()
+   })
 })
 
 test('input error styles update on invalid search', () => {
@@ -33,10 +42,4 @@ test('input error styles update on invalid search', () => {
    fireEvent.change(search, { target: { value: 'test' } })
    fireEvent.click(searchIcon)
    expect(search.placeholder).toBe('Please enter a valid country')
-})
-
-describe('search', () => {
-   test('is rendered correctly', () => {
-      expect(getTestById('search-input')).toBeInTheDocument()
-   })
 })
