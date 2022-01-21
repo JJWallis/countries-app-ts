@@ -1,12 +1,12 @@
 import Search from '../components/Search'
-import React, { Component } from 'react'
-import { render, fireEvent, screen, getByRole } from '@testing-library/react'
+import React from 'react'
+import { render, fireEvent, screen } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 import { CountriesProvider } from '../context/countriesContext'
 import { BrowserRouter } from 'react-router-dom'
-import { GetTestById } from '../types/Tests.interface'
+import { GetByRole, GetTestById } from '../types/Tests.interface'
 let getTestById: GetTestById
-let getElByRole: any
+let getElByRole: GetByRole
 
 beforeEach(() => {
    const component = render(
@@ -25,7 +25,7 @@ test('input value updates on change', () => {
    expect(search.value).toBe('')
    fireEvent.change(search, { target: { value: 'test' } })
    expect(search.value).toBe('test')
-   // screen.getByRole('')
+   screen.getByRole('')
 })
 
 describe('search', () => {
