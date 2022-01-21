@@ -1,6 +1,6 @@
 import Search from '../components/Search'
 import React from 'react'
-import { render, fireEvent } from '@testing-library/react'
+import { render, fireEvent, screen } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 import { CountriesProvider } from '../context/countriesContext'
 import { BrowserRouter } from 'react-router-dom'
@@ -23,6 +23,7 @@ test('input value updates on change', () => {
    expect(search.value).toBe('')
    fireEvent.change(search, { target: { value: 'test' } })
    expect(search.value).toBe('test')
+   screen.debug()
 })
 
 test('input error styles update on invalid search', () => {
@@ -34,8 +35,6 @@ test('input error styles update on invalid search', () => {
    expect(search.placeholder).toBe('Please enter a valid country')
 })
 
-describe('sum', () => {
-   test('sums up two numbers', () => {
-      // expect(sum(1, 2)).toBe(3)
-   })
+describe('search', () => {
+   test('renders correctly', () => {})
 })
