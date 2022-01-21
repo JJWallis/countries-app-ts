@@ -1,19 +1,21 @@
 import React from 'react'
 import '@testing-library/jest-dom/extend-expect'
 import HomeMain from '../routes/HomeMain'
-import { render, fireEvent } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { CountriesProvider } from '../context/countriesContext'
 import { FilteredRegionsProvider } from '../context/filteredRegionsContext'
 import { BrowserRouter } from 'react-router-dom'
-import { GetTestById, GetByRole } from '../types/Tests.interface'
-let getTestById: GetTestById
-let getElByRole: GetByRole
+import { CountryData } from '../types/countriesContext.interface'
+let data: CountryData
 
 beforeAll(() => {
    render(
       <BrowserRouter>
          <CountriesProvider>
-            <FilteredRegionsProvider filteredRegions={} handleFilterRegions={}>
+            <FilteredRegionsProvider
+               filteredRegions={data}
+               handleFilterRegions={(region: string) => {}}
+            >
                <HomeMain />
             </FilteredRegionsProvider>
          </CountriesProvider>
@@ -22,6 +24,8 @@ beforeAll(() => {
 })
 
 describe('country data', () => {
-   test('loading spinner title displays correctly', async () => {})
-   test('displays correctly once fetched', async () => {})
+   test('loading title displays on initial render', () => {
+      // screen.getByRole('')
+      expect(screen.getByRole('heading')).toBeTruthy()
+   })
 })
