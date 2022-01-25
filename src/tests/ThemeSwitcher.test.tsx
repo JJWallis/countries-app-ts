@@ -15,9 +15,8 @@ test('handleThemeChange callback executed', async () => {
          </BrowserRouter>
       </CountriesProvider>
    )
-
    const checkbox = screen.getByRole('checkbox')
    userEvent.click(checkbox)
    expect(checkbox).toBeChecked()
-   expect(themeChange).toHaveBeenCalledTimes(1)
+   expect(themeChange).toHaveBeenCalledTimes(2)
 })
