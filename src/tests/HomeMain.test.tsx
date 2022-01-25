@@ -27,10 +27,14 @@ test('loading title is rendered', () => {
    expect(screen.getByText('Loading...')).toBeInTheDocument()
 })
 
-// test('loading title displays on initial render', () => {
-//    expect(screen.getByRole('heading')).toBeTruthy()
-//    expect(screen.findByRole('heading')).toBeNull()
-// })
+describe('loading title', () => {
+   test('displays on initial render', () => {
+      expect(screen.getByRole('heading')).toBeTruthy()
+   })
+   test('disappears on successful data fetch', async () => {
+      expect(await screen.findByRole('heading')).toBeNull()
+   })
+})
 
 // jest.mock('axios');
 
