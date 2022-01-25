@@ -25,18 +25,20 @@ test('is rendered correctly', () => {
    expect(search).toBeTruthy()
 })
 
-test('input value updates on change', async () => {
+test('input value updates on change', () => {
    const search = getTestById('search-input') as HTMLInputElement
    expect(search.value).toBe('')
+   // screen.debug()
    fireEvent.change(search, { target: { value: 'test' } })
    expect(screen.getByRole('textbox')).toHaveValue('test')
+   // screen.debug()
 })
 
-// test('input error styles update on invalid search', () => {
-//    const search = getTestById('search-input') as HTMLInputElement
-//    const searchIcon = getTestById('search-icon')
-//    expect(search.value).toBe('')
-//    fireEvent.change(search, { target: { value: 'test' } })
-//    fireEvent.click(searchIcon)
-//    expect(search.placeholder).toBe('Please enter a valid country')
-// })
+test('input error styles update on invalid search', () => {
+   const search = getTestById('search-input') as HTMLInputElement
+   const searchIcon = getTestById('search-icon')
+   expect(search.value).toBe('')
+   fireEvent.change(search, { target: { value: 'test' } })
+   fireEvent.click(searchIcon)
+   expect(search.placeholder).toBe('Please enter a valid country')
+})
