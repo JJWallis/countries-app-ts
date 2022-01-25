@@ -27,10 +27,30 @@ test('loading title is rendered', () => {
    expect(screen.getByText('Loading...')).toBeInTheDocument()
 })
 
-// test('loading title displays on initial render', async () => {
+// test('loading title displays on initial render', () => {
 //    expect(screen.getByRole('heading')).toBeTruthy()
-//    screen.debug()
-//    expect(await screen.findByRole('heading')).toBeNull()
+//    expect(screen.findByRole('heading')).toBeNull()
 // })
 
-// FilteredRegions data - nothing there
+// jest.mock('axios');
+
+// describe('App', () => {
+//   test('fetches stories from an API and displays them', async () => {
+//     const stories = [
+//       { objectID: '1', title: 'Hello' },
+//       { objectID: '2', title: 'React' },
+//     ];
+
+//     axios.get.mockImplementationOnce(() =>
+//       Promise.resolve({ data: { hits: stories } })
+//     );
+
+//     render(<App />);
+
+//     await userEvent.click(screen.getByRole('button'));
+
+//     const items = await screen.findAllByRole('listitem');
+
+//     expect(items).toHaveLength(2);
+//   });
+// });
