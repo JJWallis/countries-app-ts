@@ -1,6 +1,7 @@
 import Search from '../components/Search'
 import React from 'react'
 import { render, fireEvent, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 import '@testing-library/jest-dom/extend-expect'
 import { CountriesProvider } from '../context/countriesContext'
 import { BrowserRouter } from 'react-router-dom'
@@ -28,10 +29,8 @@ test('is rendered correctly', () => {
 test('input value updates on change', () => {
    const search = getTestById('search-input') as HTMLInputElement
    expect(search.value).toBe('')
-   // screen.debug()
-   fireEvent.change(search, { target: { value: 'test' } })
+   userEvent.type(search, 'test')
    expect(screen.getByRole('textbox')).toHaveValue('test')
-   // screen.debug()
 })
 
 test('input error styles update on invalid search', () => {
