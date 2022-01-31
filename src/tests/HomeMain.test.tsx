@@ -9,36 +9,47 @@ import { BrowserRouter } from 'react-router-dom'
 import { CountryData } from '../types/countriesContext.interface'
 let data: CountryData
 
-beforeAll(() => {
-   render(
-      <BrowserRouter>
-         <CountriesProvider>
-            <FilteredRegionsProvider
-               filteredRegions={data}
-               handleFilterRegions={(region: string) => {}}
-            >
-               <HomeMain />
-            </FilteredRegionsProvider>
-         </CountriesProvider>
-      </BrowserRouter>
-   )
-})
+// beforeAll(() => {
+//    render(
+//       <BrowserRouter>
+//          <CountriesProvider>
+//             <FilteredRegionsProvider
+//                filteredRegions={data}
+//                handleFilterRegions={(region: string) => {}}
+//             >
+//                <HomeMain />
+//             </FilteredRegionsProvider>
+//          </CountriesProvider>
+//       </BrowserRouter>
+//    )
+// })
 
 jest.mock('axios')
 
 describe('loading title', () => {
    test('displays on initial render and disappears on successful data fetch', async () => {
       const axiosRequest = axios as jest.Mocked<typeof axios>
-      const stories = [
-         { population: '1', region: 'Americas' },
-         { population: '2', region: 'UK' },
-      ]
+      const stories = [{ population: '1', region: 'Americas' }]
 
       axiosRequest.get.mockImplementationOnce(() =>
          Promise.resolve({ data: stories })
       )
 
+      render(
+         <BrowserRouter>
+            <CountriesProvider>
+               <FilteredRegionsProvider
+                  filteredRegions={data}
+                  handleFilterRegions={(region: string) => undefined}
+               >
+                  <HomeMain />
+               </FilteredRegionsProvider>
+            </CountriesProvider>
+         </BrowserRouter>
+      )
+
       expect(screen.getByRole('heading')).toBeInTheDocument()
+      expect(await screen.findByRole('heading')).not.toBeInTheDocument()
    })
 })
 
