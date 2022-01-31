@@ -21,3 +21,22 @@ export interface ContextInterface {
    countries: CountryData
    countriesError: boolean
 }
+
+export const CountryMockTest = [
+   {
+      name: { common: 'hi', nativeName: [{ official: 'hi' }] },
+      cioc: 'hi',
+      cca3: 'hi',
+      region: 'hi',
+      borders: ['hi'],
+      flags: {
+         svg: 'hi',
+      },
+      currencies: [{ name: 'hi' }],
+      languages: ['hi'],
+      population: 10,
+      subregion: 'hi',
+      capital: 'hi',
+      tld: ['hi'],
+   },
+]
