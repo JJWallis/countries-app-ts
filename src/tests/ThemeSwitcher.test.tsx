@@ -1,20 +1,12 @@
 import React from 'react'
-import { render, screen } from '@testing-library/react'
+import { render, screen } from './test-utils'
 import '@testing-library/jest-dom/extend-expect'
-import { CountriesProvider } from '../context/countriesContext'
 import ThemeSwitcher from '../components/ThemeSwitcher'
-import { BrowserRouter } from 'react-router-dom'
 import userEvent from '@testing-library/user-event'
 
-test('handleThemeChange callback executed', async () => {
+test('handleThemeChange callback executed', () => {
    const themeChange = jest.fn()
-   render(
-      <CountriesProvider>
-         <BrowserRouter>
-            <ThemeSwitcher handleThemeChange={themeChange} />
-         </BrowserRouter>
-      </CountriesProvider>
-   )
+   render(<ThemeSwitcher handleThemeChange={themeChange} />)
    const checkbox = screen.getByRole('checkbox')
    userEvent.click(checkbox)
    expect(checkbox).toBeChecked()

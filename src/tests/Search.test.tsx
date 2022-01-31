@@ -1,22 +1,14 @@
 import Search from '../components/Search'
 import React from 'react'
-import { render, screen } from '@testing-library/react'
+import { render, screen } from './test-utils'
 import userEvent from '@testing-library/user-event'
 import '@testing-library/jest-dom/extend-expect'
-import { CountriesProvider } from '../context/countriesContext'
-import { BrowserRouter } from 'react-router-dom'
 import { GetByRole, GetTestById } from '../types/Tests.interface'
 let getTestById: GetTestById
 let getElByRole: GetByRole
 
 beforeEach(() => {
-   const component = render(
-      <CountriesProvider>
-         <BrowserRouter>
-            <Search />
-         </BrowserRouter>
-      </CountriesProvider>
-   )
+   const component = render(<Search />)
    getTestById = component.getByTestId
    getElByRole = component.getByRole
 })
