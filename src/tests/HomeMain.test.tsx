@@ -29,7 +29,24 @@ jest.mock('axios')
 describe('loading title', () => {
    test('displays on initial render and disappears on successful data fetch', async () => {
       const axiosRequest = axios as jest.Mocked<typeof axios>
-      const stories = [{ population: '1', region: 'Americas' }]
+      const stories = [
+         {
+            name: { common: 'hi', nativeName: [{ official: 'hi' }] },
+            cioc: 'hi',
+            cca3: 'hi',
+            region: 'hi',
+            borders: ['hi'],
+            flags: {
+               svg: 'hi',
+            },
+            currencies: [{ name: 'hi' }],
+            languages: ['hi'],
+            population: 10,
+            subregion: 'hi',
+            capital: 'hi',
+            tld: ['hi'],
+         },
+      ]
 
       axiosRequest.get.mockImplementationOnce(() =>
          Promise.resolve({ data: stories })
@@ -50,26 +67,6 @@ describe('loading title', () => {
 
       expect(screen.getByRole('heading')).toBeInTheDocument()
       expect(await screen.findByRole('heading')).not.toBeInTheDocument()
+      // expect(items).toHaveLength(250) - country cards
    })
 })
-
-// describe('App', () => {
-//    test('fetches stories from an API and displays them', async () => {
-//       const stories = [
-//          { objectID: '1', title: 'Hello' },
-//          { objectID: '2', title: 'React' },
-//       ]
-
-//       axios.get.mockImplementationOnce(() =>
-//          Promise.resolve({ data: { hits: stories } })
-//       )
-
-//       render(<App />)
-
-//       await userEvent.click(screen.getByRole('button'))
-
-//       const items = await screen.findAllByRole('listitem')
-
-//       expect(items).toHaveLength(2)
-//    })
-// })
