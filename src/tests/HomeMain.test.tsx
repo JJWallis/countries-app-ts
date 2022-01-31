@@ -36,6 +36,7 @@ describe('loading title', () => {
 
       expect(screen.getByRole('heading')).toBeInTheDocument()
       expect(await screen.findByRole('heading')).not.toBeInTheDocument()
+      // expect(await screen.findByRole('link')).getAttribute('href').toBe(...)
       expect(await screen.findAllByRole('link')).toHaveLength(1)
    })
 
@@ -64,3 +65,4 @@ describe('loading title', () => {
 })
 
 // test() - if user clicks on card with 'hi' - fallbacks shown as no 'hi' country
+// expect(await screen.findByRole('link')).getAttribute('href').toBe(...)
