@@ -1,16 +1,9 @@
 import React from 'react'
+import { render, screen } from './test-utils'
 import '@testing-library/jest-dom/extend-expect'
+import { CountryMockTest } from '../types/countriesContext.interface'
 import axios from 'axios'
 import HomeMain from '../routes/HomeMain'
-import { render, screen } from '@testing-library/react'
-import { CountriesProvider } from '../context/countriesContext'
-import { FilteredRegionsProvider } from '../context/filteredRegionsContext'
-import { BrowserRouter } from 'react-router-dom'
-import {
-   CountryData,
-   CountryMockTest,
-} from '../types/countriesContext.interface'
-let data: CountryData
 
 jest.mock('axios')
 
@@ -20,22 +13,9 @@ describe('loading title', () => {
       axiosRequest.get.mockImplementationOnce(() =>
          Promise.resolve({ data: CountryMockTest })
       )
-
-      render(
-         <BrowserRouter>
-            <CountriesProvider>
-               <FilteredRegionsProvider
-                  filteredRegions={data}
-                  handleFilterRegions={(region: string) => undefined}
-               >
-                  <HomeMain />
-               </FilteredRegionsProvider>
-            </CountriesProvider>
-         </BrowserRouter>
-      )
-
-      expect(screen.getByRole('heading')).toBeInTheDocument()
-      expect(await screen.findByRole('heading')).not.toBeInTheDocument()
+      render(<HomeMain />)
+      expect(screen.getByText('Loading...')).toBeInTheDocument()
+      expect(await screen.findByText('Loading...')).not.toBeInTheDocument()
       // expect(await screen.findByRole('link')).getAttribute('href').toBe(...)
       expect(await screen.findAllByRole('link')).toHaveLength(1)
    })
@@ -44,18 +24,7 @@ describe('loading title', () => {
       const axiosReq = axios as jest.Mocked<typeof axios>
       axiosReq.get.mockImplementationOnce(() => Promise.reject(new Error()))
 
-      render(
-         <BrowserRouter>
-            <CountriesProvider>
-               <FilteredRegionsProvider
-                  filteredRegions={data}
-                  handleFilterRegions={(region: string) => undefined}
-               >
-                  <HomeMain />
-               </FilteredRegionsProvider>
-            </CountriesProvider>
-         </BrowserRouter>
-      )
+      render(<HomeMain />)
 
       expect(screen.getByRole('heading')).toBeInTheDocument()
       expect(await screen.findByRole('heading')).toHaveTextContent(
@@ -65,4 +34,3 @@ describe('loading title', () => {
 })
 
 // test() - if user clicks on card with 'hi' - fallbacks shown as no 'hi' country
-// expect(await screen.findByRole('link')).getAttribute('href').toBe(...)
