@@ -16,7 +16,10 @@ export const CountriesProvider = ({ children }: { children: ReactNode }) => {
    function fetchData(endpoint: string) {
       axios
          .get<CountryData>(endpoint)
-         .then((value) => setCountries(value.data))
+         .then((value) => {
+            setCountries(value.data)
+            console.log(value.data)
+         })
          .catch((err) => {
             setCountriesError(true)
             console.error(err.message)

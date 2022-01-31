@@ -1,5 +1,6 @@
 import React from 'react'
 import '@testing-library/jest-dom/extend-expect'
+import axios from 'axios'
 import HomeMain from '../routes/HomeMain'
 import { render, screen } from '@testing-library/react'
 import { CountriesProvider } from '../context/countriesContext'
@@ -23,38 +24,41 @@ beforeAll(() => {
    )
 })
 
-test('loading title is rendered', () => {
-   expect(screen.getByText('Loading...')).toBeInTheDocument()
-})
+jest.mock('axios')
 
 describe('loading title', () => {
-   test('displays on initial render', () => {
-      expect(screen.getByRole('heading')).toBeTruthy()
-   })
-   test('disappears on successful data fetch', async () => {
-      expect(await screen.findByRole('heading')).toBeNull()
+   test('displays on initial render and disappears on successful data fetch', async () => {
+      const axiosRequest = axios as jest.Mocked<typeof axios>
+      const stories = [
+         { population: '1', region: 'Americas' },
+         { population: '2', region: 'UK' },
+      ]
+
+      axiosRequest.get.mockImplementationOnce(() =>
+         Promise.resolve({ data: stories })
+      )
+
+      expect(screen.getByRole('heading')).toBeInTheDocument()
    })
 })
 
-// jest.mock('axios');
-
 // describe('App', () => {
-//   test('fetches stories from an API and displays them', async () => {
-//     const stories = [
-//       { objectID: '1', title: 'Hello' },
-//       { objectID: '2', title: 'React' },
-//     ];
+//    test('fetches stories from an API and displays them', async () => {
+//       const stories = [
+//          { objectID: '1', title: 'Hello' },
+//          { objectID: '2', title: 'React' },
+//       ]
 
-//     axios.get.mockImplementationOnce(() =>
-//       Promise.resolve({ data: { hits: stories } })
-//     );
+//       axios.get.mockImplementationOnce(() =>
+//          Promise.resolve({ data: { hits: stories } })
+//       )
 
-//     render(<App />);
+//       render(<App />)
 
-//     await userEvent.click(screen.getByRole('button'));
+//       await userEvent.click(screen.getByRole('button'))
 
-//     const items = await screen.findAllByRole('listitem');
+//       const items = await screen.findAllByRole('listitem')
 
-//     expect(items).toHaveLength(2);
-//   });
-// });
+//       expect(items).toHaveLength(2)
+//    })
+// })
