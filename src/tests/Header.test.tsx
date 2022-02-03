@@ -1,18 +1,13 @@
 import React from 'react'
 import Header from '../components/Header'
-import { render } from './test-utils'
+import { render, screen } from './test-utils'
 import '@testing-library/jest-dom/extend-expect'
-import { GetTestById } from '../types/Tests.interface'
-let getTestById: GetTestById
 
 beforeEach(() => {
-   const component = render(
-      <Header handleThemeChange={(dark: boolean) => undefined} />
-   )
-   getTestById = component.getByTestId
+   render(<Header handleThemeChange={(dark: boolean) => undefined} />)
 })
 
 test('header title renders with correct text', () => {
-   const title = getTestById('header-title')
+   const title = screen.getByTestId('header-title')
    expect(title).toHaveTextContent('Where in the world?')
 })
