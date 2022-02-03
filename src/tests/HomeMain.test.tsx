@@ -14,12 +14,10 @@ describe('loading title', () => {
          Promise.resolve({ data: CountryMockTest })
       )
       render(<HomeMain />)
-      screen.debug()
-      // expect(screen.getByText('Loading...')).toBeInTheDocument()
       expect(await screen.findAllByRole('link')).toHaveLength(1)
       expect(screen.queryByText('Loading...')).toBeNull()
-      // expect(await screen.findByText('Loading...')).not.toBeInTheDocument()
-      // expect(await screen.findByRole('link')).getAttribute('href').toBe(...)
+      expect(await screen.findByRole('link')).toHaveAttribute('href')
+      screen.debug()
    })
 
    //    test('displays error on unsuccessful data fetch', async () => {
