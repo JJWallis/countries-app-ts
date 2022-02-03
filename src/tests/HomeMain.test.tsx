@@ -17,15 +17,15 @@ describe('loading title', () => {
       expect(await screen.findAllByRole('link')).toHaveLength(1)
       expect(screen.queryByText('Loading...')).toBeNull()
       expect(await screen.findByRole('link')).toHaveAttribute('href')
-      screen.debug()
+      // screen.debug()
    })
 
-   test('displays error on unsuccessful data fetch', async () => {
+   test('displays error message on unsuccessful data fetch', async () => {
       const axiosReq = axios as jest.Mocked<typeof axios>
       axiosReq.get.mockImplementationOnce(() => Promise.reject(new Error()))
       render(<HomeMain />)
-      screen.debug()
-      // expect(screen.getByRole('heading')).toBeInTheDocument()
+      // screen.debug()
+      // expect(screen.getByText('Loading...')).toBeInTheDocument()
       // expect(await screen.findByRole('heading')).toHaveTextContent(
       //    'Country data could not be retrieved. Please reload & try again.'
       // )
