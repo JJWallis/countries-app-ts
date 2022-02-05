@@ -11,7 +11,10 @@ const AllTheProviders: FC = ({ children }) => {
    return (
       <ThemeProvider theme={lightTheme}>
          <BrowserRouter>
-            <CountriesProvider>
+            <CountriesProvider
+               countries={CountryMockTest}
+               countriesError={false}
+            >
                <FilteredRegionsProvider
                   filteredRegions={CountryMockTest}
                   handleFilterRegions={(region: string) => undefined}

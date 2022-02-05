@@ -37,7 +37,10 @@ const App: FC = () => {
 
    return (
       <ThemeProvider theme={theme}>
-         <CountriesProvider>
+         <CountriesProvider
+            countries={countries}
+            countriesError={countriesError}
+         >
             <GlobalStyles />
             <Header handleThemeChange={handleThemeChange} />
             <Main />
