@@ -1,8 +1,9 @@
 import React, { useRef, FC } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { SearchFilterContainer } from './containers/SearchFilterContainer.styled'
-import HomeHeader from '../routes/HomeHeader'
+import Search from '../components/Search'
 import BackButton from './BackButton'
+import Filter from '../components/Filter'
 
 const SearchFilter: FC = () => {
    const prevFilter = useRef('')
@@ -14,10 +15,13 @@ const SearchFilter: FC = () => {
             <Route
                path="/"
                element={
-                  <HomeHeader
-                     prevFilter={prevFilter}
-                     updatePrevFilter={updatePrevFilter}
-                  />
+                  <>
+                     <Search />
+                     <Filter
+                        prevFilter={prevFilter.current}
+                        updatePrevFilter={updatePrevFilter}
+                     />
+                  </>
                }
             />
             <Route path="/details/:country" element={<BackButton />} />
