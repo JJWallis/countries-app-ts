@@ -1,4 +1,4 @@
-import React, { useState, FC } from 'react'
+import React, { useState, FC, useRef, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useCountriesContext } from '../hooks/useCountriesContext'
 import StyledInput from './styled/StyledInput'
@@ -9,10 +9,7 @@ const Search: FC = () => {
    const [error, setError] = useState(false)
    const { countries, countriesError } = useCountriesContext()
    const navigate = useNavigate()
-
-   const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
-      if (e.key === 'Enter') handleSearchCountry()
-   }
+   const inputRef = useRef<HTMLInputElement>(null)
 
    const handleSearchCountry = () => {
       if (
@@ -28,6 +25,11 @@ const Search: FC = () => {
       setSearch('')
    }
 
+   const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) =>
+      e.key === 'Enter' && handleSearchCountry()
+
+   useEffect(() => inputRef.current?.focus(), [])
+
    return (
       <>
          <StyledInput
@@ -40,6 +42,7 @@ const Search: FC = () => {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             onKeyDown={handleKeyPress}
+            ref={inputRef}
             data-testid="search-input"
          />
          <Icon

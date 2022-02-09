@@ -13,6 +13,8 @@ const FurtherDetails: FC<FurtherDetailsProps> = ({
    printData,
    printFlag,
 }) => {
+   const validateData = (...data: any[]) => {}
+
    const gatherData = () => {
       if (data) {
          const {
@@ -26,7 +28,6 @@ const FurtherDetails: FC<FurtherDetailsProps> = ({
             tld,
          } = data
 
-         // rest pattern to collect into an obj
          // loop over data - if any falsy throw error
          // else - produce two sep objs based on data groups below
          // Error msg comp at bottom no longer needed
