@@ -6,8 +6,13 @@ interface FilteredRegionsInterface {
    handleFilterRegions: (region: string) => void
 }
 
+type FilteredRegionsDispatch = (region: string) => void
+
 export const FilteredRegionsContext =
    React.createContext<FilteredRegionsInterface | null>(null)
+
+export const FilterdRegionsDispatch =
+   React.createContext<FilteredRegionsDispatch | null>(null)
 
 export const FilteredRegionsProvider = ({
    children,

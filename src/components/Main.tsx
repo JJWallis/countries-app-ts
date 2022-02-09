@@ -1,4 +1,4 @@
-import React, { useState, FC } from 'react'
+import React, { useState, FC, useCallback } from 'react'
 import StyledMain from './styled/StyledMain'
 import { MainContainer } from './containers/MainContainer.styled'
 import SearchFilter from './SearchFilter'
@@ -11,16 +11,19 @@ const Main: FC = () => {
    const [filteredRegions, setFilteredRegions] = useState<CountryData>(null)
    const { countries } = useCountriesContext()
 
-   const handleFilterRegions = (region: string) => {
-      if (!region) {
-         setFilteredRegions(null)
-         return
-      }
-      const filteredData = countries?.filter(
-         (country) => country.region.toLowerCase() === region.toLowerCase()
-      )
-      filteredData && setFilteredRegions(filteredData)
-   }
+   const handleFilterRegions = useCallback(
+      (region: string) => {
+         if (!region) {
+            setFilteredRegions(null)
+            return
+         }
+         const filteredData = countries?.filter(
+            (country) => country.region.toLowerCase() === region.toLowerCase()
+         )
+         filteredData && setFilteredRegions(filteredData)
+      },
+      [countries]
+   )
 
    return (
       <StyledMain>
