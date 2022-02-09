@@ -8,6 +8,7 @@ import axios from 'axios'
 import GlobalStyles from './components/styled/GlobalStyles'
 import Header from './components/Header'
 import Main from './components/Main'
+import ThemeSwitcher from './components/ThemeSwitcher'
 
 const App: FC = () => {
    const prefersDarkMode = useDarkMode()
@@ -42,7 +43,9 @@ const App: FC = () => {
             countriesError={countriesError}
          >
             <GlobalStyles />
-            <Header handleThemeChange={handleThemeChange} />
+            <Header>
+               <ThemeSwitcher handleThemeChange={handleThemeChange} />
+            </Header>
             <Main />
          </CountriesProvider>
       </ThemeProvider>
