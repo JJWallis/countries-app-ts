@@ -13,8 +13,6 @@ const FurtherDetails: FC<FurtherDetailsProps> = ({
    printData,
    printFlag,
 }) => {
-   const validateData = (...data: any[]) => {}
-
    const gatherData = () => {
       if (data) {
          const {
@@ -27,11 +25,6 @@ const FurtherDetails: FC<FurtherDetailsProps> = ({
             languages,
             tld,
          } = data
-
-         // loop over data - if any falsy throw error
-         // else - produce two sep objs based on data groups below
-         // Error msg comp at bottom no longer needed
-         // as well as condition at top = if (data)
 
          return [
             printData({
