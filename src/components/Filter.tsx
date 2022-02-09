@@ -12,15 +12,14 @@ interface Props {
 }
 
 const Filter: FC<Props> = ({ prevFilter, updatePrevFilter }) => {
-   const { countries, countriesError } = useCountriesContext()
-   const handleFilterRegions = useFilteredRegionsDispatch()
    const [desiredRegion, setDesiredRegion] = useState('')
    const [toggleDropDown, setToggleDropDown] = useToggle(false)
+   const { countries, countriesError } = useCountriesContext()
+   const handleFilterRegions = useFilteredRegionsDispatch()
    const prevRegion = useRef('')
 
    const produceRegions = () => {
-      const regions = new Set(countries?.map(({ region }) => region))
-      return Array.from(regions)
+      return Array.from(new Set(countries?.map(({ region }) => region)))
          .sort()
          .map((region: string) => (
             <Button
@@ -28,6 +27,8 @@ const Filter: FC<Props> = ({ prevFilter, updatePrevFilter }) => {
                dropDownItem
                key={region}
                onClick={() => setDesiredRegion(region)}
+               aria-selected={desiredRegion === region}
+               aria-controls="country-information"
             >
                {region}
             </Button>
@@ -52,6 +53,7 @@ const Filter: FC<Props> = ({ prevFilter, updatePrevFilter }) => {
             dropDown
             disabled={countriesError}
             onClick={() => !prevFilter && setDesiredRegion('')}
+            aria-controls="country-information"
          >
             {!prevFilter ? 'Filter by region' : prevFilter}
          </Button>
@@ -61,6 +63,8 @@ const Filter: FC<Props> = ({ prevFilter, updatePrevFilter }) => {
                   dropDown
                   dropDownItem
                   onClick={() => setDesiredRegion('')}
+                  aria-controls="country-information"
+                  aria-selected={desiredRegion === ''}
                >
                   Back to home
                </Button>

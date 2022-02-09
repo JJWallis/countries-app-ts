@@ -45,7 +45,7 @@ const Search: FC = () => {
          <Icon
             search
             viewBox="0 0 512 512"
-            aria-label="Interactive icon to search for inputted country"
+            aria-label="Search for inputted country"
             onClick={handleSearchCountry}
             disabled={countriesError || !search}
             data-testid="search-icon"

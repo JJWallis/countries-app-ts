@@ -11,7 +11,7 @@ const HomeMain: React.FC = () => {
    const data = !filteredRegions ? countries : filteredRegions
 
    return data ? (
-      <Countries>
+      <Countries id="country-information">
          {data.map((country, idx) => (
             <CountryCard key={idx} data={country} />
          ))}
