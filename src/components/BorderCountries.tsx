@@ -11,41 +11,39 @@ import Button from './styled/StyledButton'
 import { Country } from '../types/countriesContext.interface'
 
 interface Props {
-   country: Country | undefined
+   country: Country
 }
 
 const BorderCountries: FC<Props> = ({ country }) => {
    const { countries } = useCountriesContext()
 
    const produceButtons = () => {
-      if (country) {
-         const { borders } = country
-         if (borders?.length) {
-            return (
-               <BorderButtonsContainer>
-                  {borders.map((border) => {
-                     const name = countries?.find(
-                        (country) =>
-                           country.cioc === border || country.cca3 === border
-                     )?.name.common
+      const { borders } = country
+      if (borders?.length) {
+         return (
+            <BorderButtonsContainer>
+               {borders.map((border) => {
+                  const name = countries?.find(
+                     (country) =>
+                        country.cioc === border || country.cca3 === border
+                  )?.name.common
 
-                     return (
-                        <Link
-                           key={uuid()}
-                           to={`/details/${name
-                              ?.split(' ')
-                              .join('-')
-                              .toLowerCase()}`}
-                        >
-                           <Button country>{name}</Button>
-                        </Link>
-                     )
-                  })}
-               </BorderButtonsContainer>
-            )
-         }
-         return <Button error>No bordering countries</Button>
+                  return (
+                     <Link
+                        key={uuid()}
+                        to={`/details/${name
+                           ?.split(' ')
+                           .join('-')
+                           .toLowerCase()}`}
+                     >
+                        <Button country>{name}</Button>
+                     </Link>
+                  )
+               })}
+            </BorderButtonsContainer>
+         )
       }
+      return <Button error>No bordering countries</Button>
    }
 
    return (
