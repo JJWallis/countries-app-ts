@@ -23,6 +23,7 @@ const Search: FC = () => {
       }
       setError(true)
       setSearch('')
+      inputRef.current?.focus()
    }
 
    const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) =>
