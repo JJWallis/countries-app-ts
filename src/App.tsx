@@ -1,4 +1,4 @@
-import React, { useState, FC, useEffect } from 'react'
+import React, { useState, FC, useEffect, useCallback } from 'react'
 import { ThemeProvider } from 'styled-components'
 import { CountriesProvider } from './context/countriesContext'
 import { useDarkMode } from './hooks/useDarkMode'
@@ -18,15 +18,16 @@ const App: FC = () => {
    const [countries, setCountries] = useState<CountryData>(null)
    const [countriesError, setCountriesError] = useState(false)
 
-   const handleThemeChange = (dark: boolean) =>
-      dark ? setTheme(darkTheme) : setTheme(lightTheme)
+   const handleThemeChange = useCallback(
+      (dark: boolean) => (dark ? setTheme(darkTheme) : setTheme(lightTheme)),
+      []
+   )
 
    function fetchData(endpoint: string) {
       axios
          .get<CountryData>(endpoint)
          .then((value) => {
             setCountries(value.data)
-            console.log(value.data)
          })
          .catch((err) => {
             setCountriesError(true)
