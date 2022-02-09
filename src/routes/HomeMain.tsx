@@ -7,7 +7,7 @@ import CountryCard from '../components/CountryCard'
 
 const HomeMain: React.FC = () => {
    const { countries, countriesError } = useCountriesContext()
-   const { filteredRegions } = useFilteredRegionsContext()
+   const filteredRegions = useFilteredRegionsContext()
    const data = !filteredRegions ? countries : filteredRegions
 
    return data ? (

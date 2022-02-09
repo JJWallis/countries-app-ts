@@ -3,7 +3,7 @@ import { FilteredRegionsContext } from '../context/filteredRegionsContext'
 
 export function useFilteredRegionsContext() {
    const context = useContext(FilteredRegionsContext)
-   if (!context) {
+   if (context === undefined) {
       throw new Error(
          'useFilteredRegionsContext must be used within a useFilteredRegionsContextProvider'
       )

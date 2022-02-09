@@ -26,17 +26,17 @@ const Main: FC = () => {
    )
 
    return (
-      <StyledMain>
-         <MainContainer>
-            <FilteredRegionsProvider
-               filteredRegions={filteredRegions}
-               handleFilterRegions={handleFilterRegions}
-            >
+      <FilteredRegionsProvider
+         filteredRegions={filteredRegions}
+         handleFilterRegions={handleFilterRegions}
+      >
+         <StyledMain>
+            <MainContainer>
                <SearchFilter />
                <Countries />
-            </FilteredRegionsProvider>
-         </MainContainer>
-      </StyledMain>
+            </MainContainer>
+         </StyledMain>
+      </FilteredRegionsProvider>
    )
 }
 
