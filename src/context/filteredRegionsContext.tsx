@@ -27,7 +27,9 @@ export const FilteredRegionsProvider = ({
       <FilteredRegionsContext.Provider
          value={{ filteredRegions, handleFilterRegions }}
       >
-         {children}
+         <FilterdRegionsDispatch.Provider value={handleFilterRegions}>
+            {children}
+         </FilterdRegionsDispatch.Provider>
       </FilteredRegionsContext.Provider>
    )
 }
