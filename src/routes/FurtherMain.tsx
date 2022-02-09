@@ -12,46 +12,44 @@ import {
 } from '../components/containers/FurtherDetailsContainers.styled'
 import { v4 as uuid } from 'uuid'
 import { DataToMap } from '../types/FurtherMain.interface'
+import { Country } from '../types/countriesContext.interface'
 
 const FurtherMain: FC = () => {
    const { countries } = useCountriesContext()
    const { country } = useParams()
-   const countryFormatted = country?.split('-').join(' ')
    const data = countries?.find(
       ({ name }) =>
-         name?.common.toLowerCase() === countryFormatted?.toLowerCase() ||
+         name?.common.toLowerCase() ===
+            country?.split('-').join(' ').toLowerCase() ||
          name?.common.toLowerCase() === country?.toLowerCase()
-   )
+   ) as Country
 
    const printFlag = () => {
-      if (data) {
-         return (
-            <FurtherDetailsChild>
-               <CountryImg flag src={data.flags.svg} alt="Country flag." />
-            </FurtherDetailsChild>
-         )
-      }
+      return (
+         <FurtherDetailsChild>
+            <CountryImg flag src={data.flags.svg} alt="Country flag." />
+         </FurtherDetailsChild>
+      )
    }
 
    const printData = (data: DataToMap) => {
       return (
          <FurtherDetailsColumnsChild key={uuid()}>
-            {data &&
-               Object.entries(data).map(([key, value]) => (
-                  <CountryData further key={key}>
-                     <CountrySubTitle further>
-                        {key[0].toUpperCase() +
-                           key
-                              .slice(1, key.length)
-                              .split(/(?=[A-Z])/)
-                              .join(' ')}
-                        :
-                     </CountrySubTitle>
-                     {value
-                        ? value.toString().split(',').join(', ')
-                        : 'No data provided'}
-                  </CountryData>
-               ))}
+            {Object.entries(data).map(([key, value]) => (
+               <CountryData further key={key}>
+                  <CountrySubTitle further>
+                     {key[0].toUpperCase() +
+                        key
+                           .slice(1, key.length)
+                           .split(/(?=[A-Z])/)
+                           .join(' ')}
+                     :
+                  </CountrySubTitle>
+                  {value
+                     ? value.toString().split(',').join(', ')
+                     : 'No data provided'}
+               </CountryData>
+            ))}
          </FurtherDetailsColumnsChild>
       )
    }
