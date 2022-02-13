@@ -9,6 +9,11 @@ test('back button renders semantically', () => {
    render(<BackButton />)
    const link = screen.getByRole('link')
    const backBtn = screen.getByRole('button')
+   // const icon = screen.getBt
+
    expect(link).toHaveAttribute('href', '/')
+   expect(backBtn).toHaveTextContent(/back/i)
+   expect(backBtn).toBeEnabled()
+
    screen.getByRole('')
 })
