@@ -14,6 +14,8 @@ test('markup renders with valid country', () => {
    expect(button).toHaveTextContent('hi')
    expect(button).toBeEnabled()
    expect(screen.getByText(/border countries/i)).toBeInTheDocument()
+
+   // screen.getByRole('')
 })
 
 test('fallback button renders with undefined country', () => {
@@ -26,5 +28,5 @@ test('fallback button renders with undefined country', () => {
    expect(fallbackBtn).toBeDisabled()
    expect(screen.getAllByRole('button')).toHaveLength(1)
 
-   screen.getByRole('')
+   // screen.getByRole('')
 })
