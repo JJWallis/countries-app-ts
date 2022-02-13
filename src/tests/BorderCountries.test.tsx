@@ -20,10 +20,13 @@ test('markup renders correctly', () => {
 
 test('fallback button renders with undefined data', () => {
    render(<BorderCountries country={CountryMockTest} />)
-   const link = screen.queryByRole('link')
-   const button = screen.getByText(/no bordering countries/i)
+   const noBorderingCountries = screen.getByText(/no bordering countries/i)
 
-   expect(link).not.toBeInTheDocument()
+   expect(screen.getByText(/border countries/i)).toBeInTheDocument()
+   expect(screen.queryByRole('link')).not.toBeInTheDocument()
+   expect(noBorderingCountries).toBeInTheDocument()
+   expect(noBorderingCountries).toBeDisabled()
+   expect(screen.getAllByRole('button')).toHaveLength(1)
 
    screen.getByRole('')
 })

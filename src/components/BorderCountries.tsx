@@ -43,7 +43,11 @@ const BorderCountries: FC<Props> = ({ country }) => {
             </BorderButtonsContainer>
          )
       }
-      return <Button error>No bordering countries</Button>
+      return (
+         <Button disabled error>
+            No bordering countries
+         </Button>
+      )
    }
 
    return (
