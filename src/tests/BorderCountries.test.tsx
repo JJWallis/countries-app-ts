@@ -1,13 +1,19 @@
 import React from 'react'
-import userEvent from '@testing-library/user-event'
 import { render, screen } from './test-utils'
-import { Link } from 'react-router-dom'
 import BorderCountries from '../components/BorderCountries'
 import { CountryMockTest } from '../types/countriesContext.interface'
 import '@testing-library/jest-dom/extend-expect'
 
-test('button renders correctly', () => {
+test('markup renders correctly', () => {
    render(<BorderCountries country={CountryMockTest[0]} />)
+   const link = screen.getByRole('link', { name: 'hi' })
+   const button = screen.getByRole('button', { name: 'hi' })
+
+   expect(link).toHaveAttribute('href', '/details/hi')
+   expect(screen.getAllByRole('link')).toHaveLength(1)
+   expect(button).toHaveTextContent('hi')
+   expect(screen.getByText(/border countries/i)).toBeInTheDocument()
+
    screen.getByRole('')
 })
 
