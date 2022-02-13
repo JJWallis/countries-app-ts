@@ -12,12 +12,18 @@ test('markup renders correctly', () => {
    expect(link).toHaveAttribute('href', '/details/hi')
    expect(screen.getAllByRole('link')).toHaveLength(1)
    expect(button).toHaveTextContent('hi')
+   expect(button).toBeEnabled()
    expect(screen.getByText(/border countries/i)).toBeInTheDocument()
+
+   // screen.getByRole('')
+})
+
+test('fallback button renders with undefined data', () => {
+   render(<BorderCountries country={CountryMockTest} />)
+   const link = screen.queryByRole('link')
+   const button = screen.getByText(/no bordering countries/i)
+
+   expect(link).not.toBeInTheDocument()
 
    screen.getByRole('')
 })
-
-// test('fallback button renders with undefined data', () => {
-//    render(<BorderCountries country={CountryMockTest} />)
-//    screen.getByRole('')
-// })
