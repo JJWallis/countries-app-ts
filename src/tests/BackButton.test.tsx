@@ -1,13 +1,13 @@
 import React from 'react'
-import { render, screen } from './test-utils'
+import { render } from './test-utils'
 import '@testing-library/jest-dom/extend-expect'
 import BackButton from '../components/BackButton'
 
 test('back button renders semantically', () => {
-   render(<BackButton />)
-   const link = screen.getByRole('link')
-   const backBtn = screen.getByRole('button')
-   const icon = screen.getByTestId('arrow-icon')
+   const { getByRole, getByTestId } = render(<BackButton />)
+   const link = getByRole('link')
+   const backBtn = getByRole('button')
+   const icon = getByTestId('arrow-icon')
 
    expect(link).toHaveAttribute('href', '/')
 
