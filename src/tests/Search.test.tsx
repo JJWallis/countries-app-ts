@@ -1,8 +1,8 @@
-import Search from '../components/Search'
 import React from 'react'
 import { render, screen } from './test-utils'
 import userEvent from '@testing-library/user-event'
 import '@testing-library/jest-dom/extend-expect'
+import Search from '../components/Search'
 
 test('is rendered correctly', () => {
    const { getByRole } = render(<Search />)
