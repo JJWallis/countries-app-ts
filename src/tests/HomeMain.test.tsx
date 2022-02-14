@@ -1,5 +1,5 @@
 import React from 'react'
-import { render, screen } from './test-utils'
+import { render } from './test-utils'
 import '@testing-library/jest-dom/extend-expect'
 import { CountryMockTest } from '../types/countriesContext.interface'
 import axios from 'axios'
@@ -13,10 +13,10 @@ describe('loading title', () => {
       axiosRequest.get.mockImplementationOnce(() =>
          Promise.resolve({ data: CountryMockTest })
       )
-      render(<HomeMain />)
-      expect(await screen.findAllByRole('link')).toHaveLength(1)
-      expect(screen.queryByText('Loading...')).toBeNull()
-      expect(await screen.findByRole('link')).toHaveAttribute('href')
+      const { findAllByRole, queryByText, findByRole } = render(<HomeMain />)
+      expect(await findAllByRole('link')).toHaveLength(1)
+      expect(queryByText('Loading...')).toBeNull()
+      expect(await findByRole('link')).toHaveAttribute('href')
       // screen.debug()
    })
 
