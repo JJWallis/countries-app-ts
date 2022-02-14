@@ -36,7 +36,9 @@ const BorderCountries: FC<Props> = ({ country }) => {
                            .join('-')
                            .toLowerCase()}`}
                      >
-                        <Button country>{name}</Button>
+                        <Button data-testid="border-btn" country>
+                           {name}
+                        </Button>
                      </Link>
                   )
                })}
