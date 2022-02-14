@@ -19,14 +19,15 @@ test('markup renders with valid country', () => {
 })
 
 test('fallback button renders with undefined country', () => {
-   render(<BorderCountries country={CountryMockTest} />)
-   const fallbackBtn = screen.getByText(/no bordering countries/i)
+   const { getByText, queryByRole, getAllByRole } = render(
+      <BorderCountries country={CountryMockTest} />
+   )
+   const fallbackBtn = getByText(/no bordering countries/i)
 
-   expect(screen.getByText(/border countries/i)).toBeInTheDocument()
-   expect(screen.queryByRole('link')).not.toBeInTheDocument()
-   expect(fallbackBtn).toBeInTheDocument()
+   expect(getByText(/border countries/i)).toBeInTheDocument()
+   expect(queryByRole('link')).not.toBeInTheDocument()
    expect(fallbackBtn).toBeDisabled()
-   expect(screen.getAllByRole('button')).toHaveLength(1)
+   expect(getAllByRole('button')).toHaveLength(1)
 
    // screen.getByRole('')
 })
