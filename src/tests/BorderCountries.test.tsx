@@ -1,10 +1,8 @@
 import React from 'react'
-import { render, cleanup } from './test-utils'
+import { render } from './test-utils'
 import BorderCountries from '../components/BorderCountries'
 import { CountryMockTest } from '../types/countriesContext.interface'
 import '@testing-library/jest-dom/extend-expect'
-
-afterEach(cleanup)
 
 test('markup renders with valid country', () => {
    const country = CountryMockTest[0]
