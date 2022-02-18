@@ -16,7 +16,11 @@ test('HTML renders correctly & semantically', () => {
    expect(label).toBeInTheDocument()
    expect(icon).toBeInTheDocument()
    expect(checkbox).toBeInTheDocument()
+
    expect(icon).toHaveAttribute('aria-hidden', 'true')
+   expect(label).toHaveAttribute('aria-label', 'Theme toggle switch')
+   expect(label).toHaveAttribute('for', 'theme')
+   expect(checkbox).toHaveAttribute('id', 'theme')
 
    getByRole('')
 })
