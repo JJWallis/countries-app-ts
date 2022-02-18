@@ -27,18 +27,20 @@ test('HTML renders correctly & semantically', () => {
    expect(button).toHaveTextContent('hi')
 
    expect(borders).toEqual(btns)
+
+   getByRole('')
 })
 
 test('fallback button renders with undefined country', () => {
-   const { getByText, queryByRole, getAllByRole, getByRole } = render(
+   const { getByText, queryByRole, getAllByRole } = render(
       <BorderCountries country={CountryMockTest} />
    )
    const fallbackBtn = getByText(/no bordering countries/i)
 
+   expect(fallbackBtn).toBeDisabled()
+   expect(fallbackBtn).toHaveStyle('cursor: not-allowed')
+
    expect(getByText(/border countries/i)).toBeInTheDocument()
    expect(queryByRole('link')).not.toBeInTheDocument()
-   expect(fallbackBtn).toBeDisabled()
    expect(getAllByRole('button')).toHaveLength(1)
-
-   getByRole('')
 })
