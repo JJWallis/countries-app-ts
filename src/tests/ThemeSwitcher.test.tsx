@@ -24,7 +24,7 @@ test('HTML renders correctly & semantically', () => {
    expect(checkbox).toHaveAttribute('id', 'theme')
 })
 
-test('handleThemeChange callback executed on theme change', () => {
+test('on theme change checkbox is toggled and handleThemeChange called', () => {
    const themeChange = jest.fn()
    const { getByRole, getByText } = render(
       <ThemeSwitcher handleThemeChange={themeChange} />
@@ -39,12 +39,9 @@ test('handleThemeChange callback executed on theme change', () => {
 
    expect(checkbox).toBeChecked()
    expect(themeChange).toHaveBeenCalled()
-   expect(label).toHaveStyle('color: #fff')
 
    userEvent.click(label)
 
    expect(checkbox).not.toBeChecked()
    expect(themeChange).toHaveBeenCalled()
-
-   getByRole('')
 })
