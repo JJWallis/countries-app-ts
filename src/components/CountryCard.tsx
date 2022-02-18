@@ -36,6 +36,7 @@ const CountryCard: FC<CountryCardProps> = ({ data }) => {
             <CountryImageContainer
                countryImgFlag={flag}
                aria-label={`Flag of ${name}`}
+               data-testid="country-card-image"
             />
             <Wrapper padding="1.5rem 1.7rem 2rem">
                <CountryName>{name ? name : 'No data provided'}</CountryName>
