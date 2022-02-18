@@ -26,17 +26,20 @@ test('HTML renders correctly & semantically', () => {
 
 test('handleThemeChange callback executed on theme change', () => {
    const themeChange = jest.fn()
-   const { getByRole } = render(
+   const { getByRole, getByText } = render(
       <ThemeSwitcher handleThemeChange={themeChange} />
    )
    const checkbox = getByRole('checkbox')
+   const label = getByText(/dark mode/i)
 
    expect(themeChange).toHaveBeenCalled()
+   expect(label).toHaveStyle('color: rgb(17, 17, 17)')
 
    userEvent.click(checkbox)
 
    expect(checkbox).toBeChecked()
    expect(themeChange).toHaveBeenCalled()
+   // expect(label).toHaveStyle('color: #fff')
 
    getByRole('')
 })
