@@ -39,7 +39,12 @@ test('handleThemeChange callback executed on theme change', () => {
 
    expect(checkbox).toBeChecked()
    expect(themeChange).toHaveBeenCalled()
-   // expect(label).toHaveStyle('color: #fff')
+   expect(label).toHaveStyle('color: #fff')
+
+   userEvent.click(label)
+
+   expect(checkbox).not.toBeChecked()
+   expect(themeChange).toHaveBeenCalled()
 
    getByRole('')
 })
