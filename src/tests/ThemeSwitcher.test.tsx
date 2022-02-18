@@ -33,7 +33,6 @@ test('on theme change checkbox is toggled and handleThemeChange called', () => {
    const label = getByText(/dark mode/i)
 
    expect(themeChange).toHaveBeenCalled()
-   expect(label).toHaveStyle('color: rgb(17, 17, 17)')
 
    userEvent.click(checkbox)
 
