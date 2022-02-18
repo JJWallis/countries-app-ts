@@ -18,6 +18,4 @@ test('HTML renders correctly & semantically', () => {
    expect(backBtn).toBeEnabled()
 
    expect(icon).toHaveAttribute('aria-hidden', 'true')
-
-   getByRole('')
 })

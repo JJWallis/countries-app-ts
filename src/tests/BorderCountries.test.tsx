@@ -4,7 +4,7 @@ import BorderCountries from '../components/BorderCountries'
 import { CountryMockTest } from '../types/countriesContext.interface'
 import '@testing-library/jest-dom/extend-expect'
 
-test('markup renders with valid country', () => {
+test('HTML renders correctly & semantically', () => {
    const country = CountryMockTest[0]
    const borders = country.borders.map((border) => border)
    const { getAllByRole, getByRole, getByText, getAllByTestId } = render(
@@ -16,16 +16,21 @@ test('markup renders with valid country', () => {
       (btn) => btn.textContent
    ) as string[]
 
+   expect(link).toBeInTheDocument()
+   expect(button).toBeInTheDocument()
+   expect(getByText(/border countries/i)).toBeInTheDocument()
+
    expect(link).toHaveAttribute('href', '/details/hi')
    expect(getAllByRole('link')).toHaveLength(1)
-   expect(button).toHaveTextContent('hi')
+
    expect(button).toBeEnabled()
-   expect(getByText(/border countries/i)).toBeInTheDocument()
+   expect(button).toHaveTextContent('hi')
+
    expect(borders).toEqual(btns)
 })
 
 test('fallback button renders with undefined country', () => {
-   const { getByText, queryByRole, getAllByRole } = render(
+   const { getByText, queryByRole, getAllByRole, getByRole } = render(
       <BorderCountries country={CountryMockTest} />
    )
    const fallbackBtn = getByText(/no bordering countries/i)
@@ -34,4 +39,6 @@ test('fallback button renders with undefined country', () => {
    expect(queryByRole('link')).not.toBeInTheDocument()
    expect(fallbackBtn).toBeDisabled()
    expect(getAllByRole('button')).toHaveLength(1)
+
+   getByRole('')
 })
