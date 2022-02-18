@@ -22,10 +22,12 @@ const CountryCard: FC<CountryCardProps> = ({ data }) => {
    const printData = (newData: Partial<CountryCardProps['data']>) => {
       return Object.entries(newData).map(([key, value]) => (
          <Wrapper margin="0 0 0.2rem" key={key}>
-            <CountrySubTitle as="p">
+            <CountrySubTitle as="p" data-testid="country-card-subtitle">
                {key[0].toUpperCase() + key.slice(1, key.length) + ':'}
             </CountrySubTitle>
-            <CountryData>{value ? value : 'No data provided'}</CountryData>
+            <CountryData data-testid="country-card-desc">
+               {value ? value : 'No data provided'}
+            </CountryData>
          </Wrapper>
       ))
    }
