@@ -9,6 +9,7 @@ test('is rendered correctly', () => {
    const search = getByRole('textbox')
 
    expect(search).toBeTruthy()
+   expect(search).toHaveFocus()
 })
 
 test('input value updates on change', () => {
