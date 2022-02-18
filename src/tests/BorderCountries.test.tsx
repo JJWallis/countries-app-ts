@@ -27,8 +27,6 @@ test('HTML renders correctly & semantically', () => {
    expect(button).toHaveTextContent('hi')
 
    expect(borders).toEqual(btns)
-
-   getByRole('')
 })
 
 test('fallback button renders with undefined country', () => {
