@@ -16,13 +16,12 @@ test('HTML renders correctly & semantically', () => {
    expect(label).toBeInTheDocument()
    expect(icon).toBeInTheDocument()
    expect(checkbox).toBeInTheDocument()
+   expect(checkbox).toBeEnabled()
 
    expect(icon).toHaveAttribute('aria-hidden', 'true')
    expect(label).toHaveAttribute('aria-label', 'Theme toggle switch')
    expect(label).toHaveAttribute('for', 'theme')
    expect(checkbox).toHaveAttribute('id', 'theme')
-
-   getByRole('')
 })
 
 test('handleThemeChange callback executed on theme change', () => {
@@ -32,7 +31,12 @@ test('handleThemeChange callback executed on theme change', () => {
    )
    const checkbox = getByRole('checkbox')
 
+   expect(themeChange).toHaveBeenCalled()
+
    userEvent.click(checkbox)
+
    expect(checkbox).toBeChecked()
-   expect(themeChange).toHaveBeenCalledTimes(2)
+   expect(themeChange).toHaveBeenCalled()
+
+   getByRole('')
 })
