@@ -1,31 +1,38 @@
 import React from 'react'
-import { render, screen } from './test-utils'
+import { render } from './test-utils'
 import userEvent from '@testing-library/user-event'
-import '@testing-library/jest-dom/extend-expect'
 import Search from '../components/Search'
+import '@testing-library/jest-dom/extend-expect'
 
 test('HTML renders correctly & semantically', () => {
-   const { getByRole } = render(<Search />)
+   const { getByRole, getByTestId } = render(<Search />)
    const search = getByRole('textbox')
+   const searchIcon = getByTestId('search-icon')
 
    expect(search).toBeInTheDocument()
    expect(search).toHaveFocus()
-
-   getByRole('')
+   expect(searchIcon).toBeInTheDocument()
+   expect(searchIcon).toHaveAttribute(
+      'aria-label',
+      'Search for inputted country'
+   )
 })
 
 test('input value updates on change', () => {
-   const { getByTestId } = render(<Search />)
-   const search = getByTestId('search-input') as HTMLInputElement
+   const { getByRole } = render(<Search />)
+   const search = getByRole('textbox') as HTMLInputElement
 
    expect(search.value).toBe('')
    userEvent.type(search, 'test')
-   expect(screen.getByRole('textbox')).toHaveValue('test')
+   expect(search).toHaveValue('test')
+
+   userEvent.type(search, 'test')
+   expect(search).toHaveValue('testtest')
 })
 
 test('input error styles update on invalid search', () => {
-   const { getByTestId } = render(<Search />)
-   const search = getByTestId('search-input') as HTMLInputElement
+   const { getByTestId, getByRole } = render(<Search />)
+   const search = getByRole('textbox') as HTMLInputElement
    const searchIcon = getByTestId('search-icon')
 
    expect(search.value).toBe('')
