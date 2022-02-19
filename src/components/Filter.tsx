@@ -57,7 +57,10 @@ const Filter: FC<Props> = ({ prevFilter, updatePrevFilter }) => {
          >
             {!prevFilter ? 'Filter by region' : prevFilter}
          </Button>
-         <DropDownContainer opacity={toggleDropDown ? 1 : 0}>
+         <DropDownContainer
+            opacity={toggleDropDown ? 1 : 0}
+            data-testid="drop-down-ct"
+         >
             {prevFilter && (
                <Button
                   dropDown
