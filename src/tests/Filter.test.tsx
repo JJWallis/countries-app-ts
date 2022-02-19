@@ -1,7 +1,12 @@
 import React from 'react'
+import { render } from './test-utils'
 import userEvent from '@testing-library/user-event'
-import { render, screen } from '@testing-library/react'
-import { Link } from 'react-router-dom'
+import Filter from '../components/Filter'
 import '@testing-library/jest-dom/extend-expect'
 
-test('', () => {})
+test('HTML renders correctly & semantically', () => {
+   const prevFilter = jest.fn()
+   const { getByRole } = render(
+      <Filter prevFilter="" updatePrevFilter={prevFilter} />
+   )
+})
