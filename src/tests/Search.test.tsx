@@ -18,13 +18,17 @@ test('HTML renders correctly & semantically', () => {
    )
 })
 
-test('input value updates on change', () => {
-   const { getByRole } = render(<Search />)
+test('input value updates on change & search icon becomes clickable', () => {
+   const { getByRole, getByTestId } = render(<Search />)
    const search = getByRole('textbox') as HTMLInputElement
+   const searchIcon = getByTestId('search-icon')
 
    expect(search.value).toBe('')
+   expect(searchIcon).toHaveAttribute('disabled', '')
+
    userEvent.type(search, 'test')
    expect(search).toHaveValue('test')
+   expect(searchIcon).not.toHaveAttribute('disabled')
 
    userEvent.type(search, 'test')
    expect(search).toHaveValue('testtest')
@@ -39,4 +43,6 @@ test('input error styles update on invalid search', () => {
    userEvent.type(search, 'test')
    userEvent.click(searchIcon)
    expect(search.placeholder).toBe('Please enter a valid country')
+
+   // getByRole('')
 })
