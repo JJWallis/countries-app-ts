@@ -3,6 +3,7 @@ import { render } from './test-utils'
 import userEvent from '@testing-library/user-event'
 import Search from '../components/Search'
 import '@testing-library/jest-dom/extend-expect'
+import { fireEvent } from '@testing-library/react'
 
 test('HTML renders correctly & semantically', () => {
    const { getByRole, getByTestId } = render(<Search />)
@@ -40,9 +41,20 @@ test('input error styles update on invalid search', () => {
    const searchIcon = getByTestId('search-icon')
 
    expect(search.value).toBe('')
+
    userEvent.type(search, 'test')
    userEvent.click(searchIcon)
+
    expect(search.placeholder).toBe('Please enter a valid country')
+   expect(search.value).toBe('')
+   expect(searchIcon).toHaveAttribute('disabled', '')
+
+   userEvent.type(search, 'test')
+   fireEvent.keyDown(search, { key: 'Enter', code: 13 })
+
+   expect(search.placeholder).toBe('Please enter a valid country')
+   expect(search.value).toBe('')
+   expect(searchIcon).toHaveAttribute('disabled', '')
 
    // getByRole('')
 })
