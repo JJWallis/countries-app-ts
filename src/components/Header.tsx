@@ -7,9 +7,7 @@ const Header: FC = ({ children }) => {
    return (
       <StyledHeader>
          <HeaderContainer>
-            <MainTitle data-testid="header-title">
-               Where in the world?
-            </MainTitle>
+            <MainTitle>Where in the world?</MainTitle>
             {children}
          </HeaderContainer>
       </StyledHeader>
