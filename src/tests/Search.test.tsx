@@ -4,12 +4,14 @@ import userEvent from '@testing-library/user-event'
 import '@testing-library/jest-dom/extend-expect'
 import Search from '../components/Search'
 
-test('is rendered correctly', () => {
+test('HTML renders correctly & semantically', () => {
    const { getByRole } = render(<Search />)
    const search = getByRole('textbox')
 
-   expect(search).toBeTruthy()
+   expect(search).toBeInTheDocument()
    expect(search).toHaveFocus()
+
+   getByRole('')
 })
 
 test('input value updates on change', () => {
