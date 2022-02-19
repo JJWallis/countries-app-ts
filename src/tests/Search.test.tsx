@@ -45,6 +45,7 @@ test('input error styles update on invalid search', () => {
    userEvent.type(search, 'test')
    userEvent.click(searchIcon)
 
+   expect(search).toHaveFocus()
    expect(search.placeholder).toBe('Please enter a valid country')
    expect(search.value).toBe('')
    expect(searchIcon).toHaveAttribute('disabled', '')
@@ -55,6 +56,5 @@ test('input error styles update on invalid search', () => {
    expect(search.placeholder).toBe('Please enter a valid country')
    expect(search.value).toBe('')
    expect(searchIcon).toHaveAttribute('disabled', '')
-
-   // getByRole('')
+   expect(search).toHaveFocus()
 })
