@@ -9,19 +9,27 @@ test('valid country data displayed correctly', () => {
       countries: CountryMockTest,
       countriesError: false,
    }
-   const { getByRole, getByText, queryByText } = countriesRender(<HomeMain />, {
-      providerProps,
-   })
+   const { getByRole, queryByText, getAllByRole } = countriesRender(
+      <HomeMain />,
+      {
+         providerProps,
+      }
+   )
    const link = getByRole('link')
    const article = getByRole('article')
+   const heading = getByRole('heading')
 
    expect(queryByText('Loading...')).toBeNull()
 
    expect(link).toBeInTheDocument()
-   expect(link).toHaveAttribute('href')
+   expect(link).toHaveAttribute('href', '/details/hi')
 
    expect(article).toBeInTheDocument()
    expect(article).toHaveAttribute('id') // accessibility - links to aria-controls in Filter.tsx
+
+   expect(heading).toBeInTheDocument()
+   expect(heading).toHaveTextContent('hi')
+   expect(getAllByRole('heading')).toHaveLength(1)
 
    getByRole('')
 })
