@@ -9,13 +9,21 @@ test('valid country data displayed correctly', () => {
       countries: CountryMockTest,
       countriesError: false,
    }
-
-   const { getByRole, findAllByRole, queryByText, findByRole } =
-      countriesRender(<HomeMain />, { providerProps })
-   getByRole('')
+   const { getByRole, getByText, queryByText } = countriesRender(<HomeMain />, {
+      providerProps,
+   })
+   const link = getByRole('link')
+   const article = getByRole('article')
 
    expect(queryByText('Loading...')).toBeNull()
-   // expect(await findByRole('link')).toHaveAttribute('href')
+
+   expect(link).toBeInTheDocument()
+   expect(link).toHaveAttribute('href')
+
+   expect(article).toBeInTheDocument()
+   expect(article).toHaveAttribute('id') // accessibility - links to aria-controls in Filter.tsx
+
+   getByRole('')
 })
 
 // test('displays error message on unsuccessful data fetch', async () => {
