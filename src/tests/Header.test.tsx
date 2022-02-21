@@ -11,6 +11,4 @@ test('header title renders with correct text', () => {
    expect(header).toBeInTheDocument()
    expect(title).toBeInTheDocument()
    expect(title).toHaveTextContent(/where in the world/i)
-
-   getByRole('')
 })

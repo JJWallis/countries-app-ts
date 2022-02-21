@@ -4,20 +4,18 @@ import { ThemeProvider } from 'styled-components'
 import { BrowserRouter } from 'react-router-dom'
 import { CountriesProvider } from '../context/countriesContext'
 import { FilteredRegionsProvider } from '../context/filteredRegionsContext'
-import { CountryMockTest } from '../types/countriesContext.interface'
 import { lightTheme } from '../components/styled/Theme'
 
 const AllTheProviders: FC = ({ children }) => {
+   const handleFilterRegions = jest.fn()
+
    return (
       <ThemeProvider theme={lightTheme}>
          <BrowserRouter>
-            <CountriesProvider
-               countries={CountryMockTest}
-               countriesError={false}
-            >
+            <CountriesProvider countries={null} countriesError={false}>
                <FilteredRegionsProvider
-                  filteredRegions={CountryMockTest}
-                  handleFilterRegions={(region: string) => undefined}
+                  filteredRegions={null}
+                  handleFilterRegions={handleFilterRegions}
                >
                   {children}
                </FilteredRegionsProvider>
