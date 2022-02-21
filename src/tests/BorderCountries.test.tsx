@@ -33,7 +33,7 @@ test('HTML renders correctly & semantically', () => {
 })
 
 test('fallback button renders with undefined country', () => {
-   const { getByText, queryByRole, getAllByRole, getByRole } = render(
+   const { getByText, queryByRole, getAllByRole } = render(
       <BorderCountries country={CountryMockTest} />
    )
    const fallbackBtn = getByText(/no bordering countries/i)
@@ -44,5 +44,4 @@ test('fallback button renders with undefined country', () => {
    expect(getByText(/border countries/i)).toBeInTheDocument()
    expect(queryByRole('link')).not.toBeInTheDocument()
    expect(getAllByRole('button')).toHaveLength(1)
-   getByRole('')
 })

@@ -1,14 +1,27 @@
 import React from 'react'
-import { render } from './test-utils'
+import { countriesRender, render } from './test-utils'
 import userEvent from '@testing-library/user-event'
 import Filter from '../components/Filter'
 import '@testing-library/jest-dom/extend-expect'
+import { CountryMockTest } from '../types/countriesContext.interface'
+import { FilteredRegionsProvider } from '../context/filteredRegionsContext'
 
 test('HTML renders correctly & semantically', () => {
+   const providerProps = {
+      countries: CountryMockTest,
+      countriesError: false,
+   }
    const prevFilter = jest.fn()
-   const { getByRole, getAllByRole, getByTestId } = render(
-      <Filter prevFilter="" updatePrevFilter={prevFilter} />
+   const { getByRole, getAllByRole, getByTestId } = countriesRender(
+      <FilteredRegionsProvider
+         filteredRegions={null}
+         handleFilterRegions={prevFilter}
+      >
+         <Filter prevFilter="" updatePrevFilter={prevFilter} />
+      </FilteredRegionsProvider>,
+      { providerProps }
    )
+
    const btnTitle = getByRole('button', { name: /Filter by region/i })
    const btnOption = getByRole('button', { name: /hi/i })
    const btns = getAllByRole('button')
