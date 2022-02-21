@@ -17,7 +17,7 @@ describe('loading title', () => {
          render(<HomeMain />)
       debug()
 
-      // expect(queryByText('Loading...')).toBeNull()
+      expect(queryByText('Loading...')).toBeNull()
       // expect(await findByRole('link')).toHaveAttribute('href')
    })
 
@@ -32,5 +32,3 @@ describe('loading title', () => {
    //    // )
    // })
 })
-
-// test() - if user clicks on card with 'hi' - fallbacks shown as no 'hi' country

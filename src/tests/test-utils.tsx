@@ -8,7 +8,6 @@ import { lightTheme } from '../components/styled/Theme'
 
 const AllTheProviders: FC = ({ children }) => {
    const handleFilterRegions = jest.fn()
-
    return (
       <ThemeProvider theme={lightTheme}>
          <BrowserRouter>
@@ -25,6 +24,13 @@ const AllTheProviders: FC = ({ children }) => {
    )
 }
 
+const customContextRender = (ui, { providerProps, ...renderOptions }) => {
+   return render(
+      <NameContext.Provider {...providerProps}>{ui}</NameContext.Provider>,
+      renderOptions
+   )
+}
+
 const customRender = (
    ui: ReactElement,
    options?: Omit<RenderOptions, 'wrapper'>
@@ -32,3 +38,4 @@ const customRender = (
 
 export * from '@testing-library/react'
 export { customRender as render }
+export { customContextRender as renderContext }
