@@ -15,7 +15,7 @@ test('loading title displays on initial render', () => {
    const heading = getByRole('heading')
 
    expect(heading).toBeInTheDocument()
-   expect(heading).toHaveTextContent('Loading...')
+   expect(heading).toHaveTextContent(/Loading/i)
    expect(getAllByRole('heading')).toHaveLength(1)
 })
 
@@ -52,12 +52,13 @@ test('invalid data title displays on initial request error', () => {
       countries: null,
       countriesError: true,
    }
-   const { getByRole, queryByText, getAllByRole } = countriesRender(
-      <HomeMain />,
-      {
-         providerProps,
-      }
-   )
+   const { getByRole } = countriesRender(<HomeMain />, {
+      providerProps,
+   })
+   const heading = getByRole('heading')
 
-   getByRole('')
+   expect(heading).toBeInTheDocument()
+   expect(heading).toHaveTextContent(
+      /Country data could not be retrieved. Please reload & try again/i
+   )
 })
