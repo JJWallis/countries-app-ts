@@ -32,13 +32,15 @@ const countriesContextRender = (
       ...renderOptions
    }: {
       providerProps: {
-         countries: Country[]
+         countries: Country[] | null
          countriesError: boolean
       }
    }
 ) => {
    return render(
-      <CountriesProvider {...providerProps}>{ui}</CountriesProvider>,
+      <BrowserRouter>
+         <CountriesProvider {...providerProps}>{ui}</CountriesProvider>,
+      </BrowserRouter>,
       renderOptions
    )
 }
@@ -50,4 +52,4 @@ const customRender = (
 
 export * from '@testing-library/react'
 export { customRender as render }
-export { countriesContextRender as renderContext }
+export { countriesContextRender as countriesRender }

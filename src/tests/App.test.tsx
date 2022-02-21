@@ -6,6 +6,9 @@ import App from '../App'
 import axios from 'axios'
 
 // jest.mock('axios')
+// const axiosRequest = axios as jest.Mocked<typeof axios>
+// const data = Promise.resolve({ data: CountryMockTest })
+// axiosRequest.get.mockResolvedValue(data)
 
 // test('countries data API', () => {
 //    const { debug } = render(<App />)
