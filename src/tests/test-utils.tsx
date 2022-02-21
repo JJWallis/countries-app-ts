@@ -5,6 +5,7 @@ import { BrowserRouter } from 'react-router-dom'
 import { CountriesProvider } from '../context/countriesContext'
 import { FilteredRegionsProvider } from '../context/filteredRegionsContext'
 import { lightTheme } from '../components/styled/Theme'
+import { Country } from '../types/countriesContext.interface'
 
 const AllTheProviders: FC = ({ children }) => {
    const handleFilterRegions = jest.fn()
@@ -24,9 +25,20 @@ const AllTheProviders: FC = ({ children }) => {
    )
 }
 
-const customContextRender = (ui, { providerProps, ...renderOptions }) => {
+const countriesContextRender = (
+   ui: ReactElement,
+   {
+      providerProps,
+      ...renderOptions
+   }: {
+      providerProps: {
+         countries: Country[]
+         countriesError: boolean
+      }
+   }
+) => {
    return render(
-      <NameContext.Provider {...providerProps}>{ui}</NameContext.Provider>,
+      <CountriesProvider {...providerProps}>{ui}</CountriesProvider>,
       renderOptions
    )
 }
@@ -38,4 +50,4 @@ const customRender = (
 
 export * from '@testing-library/react'
 export { customRender as render }
-export { customContextRender as renderContext }
+export { countriesContextRender as renderContext }
