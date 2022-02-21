@@ -17,8 +17,6 @@ test('loading title displays on initial render', () => {
    expect(heading).toBeInTheDocument()
    expect(heading).toHaveTextContent('Loading...')
    expect(getAllByRole('heading')).toHaveLength(1)
-
-   getByRole('')
 })
 
 test('valid country data displayed correctly', () => {
@@ -49,7 +47,17 @@ test('valid country data displayed correctly', () => {
    expect(getAllByRole('heading')).toHaveLength(1)
 })
 
-// expect(screen.getByText('Loading...')).toBeInTheDocument()
-// expect(await screen.findByRole('heading')).toHaveTextContent(
-//    'Country data could not be retrieved. Please reload & try again.'
-// )
+test('invalid data title displays on initial request error', () => {
+   const providerProps = {
+      countries: null,
+      countriesError: true,
+   }
+   const { getByRole, queryByText, getAllByRole } = countriesRender(
+      <HomeMain />,
+      {
+         providerProps,
+      }
+   )
+
+   getByRole('')
+})
