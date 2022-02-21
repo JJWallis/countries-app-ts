@@ -14,7 +14,7 @@ test('HTML renders correctly & semantically', () => {
    const prevFilter = jest.fn()
    const { getByRole, getAllByRole, getByTestId } = countriesRender(
       <FilteredRegionsProvider
-         filteredRegions={null}
+         filteredRegions={CountryMockTest}
          handleFilterRegions={prevFilter}
       >
          <Filter prevFilter="" updatePrevFilter={prevFilter} />
@@ -43,11 +43,24 @@ test('HTML renders correctly & semantically', () => {
    expect(btnOption).toHaveAttribute('aria-selected', 'false')
 })
 
+test('drop down renders disabled and empty on request error', () => {})
+
 test('drop down menu toggles correctly on button click', () => {
    const prevFilter = jest.fn()
-   const { getByRole, getByTestId } = render(
-      <Filter prevFilter="" updatePrevFilter={prevFilter} />
+   const providerProps = {
+      countries: CountryMockTest,
+      countriesError: false,
+   }
+   const { getByRole, getByTestId } = countriesRender(
+      <FilteredRegionsProvider
+         filteredRegions={CountryMockTest}
+         handleFilterRegions={prevFilter}
+      >
+         <Filter prevFilter="" updatePrevFilter={prevFilter} />
+      </FilteredRegionsProvider>,
+      { providerProps }
    )
+
    const btnTitle = getByRole('button', { name: /Filter by region/i })
    const btnOption = getByRole('button', { name: /hi/i })
    const dropDownCt = getByTestId('drop-down-ct')
