@@ -4,6 +4,23 @@ import '@testing-library/jest-dom/extend-expect'
 import { CountryMockTest } from '../types/countriesContext.interface'
 import HomeMain from '../routes/HomeMain'
 
+test('loading title displays on initial render', () => {
+   const providerProps = {
+      countries: null,
+      countriesError: false,
+   }
+   const { getByRole, getAllByRole } = countriesRender(<HomeMain />, {
+      providerProps,
+   })
+   const heading = getByRole('heading')
+
+   expect(heading).toBeInTheDocument()
+   expect(heading).toHaveTextContent('Loading...')
+   expect(getAllByRole('heading')).toHaveLength(1)
+
+   getByRole('')
+})
+
 test('valid country data displayed correctly', () => {
    const providerProps = {
       countries: CountryMockTest,
@@ -30,17 +47,9 @@ test('valid country data displayed correctly', () => {
    expect(heading).toBeInTheDocument()
    expect(heading).toHaveTextContent('hi')
    expect(getAllByRole('heading')).toHaveLength(1)
-
-   getByRole('')
 })
 
-// test('displays error message on unsuccessful data fetch', async () => {
-//    const axiosReq = axios as jest.Mocked<typeof axios>
-//    axiosReq.get.mockImplementationOnce(() => Promise.reject(new Error()))
-//    render(<HomeMain />)
-//    // screen.debug()
-//    // expect(screen.getByText('Loading...')).toBeInTheDocument()
-//    // expect(await screen.findByRole('heading')).toHaveTextContent(
-//    //    'Country data could not be retrieved. Please reload & try again.'
-//    // )
-// })
+// expect(screen.getByText('Loading...')).toBeInTheDocument()
+// expect(await screen.findByRole('heading')).toHaveTextContent(
+//    'Country data could not be retrieved. Please reload & try again.'
+// )
