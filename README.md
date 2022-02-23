@@ -121,7 +121,11 @@ test('HTML renders correctly & semantically', () => {
 })
 ```
 
+This project was my first introduction to testing and the importance it plays in giving us the confidence that our app won't break as it scales in size. I used React Testing Library alongside Jest to implement basic unit tests to ensure my components worked in insolation from one another.
+
 ### Continued development
+
+Testing - I look forward to learning much more about testing and all the different types of edge cases we can test for in our application. Developing the change in mindset from testing implementation details to the state our DOM is in and where that data is being used was challenging at first, but now I am more confident with that approach I'm excited to progress further.
 
 Although learning the basics of Typescript has proved to be incredibly valuable so far, I still face many problems with refactoring my type declarations, and using the 'any' type to temporarily fix any bugs. I would therefore like to learn more about how to solve these kind of issues, whilst also focusing on how to destructure potentially falsy data (such as that returned from the Context API).
 
