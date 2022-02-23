@@ -113,7 +113,12 @@ const handleRegions = () => {
 I chose to highlight the function above due to its efficiency in generating the different country regions to be displayed within the dropdown menu. I was able to use a combination of chaining methods and the `Set()` data structure to remove all duplicates from the returned Array, whilst then sorting them in alphabetical order and producing a button for each one.
 
 ```jsx
-
+test('HTML renders correctly & semantically', () => {
+   const { getByRole, getByTestId } = render(<BackButton />)
+   const link = getByRole('link')
+   expect(link).toBeInTheDocument()
+   expect(link).toHaveAttribute('href', '/')
+})
 ```
 
 ### Continued development
