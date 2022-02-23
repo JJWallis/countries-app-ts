@@ -47,6 +47,8 @@ Your users should be able to:
 -  [React](https://reactjs.org/) - JS library
 -  [Styled Components](https://styled-components.com/) - For styles
 -  TypeScript
+-  React Testing Library
+-  Jest
 
 ### What I learned
 
