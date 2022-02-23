@@ -6,7 +6,7 @@ import {
    FurtherDetailsColumns,
 } from './containers/FurtherDetailsContainers.styled'
 import { ErrorMsg } from './styled/ErrorMsg.styled'
-import { FurtherDetailsProps } from '../types/FurtherDetails.interface'
+import type { FurtherDetailsProps } from '../types/FurtherDetails.interface'
 
 const FurtherDetails: FC<FurtherDetailsProps> = ({
    data,

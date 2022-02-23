@@ -3,9 +3,9 @@ import StyledMain from './styled/StyledMain'
 import { MainContainer } from './containers/MainContainer.styled'
 import SearchFilter from './SearchFilter'
 import Countries from './CountriesContainer'
-import { CountryData } from '../types/countriesContext.interface'
 import { useCountriesContext } from '../hooks/useCountriesContext'
 import { FilteredRegionsProvider } from '../context/filteredRegionsContext'
+import type { CountryData } from '../types/countriesContext.interface'
 
 const Main: FC = () => {
    const [filteredRegions, setFilteredRegions] = useState<CountryData>(null)

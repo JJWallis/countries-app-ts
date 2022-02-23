@@ -1,5 +1,4 @@
 import React, { FC } from 'react'
-import { CountryCardProps } from '../types/CountryCard.interface'
 import { Link } from 'react-router-dom'
 import { CountryName } from './styled/StyledTitle'
 import { CountrySubTitle } from './styled/CountryDataTitle'
@@ -9,6 +8,7 @@ import {
    CountryImageContainer,
 } from './containers/CountryContainer.styled'
 import Wrapper from './containers/Wrapper'
+import type { CountryCardProps } from '../types/CountryCard.interface'
 
 const CountryCard: FC<CountryCardProps> = ({ data }) => {
    const {
