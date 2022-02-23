@@ -3,12 +3,12 @@ import { ThemeProvider } from 'styled-components'
 import { CountriesProvider } from './context/countriesContext'
 import { useDarkMode } from './hooks/useDarkMode'
 import { darkTheme, lightTheme } from './components/styled/Theme'
-import { CountryData } from './types/countriesContext.interface'
 import axios from 'axios'
 import GlobalStyles from './components/styled/GlobalStyles'
 import Header from './components/Header'
 import Main from './components/Main'
 import ThemeSwitcher from './components/ThemeSwitcher'
+import type { CountryData } from './types/countriesContext.interface'
 
 const App: FC = () => {
    const prefersDarkMode = useDarkMode()
