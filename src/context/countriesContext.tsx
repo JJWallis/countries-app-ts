@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react'
-import {
+import type {
    CountryData,
    ContextInterface,
 } from '../types/countriesContext.interface'

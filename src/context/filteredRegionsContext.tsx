@@ -1,5 +1,5 @@
 import React from 'react'
-import { CountryData } from '../types/countriesContext.interface'
+import type { CountryData } from '../types/countriesContext.interface'
 
 type FilteredRegionsDispatch = (region: string) => void
 

@@ -112,6 +112,10 @@ const handleRegions = () => {
 
 I chose to highlight the function above due to its efficiency in generating the different country regions to be displayed within the dropdown menu. I was able to use a combination of chaining methods and the `Set()` data structure to remove all duplicates from the returned Array, whilst then sorting them in alphabetical order and producing a button for each one.
 
+```jsx
+
+```
+
 ### Continued development
 
 Although learning the basics of Typescript has proved to be incredibly valuable so far, I still face many problems with refactoring my type declarations, and using the 'any' type to temporarily fix any bugs. I would therefore like to learn more about how to solve these kind of issues, whilst also focusing on how to destructure potentially falsy data (such as that returned from the Context API).
