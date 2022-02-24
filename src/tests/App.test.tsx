@@ -10,7 +10,16 @@ import axios from 'axios'
 // const data = Promise.resolve({ data: CountryMockTest })
 // axiosRequest.get.mockResolvedValue(data)
 
-// test('countries data API', () => {
-//    const { debug } = render(<App />)
-//    debug()
-// })
+test('countries data API', () => {
+   window.matchMedia = jest.fn().mockImplementation((query) => {
+      return {
+         matches: false,
+         media: query,
+         addEventListener: jest.fn(),
+         removeEventListener: jest.fn(),
+      }
+   })
+
+   const { debug } = render(<App />)
+   debug()
+})
