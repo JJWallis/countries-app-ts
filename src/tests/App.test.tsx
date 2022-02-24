@@ -6,12 +6,14 @@ import App from '../App'
 import axios from 'axios'
 import { BrowserRouter } from 'react-router-dom'
 
-// jest.mock('axios')
-// const axiosRequest = axios as jest.Mocked<typeof axios>
-// const data = Promise.resolve({ data: CountryMockTest })
-// axiosRequest.get.mockResolvedValue(data)
+jest.mock('axios')
 
 test('countries data API', async () => {
+   const axiosRequest = axios as jest.Mocked<typeof axios>
+   axiosRequest.get.mockImplementationOnce(() =>
+      Promise.resolve({ data: CountryMockTest })
+   )
+
    window.matchMedia = jest.fn().mockImplementation((query) => {
       return {
          matches: false,
@@ -21,11 +23,14 @@ test('countries data API', async () => {
       }
    })
 
-   const { getByRole } = render(
+   const { getByText, findByText, getByRole } = render(
       <BrowserRouter>
          <App />
       </BrowserRouter>
    )
+
+   const loading = getByText(/loading/i)
+   expect(await findByText(/loading/i)).not.toBeInTheDocument()
 
    getByRole('')
 })
