@@ -4,6 +4,7 @@ import { routerRender } from './test-utils'
 import { CountryMockTest } from '../types/countriesContext.interface'
 import App from '../App'
 import axios from 'axios'
+import userEvent from '@testing-library/user-event'
 
 jest.mock('axios')
 
@@ -78,17 +79,25 @@ test('error title displays on unsuccessful request', async () => {
    expect(consoleMock).toHaveBeenCalled()
 })
 
-test('country card click directs to details page', async () => {
+test('navigation to and from details page functions correctly', async () => {
    const axiosRequest = axios as jest.Mocked<typeof axios>
    axiosRequest.get.mockImplementationOnce(() =>
       Promise.resolve({ data: CountryMockTest })
    )
 
-   const { getByRole, findByRole, queryByRole } = routerRender(<App />)
+   const { getByRole, findByRole, queryByRole, getByText } = routerRender(
+      <App />
+   )
 
-   expect(queryByRole('article')).toBeNull()
-   const countries = await findByRole('article')
-   expect(countries).toBeInTheDocument()
+   expect(queryByRole('link')).toBeNull()
+   const country = await findByRole('link')
+   expect(country).toBeInTheDocument()
 
-   // getByRole('')
+   // navigate to details page
+   userEvent.click(country)
+
+   getByRole('')
+
+   // back to home page
+   userEvent.click(getByText(/back/i))
 })
