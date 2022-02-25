@@ -55,17 +55,12 @@ test('renders correctly pre-successful request', async () => {
 })
 
 test('error title displays on unsuccessful request', async () => {
+   const consoleMock = jest.spyOn(console, 'error').mockImplementation()
    const axiosRequest = axios as jest.Mocked<typeof axios>
    axiosRequest.get.mockImplementationOnce(() => Promise.reject(new Error('')))
-   const {
-      getByText,
-      findByText,
-      getByRole,
-      findByRole,
-      getAllByRole,
-      findAllByRole,
-   } = routerRender(<App />)
-
+   const { getByText, findByText, getByRole, findByRole } = routerRender(
+      <App />
+   )
    const input = getByRole('textbox')
 
    expect(getByText(/loading/i)).toBeInTheDocument()
@@ -80,4 +75,5 @@ test('error title displays on unsuccessful request', async () => {
    ).toBeInTheDocument()
    expect(await findByRole('textbox')).toBeDisabled()
    expect(await findByText(/filter by region/i)).toBeDisabled()
+   expect(consoleMock).toHaveBeenCalled()
 })
