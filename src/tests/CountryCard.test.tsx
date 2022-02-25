@@ -19,13 +19,13 @@ test('HTML renders correctly & semantically', () => {
    )
 
    expect(heading).toBeInTheDocument()
-   expect(heading).toHaveTextContent('hi')
+   expect(heading).toHaveTextContent(/france/i)
 
    expect(link).toBeInTheDocument()
-   expect(link).toHaveAttribute('href', '/details/hi')
+   expect(link).toHaveAttribute('href', '/details/france')
 
-   expect(flagCt).toHaveAccessibleName(/flag of hi/i)
+   expect(flagCt).toHaveAccessibleName(/flag of france/i)
 
    expect(subTitles).toEqual(['Population:', 'Region:', 'Capital:'])
-   expect(descs).toEqual(['10', 'hi', 'hi'])
+   expect(descs).toEqual(['67391582', 'Europe', 'Paris'])
 })
