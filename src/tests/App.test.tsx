@@ -40,7 +40,6 @@ test('renders correctly pre-successful request', async () => {
       getAllByRole('heading').map(({ textContent }) => textContent)
    ).toEqual(['Where in the world?', 'Loading...'])
 
-   // successsful response
    expect(await findByText(/loading/i)).not.toBeInTheDocument()
 
    const countries = await findByRole('article')
@@ -50,7 +49,7 @@ test('renders correctly pre-successful request', async () => {
    const newHeadings = await findAllByRole('heading')
    expect(newHeadings.map(({ textContent }) => textContent)).toEqual([
       'Where in the world?',
-      'hi',
+      'France',
    ])
 })
 
@@ -65,8 +64,6 @@ test('error title displays on unsuccessful request', async () => {
 
    expect(getByText(/loading/i)).toBeInTheDocument()
    expect(input).toBeEnabled()
-
-   // unsuccesssful response
 
    expect(
       await findByText(
@@ -83,19 +80,21 @@ test('navigation to and from details page functions correctly', async () => {
    axiosRequest.get.mockImplementationOnce(() =>
       Promise.resolve({ data: CountryMockTest })
    )
-   const { getByRole, findByRole, queryByRole, getByText } = routerRender(
-      <App />
-   )
+   const { getByRole, findByRole, queryByRole } = routerRender(<App />)
 
    expect(queryByRole('link')).toBeNull()
-   const country = await findByRole('link')
-   expect(country).toBeInTheDocument()
+   const countryCard = await findByRole('link')
+   expect(countryCard).toBeInTheDocument()
 
    // navigate to details page
-   userEvent.click(country)
+   userEvent.click(countryCard)
+
+   const backBtn = getByRole('button', { name: /back/i })
+   expect(backBtn).toBeInTheDocument()
 
    getByRole('')
 
    // back to home page
-   userEvent.click(getByText(/back/i))
+   userEvent.click(backBtn)
+   expect(queryByRole('button', { name: /back/i })).toBeNull()
 })
