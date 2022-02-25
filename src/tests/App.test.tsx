@@ -24,14 +24,19 @@ test('renders correctly pre-successful request', async () => {
       Promise.resolve({ data: CountryMockTest })
    )
 
-   const { getByText, findByText, getByRole, findByRole } = routerRender(
-      <App />
-   )
+   const { getByText, findByText, getByRole, findByRole, getAllByRole } =
+      routerRender(<App />)
 
    expect(getByText(/loading/i)).toBeInTheDocument()
+   expect(getByRole('banner')).toBeInTheDocument()
+   expect(getByRole('main')).toBeInTheDocument()
+   expect(
+      getAllByRole('heading').map((heading) => heading.textContent)
+   ).toEqual(['Where in the world?', 'Loading...'])
+
+   getByRole('')
 
    // successsful response
    expect(await findByText(/loading/i)).not.toBeInTheDocument()
    expect(await findByRole('article')).toBeInTheDocument()
-   // getByRole('')
 })
