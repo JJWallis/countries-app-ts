@@ -10,7 +10,7 @@ jest.mock('axios')
 beforeEach(() => {
    window.matchMedia = jest.fn().mockImplementation((query) => {
       return {
-         matches: false, // light mode
+         matches: false,
          media: query,
          addEventListener: jest.fn(),
          removeEventListener: jest.fn(),
@@ -24,19 +24,33 @@ test('renders correctly pre-successful request', async () => {
       Promise.resolve({ data: CountryMockTest })
    )
 
-   const { getByText, findByText, getByRole, findByRole, getAllByRole } =
-      routerRender(<App />)
+   const {
+      getByText,
+      findByText,
+      getByRole,
+      findByRole,
+      getAllByRole,
+      findAllByRole,
+   } = routerRender(<App />)
 
    expect(getByText(/loading/i)).toBeInTheDocument()
    expect(getByRole('banner')).toBeInTheDocument()
    expect(getByRole('main')).toBeInTheDocument()
    expect(
-      getAllByRole('heading').map((heading) => heading.textContent)
+      getAllByRole('heading').map(({ textContent }) => textContent)
    ).toEqual(['Where in the world?', 'Loading...'])
-
-   getByRole('')
 
    // successsful response
    expect(await findByText(/loading/i)).not.toBeInTheDocument()
-   expect(await findByRole('article')).toBeInTheDocument()
+
+   const countries = await findByRole('article')
+   expect(countries).toBeInTheDocument()
+   expect(countries).toContainHTML('section')
+
+   const newHeadings = await findAllByRole('heading')
+   expect(newHeadings.map(({ textContent }) => textContent)).toEqual([
+      'Where in the world?',
+      'hi',
+   ])
+   getByRole('')
 })
