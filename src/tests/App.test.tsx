@@ -52,5 +52,32 @@ test('renders correctly pre-successful request', async () => {
       'Where in the world?',
       'hi',
    ])
-   getByRole('')
+})
+
+test('error title displays on unsuccessful request', async () => {
+   const axiosRequest = axios as jest.Mocked<typeof axios>
+   axiosRequest.get.mockImplementationOnce(() => Promise.reject(new Error('')))
+   const {
+      getByText,
+      findByText,
+      getByRole,
+      findByRole,
+      getAllByRole,
+      findAllByRole,
+   } = routerRender(<App />)
+
+   const input = getByRole('textbox')
+
+   expect(getByText(/loading/i)).toBeInTheDocument()
+   expect(input).toBeEnabled()
+
+   // unsuccesssful response
+
+   expect(
+      await findByText(
+         /country data could not be retrieved. Please reload & try again/i
+      )
+   ).toBeInTheDocument()
+   expect(await findByRole('textbox')).toBeDisabled()
+   expect(await findByText(/filter by region/i)).toBeDisabled()
 })
