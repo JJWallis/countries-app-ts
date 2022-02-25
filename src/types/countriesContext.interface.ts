@@ -33,12 +33,10 @@ export const CountryMockTest = [
          svg: 'https://flagcdn.com/fr.svg',
       },
       currencies: [{ name: 'Euro' }],
-      languages: {
-         fra: 'French',
-      },
+      languages: ['French'],
       population: 67391582,
       subregion: 'Western Europe',
-      capital: ['Paris'],
+      capital: 'Paris',
       tld: ['.fr'],
    },
 ]

@@ -37,13 +37,13 @@ test('valid country data displayed correctly', () => {
    expect(queryByText('Loading...')).toBeNull()
 
    expect(link).toBeInTheDocument()
-   expect(link).toHaveAttribute('href', '/details/hi')
+   expect(link).toHaveAttribute('href', '/details/france')
 
    expect(article).toBeInTheDocument()
    expect(article).toHaveAttribute('id') // accessibility - links to aria-controls in Filter.tsx
 
    expect(heading).toBeInTheDocument()
-   expect(heading).toHaveTextContent('hi')
+   expect(heading).toHaveTextContent(/France/i)
    expect(getAllByRole('heading')).toHaveLength(1)
 })
 
