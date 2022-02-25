@@ -75,7 +75,7 @@ test('error title displays on unsuccessful request', async () => {
    expect(consoleMock).toHaveBeenCalled()
 })
 
-test('navigation to and from details page functions correctly', async () => {
+test('navigation to and from details page functions correctly on card click', async () => {
    const axiosRequest = axios as jest.Mocked<typeof axios>
    axiosRequest.get.mockImplementationOnce(() =>
       Promise.resolve({ data: CountryMockTest })
@@ -104,4 +104,26 @@ test('navigation to and from details page functions correctly', async () => {
 
    expect(queryByRole('button', { name: /back/i })).toBeNull()
    expect(queryByRole('img')).toBeNull()
+})
+
+test('theme toggle click changes current theme', () => {
+   const { getByRole } = routerRender(<App />)
+   const themeToggle = getByRole('checkbox', { name: /theme toggle switch/i })
+   const title = getByRole('heading', { name: /Where in the world/i })
+   const banner = getByRole('banner')
+
+   expect(title).toHaveStyle('color: rgb(17, 17, 17)')
+   expect(banner).toHaveStyle('background-color: rgb(255, 255, 255)')
+
+   userEvent.click(themeToggle)
+
+   expect(themeToggle).toBeChecked()
+   expect(title).toHaveStyle('color: #fff')
+   expect(banner).toHaveStyle('background-color:   rgb(43, 43, 43)')
+
+   userEvent.click(themeToggle)
+
+   expect(themeToggle).not.toBeChecked()
+   expect(title).toHaveStyle('color: rgb(17, 17, 17)')
+   expect(banner).toHaveStyle('background-color: rgb(255, 255, 255)')
 })
