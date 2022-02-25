@@ -77,3 +77,18 @@ test('error title displays on unsuccessful request', async () => {
    expect(await findByText(/filter by region/i)).toBeDisabled()
    expect(consoleMock).toHaveBeenCalled()
 })
+
+test('country card click directs to details page', async () => {
+   const axiosRequest = axios as jest.Mocked<typeof axios>
+   axiosRequest.get.mockImplementationOnce(() =>
+      Promise.resolve({ data: CountryMockTest })
+   )
+
+   const { getByRole, findByRole, queryByRole } = routerRender(<App />)
+
+   expect(queryByRole('article')).toBeNull()
+   const countries = await findByRole('article')
+   expect(countries).toBeInTheDocument()
+
+   // getByRole('')
+})
