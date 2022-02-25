@@ -45,6 +45,10 @@ const countriesContextRender = (
    )
 }
 
+const browserRouterRender = (ui: ReactElement) => {
+   return render(<BrowserRouter>{ui}</BrowserRouter>)
+}
+
 const customRender = (
    ui: ReactElement,
    options?: Omit<RenderOptions, 'wrapper'>
@@ -53,3 +57,4 @@ const customRender = (
 export * from '@testing-library/react'
 export { customRender as render }
 export { countriesContextRender as countriesRender }
+export { browserRouterRender as routerRender }
