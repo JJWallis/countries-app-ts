@@ -142,6 +142,10 @@ test('navigation to and from details page functions correctly on valid search in
    userEvent.type(input, 'france')
    fireEvent.keyDown(input, { key: 'Enter', code: 'Enter' })
 
-   expect(getByRole('button', { name: /back/i })).toBeInTheDocument()
+   const backBtn = getByRole('button', { name: /back/i })
+
+   expect(backBtn).toBeInTheDocument()
    expect(getByRole('img', { name: /country flag/i })).toBeInTheDocument()
 })
+
+// filter logic
