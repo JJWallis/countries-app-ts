@@ -22,28 +22,25 @@ test('HTML renders correctly & semantically', () => {
       { providerProps }
    )
 
-   const btnTitle = getByRole('button', { name: /Filter by region/i })
-   const btnOption = getByRole('button', { name: /hi/i })
+   const btnTitle = getByRole('button', { name: /filter by region/i })
+   const btnOption = getByRole('button', { name: /europe/i })
    const btns = getAllByRole('button')
    const dropDownCt = getByTestId('drop-down-ct')
 
    expect(btns).toHaveLength(2)
-   expect(btns.map((button) => button.getAttribute('aria-controls'))).toEqual([
-      'country-information',
-      'country-information',
-   ])
-   expect(btns.map((button) => button.getAttribute('disabled'))).toEqual([
-      null,
-      null,
-   ])
+   btns.map((button) => {
+      expect(button.getAttribute('aria-controls')).toEqual(
+         'country-information'
+      )
+      expect(button.getAttribute('disabled')).toEqual(null)
+      return null
+   })
 
    expect(dropDownCt).toBeInTheDocument()
    expect(btnTitle).toBeInTheDocument()
    expect(btnOption).toBeInTheDocument()
    expect(btnOption).toHaveAttribute('aria-selected', 'false')
 })
-
-test('drop down renders disabled and empty on request error', () => {})
 
 test('drop down menu toggles correctly on button click', () => {
    const prevFilter = jest.fn()
@@ -61,8 +58,8 @@ test('drop down menu toggles correctly on button click', () => {
       { providerProps }
    )
 
-   const btnTitle = getByRole('button', { name: /Filter by region/i })
-   const btnOption = getByRole('button', { name: /hi/i })
+   const btnTitle = getByRole('button', { name: /filter by region/i })
+   const btnOption = getByRole('button', { name: /europe/i })
    const dropDownCt = getByTestId('drop-down-ct')
 
    expect(dropDownCt).toHaveStyle('opacity: 0')
@@ -89,7 +86,7 @@ test('drop down menu is disabled on invalid network request', () => {
       </FilteredRegionsProvider>,
       { providerProps }
    )
-   const btn = getByRole('button', { name: /Filter by region/i })
+   const btn = getByRole('button', { name: /filter by region/i })
    const dropDownCt = getByTestId('drop-down-ct')
 
    expect(btn).toHaveAttribute('disabled')
