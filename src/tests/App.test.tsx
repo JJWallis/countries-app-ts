@@ -90,11 +90,18 @@ test('navigation to and from details page functions correctly', async () => {
    userEvent.click(countryCard)
 
    const backBtn = getByRole('button', { name: /back/i })
-   expect(backBtn).toBeInTheDocument()
+   const flag = getByRole('img', { name: /country flag/i })
 
-   getByRole('')
+   expect(backBtn).toBeInTheDocument()
+   expect(backBtn).toBeEnabled()
+
+   expect(flag).toBeInTheDocument()
+   expect(flag).toHaveAttribute('src', 'https://flagcdn.com/fr.svg')
+   expect(flag).toHaveAccessibleName(/country flag/i)
 
    // back to home page
    userEvent.click(backBtn)
+
    expect(queryByRole('button', { name: /back/i })).toBeNull()
+   expect(queryByRole('img')).toBeNull()
 })
