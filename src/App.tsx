@@ -23,19 +23,19 @@ const App: FC = () => {
       []
    )
 
-   function fetchData(endpoint: string) {
-      axios
-         .get<CountryData>(endpoint)
-         .then((value) => {
-            setCountries(value.data)
-         })
-         .catch((err) => {
-            setCountriesError(true)
-            console.error(err.message)
-         })
+   const fetchData = async () => {
+      try {
+         const { data } = await axios.get('https://restcountries.com/v3.1/all')
+         setCountries(data as CountryData)
+      } catch (error: any) {
+         setCountriesError(true)
+         console.error(error.message)
+      }
    }
 
-   useEffect(() => fetchData('https://restcountries.com/v3.1/all'), [])
+   useEffect(() => {
+      fetchData()
+   }, [])
 
    return (
       <ThemeProvider theme={theme}>

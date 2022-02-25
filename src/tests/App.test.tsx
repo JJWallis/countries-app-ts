@@ -24,7 +24,6 @@ test('renders correctly pre-successful request', async () => {
    axiosRequest.get.mockImplementationOnce(() =>
       Promise.resolve({ data: CountryMockTest })
    )
-
    const {
       getByText,
       findByText,
@@ -84,7 +83,6 @@ test('navigation to and from details page functions correctly', async () => {
    axiosRequest.get.mockImplementationOnce(() =>
       Promise.resolve({ data: CountryMockTest })
    )
-
    const { getByRole, findByRole, queryByRole, getByText } = routerRender(
       <App />
    )

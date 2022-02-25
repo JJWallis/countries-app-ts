@@ -24,19 +24,21 @@ export interface ContextInterface {
 
 export const CountryMockTest = [
    {
-      name: { common: 'hi', nativeName: [{ official: 'hi' }] },
-      cioc: 'hi',
-      cca3: 'hi',
-      region: 'hi',
-      borders: ['hi'],
+      name: { common: 'France', nativeName: [{ official: 'French Republic' }] },
+      cioc: 'FRA',
+      cca3: 'FRA',
+      region: 'Europe',
+      borders: ['AND', 'BEL', 'DEU', 'ITA', 'LUX', 'MCO', 'ESP', 'CHE'],
       flags: {
-         svg: 'hi',
+         svg: 'https://flagcdn.com/fr.svg',
       },
-      currencies: [{ name: 'hi' }],
-      languages: ['hi'],
-      population: 10,
-      subregion: 'hi',
-      capital: 'hi',
-      tld: ['hi'],
+      currencies: [{ name: 'Euro' }],
+      languages: {
+         fra: 'French',
+      },
+      population: 67391582,
+      subregion: 'Western Europe',
+      capital: ['Paris'],
+      tld: ['.fr'],
    },
 ]
