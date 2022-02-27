@@ -1,25 +1,19 @@
 import React from 'react'
 import { countriesRender } from './test-utils'
 import CountriesContainer from '../components/CountriesContainer'
-import axios from 'axios'
-import { CountryMockTest } from '../types/countriesContext.interface'
 import '@testing-library/jest-dom/extend-expect'
+import { CountryMockTest } from '../types/countriesContext.interface'
 
 jest.mock('axios')
 
 test('initial test', async () => {
-   const axiosRequest = axios as jest.Mocked<typeof axios>
-   axiosRequest.get.mockResolvedValue(() =>
-      Promise.resolve({ data: CountryMockTest })
-   )
    const providerProps = {
-      countries: null,
+      countries: CountryMockTest,
       countriesError: false,
    }
-
-   const { findByRole } = countriesRender(<CountriesContainer />, {
+   const { getByRole } = countriesRender(<CountriesContainer />, {
       providerProps,
    })
 
-   // await findByRole('')
+   getByRole('')
 })
