@@ -26,7 +26,7 @@ const FurtherMain: FC = () => {
 
    const printFlag = () => {
       return (
-         <FurtherDetailsChild>
+         <FurtherDetailsChild as="section">
             <CountryImg flag src={data.flags.svg} alt="Country flag." />
          </FurtherDetailsChild>
       )
@@ -34,7 +34,7 @@ const FurtherMain: FC = () => {
 
    const printData = (data: DataToMap) => {
       return (
-         <FurtherDetailsColumnsChild key={uuid()}>
+         <FurtherDetailsColumnsChild key={uuid()} as="section">
             {Object.entries(data).map(([key, value]) => (
                <CountryData further key={key}>
                   <CountrySubTitle further>
@@ -55,7 +55,7 @@ const FurtherMain: FC = () => {
    }
 
    return (
-      <FurtherDetailsParent>
+      <FurtherDetailsParent as="article">
          <FurtherDetails
             data={data}
             printFlag={printFlag}

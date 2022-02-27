@@ -54,7 +54,7 @@ const FurtherDetails: FC<FurtherDetailsProps> = ({
    return (
       <>
          {printFlag()}
-         <FurtherDetailsChild as="article">
+         <FurtherDetailsChild as="section">
             <CountryName further>{data ? data.name.common : ''}</CountryName>
             <FurtherDetailsColumns>{gatherData()}</FurtherDetailsColumns>
             <BorderCountries country={data} />
