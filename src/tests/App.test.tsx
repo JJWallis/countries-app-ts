@@ -149,3 +149,4 @@ test('navigation to and from details page functions correctly on valid search in
 })
 
 // filter logic
+// error msg fallback - create virtual link to route to undefined country
