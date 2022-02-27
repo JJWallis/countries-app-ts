@@ -1,10 +1,16 @@
 import React from 'react'
-import { render } from './test-utils'
+import { countriesRender } from './test-utils'
 import userEvent from '@testing-library/user-event'
 import SearchFilter from '../components/SearchFilter'
 import '@testing-library/jest-dom/extend-expect'
+import { CountryMockTest } from '../types/countriesContext.interface'
 
 test('HTML renders correctly and semantically', () => {
-   render(<SearchFilter />)
-   //    getByRole('')
+   const providerProps = {
+      countries: CountryMockTest,
+      countriesError: false,
+   }
+   const { getByRole } = countriesRender(<SearchFilter />, { providerProps })
+
+   getByRole('')
 })
