@@ -148,5 +148,14 @@ test('navigation to and from details page functions correctly on valid search in
    expect(getByRole('img', { name: /country flag/i })).toBeInTheDocument()
 })
 
-// filter logic
+test('filtering logic functions correctly', async () => {
+   const axiosRequest = axios as jest.Mocked<typeof axios>
+   axiosRequest.get.mockImplementationOnce(() =>
+      Promise.resolve({ data: CountryMockTest })
+   )
+   // routerRender(<App />)
+   // getByRole('')
+   // await findByRole('link')
+})
+
 // error msg fallback - create virtual link to route to undefined country
