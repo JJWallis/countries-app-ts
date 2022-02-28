@@ -10,7 +10,7 @@ test('HTML renders correctly and semantically', () => {
       countries: CountryMockTest,
       countriesError: false,
    }
-   const { getByRole } = countriesRender(<SearchFilter />, { providerProps })
+   // const { getByRole } = countriesRender(<SearchFilter />, { providerProps })
 
-   getByRole('')
+   // getByRole('')
 })
