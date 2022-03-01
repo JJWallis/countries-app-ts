@@ -113,17 +113,20 @@ test('details page renders correctly', async () => {
    userEvent.click(countryCard)
 
    const backBtn = getByRole('button', { name: /back/i })
-   const flag = getByRole('img', { name: /country flag/i })
+   const flag = getByRole('img', { name: /flag of france/i })
    const links = getAllByRole('link')
    const totalLinks = links.length
    const btns = getAllByRole('button')
+   const article = getByRole('article')
 
    expect(backBtn).toBeInTheDocument()
    expect(backBtn).toBeEnabled()
 
+   expect(article).toBeInTheDocument()
+
    expect(flag).toBeInTheDocument()
    expect(flag).toHaveAttribute('src', 'https://flagcdn.com/fr.svg')
-   expect(flag).toHaveAccessibleName(/country flag/i)
+   expect(flag).toHaveAccessibleName(/flag of france/i)
 
    links.map((link) => {
       expect(link).toBeInTheDocument()
@@ -177,7 +180,7 @@ test('navigation to and from details page functions correctly on valid search in
    const backBtn = getByRole('button', { name: /back/i })
 
    expect(backBtn).toBeInTheDocument()
-   expect(getByRole('img', { name: /country flag/i })).toBeInTheDocument()
+   expect(getByRole('img', { name: /flag of france/i })).toBeInTheDocument()
 })
 
 test('filtering logic functions correctly', async () => {

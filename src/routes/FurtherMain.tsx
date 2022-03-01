@@ -27,7 +27,11 @@ const FurtherMain: FC = () => {
    const printFlag = () => {
       return (
          <FurtherDetailsChild as="section">
-            <CountryImg flag src={data.flags.svg} alt="Country flag." />
+            <CountryImg
+               flag
+               src={data.flags.svg}
+               alt={`Flag of ${data.name.common}`}
+            />
          </FurtherDetailsChild>
       )
    }
