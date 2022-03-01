@@ -5,7 +5,7 @@ import { CountryMockTest } from '../types/countriesContext.interface'
 import App from '../App'
 import axios from 'axios'
 import userEvent from '@testing-library/user-event'
-import { fireEvent, getAllByTestId } from '@testing-library/react'
+import { fireEvent } from '@testing-library/react'
 
 jest.mock('axios')
 
@@ -204,9 +204,6 @@ test('filtering logic functions correctly', async () => {
 
    expect(region).toHaveAttribute('aria-selected', 'true')
    expect(countryCard).toBeInTheDocument()
-
-   // create virtual btn to simulate another region
-   // getByRole('')
 })
 
 test('navigation to and from details page functions correctly on valid search input', async () => {
@@ -227,5 +224,3 @@ test('navigation to and from details page functions correctly on valid search in
    expect(backBtn).toBeInTheDocument()
    expect(getByRole('img', { name: /flag of france/i })).toBeInTheDocument()
 })
-
-// error msg fallback - create virtual link to route to undefined country
