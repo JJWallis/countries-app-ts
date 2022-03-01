@@ -98,13 +98,35 @@ test('theme toggle click changes current theme', () => {
    expect(banner).toHaveStyle('background-color: rgb(255, 255, 255)')
 })
 
-test('details page renders correctly and semantically', async () => {
+test('details page renders correctly', async () => {
    const axiosRequest = axios as jest.Mocked<typeof axios>
    axiosRequest.get.mockImplementationOnce(() =>
       Promise.resolve({ data: CountryMockTest })
    )
    const { getByRole, findByRole, queryByRole } = routerRender(<App />)
-   getByRole('')
+
+   expect(queryByRole('link')).toBeNull()
+   const countryCard = await findByRole('link')
+   expect(countryCard).toBeInTheDocument()
+   // getByRole('')
+
+   // navigate to details page
+   userEvent.click(countryCard)
+
+   const backBtn = getByRole('button', { name: /back/i })
+   const flag = getByRole('img', { name: /country flag/i })
+
+   expect(backBtn).toBeInTheDocument()
+   expect(backBtn).toBeEnabled()
+
+   expect(flag).toBeInTheDocument()
+   expect(flag).toHaveAttribute('src', 'https://flagcdn.com/fr.svg')
+   expect(flag).toHaveAccessibleName(/country flag/i)
+
+   // back to home page
+   userEvent.click(backBtn)
+
+   expect(queryByRole('button', { name: /back/i })).toBeNull()
 })
 
 test('navigation to and from details page functions correctly on card click', async () => {
@@ -135,7 +157,6 @@ test('navigation to and from details page functions correctly on card click', as
    userEvent.click(backBtn)
 
    expect(queryByRole('button', { name: /back/i })).toBeNull()
-   expect(queryByRole('img')).toBeNull()
 })
 
 test('navigation to and from details page functions correctly on valid search input', async () => {
