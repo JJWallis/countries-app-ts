@@ -193,9 +193,20 @@ test('filtering logic functions correctly', async () => {
    )
    const { getByRole, findByRole } = routerRender(<App />)
 
-   await findByRole('link')
+   const countryCard = await findByRole('link')
+   const region = getByRole('button', { name: /europe/i })
 
-   getByRole('')
+   expect(region).toBeInTheDocument()
+   expect(region).toBeEnabled()
+   expect(region).toHaveAttribute('aria-selected', 'false')
+
+   userEvent.click(region)
+
+   expect(region).toHaveAttribute('aria-selected', 'true')
+   expect(countryCard).toBeInTheDocument()
+
+   // create virtual btn to simulate another region
+   // getByRole('')
 })
 
 test('navigation to and from details page functions correctly on valid search input', async () => {
