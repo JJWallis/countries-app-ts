@@ -40,7 +40,7 @@ const FurtherMain: FC = () => {
       return (
          <FurtherDetailsColumnsChild key={uuid()} as="section">
             {Object.entries(data).map(([key, value]) => (
-               <CountryData further key={key}>
+               <CountryData further key={key} data-testid="country-statistic">
                   <CountrySubTitle further data-testid="country-subtitle">
                      {key[0].toUpperCase() +
                         key

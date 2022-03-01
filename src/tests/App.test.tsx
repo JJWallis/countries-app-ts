@@ -119,6 +119,7 @@ test('details page renders correctly', async () => {
    const btns = getAllByRole('button')
    const article = getByRole('article')
    const subTitles = getAllByTestId('country-subtitle')
+   const stats = getAllByTestId('country-statistic')
 
    expect(backBtn).toBeInTheDocument()
    expect(backBtn).toBeEnabled()
@@ -153,7 +154,18 @@ test('details page renders correctly', async () => {
       'Languages:',
    ])
 
-   getByRole('')
+   expect(stats.map((stat) => stat.textContent)).toEqual([
+      'Native Name:French Republic',
+      'Population:67391582',
+      'Region:Europe',
+      'Sub Region:Western Europe',
+      'Capital:Paris',
+      'Top Level Domain:.fr',
+      'Currencies:Euro',
+      'Languages:French',
+   ])
+
+   // getByRole('')
 
    userEvent.click(backBtn)
 })
