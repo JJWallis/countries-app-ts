@@ -12,10 +12,10 @@ test('HTML renders correctly & semantically', () => {
    const link = getByRole('link')
    const flagCt = getByTestId('country-card-image')
    const subTitles = getAllByTestId('country-card-subtitle').map(
-      (el) => el.textContent
+      ({ textContent }) => textContent
    )
    const descs = getAllByTestId('country-card-desc').map(
-      (desc) => desc.textContent
+      ({ textContent }) => textContent
    )
 
    expect(heading).toBeInTheDocument()
