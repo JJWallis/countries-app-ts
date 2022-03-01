@@ -28,12 +28,9 @@ test('HTML renders correctly & semantically', () => {
    const dropDownCt = getByTestId('drop-down-ct')
 
    expect(btns).toHaveLength(2)
-   btns.map((button) => {
-      expect(button.getAttribute('aria-controls')).toEqual(
-         'country-information'
-      )
-      expect(button.getAttribute('disabled')).toEqual(null)
-      return null
+   btns.map((btn) => {
+      expect(btn.getAttribute('aria-controls')).toEqual('country-information')
+      return expect(btn.getAttribute('disabled')).toEqual(null)
    })
 
    expect(dropDownCt).toBeInTheDocument()

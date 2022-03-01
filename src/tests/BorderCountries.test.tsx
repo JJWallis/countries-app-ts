@@ -41,6 +41,7 @@ test('fallback button renders with undefined country', () => {
    )
    const fallbackBtn = getByText(/no bordering countries/i)
 
+   expect(fallbackBtn).toBeInTheDocument()
    expect(fallbackBtn).toBeDisabled()
    expect(fallbackBtn).toHaveStyle('cursor: not-allowed')
 
