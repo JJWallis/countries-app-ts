@@ -140,21 +140,9 @@ test('navigation to and from details page functions correctly on card click', as
    const countryCard = await findByRole('link')
    expect(countryCard).toBeInTheDocument()
 
-   // navigate to details page
    userEvent.click(countryCard)
 
-   const backBtn = getByRole('button', { name: /back/i })
-   const flag = getByRole('img', { name: /country flag/i })
-
-   expect(backBtn).toBeInTheDocument()
-   expect(backBtn).toBeEnabled()
-
-   expect(flag).toBeInTheDocument()
-   expect(flag).toHaveAttribute('src', 'https://flagcdn.com/fr.svg')
-   expect(flag).toHaveAccessibleName(/country flag/i)
-
-   // back to home page
-   userEvent.click(backBtn)
+   userEvent.click(getByRole('button', { name: /back/i }))
 
    expect(queryByRole('button', { name: /back/i })).toBeNull()
 })
