@@ -103,18 +103,19 @@ test('details page renders correctly', async () => {
    axiosRequest.get.mockImplementationOnce(() =>
       Promise.resolve({ data: CountryMockTest })
    )
-   const { getByRole, findByRole, queryByRole } = routerRender(<App />)
+   const { getByRole, findByRole, queryByRole, getAllByRole } = routerRender(
+      <App />
+   )
 
    expect(queryByRole('link')).toBeNull()
    const countryCard = await findByRole('link')
    expect(countryCard).toBeInTheDocument()
-   // getByRole('')
 
-   // navigate to details page
    userEvent.click(countryCard)
 
    const backBtn = getByRole('button', { name: /back/i })
    const flag = getByRole('img', { name: /country flag/i })
+   const links = getAllByRole('link')
 
    expect(backBtn).toBeInTheDocument()
    expect(backBtn).toBeEnabled()
@@ -123,10 +124,16 @@ test('details page renders correctly', async () => {
    expect(flag).toHaveAttribute('src', 'https://flagcdn.com/fr.svg')
    expect(flag).toHaveAccessibleName(/country flag/i)
 
-   // back to home page
-   userEvent.click(backBtn)
+   links.map((link) => {
+      expect(link).toBeInTheDocument()
+      expect(link).toHaveAttribute('href')
+      return null
+   })
+   expect(links).toHaveLength(9)
 
-   expect(queryByRole('button', { name: /back/i })).toBeNull()
+   // getByRole('')
+
+   userEvent.click(backBtn)
 })
 
 test('navigation to and from details page functions correctly on card click', async () => {
