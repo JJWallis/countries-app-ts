@@ -11,6 +11,6 @@ test('renders correctly and semantically', () => {
       filteredRegions: CountryMockTest,
       handleFilterRegions: jest.fn(),
    }
-   const { getByRole } = filteredRender(<FurtherMain />, { providerProps })
-   getByRole('')
+   // const { getByRole } = filteredRender(<FurtherMain />, { providerProps })
+   // getByRole('')
 })
