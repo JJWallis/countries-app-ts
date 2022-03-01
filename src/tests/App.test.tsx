@@ -98,6 +98,15 @@ test('theme toggle click changes current theme', () => {
    expect(banner).toHaveStyle('background-color: rgb(255, 255, 255)')
 })
 
+test('details page renders correctly and semantically', async () => {
+   const axiosRequest = axios as jest.Mocked<typeof axios>
+   axiosRequest.get.mockImplementationOnce(() =>
+      Promise.resolve({ data: CountryMockTest })
+   )
+   const { getByRole, findByRole, queryByRole } = routerRender(<App />)
+   getByRole('')
+})
+
 test('navigation to and from details page functions correctly on card click', async () => {
    const axiosRequest = axios as jest.Mocked<typeof axios>
    axiosRequest.get.mockImplementationOnce(() =>
