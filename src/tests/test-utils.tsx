@@ -45,6 +45,26 @@ const countriesContextRender = (
    )
 }
 
+const filteredContextRender = (
+   ui: ReactElement,
+   {
+      providerProps,
+      ...renderOptions
+   }: {
+      providerProps: {
+         countries: Country[] | null
+         countriesError: boolean
+      }
+   }
+) => {
+   return render(
+      <BrowserRouter>
+         <CountriesProvider {...providerProps}>{ui}</CountriesProvider>,
+      </BrowserRouter>,
+      renderOptions
+   )
+}
+
 const browserRouterRender = (ui: ReactElement) => {
    return render(<BrowserRouter>{ui}</BrowserRouter>)
 }
