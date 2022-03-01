@@ -143,7 +143,7 @@ test('details page renders correctly', async () => {
    expect(totalLinks).toEqual(btns.length)
    expect(getAllByTestId('border-btn').length).toEqual(totalLinks - 1)
 
-   expect(subTitles.map((subTitle) => subTitle.textContent)).toEqual([
+   expect(subTitles.map(({ textContent }) => textContent)).toEqual([
       'Native Name:',
       'Population:',
       'Region:',
@@ -154,7 +154,7 @@ test('details page renders correctly', async () => {
       'Languages:',
    ])
 
-   expect(stats.map((stat) => stat.textContent)).toEqual([
+   expect(stats.map(({ textContent }) => textContent)).toEqual([
       'Native Name:French Republic',
       'Population:67391582',
       'Region:Europe',
@@ -164,8 +164,6 @@ test('details page renders correctly', async () => {
       'Currencies:Euro',
       'Languages:French',
    ])
-
-   // getByRole('')
 
    userEvent.click(backBtn)
 })
@@ -188,6 +186,18 @@ test('navigation to and from details page functions correctly on card click', as
    expect(queryByRole('button', { name: /back/i })).toBeNull()
 })
 
+test('filtering logic functions correctly', async () => {
+   const axiosRequest = axios as jest.Mocked<typeof axios>
+   axiosRequest.get.mockImplementationOnce(() =>
+      Promise.resolve({ data: CountryMockTest })
+   )
+   const { getByRole, findByRole } = routerRender(<App />)
+
+   await findByRole('link')
+
+   getByRole('')
+})
+
 test('navigation to and from details page functions correctly on valid search input', async () => {
    const axiosRequest = axios as jest.Mocked<typeof axios>
    axiosRequest.get.mockImplementationOnce(() =>
@@ -205,16 +215,6 @@ test('navigation to and from details page functions correctly on valid search in
 
    expect(backBtn).toBeInTheDocument()
    expect(getByRole('img', { name: /flag of france/i })).toBeInTheDocument()
-})
-
-test('filtering logic functions correctly', async () => {
-   const axiosRequest = axios as jest.Mocked<typeof axios>
-   axiosRequest.get.mockImplementationOnce(() =>
-      Promise.resolve({ data: CountryMockTest })
-   )
-   // routerRender(<App />)
-   // getByRole('')
-   // await findByRole('link')
 })
 
 // error msg fallback - create virtual link to route to undefined country
