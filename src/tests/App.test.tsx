@@ -5,7 +5,7 @@ import { CountryMockTest } from '../types/countriesContext.interface'
 import App from '../App'
 import axios from 'axios'
 import userEvent from '@testing-library/user-event'
-import { fireEvent } from '@testing-library/react'
+import { fireEvent, getAllByTestId } from '@testing-library/react'
 
 jest.mock('axios')
 
@@ -103,9 +103,8 @@ test('details page renders correctly', async () => {
    axiosRequest.get.mockImplementationOnce(() =>
       Promise.resolve({ data: CountryMockTest })
    )
-   const { getByRole, findByRole, queryByRole, getAllByRole } = routerRender(
-      <App />
-   )
+   const { getByRole, findByRole, queryByRole, getAllByRole, getAllByTestId } =
+      routerRender(<App />)
 
    expect(queryByRole('link')).toBeNull()
    const countryCard = await findByRole('link')
@@ -116,6 +115,8 @@ test('details page renders correctly', async () => {
    const backBtn = getByRole('button', { name: /back/i })
    const flag = getByRole('img', { name: /country flag/i })
    const links = getAllByRole('link')
+   const totalLinks = links.length
+   const btns = getAllByRole('button')
 
    expect(backBtn).toBeInTheDocument()
    expect(backBtn).toBeEnabled()
@@ -126,12 +127,18 @@ test('details page renders correctly', async () => {
 
    links.map((link) => {
       expect(link).toBeInTheDocument()
-      expect(link).toHaveAttribute('href')
-      return null
+      return expect(link).toHaveAttribute('href')
    })
-   expect(links).toHaveLength(9)
 
-   // getByRole('')
+   btns.map((btn) => {
+      expect(btn).toBeInTheDocument()
+      return expect(btn).toBeEnabled()
+   })
+
+   expect(totalLinks).toEqual(btns.length)
+   expect(getAllByTestId('border-btn').length).toEqual(totalLinks - 1)
+
+   getByRole('')
 
    userEvent.click(backBtn)
 })
