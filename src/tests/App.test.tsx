@@ -118,6 +118,7 @@ test('details page renders correctly', async () => {
    const totalLinks = links.length
    const btns = getAllByRole('button')
    const article = getByRole('article')
+   const subTitles = getAllByTestId('country-subtitle')
 
    expect(backBtn).toBeInTheDocument()
    expect(backBtn).toBeEnabled()
@@ -140,6 +141,17 @@ test('details page renders correctly', async () => {
 
    expect(totalLinks).toEqual(btns.length)
    expect(getAllByTestId('border-btn').length).toEqual(totalLinks - 1)
+
+   expect(subTitles.map((subTitle) => subTitle.textContent)).toEqual([
+      'Native Name:',
+      'Population:',
+      'Region:',
+      'Sub Region:',
+      'Capital:',
+      'Top Level Domain:',
+      'Currencies:',
+      'Languages:',
+   ])
 
    getByRole('')
 
