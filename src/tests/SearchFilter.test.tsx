@@ -1,16 +1,22 @@
 import React from 'react'
-import { countriesRender } from './test-utils'
+import { filteredRender } from './test-utils'
 import userEvent from '@testing-library/user-event'
 import SearchFilter from '../components/SearchFilter'
 import '@testing-library/jest-dom/extend-expect'
 import { CountryMockTest } from '../types/countriesContext.interface'
 
-test('HTML renders correctly and semantically', () => {
+test('search input persists when region button clicked', () => {
    const providerProps = {
-      countries: CountryMockTest,
-      countriesError: false,
+      filteredRegions: CountryMockTest,
+      handleFilterRegions: jest.fn(),
    }
-   // const { getByRole } = countriesRender(<SearchFilter />, { providerProps })
+   const { getByRole } = filteredRender(<SearchFilter />, { providerProps })
+   const input = getByRole('textbox') as HTMLInputElement
+   const regionBtn = getByRole('button', { name: /europe/i })
 
-   // getByRole('')
+   userEvent.type(input, 'europe')
+   userEvent.click(regionBtn)
+
+   expect(input.value).toBe('europe')
+   getByRole('')
 })

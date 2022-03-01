@@ -40,7 +40,7 @@ test('valid country data displayed correctly', () => {
    expect(link).toHaveAttribute('href', '/details/france')
 
    expect(article).toBeInTheDocument()
-   expect(article).toHaveAttribute('id') // accessibility - links to aria-controls in Filter.tsx
+   expect(article).toHaveAttribute('id')
 
    expect(heading).toBeInTheDocument()
    expect(heading).toHaveTextContent(/France/i)
