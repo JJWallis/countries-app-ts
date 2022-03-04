@@ -29,9 +29,9 @@ const App: FC = () => {
             'https://restcountries.com/v3.1/all'
          )
          setCountries(data)
-      } catch (error: any) {
+      } catch ({ message }) {
          setCountriesError(true)
-         console.error(error.message)
+         console.error(message)
       }
    }
 
