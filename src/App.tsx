@@ -8,10 +8,12 @@ import GlobalStyles from './components/styled/GlobalStyles'
 import Header from './components/Header'
 import Main from './components/Main'
 import ThemeSwitcher from './components/ThemeSwitcher'
+import { useErrorHandler } from 'react-error-boundary'
 import type { CountryData } from './types/countriesContext.interface'
 
 const App: FC = () => {
    const prefersDarkMode = useDarkMode()
+   const handleError = useErrorHandler()
    const [theme, setTheme] = useState(() =>
       prefersDarkMode ? darkTheme : lightTheme
    )
@@ -29,9 +31,9 @@ const App: FC = () => {
             'https://restcountries.com/v3.1/all'
          )
          setCountries(data)
-      } catch ({ message }) {
+      } catch (error) {
          setCountriesError(true)
-         console.error(message)
+         handleError(error)
       }
    }
 
