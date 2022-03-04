@@ -3,9 +3,13 @@ import { Link } from 'react-router-dom'
 import Button from './styled/StyledButton'
 import Icon from './styled/Icon'
 
-const BackButton: FC = () => {
+interface Props {
+   resetErrorBoundary?: (...args: unknown[]) => void
+}
+
+const BackButton: FC<Props> = ({ resetErrorBoundary }) => {
    return (
-      <Link to="/">
+      <Link to="/" onClick={resetErrorBoundary && resetErrorBoundary}>
          <Button back>Back</Button>
          <Icon
             arrow

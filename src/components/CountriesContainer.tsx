@@ -2,7 +2,8 @@ import React, { FC } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import HomeMain from '../routes/HomeMain'
 import FurtherMain from '../routes/FurtherMain'
-import ErrorFallback from './ErrorFallback'
+import { SearchFilterContainer } from './containers/SearchFilterContainer.styled'
+import BackButton from './BackButton'
 
 const CountriesContainer: FC = () => {
    return (
@@ -10,7 +11,14 @@ const CountriesContainer: FC = () => {
          <Routes>
             <Route path="/" element={<HomeMain />} />
             <Route path="/details/:country" element={<FurtherMain />} />
-            <Route path="*" element={<ErrorFallback />} />
+            <Route
+               path="*"
+               element={
+                  <SearchFilterContainer>
+                     <BackButton />
+                  </SearchFilterContainer>
+               }
+            />
          </Routes>
       </>
    )
