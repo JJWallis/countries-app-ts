@@ -8,12 +8,10 @@ import GlobalStyles from './components/styled/GlobalStyles'
 import Header from './components/Header'
 import Main from './components/Main'
 import ThemeSwitcher from './components/ThemeSwitcher'
-import { useErrorHandler } from 'react-error-boundary'
 import type { CountryData } from './types/countriesContext.interface'
 
 const App: FC = () => {
    const prefersDarkMode = useDarkMode()
-   const handleError = useErrorHandler()
    const [theme, setTheme] = useState(() =>
       prefersDarkMode ? darkTheme : lightTheme
    )
@@ -25,21 +23,21 @@ const App: FC = () => {
       []
    )
 
-   const fetchData = useCallback(async () => {
+   const fetchData = async () => {
       try {
          const { data } = await axios.get<CountryData>(
-            'https://restcountries.com/v3.1/all'
+            'https://restcountries.com/v3.1/al'
          )
          setCountries(data)
-      } catch (error) {
+      } catch (error: any) {
          setCountriesError(true)
-         handleError(error)
+         console.error(error.message)
       }
-   }, [handleError])
+   }
 
    useEffect(() => {
       fetchData()
-   }, [fetchData])
+   }, [])
 
    return (
       <ThemeProvider theme={theme}>
