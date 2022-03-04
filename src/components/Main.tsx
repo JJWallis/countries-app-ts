@@ -6,6 +6,8 @@ import Countries from './CountriesContainer'
 import { useCountriesContext } from '../hooks/useCountriesContext'
 import { FilteredRegionsProvider } from '../context/filteredRegionsContext'
 import type { CountryData } from '../types/countriesContext.interface'
+import { ErrorBoundary } from 'react-error-boundary'
+import ErrorFallback from './ErrorFallback'
 
 const Main: FC = () => {
    const [filteredRegions, setFilteredRegions] = useState<CountryData>(null)
@@ -32,8 +34,10 @@ const Main: FC = () => {
       >
          <StyledMain>
             <MainContainer>
-               <SearchFilter />
-               <Countries />
+               <ErrorBoundary FallbackComponent={ErrorFallback}>
+                  <SearchFilter />
+                  <Countries />
+               </ErrorBoundary>
             </MainContainer>
          </StyledMain>
       </FilteredRegionsProvider>
