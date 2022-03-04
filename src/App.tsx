@@ -25,7 +25,7 @@ const App: FC = () => {
       []
    )
 
-   const fetchData = async () => {
+   const fetchData = useCallback(async () => {
       try {
          const { data } = await axios.get<CountryData>(
             'https://restcountries.com/v3.1/all'
@@ -35,11 +35,11 @@ const App: FC = () => {
          setCountriesError(true)
          handleError(error)
       }
-   }
+   }, [handleError])
 
    useEffect(() => {
       fetchData()
-   }, [])
+   }, [fetchData])
 
    return (
       <ThemeProvider theme={theme}>
