@@ -13,8 +13,8 @@ const ErrorFallback: FC<Props> = ({ error }) => {
          <SearchFilterContainer>
             <BackButton />
          </SearchFilterContainer>
-         <ErrorMsg as="pre">
-            {error.message ? error.message : 'Something went wrong'}
+         <ErrorMsg>
+            {error.message || 'Something went wrong'}
             <br /> Please return to homepage
          </ErrorMsg>
       </>
