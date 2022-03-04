@@ -3,14 +3,18 @@ import { SearchFilterContainer } from './containers/SearchFilterContainer.styled
 import { ErrorMsg } from './styled/ErrorMsg.styled'
 import BackButton from './BackButton'
 
-const ErrorFallback: FC = () => {
+interface Props {
+   error?: any
+}
+
+const ErrorFallback: FC<Props> = ({ error }) => {
    return (
       <>
          <SearchFilterContainer>
             <BackButton />
          </SearchFilterContainer>
-         <ErrorMsg>
-            404
+         <ErrorMsg as="pre">
+            {error.message ? error.message : 'Something went wrong'}
             <br /> Please return to homepage
          </ErrorMsg>
       </>
