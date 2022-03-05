@@ -18,5 +18,4 @@ test('search input persists when region button clicked', () => {
    userEvent.click(regionBtn)
 
    expect(input.value).toBe('europe')
-   getByRole('')
 })
