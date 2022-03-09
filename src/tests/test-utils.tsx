@@ -77,7 +77,7 @@ const browserRouterRender = (ui: ReactElement) => {
    return render(<BrowserRouter>{ui}</BrowserRouter>)
 }
 
-const renderWithRouter = (ui: ReactElement, { route = '/bad-page' } = {}) => {
+const renderWithRouter = (ui: ReactElement, { route = '/' } = {}) => {
    window.history.pushState({}, 'Test invalid page', route)
 
    return render(ui, { wrapper: BrowserRouter })

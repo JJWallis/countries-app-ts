@@ -225,12 +225,24 @@ test('navigation to and from details page functions correctly on valid search in
    expect(getByRole('img', { name: /flag of france/i })).toBeInTheDocument()
 })
 
-test('error boundary renders on navigation to invalid route', async () => {
+test('fallback page renders on navigation to invalid route', async () => {
    const axiosRequest = axios as jest.Mocked<typeof axios>
    axiosRequest.get.mockImplementationOnce(() =>
       Promise.resolve({ data: CountryMockTest })
    )
-   const { getByRole } = renderWithRouter(<App />)
+   const { getByRole } = renderWithRouter(<App />, { route: '/invalid' })
 
-   getByRole('')
+   const header = getByRole('banner')
+   const title = getByRole('heading', { name: /where in the world/i })
+   const themeToggle = getByRole('checkbox')
+   const main = getByRole('main')
+   const backBtn = getByRole('link', { name: /back/i })
+
+   expect(header).toBeInTheDocument()
+   expect(title).toBeInTheDocument()
+   expect(themeToggle).toBeInTheDocument()
+   expect(main).toBeInTheDocument()
+
+   expect(backBtn).toBeInTheDocument()
+   expect(backBtn).toBeEnabled()
 })
