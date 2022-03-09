@@ -55,11 +55,11 @@ export const CountryFilterTest = [
       flags: {
          svg: 'https://flagcdn.com/lc.svg',
       },
-      currencies: [{ name: 'Euro' }],
-      languages: ['French'],
-      population: 67391582,
-      subregion: 'Western Europe',
-      capital: 'Paris',
-      tld: ['.fr'],
+      currencies: [{ name: 'Eastern Caribbean dollar' }],
+      languages: ['English'],
+      population: 183629,
+      subregion: 'Caribbean',
+      capital: 'Castries',
+      tld: ['.lc'],
    },
 ]
