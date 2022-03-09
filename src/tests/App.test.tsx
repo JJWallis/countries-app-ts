@@ -224,3 +224,6 @@ test('navigation to and from details page functions correctly on valid search in
    expect(backBtn).toBeInTheDocument()
    expect(getByRole('img', { name: /flag of france/i })).toBeInTheDocument()
 })
+
+// extra country obj to test filter logic
+// router online page - useLocation = test pathname prop
