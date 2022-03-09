@@ -194,7 +194,8 @@ test('filtering logic functions correctly', async () => {
    axiosRequest.get.mockImplementationOnce(() =>
       Promise.resolve({ data: CountryFilterTest })
    )
-   const { getByRole, getAllByRole, findAllByRole } = routerRender(<App />)
+   const { getByRole, getAllByRole, findAllByRole, findByRole, queryByRole } =
+      routerRender(<App />)
 
    const countries = await findAllByRole('link')
    const regions = getAllByRole('button')
@@ -217,12 +218,21 @@ test('filtering logic functions correctly', async () => {
       'Saint Lucia',
    ])
 
+   userEvent.click(europeRegion)
+
+   await findByRole('link') // filter logic to occur
+   const backToHome = getByRole('button', { name: /back to home/i })
+
+   expect(getByRole('heading', { name: /france/i })).toBeInTheDocument()
+   expect(queryByRole('heading', { name: /saint lucia/i })).toBeNull()
+   expect(getAllByRole('link')).toHaveLength(1)
+   expect(backToHome).toBeInTheDocument()
+
+   userEvent.click(backToHome)
+
+   await findByRole('link') // filter logic to occur
+
    getByRole('')
-
-   // userEvent.click(region)
-
-   // expect(region).toHaveAttribute('aria-selected', 'true')
-   // expect(countryCard).toBeInTheDocument()
 })
 
 test('navigation to and from details page functions correctly on valid search input', async () => {
