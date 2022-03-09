@@ -194,15 +194,21 @@ test('filtering logic functions correctly', async () => {
    axiosRequest.get.mockImplementationOnce(() =>
       Promise.resolve({ data: CountryFilterTest })
    )
-   const { getByRole, findByRole, findAllByRole } = routerRender(<App />)
+   const { getByRole, getAllByRole, findByRole, findAllByRole } = routerRender(
+      <App />
+   )
 
-   const countryCard = await findAllByRole('link')
-   const regions = getByRole('button', { name: /europe/i })
+   const countryCards = await findAllByRole('link')
+   const regions = getAllByRole('button', { name: /europe/i })
+
+   regions.map((region) => {
+      expect(region).toBeInTheDocument()
+      expect(region).toBeEnabled()
+      expect(region).toHaveAttribute('aria-selected', 'false')
+      return null
+   })
+
    getByRole('')
-
-   // expect(region).toBeInTheDocument()
-   // expect(region).toBeEnabled()
-   // expect(region).toHaveAttribute('aria-selected', 'false')
 
    // userEvent.click(region)
 
