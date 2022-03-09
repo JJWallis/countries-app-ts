@@ -194,19 +194,28 @@ test('filtering logic functions correctly', async () => {
    axiosRequest.get.mockImplementationOnce(() =>
       Promise.resolve({ data: CountryFilterTest })
    )
-   const { getByRole, getAllByRole, findByRole, findAllByRole } = routerRender(
-      <App />
-   )
+   const { getByRole, getAllByRole, findAllByRole } = routerRender(<App />)
 
-   const countryCards = await findAllByRole('link')
-   const regions = getAllByRole('button', { name: /europe/i })
+   const countries = await findAllByRole('link')
+   const regions = getAllByRole('button')
+   const headings = getAllByRole('heading')
+   const countryTitles = headings.map(({ textContent }) => textContent)
+   const europeRegion = getByRole('button', { name: /europe/i })
+
+   expect(countries).toHaveLength(2)
 
    regions.map((region) => {
       expect(region).toBeInTheDocument()
-      expect(region).toBeEnabled()
-      expect(region).toHaveAttribute('aria-selected', 'false')
-      return null
+      return expect(region).toBeEnabled()
    })
+
+   headings.map((title) => expect(title).toBeInTheDocument())
+
+   expect(countryTitles).toEqual([
+      'Where in the world?',
+      'France',
+      'Saint Lucia',
+   ])
 
    getByRole('')
 
