@@ -225,5 +225,12 @@ test('navigation to and from details page functions correctly on valid search in
    expect(getByRole('img', { name: /flag of france/i })).toBeInTheDocument()
 })
 
-// extra country obj to test filter logic
-// router online page - useLocation = test pathname prop
+test('error boundary renders on navigation to invalid route', async () => {
+   const axiosRequest = axios as jest.Mocked<typeof axios>
+   axiosRequest.get.mockImplementationOnce(() =>
+      Promise.resolve({ data: CountryMockTest })
+   )
+   const { getByRole, findByRole } = routerRender(<App />)
+
+   await findByRole('link')
+})
