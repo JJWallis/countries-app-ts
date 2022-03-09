@@ -230,9 +230,14 @@ test('filtering logic functions correctly', async () => {
 
    userEvent.click(backToHome)
 
-   await findByRole('link') // filter logic to occur
+   await findByRole('link')
 
-   getByRole('')
+   userEvent.click(getByRole('button', { name: /americas/i }))
+
+   await findByRole('link')
+
+   expect(getByRole('heading', { name: /saint lucia/i })).toBeInTheDocument()
+   expect(queryByRole('heading', { name: /france/i })).toBeNull()
 })
 
 test('navigation to and from details page functions correctly on valid search input', async () => {
