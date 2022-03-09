@@ -77,6 +77,12 @@ const browserRouterRender = (ui: ReactElement) => {
    return render(<BrowserRouter>{ui}</BrowserRouter>)
 }
 
+const renderWithRouter = (ui: ReactElement, { route = '/bad-page' } = {}) => {
+   window.history.pushState({}, 'Test invalid page', route)
+
+   return render(ui, { wrapper: BrowserRouter })
+}
+
 const customRender = (
    ui: ReactElement,
    options?: Omit<RenderOptions, 'wrapper'>
@@ -87,3 +93,4 @@ export { customRender as render }
 export { countriesContextRender as countriesRender }
 export { browserRouterRender as routerRender }
 export { filteredContextRender as filteredRender }
+export { renderWithRouter }

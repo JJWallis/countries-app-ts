@@ -1,6 +1,6 @@
 import React from 'react'
 import '@testing-library/jest-dom/extend-expect'
-import { routerRender } from './test-utils'
+import { routerRender, renderWithRouter } from './test-utils'
 import { CountryMockTest } from '../types/countriesContext.interface'
 import App from '../App'
 import axios from 'axios'
@@ -206,18 +206,6 @@ test('filtering logic functions correctly', async () => {
    expect(countryCard).toBeInTheDocument()
 })
 
-test('error boundary renders on navigation to invalid route', async () => {
-   const axiosRequest = axios as jest.Mocked<typeof axios>
-   axiosRequest.get.mockImplementationOnce(() =>
-      Promise.resolve({ data: CountryMockTest })
-   )
-   const { getByRole, findByRole } = routerRender(<App />)
-
-   await findByRole('link')
-
-   getByRole('')
-})
-
 test('navigation to and from details page functions correctly on valid search input', async () => {
    const axiosRequest = axios as jest.Mocked<typeof axios>
    axiosRequest.get.mockImplementationOnce(() =>
@@ -235,4 +223,14 @@ test('navigation to and from details page functions correctly on valid search in
 
    expect(backBtn).toBeInTheDocument()
    expect(getByRole('img', { name: /flag of france/i })).toBeInTheDocument()
+})
+
+test('error boundary renders on navigation to invalid route', async () => {
+   const axiosRequest = axios as jest.Mocked<typeof axios>
+   axiosRequest.get.mockImplementationOnce(() =>
+      Promise.resolve({ data: CountryMockTest })
+   )
+   const { getByRole } = renderWithRouter(<App />)
+
+   getByRole('')
 })
