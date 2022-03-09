@@ -1,7 +1,10 @@
 import React from 'react'
 import '@testing-library/jest-dom/extend-expect'
 import { routerRender, renderWithRouter } from './test-utils'
-import { CountryMockTest } from '../types/countriesContext.interface'
+import {
+   CountryFilterTest,
+   CountryMockTest,
+} from '../types/countriesContext.interface'
 import App from '../App'
 import axios from 'axios'
 import userEvent from '@testing-library/user-event'
@@ -189,21 +192,22 @@ test('navigation to and from details page functions correctly on card click', as
 test('filtering logic functions correctly', async () => {
    const axiosRequest = axios as jest.Mocked<typeof axios>
    axiosRequest.get.mockImplementationOnce(() =>
-      Promise.resolve({ data: CountryMockTest })
+      Promise.resolve({ data: CountryFilterTest })
    )
-   const { getByRole, findByRole } = routerRender(<App />)
+   const { getByRole, findByRole, findAllByRole } = routerRender(<App />)
 
-   const countryCard = await findByRole('link')
-   const region = getByRole('button', { name: /europe/i })
+   const countryCard = await findAllByRole('link')
+   const regions = getByRole('button', { name: /europe/i })
+   getByRole('')
 
-   expect(region).toBeInTheDocument()
-   expect(region).toBeEnabled()
-   expect(region).toHaveAttribute('aria-selected', 'false')
+   // expect(region).toBeInTheDocument()
+   // expect(region).toBeEnabled()
+   // expect(region).toHaveAttribute('aria-selected', 'false')
 
-   userEvent.click(region)
+   // userEvent.click(region)
 
-   expect(region).toHaveAttribute('aria-selected', 'true')
-   expect(countryCard).toBeInTheDocument()
+   // expect(region).toHaveAttribute('aria-selected', 'true')
+   // expect(countryCard).toBeInTheDocument()
 })
 
 test('navigation to and from details page functions correctly on valid search input', async () => {

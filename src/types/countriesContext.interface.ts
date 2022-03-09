@@ -42,7 +42,7 @@ export const CountryMockTest = [
 ]
 
 export const CountryFilterTest = [
-   CountryMockTest,
+   CountryMockTest[0],
    {
       name: {
          common: 'Saint Lucia',
