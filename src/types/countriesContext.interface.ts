@@ -40,3 +40,23 @@ export const CountryMockTest = [
       tld: ['.fr'],
    },
 ]
+
+export const CountryFilterTest = [
+   CountryMockTest,
+   {
+      name: { common: 'France', nativeName: [{ official: 'French Republic' }] },
+      cioc: 'FRA',
+      cca3: 'FRA',
+      region: 'Europe',
+      borders: ['AND', 'BEL', 'DEU', 'ITA', 'LUX', 'MCO', 'ESP', 'CHE'],
+      flags: {
+         svg: 'https://flagcdn.com/fr.svg',
+      },
+      currencies: [{ name: 'Euro' }],
+      languages: ['French'],
+      population: 67391582,
+      subregion: 'Western Europe',
+      capital: 'Paris',
+      tld: ['.fr'],
+   },
+]
