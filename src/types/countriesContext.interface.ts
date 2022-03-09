@@ -44,13 +44,16 @@ export const CountryMockTest = [
 export const CountryFilterTest = [
    CountryMockTest,
    {
-      name: { common: 'France', nativeName: [{ official: 'French Republic' }] },
-      cioc: 'FRA',
-      cca3: 'FRA',
-      region: 'Europe',
-      borders: ['AND', 'BEL', 'DEU', 'ITA', 'LUX', 'MCO', 'ESP', 'CHE'],
+      name: {
+         common: 'Saint Lucia',
+         nativeName: [{ official: 'Saint Lucia' }],
+      },
+      cioc: 'LCA',
+      cca3: 'LCA',
+      region: 'Americas',
+      // borders: [], // may need to make empty arr
       flags: {
-         svg: 'https://flagcdn.com/fr.svg',
+         svg: 'https://flagcdn.com/lc.svg',
       },
       currencies: [{ name: 'Euro' }],
       languages: ['French'],
