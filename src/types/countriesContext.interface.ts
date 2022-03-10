@@ -51,7 +51,6 @@ export const CountryFilterTest = [
       cioc: 'LCA',
       cca3: 'LCA',
       region: 'Americas',
-      // borders: [], // may need to make empty arr
       flags: {
          svg: 'https://flagcdn.com/lc.svg',
       },

@@ -24,8 +24,7 @@ const BorderCountries: FC<Props> = ({ country }) => {
             <BorderButtonsContainer>
                {borders.map((border) => {
                   const name = countries?.find(
-                     (country) =>
-                        country.cioc === border || country.cca3 === border
+                     ({ cioc, cca3 }) => cioc === border || cca3 === border
                   )?.name.common
 
                   return (
