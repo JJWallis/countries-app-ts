@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, FC } from 'react'
+import React, { useEffect, FC } from 'react'
 import { useLocalStorage } from '../hooks/useLocalStorage'
 import { StyledLabel } from './styled/StyledLabel'
 import StyledInput from './styled/StyledInput'
@@ -11,7 +11,7 @@ interface Props {
 const ThemeSwitcher: FC<Props> = ({ handleThemeChange }) => {
    const [dark, setDark] = useLocalStorage('darkTheme', false)
 
-   useLayoutEffect(() => handleThemeChange(dark), [dark, handleThemeChange])
+   useEffect(() => handleThemeChange(dark), [dark, handleThemeChange])
 
    return (
       <>
