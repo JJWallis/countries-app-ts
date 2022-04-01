@@ -8,6 +8,7 @@ import { FilteredRegionsProvider } from '../context/filteredRegionsContext'
 import type { CountryData } from '../types/countriesContext.interface'
 import { ErrorBoundary } from 'react-error-boundary'
 import ErrorFallback from './ErrorFallback'
+import { lowerCased } from '../helpers/LowerCased'
 
 const Main: FC = () => {
    const [filteredRegions, setFilteredRegions] = useState<CountryData>(null)
@@ -20,7 +21,7 @@ const Main: FC = () => {
             return
          }
          const filteredData = countries?.filter(
-            ({ region }) => region.toLowerCase() === desiredRegion.toLowerCase()
+            ({ region }) => lowerCased(region) === lowerCased(desiredRegion)
          )
          if (filteredData) setFilteredRegions(filteredData)
       },
