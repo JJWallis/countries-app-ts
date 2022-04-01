@@ -4,6 +4,7 @@ import { useCountriesContext } from '../hooks/useCountriesContext'
 import StyledInput from './styled/StyledInput'
 import { convertToUrl } from '../helpers/ConvertToUrl'
 import Icon from './styled/Icon'
+import { applyFocus } from '../helpers/ApplyFocus'
 
 const Search: FC = () => {
    const [search, setSearch] = useState('')
@@ -24,13 +25,13 @@ const Search: FC = () => {
       }
       setError(true)
       setSearch('')
-      inputRef.current?.focus()
+      applyFocus(inputRef)
    }
 
    const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) =>
       e.key === 'Enter' && handleSearchCountry()
 
-   useEffect(() => inputRef.current?.focus(), [])
+   useEffect(() => applyFocus(inputRef), [])
 
    return (
       <>
