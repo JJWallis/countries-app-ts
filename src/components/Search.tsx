@@ -2,6 +2,7 @@ import React, { useState, FC, useRef, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useCountriesContext } from '../hooks/useCountriesContext'
 import StyledInput from './styled/StyledInput'
+import { convertToUrl } from '../helpers/ConvertToUrl'
 import Icon from './styled/Icon'
 
 const Search: FC = () => {
@@ -18,7 +19,7 @@ const Search: FC = () => {
             ({ name }) => name?.common.toLowerCase() === search.toLowerCase()
          )
       ) {
-         navigate(`/details/${search.split(' ').join('-').toLowerCase()}`)
+         navigate(`/details/${convertToUrl(search)}`)
          return
       }
       setError(true)

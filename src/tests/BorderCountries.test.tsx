@@ -24,9 +24,7 @@ test('HTML renders correctly & semantically', () => {
    expect(links).toHaveLength(borderTotal)
    expect(btns).toHaveLength(borderTotal)
 
-   links.map((link) =>
-      expect(link).toHaveAttribute('href', '/details/undefined')
-   )
+   links.map((link) => expect(link).toHaveAttribute('href', '/details/'))
 
    btns.map((btn) => {
       expect(btn).toBeEnabled()
