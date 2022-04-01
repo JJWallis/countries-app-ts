@@ -8,6 +8,7 @@ import {
    BorderButtonsContainer,
 } from './containers/BordersContainer.styled'
 import Button from './styled/StyledButton'
+import { convertToUrl } from '../helpers/ConvertToUrl'
 import type { Country } from '../types/countriesContext.interface'
 
 interface Props {
@@ -30,10 +31,7 @@ const BorderCountries: FC<Props> = ({ country }) => {
                   return (
                      <Link
                         key={uuid()}
-                        to={`/details/${name
-                           ?.split(' ')
-                           .join('-')
-                           .toLowerCase()}`}
+                        to={`/details/${convertToUrl(name || '')}`}
                      >
                         <Button data-testid="border-btn" country>
                            {name}
