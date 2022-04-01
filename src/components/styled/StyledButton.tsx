@@ -6,6 +6,7 @@ type Props = {
    error?: boolean
    dropDown?: boolean
    dropDownItem?: boolean
+   search?: boolean
 }
 
 const Button = styled.button<Props>`
@@ -72,6 +73,22 @@ const Button = styled.button<Props>`
          cursor: not-allowed;
          padding-inline: 1.7em;
          box-shadow: ${({ theme }) => theme.borderBtnShadow};
+      `}
+
+      ${({ search }) =>
+      search &&
+      css`
+         position: absolute;
+         top: 20px;
+         left: 30px;
+         display: block;
+         height: 27px;
+         padding: 0;
+         background-color: transparent;
+         color: transparent;
+         &:disabled {
+            cursor: not-allowed;
+         }
       `}
 `
 
