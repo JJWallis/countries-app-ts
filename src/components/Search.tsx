@@ -21,7 +21,7 @@ const Search: FC = () => {
 
    const handleSearchCountry = () => {
       if (
-         search &&
+         search.searchInput &&
          countries?.find(
             ({ name: { common } }) =>
                lowerCased(common) === lowerCased(search.searchInput)
@@ -60,14 +60,14 @@ const Search: FC = () => {
             }
             value={search.searchInput}
             onChange={(e) =>
-               setSearch({ ...search, ['searchInput']: e.target.value })
+               setSearch({ ...search, searchInput: e.target.value })
             }
             onKeyDown={handleKeyPress}
             ref={inputRef}
          />
          <Button
             search
-            disabled={countriesError || !search}
+            disabled={countriesError || !search.searchInput}
             onClick={handleSearchCountry}
             aria-label="Search for inputted country"
             data-testid="search-icon"
@@ -80,7 +80,7 @@ const Search: FC = () => {
             <DropDownCt
                styleProp="search"
                testId="drop-down-search"
-               toggled={search ? true : false}
+               toggled={search.searchInput ? true : false}
             >
                <ol>
                   {renderMatches(search.searchInput).map(
