@@ -5,6 +5,7 @@ import { FilterContainer } from './containers/FilterContainer.styled'
 import { DropDownContainer } from './containers/DropDownContainer.styled'
 import Button from './styled/StyledButton'
 import { useFilteredRegionsDispatch } from '../hooks/useFilteredRegionsDispatch'
+import DropDownCt from './DropDownCt'
 
 interface Props {
    prevFilter: string
@@ -57,10 +58,7 @@ const Filter: FC<Props> = ({ prevFilter, updatePrevFilter }) => {
          >
             {!prevFilter ? 'Filter by region' : prevFilter}
          </Button>
-         <DropDownContainer
-            opacity={toggleDropDown ? 1 : 0}
-            data-testid="drop-down-ct"
-         >
+         <DropDownCt toggled={toggleDropDown} testId="drop-down-ct">
             {prevFilter && (
                <Button
                   dropDown
@@ -73,7 +71,7 @@ const Filter: FC<Props> = ({ prevFilter, updatePrevFilter }) => {
                </Button>
             )}
             {produceRegions()}
-         </DropDownContainer>
+         </DropDownCt>
       </FilterContainer>
    )
 }
