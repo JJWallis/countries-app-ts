@@ -1,2 +1,2 @@
-export const ConvertToUrl = (country: string) =>
+export const convertToUrl = (country: string) =>
    country.split(' ').join('-').toLowerCase()

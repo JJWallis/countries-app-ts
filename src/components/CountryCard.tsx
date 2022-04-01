@@ -8,6 +8,7 @@ import {
    CountryImageContainer,
 } from './containers/CountryContainer.styled'
 import Wrapper from './containers/Wrapper'
+import { convertToUrl } from '../helpers/ConvertToUrl'
 import type { CountryCardProps } from '../types/CountryCard.interface'
 
 const CountryCard: FC<CountryCardProps> = ({ data }) => {
@@ -34,7 +35,7 @@ const CountryCard: FC<CountryCardProps> = ({ data }) => {
 
    return (
       <Card>
-         <Link to={`/details/${name.split(' ').join('-').toLowerCase()}`}>
+         <Link to={`/details/${convertToUrl(name)}`}>
             <CountryImageContainer
                countryImgFlag={flag}
                aria-label={`Flag of ${name}`}
