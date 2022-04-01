@@ -8,7 +8,6 @@ interface Props {
 export const DropDownContainer = styled.div<Props>`
    position: absolute;
    z-index: 300;
-   padding: 1.2rem 0rem 1.2rem 1rem;
    font-size: 1.1rem;
    border-radius: 5px;
    color: ${({ theme: { color } }) => color};
@@ -26,11 +25,23 @@ export const DropDownContainer = styled.div<Props>`
          top: 193px;
          left: 0;
          width: 240px;
+         padding: 1.2rem 0rem 1.2rem 1rem;
          @media (min-width: ${({ theme }) => theme.breakpoint}) {
             top: 68px;
             left: unset;
             right: 0;
             width: 220px;
+         }
+      `}
+
+   ${({ styleProp }) =>
+      styleProp === 'search' &&
+      css`
+         width: 100%;
+         max-width: 550px;
+         top: 70px;
+         @media (min-width: ${({ theme }) => theme.breakpoint}) {
+            width: 55%;
          }
       `}
 `
