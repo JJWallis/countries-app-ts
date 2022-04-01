@@ -5,6 +5,7 @@ import StyledInput from './styled/StyledInput'
 import { convertToUrl } from '../helpers/ConvertToUrl'
 import Icon from './styled/Icon'
 import { applyFocus } from '../helpers/ApplyFocus'
+import { lowerCased } from '../helpers/LowerCased'
 
 const Search: FC = () => {
    const [search, setSearch] = useState('')
@@ -17,7 +18,7 @@ const Search: FC = () => {
       if (
          search &&
          countries?.find(
-            ({ name }) => name?.common.toLowerCase() === search.toLowerCase()
+            ({ name: { common } }) => lowerCased(common) === lowerCased(search)
          )
       ) {
          navigate(`/details/${convertToUrl(search)}`)
