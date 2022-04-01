@@ -11,8 +11,10 @@ import Button from './styled/StyledButton'
 import DropDownCt from './DropDownCt'
 
 const Search: FC = () => {
-   const [search, setSearch] = useState('') // place into object
-   const [error, setError] = useState(false)
+   const [search, setSearch] = useState({
+      searchInput: '',
+      searchError: false,
+   })
    const { countries, countriesError } = useCountriesContext()
    const navigate = useNavigate()
    const inputRef = useRef<HTMLInputElement>(null)
@@ -21,14 +23,14 @@ const Search: FC = () => {
       if (
          search &&
          countries?.find(
-            ({ name: { common } }) => lowerCased(common) === lowerCased(search)
+            ({ name: { common } }) =>
+               lowerCased(common) === lowerCased(search.searchInput)
          )
       ) {
-         navigate(`/details/${convertToUrl(search)}`)
+         navigate(`/details/${convertToUrl(search.searchInput)}`)
          return
       }
-      setError(true)
-      setSearch('')
+      setSearch({ searchInput: '', searchError: true })
       applyFocus(inputRef)
    }
 
@@ -50,12 +52,16 @@ const Search: FC = () => {
          <StyledInput
             search
             disabled={countriesError}
-            error={error}
+            error={search.searchError}
             placeholder={
-               error ? 'Please enter a valid country' : 'Search for a country'
+               search.searchError
+                  ? 'Please enter a valid country'
+                  : 'Search for a country'
             }
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
+            value={search.searchInput}
+            onChange={(e) =>
+               setSearch({ ...search, ['searchInput']: e.target.value })
+            }
             onKeyDown={handleKeyPress}
             ref={inputRef}
          />
@@ -70,20 +76,22 @@ const Search: FC = () => {
                <path d="M500.3 443.7l-119.7-119.7c27.22-40.41 40.65-90.9 33.46-144.7C401.8 87.79 326.8 13.32 235.2 1.723C99.01-15.51-15.51 99.01 1.724 235.2c11.6 91.64 86.08 166.7 177.6 178.9c53.8 7.189 104.3-6.236 144.7-33.46l119.7 119.7c15.62 15.62 40.95 15.62 56.57 0C515.9 484.7 515.9 459.3 500.3 443.7zM79.1 208c0-70.58 57.42-128 128-128s128 57.42 128 128c0 70.58-57.42 128-128 128S79.1 278.6 79.1 208z" />
             </Icon>
          </Button>
-         {search && (
+         {search.searchInput && (
             <DropDownCt
                styleProp="search"
                testId="drop-down-search"
                toggled={search ? true : false}
             >
                <ol>
-                  {renderMatches(search).map(({ name: { common } }) => (
-                     <li key={uuid()}>
-                        <Link to={`/details/${convertToUrl(common)}`}>
-                           {common}
-                        </Link>
-                     </li>
-                  ))}
+                  {renderMatches(search.searchInput).map(
+                     ({ name: { common } }) => (
+                        <li key={uuid()}>
+                           <Link to={`/details/${convertToUrl(common)}`}>
+                              {common}
+                           </Link>
+                        </li>
+                     )
+                  )}
                </ol>
             </DropDownCt>
          )}
