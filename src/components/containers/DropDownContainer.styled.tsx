@@ -12,7 +12,7 @@ export const DropDownContainer = styled.div<Props>`
    border-radius: 5px;
    color: ${({ theme: { color } }) => color};
    background-color: ${({ theme: { elements } }) => elements};
-   box-shadow: ${({ theme }) => theme.shadow};
+   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5);
    transform: ${({ opacity }) =>
       opacity === 0 ? 'translateY(-15%)' : 'translateY(0%)'};
    opacity: ${({ opacity }) => opacity};

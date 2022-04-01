@@ -34,6 +34,12 @@ const Search: FC = () => {
    const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) =>
       e.key === 'Enter' && handleSearchCountry()
 
+   const renderMatches = (userInput: string) =>
+      countries?.filter(
+         ({ name: { common } }) =>
+            lowerCased(common).includes(lowerCased(userInput)) // duplicate code
+      )
+
    useEffect(() => applyFocus(inputRef), [])
 
    return (
