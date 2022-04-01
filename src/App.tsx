@@ -23,19 +23,18 @@ const App: FC = () => {
       []
    )
 
-   const fetchData = async () => {
-      try {
-         const { data } = await axios.get<CountryData>(
-            'https://restcountries.com/v3.1/all'
-         )
-         setCountries(data)
-      } catch (error: any) {
-         setCountriesError(true)
-         console.error(error.message)
-      }
-   }
-
    useEffect(() => {
+      const fetchData = async () => {
+         try {
+            const { data } = await axios.get<CountryData>(
+               'https://restcountries.com/v3.1/all'
+            )
+            setCountries(data)
+         } catch (error: any) {
+            setCountriesError(true)
+            console.error(error.message)
+         }
+      }
       fetchData()
    }, [])
 
