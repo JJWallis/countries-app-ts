@@ -14,15 +14,15 @@ const Main: FC = () => {
    const { countries } = useCountriesContext()
 
    const handleFilterRegions = useCallback(
-      (region: string) => {
-         if (!region) {
+      (desiredRegion: string) => {
+         if (!desiredRegion) {
             setFilteredRegions(null)
             return
          }
          const filteredData = countries?.filter(
-            (country) => country.region.toLowerCase() === region.toLowerCase()
+            ({ region }) => region.toLowerCase() === desiredRegion.toLowerCase()
          )
-         filteredData && setFilteredRegions(filteredData)
+         if (filteredData) setFilteredRegions(filteredData)
       },
       [countries]
    )
