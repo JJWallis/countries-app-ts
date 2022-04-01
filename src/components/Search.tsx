@@ -1,11 +1,12 @@
 import React, { useState, FC, useRef, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useCountriesContext } from '../hooks/useCountriesContext'
 import StyledInput from './styled/StyledInput'
 import { convertToUrl } from '../helpers/ConvertToUrl'
 import Icon from './styled/Icon'
 import { applyFocus } from '../helpers/ApplyFocus'
 import { lowerCased } from '../helpers/LowerCased'
+import { v4 as uuid } from 'uuid'
 import Button from './styled/StyledButton'
 import DropDownCt from './DropDownCt'
 
@@ -35,10 +36,12 @@ const Search: FC = () => {
       e.key === 'Enter' && handleSearchCountry()
 
    const renderMatches = (userInput: string) =>
-      countries?.filter(
-         ({ name: { common } }) =>
-            lowerCased(common).includes(lowerCased(userInput)) // duplicate code
-      )
+      countries
+         ?.filter(
+            ({ name: { common } }) =>
+               lowerCased(common).includes(lowerCased(userInput)) // duplicate code
+         )
+         .slice(0, 10) || []
 
    useEffect(() => applyFocus(inputRef), [])
 
@@ -74,7 +77,13 @@ const Search: FC = () => {
                toggled={search ? true : false}
             >
                <ol>
-                  <li>hi</li>
+                  {renderMatches(search).map(({ name: { common } }) => (
+                     <li key={uuid()}>
+                        <Link to={`/details/${convertToUrl(common)}`}>
+                           {common}
+                        </Link>
+                     </li>
+                  ))}
                </ol>
             </DropDownCt>
          )}
