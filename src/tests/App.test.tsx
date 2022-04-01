@@ -205,10 +205,7 @@ test('filtering logic functions correctly', async () => {
 
    expect(countries).toHaveLength(2)
 
-   regions.map((region) => {
-      expect(region).toBeInTheDocument()
-      return expect(region).toBeEnabled()
-   })
+   regions.map((region) => expect(region).toBeInTheDocument())
 
    headings.map((title) => expect(title).toBeInTheDocument())
 
@@ -220,7 +217,7 @@ test('filtering logic functions correctly', async () => {
 
    userEvent.click(europeRegion)
 
-   await findByRole('link') // filter logic to occur
+   await findByRole('link')
    const backToHome = getByRole('button', { name: /back to home/i })
 
    expect(getByRole('heading', { name: /france/i })).toBeInTheDocument()
