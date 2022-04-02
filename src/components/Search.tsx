@@ -50,6 +50,8 @@ const Search: FC = () => {
       if (key === 'Enter') handleSearchCountry()
       if (key === 'ArrowDown' || key === 'ArrowUp') {
          const map = getLinksMap()
+         const target = map.get(id || 0)
+         target?.focus()
       }
    }
 
@@ -101,26 +103,20 @@ const Search: FC = () => {
                toggled={search.searchInput ? true : false}
             >
                <ol>
-                  {renderMatches(search.searchInput).map((country, idx) => {
-                     const map = getLinksMap()
-                     const key = idx
-                     return (
-                        <li key={uuid()}>
-                           <DropDownResult
-                              to={`/details/${convertToUrl(country)}`}
-                              ref={(el) => {
-                                 if (el) {
-                                    map.set(key, el)
-                                 } else {
-                                    map.delete(key)
-                                 }
-                              }}
-                           >
-                              {country}
-                           </DropDownResult>
-                        </li>
-                     )
-                  })}
+                  {renderMatches(search.searchInput).map((country, idx) => (
+                     <li key={uuid()}>
+                        <DropDownResult
+                           to={`/details/${convertToUrl(country)}`}
+                           ref={(el) => {
+                              const map = getLinksMap()
+                              if (el) map.set(idx, el)
+                              else map.delete(idx)
+                           }}
+                        >
+                           {country}
+                        </DropDownResult>
+                     </li>
+                  ))}
                </ol>
             </DropDownCt>
          )}
