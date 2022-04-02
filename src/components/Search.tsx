@@ -11,6 +11,8 @@ import Button from './styled/StyledButton'
 import DropDownCt from './DropDownCt'
 import { DropDownResult } from './styled/StyledLink'
 
+type LinksMap = Map<number, HTMLAnchorElement>
+
 const Search: FC = () => {
    const [search, setSearch] = useState({
       searchInput: '',
@@ -19,6 +21,14 @@ const Search: FC = () => {
    const { countries, countriesError } = useCountriesContext()
    const navigate = useNavigate()
    const inputRef = useRef<HTMLInputElement>(null)
+   const linksRef = useRef<LinksMap | null>(null)
+
+   const initLinks = () => {
+      if (!linksRef.current) {
+         linksRef.current = new Map()
+         return linksRef.current
+      }
+   }
 
    const handleSearchCountry = () => {
       if (
@@ -86,15 +96,26 @@ const Search: FC = () => {
                toggled={search.searchInput ? true : false}
             >
                <ol>
-                  {renderMatches(search.searchInput).map((country) => (
-                     <li key={uuid()}>
-                        <DropDownResult
-                           to={`/details/${convertToUrl(country)}`}
-                        >
-                           {country}
-                        </DropDownResult>
-                     </li>
-                  ))}
+                  {renderMatches(search.searchInput).map((country, idx) => {
+                     const map = initLinks() as LinksMap
+                     const key = idx
+                     return (
+                        <li key={uuid()}>
+                           <DropDownResult
+                              to={`/details/${convertToUrl(country)}`}
+                              ref={(el) => {
+                                 if (el) {
+                                    map.set(key, el)
+                                 } else {
+                                    map.delete(key)
+                                 }
+                              }}
+                           >
+                              {country}
+                           </DropDownResult>
+                        </li>
+                     )
+                  })}
                </ol>
             </DropDownCt>
          )}
