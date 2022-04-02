@@ -1,5 +1,5 @@
 import React, { useState, FC, useRef, useEffect } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useCountriesContext } from '../hooks/useCountriesContext'
 import StyledInput from './styled/StyledInput'
 import { convertToUrl } from '../helpers/ConvertToUrl'
@@ -23,7 +23,7 @@ const Search: FC = () => {
    const inputRef = useRef<HTMLInputElement>(null)
    const linksRef = useRef<LinksMap | null>(null)
 
-   const initLinks = () => {
+   const getLinksMap = () => {
       if (!linksRef.current) linksRef.current = new Map()
       return linksRef.current
    }
@@ -49,7 +49,7 @@ const Search: FC = () => {
    ) => {
       if (key === 'Enter') handleSearchCountry()
       if (key === 'ArrowDown' || key === 'ArrowUp') {
-         // focus with passed id
+         const map = getLinksMap()
       }
    }
 
@@ -102,7 +102,7 @@ const Search: FC = () => {
             >
                <ol>
                   {renderMatches(search.searchInput).map((country, idx) => {
-                     const map = initLinks()
+                     const map = getLinksMap()
                      const key = idx
                      return (
                         <li key={uuid()}>
