@@ -45,13 +45,19 @@ const Search: FC = () => {
 
    const handleKeyPress = (
       { key }: React.KeyboardEvent<HTMLInputElement>,
-      id?: number
+      id: number
    ) => {
-      if (key === 'Enter') handleSearchCountry()
+      if (key === 'Enter') {
+         handleSearchCountry()
+         return
+      }
       if (key === 'ArrowDown' || key === 'ArrowUp') {
          const map = getLinksMap()
-         const target = map.get(id || 0)
-         target?.focus()
+         if (id === 0) {
+            map.get(id)?.focus()
+            return
+         } // change!!! add condition => || id === search.searchInput.length - 1
+         map.get(key === 'ArrowDown' ? id + 1 : id - 1)?.focus()
       }
    }
 
@@ -82,7 +88,7 @@ const Search: FC = () => {
             onChange={(e) =>
                setSearch({ ...search, searchInput: e.target.value })
             }
-            onKeyDown={handleKeyPress}
+            onKeyDown={(e) => handleKeyPress(e, -1)}
             ref={inputRef}
          />
          <Button
@@ -112,6 +118,7 @@ const Search: FC = () => {
                               if (el) map.set(idx, el)
                               else map.delete(idx)
                            }}
+                           // onKeyDown={(e) => handleKeyPress(e, idx)}
                         >
                            {country}
                         </DropDownResult>
