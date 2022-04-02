@@ -37,13 +37,15 @@ const Search: FC = () => {
    const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) =>
       e.key === 'Enter' && handleSearchCountry()
 
-   const renderMatches = (userInput: string) =>
-      countries
-         ?.filter(
-            ({ name: { common } }) =>
-               lowerCased(common).includes(lowerCased(userInput)) // duplicate code
-         )
-         .slice(0, 10) || []
+   const renderMatches = (userInput: string) => {
+      const results: string[] = []
+      countries?.forEach(
+         ({ name: { common } }) =>
+            lowerCased(common).startsWith(lowerCased(userInput)) &&
+            results.push(common)
+      ) //   duplicate code
+      return results.slice(0, 10).sort() || []
+   }
 
    useEffect(() => applyFocus(inputRef), [])
 
@@ -83,15 +85,16 @@ const Search: FC = () => {
                toggled={search.searchInput ? true : false}
             >
                <ol>
-                  {renderMatches(search.searchInput).map(
-                     ({ name: { common } }) => (
-                        <li key={uuid()}>
-                           <Link to={`/details/${convertToUrl(common)}`}>
-                              {common}
-                           </Link>
-                        </li>
-                     )
-                  )}
+                  {renderMatches(search.searchInput).map((country) => (
+                     <li key={uuid()}>
+                        <Link
+                           to={`/details/${convertToUrl(country)}`}
+                           style={{ width: '100%', display: 'block' }}
+                        >
+                           {country}
+                        </Link>
+                     </li>
+                  ))}
                </ol>
             </DropDownCt>
          )}
