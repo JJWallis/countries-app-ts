@@ -24,10 +24,8 @@ const Search: FC = () => {
    const linksRef = useRef<LinksMap | null>(null)
 
    const initLinks = () => {
-      if (!linksRef.current) {
-         linksRef.current = new Map()
-         return linksRef.current
-      }
+      if (!linksRef.current) linksRef.current = new Map()
+      return linksRef.current
    }
 
    const handleSearchCountry = () => {
@@ -45,8 +43,15 @@ const Search: FC = () => {
       applyFocus(inputRef)
    }
 
-   const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) =>
-      e.key === 'Enter' && handleSearchCountry()
+   const handleKeyPress = (
+      { key }: React.KeyboardEvent<HTMLInputElement>,
+      id?: number
+   ) => {
+      if (key === 'Enter') handleSearchCountry()
+      if (key === 'ArrowDown' || key === 'ArrowUp') {
+         // focus with passed id
+      }
+   }
 
    const renderMatches = (userInput: string) => {
       const results: string[] = []
@@ -97,7 +102,7 @@ const Search: FC = () => {
             >
                <ol>
                   {renderMatches(search.searchInput).map((country, idx) => {
-                     const map = initLinks() as LinksMap
+                     const map = initLinks()
                      const key = idx
                      return (
                         <li key={uuid()}>
