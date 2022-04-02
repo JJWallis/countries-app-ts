@@ -9,6 +9,7 @@ import { lowerCased } from '../helpers/LowerCased'
 import { v4 as uuid } from 'uuid'
 import Button from './styled/StyledButton'
 import DropDownCt from './DropDownCt'
+import { DropDownResult } from './styled/StyledLink'
 
 const Search: FC = () => {
    const [search, setSearch] = useState({
@@ -87,12 +88,11 @@ const Search: FC = () => {
                <ol>
                   {renderMatches(search.searchInput).map((country) => (
                      <li key={uuid()}>
-                        <Link
+                        <DropDownResult
                            to={`/details/${convertToUrl(country)}`}
-                           style={{ width: '100%', display: 'block' }}
                         >
                            {country}
-                        </Link>
+                        </DropDownResult>
                      </li>
                   ))}
                </ol>
