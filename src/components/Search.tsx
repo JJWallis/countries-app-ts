@@ -44,20 +44,21 @@ const Search: FC = () => {
    }
 
    const handleKeyPress = (
-      { key }: React.KeyboardEvent<HTMLInputElement>,
+      {
+         key,
+         target,
+      }: React.KeyboardEvent<HTMLInputElement | HTMLAnchorElement>,
       id: number
    ) => {
-      if (key === 'Enter') {
+      if (key === 'Enter' && target instanceof HTMLInputElement) {
          handleSearchCountry()
          return
       }
       if (key === 'ArrowDown' || key === 'ArrowUp') {
          const map = getLinksMap()
-         if (id === 0) {
-            map.get(id)?.focus()
-            return
-         } // change!!! add condition => || id === search.searchInput.length - 1
-         map.get(key === 'ArrowDown' ? id + 1 : id - 1)?.focus()
+         const targetId = key === 'ArrowDown' ? id + 1 : id - 1
+         const target = map.get(targetId)
+         target?.focus()
       }
    }
 
@@ -67,7 +68,7 @@ const Search: FC = () => {
          ({ name: { common } }) =>
             lowerCased(common).startsWith(lowerCased(userInput)) &&
             results.push(common)
-      ) //   duplicate code
+      )
       return results.slice(0, 10).sort() || []
    }
 
@@ -118,7 +119,7 @@ const Search: FC = () => {
                               if (el) map.set(idx, el)
                               else map.delete(idx)
                            }}
-                           // onKeyDown={(e) => handleKeyPress(e, idx)}
+                           onKeyDown={(e) => handleKeyPress(e, idx)}
                         >
                            {country}
                         </DropDownResult>
