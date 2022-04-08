@@ -24,6 +24,4 @@ const DropDownCt: React.FC<Props> = ({
    )
 }
 
-// change drop down ct styles
-
 export default DropDownCt
