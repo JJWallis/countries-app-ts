@@ -22,13 +22,3 @@ test('drop down container renders visible with differen toggled prop', () => {
    expect(container).toBeInTheDocument()
    expect(container).toHaveStyle('opacity: 1')
 })
-
-test('drop down container renders correctly with search style prop', () => {
-   const { getByTestId } = render(
-      <DropDownCt testId="drop-down-ct" toggled={false} styleProp="search" />
-   )
-   const container = getByTestId('drop-down-ct')
-
-   expect(container).toBeInTheDocument()
-   expect(container).toHaveStyle('opacity: 1')
-})
