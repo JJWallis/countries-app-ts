@@ -58,3 +58,11 @@ test('input error styles update on invalid search', () => {
    expect(searchIcon).toHaveAttribute('disabled', '')
    expect(search).toHaveFocus()
 })
+
+test('search results container renders invisible on empty input', () => {
+   const { getByTestId, getByRole } = render(<Search />)
+   const search = getByRole('textbox') as HTMLInputElement
+   const dropDownCt = getByTestId('drop-down-search')
+
+   // getByRole('')
+})
