@@ -66,5 +66,10 @@ test('search results container renders invisible on empty input', () => {
 
    expect(resultsCt).not.toBeInTheDocument()
 
-   // getByRole('')
+   userEvent.type(search, 'test')
+   userEvent.clear(search)
+
+   expect(resultsCt).not.toBeInTheDocument()
+
+   getByRole('')
 })
