@@ -60,9 +60,11 @@ test('input error styles update on invalid search', () => {
 })
 
 test('search results container renders invisible on empty input', () => {
-   const { getByTestId, getByRole } = render(<Search />)
+   const { getByTestId, getByRole, queryByTestId } = render(<Search />)
    const search = getByRole('textbox') as HTMLInputElement
-   const dropDownCt = getByTestId('drop-down-search')
+   const resultsCt = queryByTestId('drop-down-search')
+
+   expect(resultsCt).not.toBeInTheDocument()
 
    // getByRole('')
 })
