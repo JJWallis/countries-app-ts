@@ -71,9 +71,9 @@ test('search results container renders invisible on empty input', () => {
    const resultsCt = getByTestId('drop-down-search')
 
    expect(resultsCt).toBeInTheDocument()
+   expect(resultsCt).toContainHTML('')
 
-   getByRole('')
+   userEvent.clear(search)
 
-   // userEvent.clear(search)
-   // expect(resultsCt).not.toBeInTheDocument()
+   expect(resultsCt).not.toBeInTheDocument()
 })
