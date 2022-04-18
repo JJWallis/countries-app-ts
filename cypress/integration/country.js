@@ -4,8 +4,11 @@ beforeEach(() => {
    cy.visit('')
 })
 
-describe('intial test', () => {
-   it('does nothing', () => {
-      cy.get('.sc-dlfnuX')
+describe('theme toggle', () => {
+   it('changes theme on click', () => {
+      cy.get('.sc-iJuVqt')
+         .should('have.css', 'color', 'rgb(17, 21, 23)')
+         .click()
+         .should('have.css', 'color', 'rgb(255, 255, 255)')
    })
 })
