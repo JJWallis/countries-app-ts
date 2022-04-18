@@ -6,7 +6,7 @@ beforeEach(() => {
 
 describe('theme toggle', () => {
    it('changes theme on click', () => {
-      cy.get('.sc-iJuVqt')
+      cy.contains('Dark Mode')
          .should('have.text', 'Dark Mode')
          .should('have.css', 'color', 'rgb(17, 21, 23)')
          .click()
