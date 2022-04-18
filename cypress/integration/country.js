@@ -5,5 +5,7 @@ beforeEach(() => {
 })
 
 describe('intial test', () => {
-   it('does nothing', () => {})
+   it('does nothing', () => {
+      cy.get('.sc-dlfnuX')
+   })
 })
