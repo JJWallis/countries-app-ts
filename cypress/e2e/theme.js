@@ -4,6 +4,11 @@ beforeEach(() => {
    cy.visit('/')
 })
 
+it.only('test invalid network request', () => {
+   // cy.intercept()
+   // code
+})
+
 describe('theme toggle', () => {
    it('changes theme on click', () => {
       cy.contains('Dark Mode')
