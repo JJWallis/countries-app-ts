@@ -12,12 +12,6 @@ describe('theme toggle', () => {
          .click()
          .should('have.css', 'color', 'rgb(255, 255, 255)')
    })
-
-   // it('loading title displays and disappears', () => {
-   //    cy.contains(/loading/gi)
-   //       .should()
-   //       .not('not.exist')
-   // })
 })
 
 describe('country card', () => {
@@ -36,5 +30,11 @@ describe('search input', () => {
          .should('have.value', 'france')
          .clear()
          .should('have.value', '')
+   })
+
+   it('enables and disables search icon on valid input', () => {
+      cy.findByTestId('search-icon').should('be.disabled')
+      cy.findByTestId('search-input').type('france')
+      cy.findByTestId('search-icon').should('be.enabled').click()
    })
 })
