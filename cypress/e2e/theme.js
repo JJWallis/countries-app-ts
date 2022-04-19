@@ -5,8 +5,10 @@ beforeEach(() => {
 })
 
 it.only('test invalid network request', () => {
-   // cy.intercept()
-   // code
+   // cy.intercept('GET', 'https://restcountries.com/v3.1/all', {
+   //    statusCode: 500,
+   //    body: {},
+   // })
 })
 
 describe('theme toggle', () => {
