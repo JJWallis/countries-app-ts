@@ -12,11 +12,4 @@ describe('theme toggle', () => {
          .click()
          .should('have.css', 'color', 'rgb(255, 255, 255)')
    })
-
-   it('practice kent', () => {
-      cy.findByText(/where in the world/gi).should(
-         'have.text',
-         'Where in the world?'
-      )
-   })
 })
