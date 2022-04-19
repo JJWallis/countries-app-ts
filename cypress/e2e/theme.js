@@ -28,5 +28,13 @@ describe('country card', () => {
 })
 
 describe('search input', () => {
-   it('updates correctly on user input', () => {})
+   it('updates correctly on user input', () => {
+      cy.findByTestId('search-input')
+         .should('have.value', '')
+         .should('have.focus')
+         .type('france')
+         .should('have.value', 'france')
+         .clear()
+         .should('have.value', '')
+   })
 })

@@ -77,6 +77,7 @@ const Search: FC = () => {
    return (
       <>
          <StyledInput
+            data-testid="search-input"
             search
             disabled={countriesError}
             error={search.searchError}
