@@ -26,3 +26,7 @@ describe('country card', () => {
       cy.url().should('include', '/details/')
    })
 })
+
+describe('search input', () => {
+   it('updates correctly on user input', () => {})
+})
