@@ -21,5 +21,8 @@ describe('theme toggle', () => {
 })
 
 describe('country card', () => {
-   it('maps to correct url on click', () => {})
+   it('maps to details route in url', () => {
+      cy.get(':nth-child(1) > a > .eafvQC').click()
+      cy.url().should('include', '/details/')
+   })
 })
