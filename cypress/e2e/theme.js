@@ -12,4 +12,14 @@ describe('theme toggle', () => {
          .click()
          .should('have.css', 'color', 'rgb(255, 255, 255)')
    })
+
+   // it('loading title displays and disappears', () => {
+   //    cy.contains(/loading/gi)
+   //       .should()
+   //       .not('not.exist')
+   // })
+})
+
+describe('country card', () => {
+   it('maps to correct url on click', () => {})
 })
