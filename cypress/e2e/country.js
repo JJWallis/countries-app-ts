@@ -12,4 +12,5 @@ describe('theme toggle', () => {
          .click()
          .should('have.css', 'color', 'rgb(255, 255, 255)')
    })
+   // test
 })
