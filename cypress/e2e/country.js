@@ -14,10 +14,9 @@ describe('theme toggle', () => {
    })
 
    it('practice kent', () => {
-      cy.findByText(/where in the world/gi).then((subject) => {
-         subject
-         debugger
-      })
-      should('have.text', 'here in the world')
+      cy.findByText(/where in the world/gi).should(
+         'have.text',
+         'Where in the world?'
+      )
    })
 })
