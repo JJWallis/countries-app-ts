@@ -1,3 +1,7 @@
-jest.mock('../tests/Example.js')
+import { fns } from '../tests/Example'
 
-it('should work', () => {})
+jest.mock('../tests/Example')
+
+it('should work', () => {
+   fns.random()
+})
