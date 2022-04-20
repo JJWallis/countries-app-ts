@@ -3,7 +3,7 @@ export const fns = {
       return Math.floor(Math.random() * 9) + 1
    },
    chooseWord(wordArr) {
-      const word = wordArr[0]
+      const word = wordArr[this.random()]
       return word.split('')
    },
 }
