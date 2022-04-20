@@ -7,4 +7,4 @@ function chooseWord(wordArr) {
    return word.split('')
 }
 
-export { chooseWord }
+export { chooseWord, random }
