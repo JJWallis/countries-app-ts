@@ -12,3 +12,11 @@ it('random number function works', () => {
 
    fns.random.mockReset()
 })
+
+it('chooseWord returns word in correct format', () => {
+   jest.spyOn(fns, 'chooseWord')
+   const word = fns.chooseWord(['aria'])
+   expect(word).toEqual(['a', 'r', 'i', 'a'])
+
+   fns.chooseWord.mockReset()
+})
