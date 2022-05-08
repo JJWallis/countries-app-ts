@@ -14,10 +14,19 @@ it('test invalid network request', () => {
 describe('theme toggle', () => {
    it('changes theme on click', () => {
       cy.contains('Dark Mode')
-         .should('have.text', 'Dark Mode')
          .should('have.css', 'color', 'rgb(17, 21, 23)')
          .click()
          .should('have.css', 'color', 'rgb(255, 255, 255)')
+   })
+
+   it.only('stores theme preference on click', () => {
+      cy.clearLocalStorage().should((ls) =>
+         expect(ls.getItem('darkTheme')).to.eq(null)
+      )
+
+      cy.contains('Dark Mode')
+         .click()
+         .should(() => expect(localStorage.getItem('darkTheme')).to.eq('true'))
    })
 })
 
@@ -46,7 +55,7 @@ describe('search input', () => {
    })
 })
 
-it.only('country card click directs to details page', () => {
+it('country card click directs to details page', () => {
    cy.get(':nth-child(1) > a > .eafvQC')
       .click()
       .url()
@@ -54,5 +63,5 @@ it.only('country card click directs to details page', () => {
       .get('.sc-pGacB > a > .sc-crrszt')
       .click()
       .url()
-      .should('equal', 'http://localhost:3000/')
+      .should('eq', `${Cypress.config().baseUrl}`)
 })
