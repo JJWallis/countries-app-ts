@@ -51,4 +51,8 @@ it.only('country card click directs to details page', () => {
       .click()
       .url()
       .should('include', '/details/')
+      .get('.sc-pGacB > a > .sc-crrszt')
+      .click()
+      .url()
+      .should('equal', 'http://localhost:3000/')
 })
