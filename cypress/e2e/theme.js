@@ -4,7 +4,7 @@ beforeEach(() => {
    cy.visit('/')
 })
 
-it.only('test invalid network request', () => {
+it('test invalid network request', () => {
    // cy.intercept('GET', 'https://restcountries.com/v3.1/all', {
    //    statusCode: 500,
    //    body: {},
@@ -44,4 +44,8 @@ describe('search input', () => {
       cy.findByTestId('search-input').type('france')
       cy.findByTestId('search-icon').should('be.enabled').click()
    })
+})
+
+it.only('country card click directs to details page', () => {
+   // code
 })
