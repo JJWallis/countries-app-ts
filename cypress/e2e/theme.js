@@ -47,5 +47,8 @@ describe('search input', () => {
 })
 
 it.only('country card click directs to details page', () => {
-   // code
+   cy.get(':nth-child(1) > a > .eafvQC')
+      .click()
+      .url()
+      .should('include', '/details/')
 })
